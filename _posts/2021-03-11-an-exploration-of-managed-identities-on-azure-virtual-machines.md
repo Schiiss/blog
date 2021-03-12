@@ -8,7 +8,7 @@ tags:
   - Virtual Machines
 ---
 
-![](/assets/images\blog_images\2021-03-11-an-exploration-of-managed-identities-on-azure-virtual-machines\identity.jpeg)
+![](/assets/images/blog_images/2021-03-11-an-exploration-of-managed-identities-on-azure-virtual-machines/identity.jpeg)
 
 I find Managed Service Identities (MSI’s) in Azure to be rather curious. They address a familiar question application developers and DevOps engineers alike will have, “How do we manage and secure keys and secrets?” Traditionally, a Service Principal could authorize communication between Azure resources, but this approach comes with the overhead of managing an API key. Managed Identities set out to eliminate this overhead and turn that responsibility to Microsoft, who will manage the key for you. Maybe it is a VM, an App service, or even Kubernetes (god forbid). Many different services support managed service identities (link to azure services which support MSI). In this post, I will focus on system-assigned MSI’s in the VM realm. MSI’s for VMs seem like a great alternative to Service Principals, but after utilizing them on virtual machines, I am not so sure. I also explore recent findings with MSI’s on virtual machines and some of their security implications. I will be your guide as we dig a bit deeper into the concepts of MSI’s.
 
