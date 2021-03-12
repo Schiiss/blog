@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Devops Enthusiast 
+title: Conner Schiissler - Devops - Automation - Cloud - Security
 email: conner.schiissler@gmail.com
 repository: Schiiss/blog
 description: >- # this means to ignore newlines until "baseurl:"
@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Conner Schiissler"
   avatar : "assets/images/profile.PNG"
-  bio    : "Hey! My names Conner and I am passionate about DevOps and Automation"
+  bio    : "Hey! My name is Conner and I am passionate about DevOps and Automation"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
