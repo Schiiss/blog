@@ -6,7 +6,6 @@ categories:
 tags:
   - Azure
   - Virtual Machines
-  - Azure AD
 ---
 
 {% raw %}<img src="/blog/assets/images/blog_images/2021-03-11-an-exploration-of-managed-identities-on-azure-virtual-machines/identity.jpeg" alt="">{% endraw %}
