@@ -2,10 +2,9 @@
 title: "An Introduction To Kubernetes"
 date: 2021-03-16T16:34:30-04:00
 categories:
-  - Blog
+  - Containers
 tags:
   - Kubernetes
-  - Containers
 ---
 
 {% raw %}<img src="/schiiss_blog/assets/images/blog_images/2021-03-16-an-introduction-to-kubernetes/containers.jpeg" alt="">{% endraw %}

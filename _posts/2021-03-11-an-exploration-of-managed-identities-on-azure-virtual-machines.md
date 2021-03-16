@@ -2,9 +2,8 @@
 title: "An exploration of managed identities on Azure Virtual Machines"
 date: 2021-03-11T15:34:30-04:00
 categories:
-  - Blog
-tags:
   - Azure
+tags:
   - Virtual Machines
 ---
 
