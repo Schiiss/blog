@@ -57,13 +57,13 @@ The scheduler will assign a newly created pod to a node based on a two-step oper
 2. Scoring 
 
 
-Pods can be defined with certain resource requirements (CPU, Memory, etc.) which the scheduler will take into consideration when selecting a node to run the pod on. This is the filtering stage, and if the scheduler cannot find a suitable node, it will remain unscheduled and will sit in a type of queue until it can be. The second operation is what is called ‘scoring’. If a node makes it past the filtering stage, it will be scored based on certain priorities. An example of this would be the ‘LeastRequestedPriority’ policy which favors nodes with fewer requested resources. There is an excellent article here that details the various policies the scheduler will consider. 
+Pods can be defined with certain resource requirements (CPU, Memory, etc.) which the scheduler will take into consideration when selecting a node to run the pod on. This is the filtering stage, and if the scheduler cannot find a suitable node, it will remain unscheduled and will sit in a type of queue until it can be. The second operation is what is called ‘scoring’. If a node makes it past the filtering stage, it will be scored based on certain priorities. An example of this would be the ‘LeastRequestedPriority’ policy which favors nodes with fewer requested resources. There is an excellent article [here](https://kubernetes.io/docs/reference/scheduling/policies/) that details the various policies the scheduler will consider. 
 
 
 - Etcd:
 
 
-This is a datastore that contains the state of the Kubernetes cluster. An example of when etcd is used would be when using the command line tool ‘kubectl’. If we were to use ‘kubectl’ to gather the pods running on Kubernetes, that command would query the etcd database for that information. Further to this, a component like the Controller would not work properly without this data store. The controller will also query this database to ensure the desired state is upheld on the various Kubernetes objects. Etcd uses something called the ‘raft algorithm’ and I found this excellent animation showing how this works. 
+This is a datastore that contains the state of the Kubernetes cluster. An example of when etcd is used would be when using the command line tool ‘kubectl’. If we were to use ‘kubectl’ to gather the pods running on Kubernetes, that command would query the etcd database for that information. Further to this, a component like the Controller would not work properly without this data store. The controller will also query this database to ensure the desired state is upheld on the various Kubernetes objects. Etcd uses something called the ‘raft algorithm’ and I found this excellent [animation](http://thesecretlivesofdata.com/raft/) showing how this works. 
 
 
 ### Worker Node
