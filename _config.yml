@@ -71,7 +71,10 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/Schiiss"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin-in"
+      url: "https://www.linkedin.com/in/conner-schiissler-306254158/"
 
 defaults:
   # _posts
