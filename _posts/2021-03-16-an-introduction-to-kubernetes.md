@@ -1,5 +1,5 @@
 ---
-title: "An introduction to Kubernetes"
+title: "An Introduction To Kubernetes"
 date: 2021-03-16T16:34:30-04:00
 categories:
   - Blog
