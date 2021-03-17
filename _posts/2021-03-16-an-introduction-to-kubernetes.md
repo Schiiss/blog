@@ -7,7 +7,7 @@ tags:
   - Kubernetes
 ---
 
-{% raw %}<img src="/schiiss_blog/assets/images/blog_images/2021-03-16-an-introduction-to-kubernetes/containers.jpeg" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/2021-03-16-an-introduction-to-kubernetes/containers.jpeg" alt="">{% endraw %}
 
 
 Big Data, Artificial Intelligence, Kubernetes, BlockChain, 5G. These are just some of the buzzwords I have been seeing in articles discussing what "trendy" technologies to look out for this year. One of those buzzwords I find people are getting excited about (even before 2021) is Kubernetes. I was a bit unsure as to what problem Kubernetes sets out to solve so I wanted to do some research and share my findings with you. Join me on an introduction to Kubernetes!
@@ -32,7 +32,7 @@ Kubernetes can take your microservices (running on containers) and alleviate a l
 ## Architecture
 Kubernetes can be very complex, but the technology does a good job of obfuscating a lot of the nitty-gritty into easy-to-understand components. I have done up a diagram illustrating some of the key components (‘master’ and ‘worker’ nodes) that make up the base of the Kubernetes cluster. 
 
-{% raw %}<img src="/schiiss_blog/assets/images/blog_images/2021-03-16-an-introduction-to-kubernetes/architecture.PNG" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/2021-03-16-an-introduction-to-kubernetes/architecture.PNG" alt="">{% endraw %}
 
 
 ### Master Node
