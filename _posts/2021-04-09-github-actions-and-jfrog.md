@@ -10,7 +10,7 @@ tags:
 
 {% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/jfrog.jpg" alt="">{% endraw %}
 
-The last few weeks I have had the priviledge to work with a technology stack I am not overly farmilar with. I had gotten very comfortable with the "Azure Devops" suite of tools the last year or so, and I wanted to share my experience moving out of that realm and changing it up a little. The technologies I am referring to in this case are JFrog and Github actions. In this blog I want to take you through the process to integrate Github actions with a private JFrog Docker repository. 
+The last few weeks I have had the priviledge to work with a technology stack I am not overly farmilar with. I had gotten very comfortable with the "Azure Devops" suite of tools the last year or so, and I wanted to share my experience moving out of that realm and changing it up a little. The technologies I am referring to in this case are JFrog and Github actions. In this blog I want to take you through the process of integrating Github actions with a private JFrog Docker repository. 
 
 ## Understanding The Technologies
 
@@ -28,13 +28,59 @@ After a CI/CD pipeline runs, you will often have an output of that particular wo
 
 Now that I have got the boring pieces out of the way, I want to get into the implementation details. For this example, I will be building a Java application into a docker image, and storing that image in a private Docker JFrog repository.
 
+### JFrog Setup
+
+Login to Jfrog and generate an API key. This can be done by navigating to 'Edit Profile' > 'Authentication Settings' and generate a new API key. 
+
+{% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/jfrog_api_key.PNG" alt="">{% endraw %}
+
+This API key will be used by GitHub actions to authenticate against JFrog.
+
 ### Github Setup
 
-Create secrets
-Create YAML
+Inside GitHub you will need to create two secrets in the repo.
 
-### Jfrog Setup
+1. JFROG_USERNAME
+2. JFROG_API_KEY
 
-Create Repo
+You can create secrets 'Settings' > 'Secrets' > 'New repository secret'
+
+{% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/github_secrets.PNG" alt="">{% endraw %}
+
+The below YAML will build a java application before deploying a docker image to JFrog
+
+
+```
+name: Deploy_To_JFrog
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn clean install
+      - name: "Login to JFrog Registry"
+        run: docker login <insert_your_endpoint_here>.jfrog.io -u ${{ secrets.JFROG_USERNAME }} -p ${{ secrets.JFROG_API_KEY }}
+      - name: "Push Docker Image"
+        run: |
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          docker build -t app . 
+          docker tag app <insert_your_endpoint_here>.jfrog.io/app:$git_hash
+          docker push <insert_your_endpoint_here>.jfrog.io/app:$git_hash
+```
+
+
 
 ### Results
