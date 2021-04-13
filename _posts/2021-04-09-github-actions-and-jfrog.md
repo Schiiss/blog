@@ -76,7 +76,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
       - name: "Login to JFrog Registry"
-        run: docker login <insert_your_endpoint_here>.jfrog.io -u ${{ secrets.JFROG_USERNAME }} -p ${{ secrets.JFROG_API_KEY }}
+        run: docker login <insert_your_endpoint_here>.jfrog.io -u ${{secrets.JFROG_USERNAME}} -p ${{secrets.JFROG_API_KEY}}
       - name: "Push Docker Image"
         run: |
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
