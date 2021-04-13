@@ -1,6 +1,6 @@
 ---
 title: "Integrating Github Actions With Jfrog Artifactory"
-date: 2021-04-09T16:34:30-04:00
+date: 2021-04-12T16:34:30-04:00
 categories:
   - CI/CD
 tags:
@@ -12,19 +12,13 @@ tags:
 
 In the last few weeks, I have had the privilege to work with a technology stack I am not overly familiar with. I had gotten very comfortable with the "Azure DevOps" suite of tools the last year or so, and I wanted to share my experience moving out of that realm and changing it up a little. The technologies I am referring to in this case are JFrog and Github actions. In this blog, I want to take you through the process of integrating Github actions with a private JFrog Docker repository. 
 
-This blog assumes you have a JFrog Docker repo setup and an application that can be built into a docker image.
-
 ## Understanding The Technologies
 
-Before diving into the technical implementation, I want to go through the two technologies and what purpose they serve in a broader sense.
+Before diving into the technical implementation, I want to go through the two technologies in the context of this particular setup. 
 
-### Github Actions
+As software is being released at a faster and faster rate, developers need a method of ensuring code quality before pushing it to production. The fewer manual processes you have between your feature branch and pushing your changes to master, the more efficient this process becomes. This is where CI/CD pipelines come into play and make this whole process much simpler. I have spent most of my time using Azure Pipelines for my CI/CD builds, but I found my knowledge from that platform translated very nicely over to Github actions. As an example, you could have a Github action that generates a docker image as a part of its automated workflow. This docker image is considered a 'build artifact' and is going to be used to run your application in various environments. You need a place to store this docker image so it can be consumed. This is where Jfrog comes into play.
 
-As software is being released at a faster and faster rate, developers need a method of ensuring code quality before pushing it to production. The fewer manual processes you have between your feature branch and pushing your changes to master, the more efficient this process becomes. This is where CI/CD pipelines come into play and make this whole process much simpler. I have spent most of my time using Azure Pipelines for my CI/CD builds, but I found my knowledge from that platform translated very nicely over to Github actions. As an example, let's say you want to automatically run your unit/integration tests when a push is made to any branch. You can declare such workflow in Github actions and have that workflow execute in an automated fashion. I will dig into Github actions more when I get into the implementation.
-
-### JFrog Artifactory
- 
-After a CI/CD pipeline runs, you will often have an output of that particular workflow. That output is referred to as an "artifact". In the Java world, perhaps your artifact is a jar file, or in .NET it is a NuGet package, etc. These artifacts help you version your code and allow you to roll back to a previous build very easily. JFrog comes in with providing a place to store your artifacts, which can then be leveraged downstream. As an example, let's say you run your CI/CD pipeline and as a part of that, you build a docker image. You could push that docker image to a docker repository in JFrog. 
+As a part of your CI/CD pipeline in Github actions, you could push that docker image to JFrog to be consumed by your downstream applications.
 
 ## Implementation
 
