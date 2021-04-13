@@ -48,7 +48,11 @@ Once the above secrets are created, you can take the below YAML configuration fo
 1. Login to JFrog Registry:
     
     This piece uses the 'docker login' command the the -u and -p flags to pass the Github secrets created earlier, to the command
-    Note: the -u and -p values should look similar to this: "${{ secrets.JFROG_USERNAME }}". Due to a strange format issue on my site, I was unable to add this to the YAML snippet below. 
+    Note: the -u and -p values should look similar to this:
+
+    {% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/github_secrets_ex.PNG" alt="">{% endraw %}
+
+     Due to a strange format issue on my site, I was unable to add this to the YAML snippet below. 
 
 2. Push Docker Image
 
