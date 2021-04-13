@@ -10,7 +10,7 @@ tags:
 
 {% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/jfrog.jpg" alt="">{% endraw %}
 
-In the last few weeks, I have had the privilege to work with a technology stack I am not overly familiar with. I had gotten very comfortable with the "Azure DevOps" suite of tools the last year or so, and I wanted to share my experience moving out of that realm and changing it up a little. The technologies I am referring to in this case are JFrog and Github actions. In this blog, I want to take you through the process of integrating Github actions with a private JFrog Docker repository. 
+In this blog, I want to take you through the process of integrating Github actions with a private JFrog Docker repository. 
 
 ## Understanding The Technologies
 
@@ -48,10 +48,11 @@ Once the above secrets are created, you can take the below YAML configuration fo
 1. Login to JFrog Registry:
     
     This piece uses the 'docker login' command the the -u and -p flags to pass the Github secrets created earlier, to the command
+    Note: the -u and -p values should look similar to this: "${{ secrets.JFROG_USERNAME }}". Due to a strange format issue on my site, I was unable to add this to the YAML snippet below. 
 
 2. Push Docker Image
 
-    This part will build the docker image and tag it with the hash of the git commit at the time of the action running and push it to JFrog
+    This part will build the docker image and tag it with the hash of the git commit and push it to JFrog
 
 
 ```yaml
