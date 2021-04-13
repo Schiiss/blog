@@ -54,7 +54,7 @@ Once the above secrets are created, you can take the below YAML configuration fo
     This part will build the docker image and tag it with the hash of the git commit at the time of the action running and push it to JFrog
 
 
-```
+```yaml
 name: Deploy_To_JFrog
 
 on:
