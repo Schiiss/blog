@@ -94,4 +94,6 @@ jobs:
 
 ### Results
 
-Inside of your JFrog Docker repo, you should see a new docker image tagged with the commit hash of your most recent commit.
+You should see a new docker image tagged with the commit hash of your most recent git commit
+
+{% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/jfrog_docker_example.PNG" alt="">{% endraw %}
