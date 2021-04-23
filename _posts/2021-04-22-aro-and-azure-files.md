@@ -78,7 +78,7 @@ spec:
 
 ### Create a Persistent Volume Claim
 
-A persistent volume claim (pvc) will request the Kubernetes cluster to created a pv. In turn, the pvc will attach a pv to your pod. You can check out the YAML scheme [here](https://docs.openshift.com/container-platform/4.7/rest_api/storage_apis/persistentvolumeclaim-core-v1.html#persistentvolumeclaim-core-v1)
+A persistent volume claim (pvc) will request the Kubernetes cluster to created a pv. In turn, the pvc will attach a pv to your pod. You can check out the YAML scheme [here](https://docs.openshift.com/container-platform/4.7/rest_api/storage_apis/persistentvolumeclaim-core-v1.html#persistentvolumeclaim-core-v1). Please note the comments in the below YAML.
 
 ```yaml
 apiVersion: "v1"
@@ -97,7 +97,7 @@ spec:
 
 ### Create a Deployment Config
 
-Last but not least, let's create a deployment config. Deployment configs are awesome because they will spin up replication controllers to ensure you have as many pods as you specify in the YAML file. For more details on the deployment config YAML schema click [here](https://docs.openshift.com/container-platform/4.7/rest_api/workloads_apis/deploymentconfig-apps-openshift-io-v1.html#deploymentconfig-apps-openshift-io-v1)
+Last but not least, let's create a deployment config. Deployment configs are awesome because they will spin up replication controllers to ensure you have as many pods as you specify in the YAML file. For more details on the deployment config YAML schema click [here](https://docs.openshift.com/container-platform/4.7/rest_api/workloads_apis/deploymentconfig-apps-openshift-io-v1.html#deploymentconfig-apps-openshift-io-v1). Please note the comments in the below YAML.
 
 ```yaml
 apiVersion: apps/v1
@@ -126,4 +126,4 @@ spec:
 
 ### Results
 
-Navigating to your deployment config, jumping into the terminal, and navigating to /data1 you should be able to 'touch' a file and see that file creation reflected in Azure.
+Navigating to your deployment config, jumping into the terminal of the pod, and navigating to /data1 you should be able to 'touch' a file and see that file creation reflected in Azure.
