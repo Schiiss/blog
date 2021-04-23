@@ -1,6 +1,6 @@
 ---
 title: "Integrating Azure OpenShift with Azure Files"
-date: 2021-04-22T20:00:30-04:00
+date: 2021-04-22T20:38:30-04:00
 categories:
   - Containers
 tags:
