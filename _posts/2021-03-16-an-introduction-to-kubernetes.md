@@ -7,7 +7,7 @@ tags:
   - Kubernetes
 ---
 
-{% raw %}<img src="/blog/assets/images/blog_images/2021-03-16-an-introduction-to-kubernetes/containers.jpeg" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/an-introduction-to-kubernetes/containers.jpeg" alt="">{% endraw %}
 
 
 Big Data, Artificial Intelligence, Kubernetes, BlockChain, 5G. These are just some of the buzzwords I have been seeing in articles discussing what "trendy" technologies to look out for this year. One of those buzzwords I find people are getting excited about (even before 2021) is Kubernetes. I was a bit unsure as to what problem Kubernetes sets out to solve so I wanted to do some research and share my findings with you. Join me on an introduction to Kubernetes!

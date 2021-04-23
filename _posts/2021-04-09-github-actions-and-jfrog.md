@@ -1,6 +1,6 @@
 ---
 title: "Integrating Github Actions With Jfrog Artifactory"
-date: 2021-04-12T16:34:30-04:00
+date: 2021-04-12T12:00:30-04:00
 categories:
   - CI/CD
 tags:
@@ -8,7 +8,7 @@ tags:
   - Github Actions
 ---
 
-{% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/jfrog.jpg" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/github-actions-and-jfrog/jfrog.jpg" alt="">{% endraw %}
 
 In this blog, I want to take you through the process of integrating Github actions with a private JFrog Docker repository. 
 
@@ -28,7 +28,7 @@ Now that I have got the boring pieces out of the way, I want to get into the imp
 
 Login to Jfrog and generate an API key. This can be done by navigating to 'Edit Profile' > 'Authentication Settings'.
 
-{% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/jfrog_api_key.PNG" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/github-actions-and-jfrog/jfrog_api_key.PNG" alt="">{% endraw %}
 
 This API key will be used by Github actions to authenticate against JFrog.
 
@@ -41,7 +41,7 @@ Inside Github you will need to create two secrets in the repo.
 
 You can create secrets 'Settings' > 'Secrets' > 'New repository secret'
 
-{% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/github_secrets.PNG" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/github-actions-and-jfrog/github_secrets.PNG" alt="">{% endraw %}
 
 Once the above secrets are created, you can take the below YAML configuration for your Github action. The key steps to note below are as follows:
 
@@ -50,7 +50,7 @@ Once the above secrets are created, you can take the below YAML configuration fo
     This piece uses the 'docker login' command the the -u and -p flags to pass the Github secrets created earlier, to the command
     Note: the -u and -p values should look similar to this:
 
-    {% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/github_secrets_ex.PNG" alt="">{% endraw %}
+    {% raw %}<img src="/blog/assets/images/blog_images/github-actions-and-jfrog/github_secrets_ex.PNG" alt="">{% endraw %}
 
      Due to a strange format issue on my site, I was unable to add this to the YAML snippet below. 
 
@@ -96,4 +96,4 @@ jobs:
 
 You should see a new docker image tagged with the commit hash of your most recent git commit
 
-{% raw %}<img src="/blog/assets/images/blog_images/2021-04-09-github-actions-and-jfrog/jfrog_docker_example.PNG" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/github-actions-and-jfrog/jfrog_docker_example.PNG" alt="">{% endraw %}
