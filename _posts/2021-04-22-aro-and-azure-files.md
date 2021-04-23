@@ -56,7 +56,7 @@ volumeBindingMode: Immediate
 
 ### Create a Persistent Volume
 
-The difference between a persistent volume (pv) and a persistent volume claim still confuses me. As I understand it, a pv is a physical volume on the Kubernetes cluster which will store your data. The below YAML file will once again require changes for your use case and I have added comments to highlight that. For more information on the persistent volume schema, you can check that out [here](https://docs.openshift.com/container-platform/4.7/rest_api/workloads_apis/persistentvolume-core-v1.html#persistentvolume-core-v1)
+The difference between a persistent volume (pv) and a persistent volume claim is still very unclear to me. As I understand it, a pv is a physical volume on the Kubernetes cluster which will store your data. The below YAML file will once again require changes for your use case and I have added comments to highlight that. For more information on the persistent volume schema, you can check that out [here](https://docs.openshift.com/container-platform/4.7/rest_api/workloads_apis/persistentvolume-core-v1.html#persistentvolume-core-v1)
 
 ```yaml
 apiVersion: "v1"
