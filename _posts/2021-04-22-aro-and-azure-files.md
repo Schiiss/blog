@@ -42,14 +42,20 @@ Storage classes help classify the type of storage you are wanting to connect to.
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: azurefileclass <- Place desired name of the storage class
+  # Place desired name of the storage class
+  name: azurefileclass 
 provisioner: kubernetes.io/azure-file
 parameters:
-  location: eastus2 <- Location of Azure files
-  secretNamespace: openshiftnamespace <- Your OpenShift namespace
-  skuName: Standard_LRS <- The SKU of your Azure files
-  storageAccount: azurestoragename01 <- The name of your Azure files
-  resourceGroup: azurerg <- The resource group of your Azure files
+  # Location of Azure files
+  location: eastus2
+  # Your OpenShift namespace
+  secretNamespace: openshiftnamespace
+  # The SKU of your Azure files
+  skuName: Standard_LRS
+  # The name of your Azure files
+  storageAccount: azurestoragename01
+  # The resource group of your Azure files
+  resourceGroup: azurerg
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 ```
@@ -62,17 +68,23 @@ The difference between a persistent volume (pv) and a persistent volume claim is
 apiVersion: "v1"
 kind: "PersistentVolume"
 metadata:
-  name: "azurepv" <- Place desired name of the persistent volume
+  # Place desired name of the persistent volume
+  name: "azurepv" 
 spec:
   capacity:
-    storage: "10Gi" <- The size of the Azure files share
+    # The size of the Azure files share
+    storage: "10Gi"
   accessModes:
     - "ReadWriteOnce"
-  storageClassName: azurefileclass <- The name of the storage class created above
+  # The name of the storage class created above
+  storageClassName: azurefileclass
   azureFile:
-    secretName: azurestoragename01 <- The name of the secret created earlier
-    shareName: share -> The share located in Azure files
-    secretNamespace: openshiftnamespace <- Your OpenShift namespace
+    # The name of the secret created earlier
+    secretName: azurestoragename01 
+    # The share located in Azure files
+    shareName: share 
+    # Your OpenShift namespace
+    secretNamespace: openshiftnamespace
     readOnly: false
 ```
 
@@ -84,15 +96,19 @@ A persistent volume claim (pvc) will request the Kubernetes cluster to created a
 apiVersion: "v1"
 kind: "PersistentVolumeClaim"
 metadata:
-  name: "azurepvc" <- Place desired name of the persistent volume claim
+  # Place desired name of the persistent volume claim
+  name: "azurepvc"
 spec:
   accessModes:
     - "ReadWriteOnce"
   resources:
     requests:
-      storage: "10Gi" <- The size of the Azure files share
-  storageClassName: azurefileclass <- The name of the storage class
-  volumeName: "azurepv" <- The name of the persistent volume
+      # The size of the Azure files share
+      storage: "10Gi"
+  # The name of the storage class
+  storageClassName: azurefileclass
+  # The name of the persistent volume
+  volumeName: "azurepv" 
 ```
 
 ### Create a Deployment Config
@@ -104,7 +120,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azurefilesapp
-  namespace: openshiftnamespace <- Your OpenShift namespace
+  # Your OpenShift namespace
+  namespace: openshiftnamespace 
 spec:
   selector:
     matchLabels:
@@ -118,7 +135,8 @@ spec:
       volumes:
         - name: azure-file-share
           persistentVolumeClaim:
-            claimName: azurepvc <- The name of the persistent volume claim
+            # The name of the persistent volume claim
+            claimName: azurepvc
           volumeMounts:
             - name: azure-file-share
               mountPath: /data1
