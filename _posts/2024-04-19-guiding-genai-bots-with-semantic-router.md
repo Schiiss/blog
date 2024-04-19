@@ -44,7 +44,7 @@ Now that we have our environment setup, lets start digging into the framework. I
 
 Each route has an array of what the framework calls 'utterances' which are then vectorized for use downstream when determining what route to chose based on input.
 
-```Python
+```python
 # Import Semantic Router Libraries
 from semantic_router.layer import RouteLayer, Route
 from semantic_router.encoders import AzureOpenAIEncoder
@@ -75,7 +75,7 @@ product_questions = Route(
 
 Now that we have defined our routes, lets test them out. I am going to use Azure OpenAI's text-embedding-ada-002 model for vectorizing the utterances and input.
 
-```Python
+```python
 #Bring in the routes
 routes = [small_talk, product_questions]
 #Define embeddings model to leverage
@@ -94,7 +94,7 @@ Breaking it down, semantic router was able to determine the input "Hello there" 
 
 If we were to contrast this with an approach using ReAct, the act of selecting the right tool for the job would be purely left up to the agent to decide. Where I think something like Semantic Router could be leveraged is creating well defined routes for your expected inputs, and have some if/else logic to execute respective logic depending on what route is selected. For instance, take the below PseudoCode as an example to articulate the if/else logic I mentioned
 
-```Python
+```python
 def semantic_layer(query: str):
     route = rl(query)
     if route.name == "small_talk":
@@ -120,7 +120,7 @@ To walk through an example with LangChain, lets pretend we are a company that se
 
 Let's get started with defining routes for small talk, keyboard product questions and mice product questions.
 
-```Python
+```python
 from semantic_router.layer import RouteLayer, Route
 from semantic_router.encoders import AzureOpenAIEncoder
 from langchain import hub
@@ -190,7 +190,7 @@ rl = RouteLayer(encoder=encoder, routes=routes)
 
 Let's add on to this by adding a few [tools](https://python.langchain.com/docs/modules/tools/) that an agent in LangChain can leverage to anwser the customers questions. For the purposes of the blog, I have just hard coded the return values for the tools, however, in an actual scenario, you could perform RAG on product documentation to get the information about the keyboard and mice you sell and expose those to agents as tools.
 
-```Python
+```python
 @tool
 def keyboard_cost() -> str:
     """Used to get pricing information about keyboards"""
@@ -214,7 +214,7 @@ def mouse_color_info() -> str:
 
 Let's add some if/else logic to fire certain steps if a route is selected. Notice how in the below code, we leverage LangChains openai-tools-agent in both the keyboard_questions and mouse_questions route and instead of passing all tools to one 'master' agent, we only pass through the tools that are needed for that specific task (ie: route).
 
-```Python
+```python
 def semantic_layer(query: str):
     route = rl(query)
     if route.name == "keyboard_questions":
