@@ -1,6 +1,6 @@
 ---
 title: "Guiding Generative AI Bots with Semantic Router"
-date: 2024-04-19T16:35:30-04:00
+date: 2024-04-19T10:00:00-04:00
 categories:
   - LLM
   - GenAI
