@@ -57,8 +57,8 @@ plugins:
 
 author:
   name   : "Conner Schiissler"
-  avatar : "assets/images/profile.jpg"
-  bio    : "Join me on my journey to learn all the things!"
+  avatar : "assets/images/profile.PNG"
+  bio    : "Join me on my learning journey"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
