@@ -10,15 +10,15 @@ tags:
 
 {% raw %}<img src="/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/semantic-router.jpeg" alt="">{% endraw %}
 
-The more I have experimented with Generative AI applications, the more I have been puzzled on how to effectively roll out and 'productionize' agentic workflows where multiple steps, document retrievals, and tasks are involved. There have been many emerging approaches to solving this problem such as the [ReAct framework](https://arxiv.org/abs/2210.03629) but I have found this to be slow and difficult to ensure deterministic outputs.
+The more I have experimented with Generative AI applications, the more I have been puzzled on how to effectively roll out and 'productionize' agentic workflows where multiple steps, document retrievals, and tasks are involved. There have been many emerging approaches to solving this problem such as the [ReAct framework](https://arxiv.org/abs/2210.03629) but I have found frameworks like this to be slow and difficult to ensure deterministic outputs.
 
 I have experimented with frameworks such as [AutoGen](https://github.com/microsoft/autogen), [LangChain](https://python.langchain.com/docs/get_started/introduction/), and [Semantic Kernel](https://github.com/microsoft/semantic-kernel), but have struggled to create LLM powered applications that I felt comfortable deploying to production. I have run into things like ['gratitude loops'](https://microsoft.github.io/autogen/docs/FAQ/#agents-keep-thanking-each-other-when-using-gpt-35-turbo) where the agents get caught in a loop of thanking each other for completing a task. While this being amusing, this has made me very cautious when deploying these LLM agents into a production environment.
 
-In this blog, I wanted to touch on an alternative approach I stumbled upon that I think can help ensure more deterministic outputs with applications that leverage LLM's. That approach leverages something called [semantic router](https://github.com/aurelio-labs/semantic-router) and I am experimenting with it right now in a few use cases I am working through.
+In this blog, I wanted to touch on an alternative approach I stumbled upon that I think can help ensure more deterministic outputs with applications that leverage LLM's. That approach leverages something called [Semantic Router](https://github.com/aurelio-labs/semantic-router) and I am experimenting with it right now in a few use cases I am working through.
 
 ## What is Semantic Router?
 
-As described in the [documentation](https://github.com/aurelio-labs/semantic-router?tab=readme-ov-file#semantic-router), 'Semantic Router is a superfast decision-making layer for your LLMs and agents.' and takes advantage of semantic similarity and vectorization to help increase the speed and accuracy of decisions. These 'decisions' have generally been left to agents and frameworks like ‘ReAct’ to sort out.
+As described in the [documentation](https://github.com/aurelio-labs/semantic-router?tab=readme-ov-file#semantic-router), 'Semantic Router is a superfast decision-making layer for your LLMs and agents.' and takes advantage of semantic similarity and vectorization to help increase the speed and accuracy of decisions. These 'decisions' have generally been left to agents and frameworks like ‘ReAct’ to sort out and like mentioned above, has it's challenges.
 
 I have been impressed so far with the speed and accuracy a framework like Semantic Router helps facilitate.
 
@@ -92,7 +92,7 @@ Having a look at the output from the two print statements at the bottom, we get 
 
 Breaking it down, semantic router was able to determine the input "Hello there" should be sent to the small talk route and "What products do you have?" should be sent to the product route.
 
-If we were to contrast this with an approach using ReAct, the act of selecting the right tool for the job would be purely left up to the agent to decide. Where I think something like Semantic Router could be leveraged is creating well defined routes for your expected inputs, and have some if/else logic to execute respective logic depending on what route is selected. For instance, take the below PseudoCode as an example to articulate the if/else logic I mentioned
+If we were to contrast this with an approach using ReAct, the act of selecting the right tool for the job would be purely left up to the agent to decide. Where I think something like Semantic Router could be leveraged is creating well defined routes for your expected inputs, and have some if/else logic to execute respective logic depending on what route is selected. For instance, take the below PseudoCode as an example to articulate the if/else logic I mentioned:
 
 ```python
 def semantic_layer(query: str):
@@ -106,13 +106,13 @@ def semantic_layer(query: str):
     return query
 ```
 
-Each route would trigger a different set of logic in your application. So how does this fit into the broader ecosystem of GenAI tools like LangChain? Let's explore that in an example.
+Each route would trigger a different set of logic in your application. So how does this fit into the broader ecosystem of GenAI tools such as LangChain? Let's explore that in an example.
 
 ## A Practical Example
 
-Like I mentioned at the start of the blog, frameworks like ReAct, while useful, are slow and prone to error. What if we could leverage a framework like semantic router to first extract user intent and filter down to a specific workflow to reduce the amount of 'tools' an agent would have access to?
+Like I mentioned at the start of the blog, frameworks like ReAct, while useful, are slow and I think increases the chance of an agent making a 'poor' choice. What if we could leverage a framework like Semantic Router to first determine user intent and filter down to a specific workflow to reduce the amount of 'tools' an agent would have access to?
 
-I have been testing this out in a few of my apps and I have found semantic router to not only be faster, than frameworks like ReAct, but also more precise in selecting the right tool (or in this case, route) for the job.
+I have been testing this out in a few of my apps and I have found Semantic Router to not only be faster than frameworks like ReAct, but also more precise in selecting the right tool (or in this case, route) for the job.
 
 ### LangChain 🦜& Semantic Router 🛣️
 
@@ -246,11 +246,11 @@ I think this is helpful from the perspective of not providing the agent with too
 
 Executing the above outputs the following results:
 
-![Output2](/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/sr_output1.png)
+![Output2](/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/sr_output2.png)
 
 ## Conclusion
 
-This blog discussed the challenges faced in deploying Generative AI applications into production and introduced Semantic Router as a solution for more deterministic outputs. By leveraging Semantic Router, developers can efficiently manage agentic workflows and ensure better decision-making. Through practical examples with LangChain, it's evident that Semantic Router offers speed and accuracy in user intent extraction, leading to enhanced customer interactions. 
+This blog discussed the challenges faced in deploying Generative AI applications into production and introduced Semantic Router as a potential solution for more deterministic outputs. By leveraging Semantic Router, developers can efficiently manage agentic workflows and ensure better decision-making. Through practical examples with LangChain, it's evident that Semantic Router offers speed and accuracy in user intent extraction, leading to enhanced customer interactions.
 
 The source code for all the above examples can be found [here](https://github.com/Schiiss/blog/tree/master/code/guiding-genai-bots-with-semantic-router)
 
