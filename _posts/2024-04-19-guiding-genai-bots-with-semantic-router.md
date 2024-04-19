@@ -1,5 +1,5 @@
 ---
-title: "Guiding Generative AI Bots with Semantic Router"
+title: "Guiding Generative AI Bots 🤖 with Semantic Router 🛣️"
 date: 2024-04-19T10:00:00-04:00
 categories:
   - LLM
