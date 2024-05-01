@@ -76,7 +76,7 @@ Let's jump in to LangSmith and have a look at the trace that appeared after runn
 
 ![New_Trace](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/new_langsmith_entry.png)
 
-As you can see, it is incredibly easy to 'instrument' you application and send the logs to LangSmith. In the subsequent sections, I would like to dive a bit deeper into the various offerings in LangSmith like debugging, capturing user feedback, and fine-tuning! By no means will this be exhaustive, but I would like to provide an overview.
+As you can see, it is incredibly easy to 'instrument' your application and send the logs to LangSmith. In the subsequent sections, I would like to dive a bit deeper into the various offerings in LangSmith like debugging, capturing user feedback, and fine-tuning! By no means will this be exhaustive, but I would like to provide an overview.
 
 ## LangSmith in Practice ⚽
 
