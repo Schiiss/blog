@@ -80,7 +80,7 @@ As you can see, it is incredibly easy to 'instrument' you application and send t
 
 ## LangSmith in Practice ⚽
 
-I have created a sample application to demonstrate the capibilites of LangSmith and have open sourced it [here](https://github.com/Schiiss/blog/tree/master/code/monitoring-genai-apps-with-langsmith/agent.py). At a high-level, the application does the following:
+I have created a sample application to demonstrate the capibilites of LangSmith and have open sourced it [here](https://github.com/Schiiss/blog/tree/master/code/monitoring-genai-apps-with-langsmith/langsmith_sample_app.py). At a high-level, the application does the following:
 
 ![Sample_App](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/sample_langsmith_app.png)
 
@@ -93,7 +93,7 @@ For the search_langsmith_docs tool, I had to first chunk and vectorize a few web
 
 After running the above code, I can see the documents in ChromaDB and we are good to start using the search_langsmith_docs tool:
 
-[chroma_query](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/chroma_db_query.png)
+![chroma_query](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/chroma_db_query.png)
 
 The web_search tool works out of the box and only requires a Bing search API key so no additonal setup is required. I have created a [resource](https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/create-bing-search-service-resource) in Azure for it.
 
