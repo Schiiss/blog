@@ -162,6 +162,4 @@ LangSmith boasts an active community, and its official [YouTube channel](https:/
 
 As we navigate the complexities of integrating GenAI into our applications, it's essential not to overlook foundational principles like DevOps. LangSmith offers insights into critical aspects of monitoring, coding, and testing within this framework, addressing challenges such as tracing unexpected responses and managing complex AI-driven systems effectively.
 
-With LangSmith now available in the Azure Marketplace, its accessibility for enterprise adoption continues to grow, lowering the barriers to leveraging such tools effectively.
-
 Thanks for reading.
