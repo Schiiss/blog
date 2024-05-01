@@ -121,8 +121,8 @@ Going through my troubleshooting steps, the first thing I would likely do is see
 
 Having a look at the trace I can see a few things:
 
-1. There is no reference to what I would expect an LLM agent that has read the documentation to say. No reference to datasets for example.
-2. No tool was selected. In other words, the agent decided not to use the Bing Search tool or the search_langsmith_docs tool and come up with an answer purely based on the data it was trained on.
+1. There is no reference to information from the LangSmith documentation. Ie: 'Tags are collections of strings that can be attached to runs'
+2. No tool was selected. In other words, the agent decided not to use the web_search tool or the search_langsmith_docs tool and come up with an answer purely based on the data it was trained on.
 
 ![No_Tool_Selected](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/no_tool_selected.png)
 
