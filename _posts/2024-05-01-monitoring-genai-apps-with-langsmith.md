@@ -150,7 +150,7 @@ Building off of the solicitation of user feedback, and seeing we can filter the 
 
 ![Add_To_Dataset](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/add_to_dataset.png)
 
-Subsequently, you can export the same dataset as a JSONL file, which can then be uploaded to Azure OpenAI for [fine-tuning a model](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio).
+Subsequently, you can export the same dataset as a JSONL file, which can then be uploaded to Azure OpenAI to [fine-tune a model](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio).
 
 The act of fine-tuning is heavily supported by papers/blogs like what LangChain describes [here](https://blog.langchain.dev/chatopensource-x-langchain-the-future-is-fine-tuning-2/) underscoring both cost savings and performance enhancements. This feature in LangSmith facilitates seamless data collection and fine-tuning of models.
 
