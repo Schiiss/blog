@@ -60,7 +60,7 @@ To generate an API key, navigate to the [LangSmith portal](https://smith.langcha
 
 ![Generate_API_Key](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/generate_key.png)
 
-Generate an API key and place it in your environment file using the LANGCHAIN_API_KEY key.
+Generate an API key and place it in your environment file using the LANGCHAIN_API_KEY key. Once the API key is added to your environment file, let's run the below code:
 
 ```python
 from langchain_openai import AzureChatOpenAI
