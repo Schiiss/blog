@@ -58,7 +58,7 @@ The above setting will enable tracing of your application in LangSmith.
 
 To generate an API key, navigate to the [LangSmith portal](https://smith.langchain.com/), navigate to settings, and select API Keys:
 
-![Generate_API_Key](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/generate_key.png)
+{% raw %}<img src="/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/generate_key.png" alt="">{% endraw %}
 
 Generate an API key and place it in your environment file using the LANGCHAIN_API_KEY key. Once the API key is added to your environment file, let's run the below code:
 
