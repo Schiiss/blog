@@ -24,7 +24,7 @@ As I've been rolling out these apps into the wild, I've been bombarded with ques
 
 ## What is LangSmith? 🤷‍♂️
 
-According to the [LangSmith documentation](https://docs.smith.langchain.com/user_guide), ‘LangSmith is a platform for LLM application development, monitoring, and testing.’. I have personally used LangSmith with a couple projects and I found it incredibly useful for debugging things like 'infite loops' when you are working with things like multi turn agents, logging interactions with the bot, using it for fine-tuning, and capturing user feedback. LangSmith helps to answer questions like:
+According to the [LangSmith documentation](https://docs.smith.langchain.com/user_guide), ‘LangSmith is a platform for LLM application development, monitoring, and testing’. I have personally used LangSmith with a couple projects and I found it incredibly useful for debugging things like 'infite loops' when you are working with things like multi turn agents, logging interactions with the bot, using it for fine-tuning, and capturing user feedback. LangSmith helps to answer questions like:
 
 - How do I ensure outputs remain deterministic as my prompts evolve over time?
 - How does mixing and matching different models affect my outputs?
