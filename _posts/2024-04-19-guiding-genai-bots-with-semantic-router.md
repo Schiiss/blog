@@ -2,10 +2,11 @@
 title: "Guiding Generative AI Bots 🤖 with Semantic Router 🛣️"
 date: 2024-04-19T10:00:00-04:00
 categories:
-  - LLM
   - GenAI
 tags:
   - LangChain
+  - Semantic Router
+  - OpenAI
 ---
 
 {% raw %}<img src="/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/semantic-router.jpeg" alt="">{% endraw %}
