@@ -158,7 +158,7 @@ The act of fine-tuning is heavily supported by papers/blogs like what LangChain 
 
 Through my experimentation with LangSmith, I've found it to be a valuable tool for streamlining DevOps processes in the development of GenAI-enabled applications. While we've only scratched the surface of its potential, I'm optimistic about its ability to enhance the development lifecycle.
 
-LangSmith boasts an active community, and its official [YouTube channel](https://www.youtube.com/watch?v=4rupAXVraEA&list=PLfaIDFEXuae0bYV1_60f0aiM0qI7e1zSf), LangChain, regularly shares updates and tutorials, fostering a supportive environment for users.
+LangSmith boasts an active community, and its official [YouTube channel](https://www.youtube.com/watch?v=4rupAXVraEA&list=PLfaIDFEXuae0bYV1_60f0aiM0qI7e1zSf), regularly shares updates and tutorials, fostering a supportive environment for users.
 
 As we navigate the complexities of integrating GenAI into our applications, it's essential not to overlook foundational principles like DevOps. LangSmith offers insights into critical aspects of monitoring, coding, and testing within this framework, addressing challenges such as tracing unexpected responses and managing complex AI-driven systems effectively.
 
