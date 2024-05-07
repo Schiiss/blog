@@ -58,7 +58,7 @@ The above setting will enable tracing of your application in LangSmith.
 
 To generate an API key, navigate to the [LangSmith portal](https://smith.langchain.com/), navigate to settings, and select API Keys:
 
-{% raw %}<img src="/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/generate_key.png" alt="">{% endraw %}
+[![Generate_API_Key](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/generate_key.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/generate_key.png){:target="_blank"}
 
 Generate an API key and place it in your environment file using the LANGCHAIN_API_KEY key. Once the API key is added to your environment file, let's run the below code:
 
@@ -74,7 +74,7 @@ print(llm.invoke("Hello, world!"))
 
 Let's jump in to LangSmith and have a look at the trace that appeared after running our code.
 
-![New_Trace](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/new_langsmith_entry.png)
+[![New_Trace](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/new_langsmith_entry.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/new_langsmith_entry.png){:target="_blank"}
 
 As you can see, it is incredibly easy to 'instrument' your application and send the logs to LangSmith. In the subsequent sections, I would like to dive a bit deeper into the various offerings in LangSmith like debugging, capturing user feedback, and fine-tuning! By no means will this be exhaustive, but I would like to provide an overview.
 
@@ -82,7 +82,7 @@ As you can see, it is incredibly easy to 'instrument' your application and send 
 
 I have created a sample application to demonstrate the capibilites of LangSmith and have open sourced it [here](https://github.com/Schiiss/blog/tree/master/code/monitoring-genai-apps-with-langsmith/langsmith_sample_app.py). At a high-level, the application does the following:
 
-![Sample_App](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/sample_langsmith_app.png)
+[![Sample_App](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/sample_langsmith_app.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/sample_langsmith_app.png){:target="_blank"}
 
 The user will send in some input to an agent that will then route to the tool the agent thinks will resolve the user's input. In this case, I have provided the agent with two tools:
 
@@ -93,7 +93,7 @@ For the search_langsmith_docs tool, I had to first chunk and vectorize a few web
 
 After running the above code, I can see the documents in ChromaDB and we are good to start using the search_langsmith_docs tool:
 
-![chroma_query](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/chroma_db_query.png)
+[![chroma_query](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/chroma_db_query.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/chroma_db_query.png){:target="_blank"}
 
 The web_search tool works out of the box and only requires a Bing search API key so no additonal setup is required. I have created a [resource](https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/create-bing-search-service-resource) in Azure for it.
 
@@ -107,7 +107,7 @@ Let's run our application and pass through a few different queries:
 
 A trace in LangSmith provides many interesting data points. Looking at the first query, we can see a few important metrics right away which I have annotated below:
 
-![Query1_Trace](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/query_1_trace.png)
+[![Query1_Trace](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/query_1_trace.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/query_1_trace.png){:target="_blank"}
 
 Note, all of these metrics are out of the box, and come as soon as you add the LangSmith API key to your app.
 
@@ -124,13 +124,13 @@ Having a look at the trace I can see a few things:
 1. There is no reference to information from the LangSmith documentation. Ie: 'Tags are collections of strings that can be attached to runs'
 2. No tool was selected. In other words, the agent decided not to use the web_search tool or the search_langsmith_docs tool and come up with an answer purely based on the data it was trained on.
 
-![No_Tool_Selected](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/no_tool_selected.png)
+[![No_Tool_Selected](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/no_tool_selected.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/no_tool_selected.png){:target="_blank"}
 
 It seems since the input from the user was not explicit, the agent did not select a tool, therefore, relying on the data the LLM was trained on. This data will not be up to date with the LangSmith documentation.
 
 Let's contrast with the query 'using the langsmith docs, can you tell me what tags are?', and we can see the agent actually selected the search_langsmith_docs tool and was able to retrieve some relevant information from ChromaDB via a RAG pipeline:
 
-![Tool_Selected](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/tool_selected.png)
+[![Tool_Selected](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/tool_selected.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/tool_selected.png){:target="_blank"}
 
 Some next steps could be working with the user on how to use effective prompt engineering techniques, or abstracting that from the user in the software by leveraging a methodology such as the [MultiQueryRetriever](https://python.langchain.com/docs/modules/data_connection/retrievers/MultiQueryRetriever/) to rewrite the input in a few different ways to optimize for RAG.
 
@@ -140,7 +140,7 @@ LangSmith can also be leveraged to capture [feedback](https://docs.smith.langcha
 
 To demonstrate this, I have manually annotated a run and filtered by it:
 
-![Feedback](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/feedback.png)
+[![Feedback](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/feedback.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/feedback.png){:target="_blank"}
 
 As we will see in the next section, this feedback can be collected into a dataset for fine-tuning operations.
 
@@ -148,7 +148,7 @@ As we will see in the next section, this feedback can be collected into a datase
 
 Building off of the solicitation of user feedback, and seeing we can filter the feedback, what we can do is take the inputs and outputs of those runs in LangSmith and add them to a dataset.
 
-![Add_To_Dataset](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/add_to_dataset.png)
+[![Add_To_Dataset](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/add_to_dataset.png)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/add_to_dataset.png){:target="_blank"}
 
 Subsequently, you can export the same dataset as a JSONL file, which can then be uploaded to Azure OpenAI to [fine-tune a model](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio).
 
