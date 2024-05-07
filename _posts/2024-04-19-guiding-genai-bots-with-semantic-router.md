@@ -89,7 +89,7 @@ print(rl("What products do you have?").name)
 
 Having a look at the output from the two print statements at the bottom, we get the following:
 
-![Output](/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/sr_output1.png)
+[![Output](/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/sr_output1.png)](/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/sr_output1.png){:target="_blank"}
 
 Breaking it down, semantic router was able to determine the input "Hello there" should be sent to the small talk route and "What products do you have?" should be sent to the product route.
 
@@ -247,7 +247,7 @@ I think this is helpful from the perspective of not providing the agent with too
 
 Executing the above outputs the following results:
 
-![Output2](/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/sr_output2.png)
+[![Output2](/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/sr_output2.png)](/blog/assets/images/blog_images/guiding-genai-bots-with-semantic-router/sr_output2.png){:target="_blank"}
 
 ## Conclusion
 
