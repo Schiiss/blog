@@ -16,7 +16,7 @@ The hype cycle around GenAI is still going strong and companies are trying to fi
 
 There are many important components to the DevOps lifecycle:
 
-![Devops](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/DevOps.jpg)
+[![Devops](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/DevOps.jpg)](/blog/assets/images/blog_images/monitoring-genai-apps-with-langsmith/DevOps.jpg){:target="_blank"}
 
 In this blog post, the primary focus lies on the critical aspects of 'monitoring', 'coding', and 'testing' within the DevOps lifecycle concerning the development of applications integrating Generative AI functionalities. It aims to address challenging questions from users such as, "When the 'bot' delivers an unexpected response, how can we precisely trace the sequence of actions executed by the agents?" Such inquiries underscore the indispensable role of a robust monitoring solution in effectively managing and troubleshooting complex AI-driven systems.
 
