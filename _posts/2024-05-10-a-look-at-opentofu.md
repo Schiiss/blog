@@ -189,7 +189,7 @@ terraform plan:
 
 And a terraform apply creates the resources exactly the same. With this all being said, while Terraform and OpenTofu are very similar now, I expect them to diverge over time, and as we will see in the next section, already have to an extent. We are already seeing this with OpenTofu releasing features like [state encryption](https://opentofu.org/docs/language/state/encryption/) which encrypts the state files at rest.
 
-To demonstrate state encryption, you will notice I have deployed a VM with a username and password. This password is sensitive and since OpenTofu leverages an external state file to manage the infrastructure, this password is stored in plain text my default:
+To demonstrate state encryption, you will notice I have deployed a VM with a username and password. This password is sensitive and since OpenTofu leverages an external state file (similar to terraform) to manage the infrastructure, this password is stored in plain text by default:
 
 [![tofu_state_file](/blog/assets/images/blog_images/a-look-at-opentofu/tofu_state_file.png)](/blog/assets/images/blog_images/a-look-at-opentofu/tofu_state_file.png){:target="_blank"}
 
