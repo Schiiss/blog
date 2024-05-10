@@ -229,8 +229,6 @@ To demonstrate how OpenTofu and Terraform have started to diverge, trying to run
 
 This is to be expected since Terraform does not have the same functionality around encrypting state files at rest.
 
-In a production environment, the encryption key needs to be stored somewhere securely and passed through to the code when executed. One method I have leveraged in the past is [GitHub Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and passing through the encryption key to your CI/CD pipeline.
-
 ## Conclusion
 
 In conclusion, OpenTofu emerges as a promising technology for deploying infrastructure through code. With its innovative features like state encryption, OpenTofu is already differentiating itself in the market. While it shares similarities with Terraform, its unique capabilities and potential for future development make it an exciting prospect for DevOps teams and infrastructure engineers. As the landscape of infrastructure as code continues to evolve, OpenTofu's trajectory warrants close attention, offering the potential to streamline and enhance the process of managing infrastructure.
