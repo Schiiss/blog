@@ -1,5 +1,5 @@
 ---
-title: "An Insight into OpenTofu 👁️ (with a GenAI Twist 🤖)"
+title: "A Look at OpenTofu 👁️ (with a GenAI Twist 🤖)"
 date: 2024-05-10T10:00:00-04:00
 categories:
   - IaC
