@@ -54,7 +54,7 @@ Let's ask GPT Vision to generate OpenTofu code for the below architecture:
 
 [![Azure_Architecture](/blog/assets/images/blog_images/a-look-at-opentofu/azure_architecture.png)](/blog/assets/images/blog_images/a-look-at-opentofu/azure_architecture.png){:target="_blank"}
 
-Please keep in mind that we need to ask for Terraform code generation because GPT isn't familiar with OpenTofu yet, as it's a relatively new tool. However, this isn't a big issue currently, as the feature sets of the two tools haven't differed much. Below, you'll find a snippet of the code we used to prompt GPT to generate the code for us:
+Please keep in mind that we need to ask for Terraform code generation because GPT isn't familiar with OpenTofu yet, as it's a relatively new tool. However, this isn't a big issue currently, as the feature sets of the two tools haven't differed much. Below, you'll find a snippet of the code we used to prompt GPT to generate the code for us based on the diagram we created:
 
 ```python
 response = client.chat.completions.create(
