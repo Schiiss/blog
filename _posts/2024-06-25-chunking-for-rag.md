@@ -50,7 +50,7 @@ Chunking is important for a few reasons. We will cover the three primary reasons
 
 ### LLM's have Limited Context Windows 🪟
 
-LLMs have limits on the amount of text that can be included in a prompt at once, known as the context window. These context windows have expanded over time with new LLM releases. For instance, GPT-3 had a context window of 4097 tokens (about 3081 words). Newer models like GPT-4 have context windows of up to 128,000 tokens (around 96,000 words). This significant increase allows LLMs to process much more text. However, there are implications to this expansion, which we will discuss next in the post (ie: Signal to Noise Ration).
+LLMs have limits on the amount of text that can be included in a prompt at once, known as the context window. These context windows have expanded over time with new LLM releases. For instance, GPT-3 had a context window of 4097 tokens (about 3081 words). Newer models like GPT-4 have context windows of up to 128,000 tokens (around 96,000 words). This significant increase allows LLMs to process much more text. However, there are implications to this expansion, which we will discuss next in the post (ie: Signal to Noise Ratio).
 
 ### Signal to Noise Ratio 🔊
 
@@ -78,23 +78,23 @@ Although the cost of LLMs has been decreasing, it remains an important factor to
 
 When chunking your document for Retrieval-Augmented Generation (RAG), there are several strategies you can use:
 
-1. Character Splitting: This is the most basic form of chunking as it does not consider the document's structure. Character splitting involves dividing your text into chunks of a specified size without taking context into account. Key concepts include chunk size (the number of characters per chunk) and chunk overlap (the amount by which chunks overlap). Tools like [ChunkViz](https://chunkviz.up.railway.app/) can help visualize this.
+- Character Splitting: This is the most basic form of chunking as it does not consider the document's structure. Character splitting involves dividing your text into chunks of a specified size without taking context into account. Key concepts include chunk size (the number of characters per chunk) and chunk overlap (the amount by which chunks overlap). Tools like [ChunkViz](https://chunkviz.up.railway.app/) can help visualize this.
 
 Using ChunkViz, we can see the limitations of character splitting, such as cutting off information mid-sentence or even mid-word. For example, with a 181-character chunk size, highlighted sections show where context is lost due to this chunking strategy.
 
 [![char_splitting](/blog/assets/images/blog_images/chunking-for-rag/char_splitting_chunk_viz.png)](/blog/assets/images/blog_images/chunking-for-rag/char_splitting_chunk_viz.png){:target="_blank"}
 
-2. Recursive Character This is a more sophisticated strategy that considers the document's structure. Recursive character splitting attempts to chunk based on sentences and paragraphs, improving context retention. This method is particularly effective because documents are typically organized by paragraphs and sentences. In ChunkViz, this approach shows improved results as sentences and paragraphs are not split awkwardly.
+- Recursive Character This is a more sophisticated strategy that considers the document's structure. Recursive character splitting attempts to chunk based on sentences and paragraphs, improving context retention. This method is particularly effective because documents are typically organized by paragraphs and sentences. In ChunkViz, this approach shows improved results as sentences and paragraphs are not split awkwardly.
 
 [![recur_char_splitting_chunk_viz](/blog/assets/images/blog_images/chunking-for-rag/recur_char_splitting_chunk_viz.png)](/blog/assets/images/blog_images/chunking-for-rag/recur_char_splitting_chunk_viz.png){:target="_blank"}
 
-3. Document Specific Splitting: Sometimes the best chunking strategy depends on the document itself. For instance, in a practical example of chunking the "Book of News" for Microsoft Build 2024, we might use a document-specific strategy to chunk based on headers, ensuring effective retrieval based on the questions asked.
+- Document Specific Splitting: Sometimes the best chunking strategy depends on the document itself. For instance, in a practical example of chunking the "Book of News" for Microsoft Build 2024, we might use a document-specific strategy to chunk based on headers, ensuring effective retrieval based on the questions asked.
 
 ## Chunking Considerations 💭
 
 When it comes to chunking, there are several considerations to keep in mind:
 
-1. Nature of the Content: What type of content are you indexing? Are you working with long documents such as articles or books, or shorter content like tweets or instant messages? The answer will influence which model is most suitable for your goal and, consequently, which chunking strategy to apply.
+1. Nature of the Content: What type of content are you indexing? Are you working with long documents such as articles or books, or shorter content like tweets or instant messages? The answer will influence which chunking strategy to apply.
 
 2. User Query Expectations: What do you expect in terms of the length and complexity of user queries? Will they be short and specific, or long and complex? This consideration may inform how you choose to chunk your content to ensure a closer correlation between the embedded query and the embedded chunks.
 
@@ -108,7 +108,7 @@ As mentioned earlier, I have open-sourced notebooks to demonstrate how significa
 
 Please note, you will need an [Azure Document Intelligence](https://azure.microsoft.com/en-us/products/ai-services/ai-document-intelligence), [Azure Search](https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search), as well as an [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) instance to run the notebooks.
 
-In the notebook, we employ the three chunking strategies discussed earlier. Take a look at the [Book of News](https://github.com/Schiiss/chunking_for_rag/blob/main/Book_Of_News.pdf) document in the repo, take note of the structure. For my use case, I wanted to pull all the 'Azure AI Announcements' (e.g., section 1.1) from the Build document. Let's run through the chunking strategies to see which one is best for summarizing the Azure AI Announcements in the Book of News.
+In the notebook, we employ the three chunking strategies discussed earlier. Take a look at the [Book of News](https://github.com/Schiiss/chunking_for_rag/blob/main/Book_Of_News.pdf) document in the repo, and take note of the structure. For my use case, I wanted to pull all the 'Azure AI Announcements' (e.g., section 1.1) from the Build document. Let's run through the chunking strategies to see which one is best for summarizing the Azure AI Announcements in the Book of News.
 
 ### Character Splitting
 
