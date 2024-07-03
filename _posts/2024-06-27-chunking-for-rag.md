@@ -1,5 +1,5 @@
 ---
-title: "Chunking 🪓 for RAG 🤖"
+title: "Chunking for RAG 🪓🤖"
 date: 2024-06-27T10:00:00-04:00
 categories:
   - GenAI
