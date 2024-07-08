@@ -79,7 +79,9 @@ And finally executing the notebook as a user that does not have access to the ke
 Py4JJavaError: An error occurred while calling z:mssparkutils.credentials.getSecret.
 : java.io.IOException: 403 {"error":{"code":"Forbidden","message":"Caller is not authorized to perform action on resource.\r\nIf role assignments, deny assignments or role definitions were changed recently, please observe propagation time.}
 
-This all works just as the documentation mentioned. So why did we test all this? Was it because I did not trust the documentation? No. I was considering the implications of the utility leveraging the ‘user credentials’ in a production environment. What happens if my current company decides they have had enough of me and lets me go? How will the jobs stay running in production now that my account no longer exists?
+This all works just as the documentation mentioned. So why did we test all this? Was it because I did not trust the documentation? No. I was considering the implications of the utility leveraging the ‘user credentials’ in a production environment.
+
+For example, what happens if my current company decides they have had enough of me and lets me go? How will the jobs stay running in production now that my account no longer exists?
 
 Generally, I have run jobs in production using a generic service account which is not tied to a particular individual. Meaning the chance of interruptions due to account changes is less likely. I have not found a way to leverage a service account or SPN in to pull secrets from Key Vault in Fabric.
 
