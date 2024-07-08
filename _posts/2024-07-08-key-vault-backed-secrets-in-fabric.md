@@ -83,7 +83,7 @@ This all works just as the documentation mentioned. So why did we test all this?
 
 For example, what happens if my current company decides they have had enough of me and lets me go? How will the jobs stay running in production now that my account no longer exists?
 
-Generally, I have run jobs in production using a generic service account which is not tied to a particular individual. Meaning the chance of interruptions due to account changes is less likely. I have not found a way to leverage a service account or SPN in to pull secrets from Key Vault in Fabric.
+Generally, I have run jobs in production using a generic service account which is not tied to a particular individual. Meaning the chance of interruptions due to account changes is less likely. I have not found a way to leverage a service account or SPN to pull secrets from Key Vault in Fabric.
 
 ## Conclusion 🏁
 
