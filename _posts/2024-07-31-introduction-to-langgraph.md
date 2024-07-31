@@ -38,7 +38,7 @@ Some examples of leveraging an LLM to control the flow of an application could b
 
 At the end of the day, this is probably just semantics but it is helpful to understand some general guidelines for what constitutes an agentic application.
 
-Agents also generally have access to the tools which can extend an LLM's capabilities. An example of a tool could be a python function that allows the LLM to search the web.
+Agents also generally have access to tools which can extend an LLM's capabilities. An example of a tool could be a python function that allows the LLM to search the web.
 
 Continuing the example of enabling an LLM to search the web, an input is provided to the agentic app and it determines the input falls outside of it’s training dataset so it must search Bing to get the answer it needs. Below is a diagram that demonstrates a basic agentic workflow.
 
@@ -50,6 +50,8 @@ Continuing the example of enabling an LLM to search the web, an input is provide
 
 3. In this case, our workflow is linear, and we only provide our agent access to one tool, but there could be n number of tools in the agents ‘tool belt’ that can be called upon. A tool could be a basic Python function, and, in this case, the Bing Search tool is a function that leverages the Bing API to make a web search.
 
+4. Finally, a response is returned to the user
+
 Steps 2 and 3 can occur n number of times until the agent determines if the input provided in step 1 is addressed.
 
 ## LangGraph's Components 🔨
@@ -58,7 +60,7 @@ There are three main components in LangGraph:
 
 1. State: This is a data structure that represents the current snapshot of your application. The schema of the state will be leveraged as input to all nodes and edges in the graph. For example, this could be the chat history in your application and also enables things like [breakpoints](https://langchain-ai.github.io/langgraph/how-tos/human_in_the_loop/breakpoints/?h=breakpoi#how-to-add-breakpoints) for human-in-the-loop scenarios
 
-2. Nodes: Nodes execute work and will emit updates to the state. These are generally Python function that contain the logic for your agents
+2. Nodes: Nodes execute work and will emit updates to the state. These are generally Python functions that contain the logic for your agents
 
 3. Edges: These help determine which node should be executed next based on the current state of the application. These are the 'conditionals' of your application
 
