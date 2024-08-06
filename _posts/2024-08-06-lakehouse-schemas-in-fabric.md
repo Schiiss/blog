@@ -14,7 +14,7 @@ In this post I wanted to spend some time reviewing the preview feature [lakehous
 
 > **_NOTE:_**  Please note, this feature is in preview as of writing this post.
 
-## Life Prior to Schema Shortcuts
+## Life Prior to Lakehouse Schemas
 
 To understand the value this feature provides, we first need to understand what life was like before schema shortcuts. From my experience leveraging Fabric Notebooks, there have been a few instances where I wanted to query delta tables across lakehouses. If you open a notebook in Fabric you have the option to [attach to a lakehouse]( https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-notebook-explore#open-a-lakehouse-from-a-new-notebook) and set one as a default. In the example below, I have a lakehouse called ‘lakehouse1’ and I have loaded it with the sample public holidays table. If I query that table in the lakehouse it works just fine since I have set it as my default lakehouse.
 
@@ -34,7 +34,7 @@ I have found the [POSIX type](https://www.byteworks.com/resources/blog/understan
 
 ## Schema Shortcuts
 
-Now that we have schema shortcuts, we can take advantage of logically organizing our data and combine it with the power of shortcuts. This is a neat feature to have in the fabric lakehouse experience and I imagine Microsoft will continue to add features that will be very similar to what [Databricks Unity Catalog]( https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/) provides. Only time will tell if it will be as good or as featured as what databricks offers 😉.
+Now that we have lakehouse schemas, we can take advantage of logically organizing our data and combine it with the power of shortcuts. This is a neat feature to have in the fabric lakehouse experience and I imagine Microsoft will continue to add features that will be very similar to what [Databricks Unity Catalog]( https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/) provides. Only time will tell if it will be as good or as featured as what databricks offers 😉.
 
 To enable lakehouse schemas you must explicitly enable the option upon creation.
 
