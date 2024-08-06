@@ -34,7 +34,7 @@ I have found the [POSIX type](https://www.byteworks.com/resources/blog/understan
 
 ## Schema Shortcuts
 
-Now that we have schema shortcuts, we can take advantage of logically organizing and combine it with the power of shortcuts. This is a neat feature to have in the fabric lakehouse experience and I imagine Microsoft will continue to add features that will be very similar to what [Databricks Unity Catalog]( https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/) provides. Only time will tell if it will be as good or as featured as what databricks offers 😉.
+Now that we have schema shortcuts, we can take advantage of logically organizing our data and combine it with the power of shortcuts. This is a neat feature to have in the fabric lakehouse experience and I imagine Microsoft will continue to add features that will be very similar to what [Databricks Unity Catalog]( https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/) provides. Only time will tell if it will be as good or as featured as what databricks offers 😉.
 
 To enable lakehouse schemas you must explicitly enable the option upon creation.
 
