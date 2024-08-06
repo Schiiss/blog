@@ -28,7 +28,7 @@ As mentioned earlier, you can work around this by [shortcutting](https://learn.m
 
 Since lakehouse schemas did not exist prior to July 2024, shortcutting was done directly against folders or tables and we did not have the added benefit of leveraging schemas.
 
-I have a been a big fan of Unity Catalog and how it exposes [schemas](https://learn.microsoft.com/en-us/azure/databricks/schemas/) in it's interface. I like how the tool enables you to logically group and categorize data as well as manage access to those schemas and with lakehouse schemas coming to Fabric I imagine this is the direction Microsoft is taking as well.
+I have a been a big fan of Unity Catalog and how it exposes [schemas](https://learn.microsoft.com/en-us/azure/databricks/schemas/) in it's interface. I like how the tool enables you to logically group and categorize data as well as manage access to those schemas. With lakehouse schemas coming to Fabric I imagine this is the direction Microsoft is taking as well.
 
 I have found the [POSIX type](https://www.byteworks.com/resources/blog/understanding-osx-permissions/#:~:text=POSIX%20Permissions,-Unix%2FLinux%20systems&text=Each%203%2Dbit%20section%20has,%2C%20and%20execute%20(X).) permissions (ie: RWX) to be very limiting and when Unity Catalog came out, it was a game changer for securing and accessing your data. My hope is Microsoft will eventually support a similar model.
 
