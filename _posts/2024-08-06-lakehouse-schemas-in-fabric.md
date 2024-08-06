@@ -54,6 +54,6 @@ My hope is technology like OneLake data access roles will start to support more 
 
 Fabric is making good progress in terms of features on the lakehouse. Lakehouse schemas is a great addition to the platform however, if I contrast what Fabric currently has with what Databricks offers today with technology like Unity Catalog, it has a lot of catching up to do.
 
-I am still unclear how use cases such as row and column level masking (for example) can be applied on data that exists in a lakehouse in Fabric. I imagine things like this are on the ‘road map’ and coming soon to a Fabric near you.
+I am still unclear how use cases such as row and column level masking (for example) can be applied on data that exists in a lakehouse in Fabric. I imagine things like this are on the ‘road map’ and are coming soon to a Fabric near you.
 
 Thanks for reading!
