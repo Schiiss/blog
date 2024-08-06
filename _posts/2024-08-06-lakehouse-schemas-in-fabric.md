@@ -32,7 +32,7 @@ I have a been a big fan of Unity Catalog and how it exposes [schemas](https://le
 
 I have found the [POSIX type](https://www.byteworks.com/resources/blog/understanding-osx-permissions/#:~:text=POSIX%20Permissions,-Unix%2FLinux%20systems&text=Each%203%2Dbit%20section%20has,%2C%20and%20execute%20(X).) permissions (ie: RWX) to be very limiting and when Unity Catalog came out, it was a game changer for securing and accessing your data. My hope is Microsoft will eventually support a similar model.
 
-## Schema Shortcuts
+## Lakehouse Schemas
 
 Now that we have lakehouse schemas, we can take advantage of logically organizing our data and combine it with the power of shortcuts. This is a neat feature to have in the fabric lakehouse experience and I imagine Microsoft will continue to add features that will be very similar to what [Databricks Unity Catalog]( https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/) provides. Only time will tell if it will be as good or as featured as what databricks offers 😉.
 
