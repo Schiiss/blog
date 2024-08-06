@@ -42,7 +42,11 @@ To enable lakehouse schemas you must explicitly enable the option upon creation.
 
 You cannot enable this on existing lakehouses currently, only on news ones.
 
-There are a few [public preview]( https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-schemas#public-preview-limitations) limitations to be aware of and I would advise giving those a read before enabling this. A few noteworthy limitations right now are the SQL Analytics Endpoint is disabled until a fix is deployed so Semantic Model and Power BI will not work against this lakehouse until said ‘fix’ is deployed and like mentioned earlier ‘migration of existing non-schema Lakehouses to schema-based Lakehouses isn't supported’.
+There are a few [public preview]( https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-schemas#public-preview-limitations) limitations to be aware of and I would advise giving those a read before enabling this. A few noteworthy limitations right now:
+
+- The SQL Analytics Endpoint is disabled until a 'fix' is deployed
+
+- 'Migration of existing non-schema Lakehouses to schema-based Lakehouses isn't supported’
 
 While it does not seem possible to opt in for [OneLake data access roles](https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-data-access-roles) on a schema enabled lakehouse, I imagine you will be able to start securing your schemas via these roles in the future.
 
