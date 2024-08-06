@@ -16,7 +16,7 @@ In this post I wanted to spend some time reviewing the preview feature [lakehous
 
 ## Life Prior to Lakehouse Schemas
 
-To understand the value this feature provides, we first need to understand what life was like before schema shortcuts. From my experience leveraging Fabric Notebooks, there have been a few instances where I wanted to query delta tables across lakehouses. If you open a notebook in Fabric you have the option to [attach to a lakehouse]( https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-notebook-explore#open-a-lakehouse-from-a-new-notebook) and set one as a default. In the example below, I have a lakehouse called ‘lakehouse1’ and I have loaded it with the sample public holidays table. If I query that table in the lakehouse it works just fine since I have set it as my default lakehouse.
+To understand the value this feature provides, we first need to understand what life was like before lakehouse schemas. From my experience leveraging Fabric Notebooks, there have been a few instances where I wanted to query delta tables across lakehouses. If you open a notebook in Fabric you have the option to [attach to a lakehouse]( https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-notebook-explore#open-a-lakehouse-from-a-new-notebook) and set one as a default. In the example below, I have a lakehouse called ‘lakehouse1’ and I have loaded it with the sample public holidays table. If I query that table in the lakehouse it works just fine since I have set it as my default lakehouse.
 
 [![query_lakehouse1](/blog/assets/images/blog_images/lakehouse-schemas-in-fabric/query_lakehouse1.png)](/blog/assets/images/blog_images/lakehouse-schemas-in-fabric/query_lakehouse1.png){:target="_blank"}
 
