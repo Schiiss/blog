@@ -1,6 +1,6 @@
 ---
 title: "Lakehouse Schemas in Fabric"
-date: 2024-08-06T10:00:00-04:00
+date: 2024-08-06T6:00:00-04:00
 categories:
   - Fabric
 tags:
