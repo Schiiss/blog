@@ -26,7 +26,7 @@ SELECT
     description,
     ai_classify(description, ARRAY('horror', 'thriller', 'scifi', 'comedy')) AS category
 FROM
-    products
+    movies
 ```
 
 - [ai_gen](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/functions/ai_gen), which enables you to input your own prompt or instructions to the LLM.
