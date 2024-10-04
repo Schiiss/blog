@@ -11,7 +11,7 @@ tags:
 
 {% raw %}<img src="/blog/assets/images/blog_images/bicep-and-the-microsoft-graph/blog_image.jpg" alt="">{% endraw %}
 
-I am a bit late to the party on this announcement, but I wanted to share Microsoft’s announcement on May 21st, 2024 around the public preview of Bicep supporting the creation of Microsoft Graph objects. Integration with the Microsoft Graph was always an area I thought Terraform had the upper hand on. Terraform has supported [Microsoft Graph integration](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/microsoft-graph) for some time, and when scripting the creation of your environments in Azure, this is a really important feature. The ability to configure groups and access via code, alongside infrastructure creation, enables a repeatable and structured approach to managing security in the cloud.
+I am a bit late to the party on this news, but I wanted to share Microsoft’s announcement on May 21st, 2024 around the public preview of Bicep supporting the creation of Microsoft Graph objects. Integration with the Microsoft Graph was always an area I thought Terraform had the upper hand on. Terraform has supported [Microsoft Graph integration](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/microsoft-graph) for some time, and when scripting the creation of your environments in Azure, this is a really important feature. The ability to configure groups and access via code, alongside infrastructure creation, enables a repeatable and structured approach to managing security in the cloud.
 
 ## Supported Resources ☁️
 
