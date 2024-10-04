@@ -83,13 +83,15 @@ module storageAccount 'br/public:avm/res/storage/storage-account:0.9.1' = {
 }
 ```
 
+> **_NOTE:_**  You will notice in my bicep script where I deploy a storage account I am making reference to a remote module (ie: br/public:avm/res/storage/storage-account:0.9.1). This remote module is managed as apart of the [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) project which is an amazing initiative 'to consolidate and set the standards for what a good Infrastructure-as-Code module looks like'. These templates make it very easy to deploy infrastructure with code and ensure you are following best practices. I highly recommend checking these out!
+
 Jumping into Azure I can see the newly created storage account:
 
 [![storage_account](/blog/assets/images/blog_images/bicep-and-the-microsoft-graph/storage_account_azure.png)](/blog/assets/images/blog_images/bicep-and-the-microsoft-graph/storage_account_azure.png){:target="_blank"}
 
 And here is the RBAC assignment tab with the newly created 'bicep-group'
 
-[![storage_account_azure_rbac](/blog/assets/images/blog_images/bicep-and-the-microsoft-graph/storage_account_azure_rbac_azure.png)](/blog/assets/images/blog_images/bicep-and-the-microsoft-graph/storage_account_azure_rbac_azure.png){:target="_blank"}
+[![storage_account_azure_rbac](/blog/assets/images/blog_images/bicep-and-the-microsoft-graph/storage_account_azure_rbac.png)](/blog/assets/images/blog_images/bicep-and-the-microsoft-graph/storage_account_azure_rbac.png){:target="_blank"}
 
 ## Conclusion 🏁
 
