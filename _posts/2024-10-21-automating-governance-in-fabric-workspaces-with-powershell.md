@@ -130,7 +130,11 @@ For reference, here are the lakehouses in my workspace.
 
 [![lakehouses_in_fabric](/blog/assets/images/blog_images/automating-governance-in-fabric-workspaces-with-powershell/lakehouses_in_fabric.png)](/blog/assets/images/blog_images/automating-governance-in-fabric-workspaces-with-powershell/lakehouses_in_fabric.png){:target="_blank"}
 
-Now that we are pulling all the lakehouses in our workspace, let’s tie into that data variable containing all of them and check if they follow our naming standard. For demonstration purposes, I wrote the following regex statement: ^mycompany_lakehouse_(raw|enriched|enterprise)_[0-9]{2}$, to check the naming of the lakehouses.
+Now that we are pulling all the lakehouses in our workspace, let’s tie into that data variable containing all of them and check if they follow our naming standard. For demonstration purposes, I wrote the following regex statement to check the naming of the lakehouses:
+
+```powershell
+^mycompany_lakehouse_(raw|enriched|enterprise)_[0-9]{2}$
+```
 
 In this example, any of the below example names would be valid:
 
