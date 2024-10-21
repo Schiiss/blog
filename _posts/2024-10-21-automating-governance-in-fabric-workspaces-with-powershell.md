@@ -81,7 +81,7 @@ After running this, you should see the following prompt asking for both your cli
 
 [![script_credential_prompt](/blog/assets/images/blog_images/automating-governance-in-fabric-workspaces-with-powershell/script_credential_prompt.png)](/blog/assets/images/blog_images/automating-governance-in-fabric-workspaces-with-powershell/script_credential_prompt.png){:target="_blank"}
 
-If all goes well, you will get a JWT back from the login method that can be leveraged for subsequent API calls. Let’s extend out the PowerShell script to get all Lakehouses in our workspace.
+If all goes well, you will get a JWT back from the login method that can be leveraged for subsequent API calls. Let’s extend out the PowerShell script to get all Lakehouses in our workspace and validate they are named properly.
 
 ## Validating Lakehouse Names 👮
 
