@@ -220,6 +220,6 @@ In essence, ReAct helps the agent think critically about “what to do next” r
 
 I hope this implementation offers a concrete example of how generative AI can transform small and repetitive tasks in our lives. With this approach, there’s potential to scale up to more complex tasks, broadening the assistant's utility as an agent capable of managing more aspects of daily life.
 
-As a next step, I plan to dockerize and expose this application as an API that I can integrate with Alexa to automate this process further. This will enable me to say 'Hey Alexa, register John Doe's plate' and it will call out to my personal assistant to complete the task.
+As a next step, I plan to dockerize and expose this application as an API that I can integrate with Alexa to automate this process further. This will enable me to say 'Hey Alexa, register John Doe's plate' and it will call out to my personal assistant (via an API) to complete the task.
 
 Thanks for reading 😊
