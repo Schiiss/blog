@@ -149,7 +149,7 @@ As always, I have [open-sourced](https://github.com/Schiiss/blog/tree/master/cod
 
 Since we have mocked our API calls in Python, it is very easy to integrate it into LangGraph. In this case, I am going to leverage the [ReAct agent](https://langchain-ai.github.io/langgraph/concepts/agentic_concepts/#react-implementation) since we are going to want out application to select between a few tools to register a plate.
 
-The agent will be structured like this where it will take in some input (visitor information) and will select from a series of tool until the agent determines that the user's input has been addressed.
+The agent will be structured like this where it will take in some input (visitor information) and will select from a series of tools until the agent determines that the user's input has been addressed.
 
 [![agent_nodes](/blog/assets/images/blog_images/building-an-agentic-personal-assistant/agent_nodes.png)](/blog/assets/images/blog_images/building-an-agentic-personal-assistant/agent_nodes.png){:target="_blank"}
 
@@ -188,7 +188,7 @@ The agent can now use this tool to do a look up of a visitors license plate. For
 
 You will notice a few things in the above screenshot.
 
-1. We passed through out input as natural language with no further details besides the visitors name
+1. We passed through our input as natural language with no further details besides the visitors name
 
 2. The agent tried to register the plate by passing through incorrect parameters
 
@@ -220,6 +220,6 @@ In essence, ReAct helps the agent think critically about “what to do next” r
 
 I hope this implementation offers a concrete example of how generative AI can transform small and repetitive tasks in our lives. With this approach, there’s potential to scale up to more complex tasks, broadening the assistant's utility as an agent capable of managing more aspects of daily life.
 
-As a next step, I plan to dockerize and expose this application as an API that I can integrate with Alexa to automate this process further.
+As a next step, I plan to dockerize and expose this application as an API that I can integrate with Alexa to automate this process further. This will enable me to say 'Hey Alexa, register John Doe's plate' and it will call out to my personal assistant to complete the task.
 
 Thanks for reading 😊
