@@ -1,5 +1,5 @@
 ---
-title: "Building an Agentic Personal Assistant"
+title: "Building an Agentic Personal Assistant 🤖"
 date: 2024-11-12T10:00:00-04:00
 categories:
   - GenAI
