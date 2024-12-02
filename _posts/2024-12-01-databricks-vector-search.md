@@ -88,7 +88,7 @@ In Databricks there are two types of vector databases:
 
 - Direct Vector Access Index: This option is a bit more complicated and supports direct read and write of vectors and metadata. The developer is responsible for updating this. Here is a diagram from the Databricks documentation to articulate how it works:
 
-[![delta_sync_index_diagram](/blog/assets/images/blog_images/databricks-vector-search/delta_sync_index_diagram.png)](/blog/assets/images/blog_images/databricks-vector-search/delta_sync_index_diagram.png){:target="_blank"}
+[![direct_access_diagram](/blog/assets/images/blog_images/databricks-vector-search/direct_access_diagram.png)](/blog/assets/images/blog_images/databricks-vector-search/direct_access_diagram.png){:target="_blank"}
 
 1. User can query the vector database and return relevant results. Metadata filters can be added.
 
