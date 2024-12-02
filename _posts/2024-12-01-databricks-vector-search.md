@@ -22,7 +22,7 @@ Let's dive in!
 
 ## What is a Vector Database 🤷‍♂️
 
-Before jumping in to how to integrate with databricks vector search, I wanted to briefly cover what a vector database is along with the problems it solves.
+Before jumping in to how to integrate with Databricks vector search, I wanted to briefly cover what a vector database is along with the problems it solves.
 
 On the surface, a vector database [indexes and stores vector embeddings for fast retrieval and similarity search, with capabilities like CRUD operations, metadata filtering, horizontal scaling, and serverless](https://www.pinecone.io/learn/vector-database/). But what does that mean exactly?
 
@@ -58,7 +58,7 @@ These numbers are usually created using AI models.
 
 Think of a vector database as a super-smart filing system that knows how to group, compare, and retrieve data based on meaning or similarity rather than just keywords or IDs.
 
-I think databricks does a good job capturing the flow of getting your documents into a vector database:
+I think Databricks does a good job capturing the flow of getting your documents into a vector database:
 
 [![simple_vector_database_diagram](/blog/assets/images/blog_images/databricks-vector-search/simple_vector_database_diagram.png)](/blog/assets/images/blog_images/databricks-vector-search/simple_vector_database_diagram.png){:target="_blank"}
 
@@ -100,7 +100,7 @@ With the tight integration between the vector database and Unity Catalog, some v
 
 ## Prepping Databricks Direct Vector Access Index 🧱
 
-Jumping into databricks, let’s prep everything we need to get going with their vector database offering. If we navigate to the compute tab we can create an endpoint:
+Jumping into Databricks, let’s prep everything we need to get going with their vector database offering. If we navigate to the compute tab we can create an endpoint:
 
 [![create_databricks_vector_db_1](/blog/assets/images/blog_images/databricks-vector-search/create_databricks_vector_db_1.png)](/blog/assets/images/blog_images/databricks-vector-search/create_databricks_vector_db_1.png){:target="_blank"}
 
