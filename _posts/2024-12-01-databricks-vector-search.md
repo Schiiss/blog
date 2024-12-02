@@ -216,7 +216,7 @@ Now we can pass a query to our delta sync enabled index:
 
 ## Conclusion 🏁
 
-I hope this has provided a good overview on vector databases, specifically in the context of Databricks. Having these Mosaic GenAI offerings tightly integrated into the Databricks platform makes developing these types of applications much easier. Databricks is quickly becoming a ‘one stop shop’ tool that I can leverage for my data, GenAI, and ML needs.
+I hope this has provided a good overview on vector databases, specifically in the context of Databricks. Having these Mosaic GenAI offerings tightly integrated into the Databricks platform makes developing these types of applications much easier. Databricks is quickly becoming a ‘one stop shop’ tool that I can leverage for my data engineering, GenAI, and ML needs.
 
 Building RAG type applications is difficult and spending time on integration challenges does not allow you to focus on the value add work. The Databricks platform removes a lot of those integration headaches and allows you to focus on the value add development work!
 
