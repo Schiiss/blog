@@ -28,7 +28,7 @@ On the surface, a vector database [indexes and stores vector embeddings for fast
 
 A vector database is a specialized database designed to store, search, and manage data that’s represented as vectors. Here's what that means in simple terms:
 
-1. What are vectors?
+### What are vectors?
 
 A vector is just a list of numbers that represents something, like an image, a piece of text, or audio. These numbers capture the essence or features of the data in a way that a computer can understand.
 
@@ -40,7 +40,7 @@ For example:
 
 These numbers are usually created using AI models.
 
-2. What’s special about vector databases?
+### What’s special about vector databases?
 
 - Similarity search: The database can find items that are similar to a given vector. For example, if you store vectors for images of cats, it can quickly find other cat images that are most similar to a new image.
 
@@ -48,7 +48,7 @@ These numbers are usually created using AI models.
 
 - Handling high-dimensional data: Vectors often have hundreds or thousands of numbers (dimensions), and a vector database is built to manage this complexity.
 
-3. Why use it?
+### Why use it?
 
 - If you want to build a recommendation system, like suggesting movies or products similar to what a user likes.
 
