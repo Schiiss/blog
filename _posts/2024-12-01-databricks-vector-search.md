@@ -208,7 +208,7 @@ Similar to direct vector access example, we must initialize our Databricks vecto
 
 [![delta_sync_index_init](/blog/assets/images/blog_images/databricks-vector-search/delta_sync_index_init.png)](/blog/assets/images/blog_images/databricks-vector-search/delta_sync_index_init.png){:target="_blank"}
 
-Note, we provide a list of column names to get when doing the search. In this case, fare_amount and trip_distance.
+Note, we provide a list of column names to retrieve when doing the search. In this case, fare_amount and trip_distance.
 
 Now we can pass a query to our delta sync enabled index:
 
