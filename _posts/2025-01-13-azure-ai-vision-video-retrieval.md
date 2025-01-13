@@ -19,7 +19,7 @@ Join me as we dig into the Azure AI Vision API and how we can leverage it to ena
 
 ## Use Case Overview
 
-To maintain tribal knowledge, folks often record key business processes in Microsoft Teams and store them on SharePoint. However, efficiently indexing and searching these recordings remains a challenge, especially as team members transition roles. There is lots of tribal knowledge that exists within teams, and it is always a challenge to maintain this knowledge and folks move on to new roles. I think capturing recordings is a great way to archive this knowledge so long as you are doing them regularly and provide a mechanism to efficiently index/search them.
+To maintain tribal knowledge, folks often record key business processes in Microsoft Teams and store them on SharePoint. However, efficiently indexing and searching these recordings remains a challenge, especially as team members transition roles. There is lots of tribal knowledge that exists within teams, and it is always a challenge to maintain this knowledge as folks move on to new roles. I think capturing recordings is a great way to archive this knowledge so long as you are doing them regularly and provide a mechanism to efficiently index/search them.
 
 This is where Azure AI Vision comes into play. Azure AI Vision provides a mechanism to perform [retrieval over videos](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/reference-video-search) and I think is a good technology candidate to help make the videos searchable and more accessible.
 
