@@ -85,7 +85,7 @@ Let's have a look at the API to see how we can send content to the service.
 
 ## Content Understanding API 🧑‍💻
 
-I have created a [notebook](https://github.com/Schiiss/blog/tree/master/code/azure-ai-content-understanding/main.ipynb) to process a video and a PDF document (among other things) that you can use as a reference.
+I have created a [notebook](https://github.com/Schiiss/blog/tree/master/code/azure-ai-content-understanding/main.ipynb) to process a video and a PDF document that you can use as a reference.
 
 We can perform many of the operations in Content Understanding via the [REST API](https://learn.microsoft.com/en-us/rest/api/contentunderstanding/analyzers?view=rest-contentunderstanding-2024-12-01-preview). To analyze content, we need to follow the below steps:
 
@@ -210,7 +210,7 @@ Having a look at the Content Understanding documentation reveals that is the cor
 
 This is neat that we can perform RAG over multiple content types (ie: video and pdf).
 
-I also like the ['confidence score'](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview#key-benefits) that gets exposed when running a document through Content Understanding. This indicates Content Understanding level of confidence that the data extracted is correct. For example, the 'Date_Published' field for the PDF data extraction had a confidence score of 92.4%.
+I also like the ['confidence score'](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview#key-benefits) that gets exposed when running a document through Content Understanding. This indicates Content Understandings level of confidence that the data extracted is correct. For example, the 'Date_Published' field for the PDF data extraction had a confidence score of 92.4%.
 
 ```json
 "Date_Published": {
