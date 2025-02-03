@@ -75,17 +75,17 @@ I have leveraged this strategy to quickly mock LLM memory locally, but this does
 
 Advantages:
 
-✅ Quick to implement
+- Quick to implement
 
-✅ Sufficient for prototyping or single-user applications
+- Sufficient for prototyping or single-user applications
 
 Considerations:
 
-❌ Does not scale well for multiple users
+- Does not scale well for multiple users
 
-❌ Chat history is lost when the application restarts
+- Chat history is lost when the application restarts
 
-❌ Cannot persist conversations across sessions
+- Cannot persist conversations across sessions
 
 ## Strategy 2️⃣: Leveraging Document Databases
 
@@ -131,19 +131,17 @@ This approach scales much better and is a strategy I have used in a few producti
 
 Advantages:
 
-✅ Supports multiple users and sessions.
+- Supports multiple users and sessions.
 
-✅ Data is persistent, enabling conversations to resume at any time.
+- Data is persistent, enabling conversations to resume at any time.
 
-✅ Flexible schema for storing complex or evolving message data.
+- Flexible schema for storing complex or evolving message data.
 
 Considerations:
 
-❌ Increased latency compared to in-memory solutions.
+- Increased latency compared to in-memory solutions.
 
-❌ Requires additional infrastructure and may incur higher costs.
-
-❌ Potential for complexity when scaling to distributed systems.
+- Requires additional infrastructure and may incur higher costs.
 
 This strategy strikes a good balance between simplicity and scalability, making it ideal for most production chatbot applications. However, as the volume of chat history grows or you require more advanced features (e.g., searchability or analytics), you might need to explore additional strategies like vector databases.
 
@@ -169,19 +167,19 @@ Here are some takeaways from this strategy,
 
 Advantages:
 
-✅ Scalability: Works well even with a large number of past interactions.
+- Scalability: Works well even with a large number of past interactions.
 
-✅ More relevant responses: Instead of just retrieving the last few messages, the system retrieves information that is most contextually similar to the current query.
+- More relevant responses: Instead of just retrieving the last few messages, the system retrieves information that is most contextually similar to the current query.
 
-✅ Handles long-term memory: Even if a conversation spans multiple sessions, relevant details can still be recalled.
+- Handles long-term memory: Even if a conversation spans multiple sessions, relevant details can still be recalled.
 
 Considerations:
 
-❌ Requires efficient retrieval mechanisms to avoid high latency.
+- Requires efficient retrieval mechanisms to avoid high latency.
 
-❌ Embedding quality and vector search parameters impact the accuracy of retrieved results.
+- Embedding quality and vector search parameters impact the accuracy of retrieved results.
 
-❌ May need metadata filtering to ensure the retrieval is scoped to the right topic, user, or session.
+- May need metadata filtering to ensure the retrieval is scoped to the right topic, user, or session.
 
 This approach significantly improves chatbot memory by making past interactions searchable based on meaning, rather than just time-based proximity.
 
