@@ -99,11 +99,11 @@ Here’s an overview of how this strategy works:
 
 2. The application fetches the relevant chat history from the document database using a unique identifier (e.g., a user_id or session_id).
 
-3. The retrieved chat history is combined with the latest user input to craft a prompt.
+3. The retrieved chat history is combined with the latest user input to craft a prompt and sent to the LLM.
 
 4. Once the LLM responds, both the user input and the AI response are appended to the chat history, and the updated conversation is stored back in the document database.
 
-5. Send to LLM: The prompt is forwarded to the LLM for a response.
+5. A response is provided back to the user.
 
 Here’s a simple example of how you might structure chat history in a document database like MongoDB:
 
@@ -157,9 +157,9 @@ This effectively looks the same as strategy 2, but this time we are swapping a d
 
 1. The user sends a message to the application.
 
-2. The app queries the vector database, searching for past interactions that are semantically similar to the current message. This ensures the model retrieves contextually relevant information instead of just the last few messages.
+2. The app queries the vector database, searching for past interactions that are semantically similar to the current message. This ensures the model retrieves contextually relevant information instead of just the last few messages. This information is injected into a prompt.
 
-3. The retrieved context is formatted into a prompt and sent to the LLM alongside the user's latest message.
+3. The formatted prompt is sent to the LLM.
 
 4. The LLM processes the prompt + user input and generates a response.
 
