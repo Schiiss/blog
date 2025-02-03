@@ -99,7 +99,7 @@ Here’s an overview of how this strategy works:
 
 2. The application fetches the relevant chat history from the document database using a unique identifier (e.g., a user_id or session_id).
 
-3. The retrieved chat history is combined with the latest user input to craft a prompt and sent to the LLM.
+3. The retrieved chat history is combined with the latest user input to craft a prompt and send it to the LLM.
 
 4. Once the LLM responds, both the user input and the AI response are appended to the chat history, and the updated conversation is stored back in the document database.
 
