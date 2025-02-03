@@ -13,7 +13,7 @@ Building production chatbots requires more than just a wrapper on top of an LLMs
 
 LLMs, by default, do not have memory. Each API call is stateless, meaning the model does not retain any knowledge of past interactions. This poses a challenge when building chat applications, as users expect the AI to remember previous messages, maintain context, and provide coherent responses across turns.
 
-To bridge this gap, developers must implement their own memory management strategies. These strategies vary in complexity—from simple in-memory storage to persistent databases—each with its own trade-offs in terms of scalability, performance, and cost.
+To bridge this gap, developers must implement their own memory management strategies. These strategies vary in complexity from simple in-memory storage to persistent databases each with its own trade-offs in terms of scalability, performance, and cost.
 
 There is no one size fits all strategy and the intent of this blog is to step you through various approaches and you can decide which will work best for your use case.
 
