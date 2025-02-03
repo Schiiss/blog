@@ -53,7 +53,7 @@ For longer conversations or applications that require persistent memory, a datab
 
 ❌ Requires additional infrastructure and storage management
 
-❌ Increased retrieval latency compared to in-memory solutions
+❌ Increased retrieval latency
 
 A common approach is to fetch recent messages from the database before sending a request to the LLM, ensuring relevant context is maintained while avoiding excessive data retrieval.
 
