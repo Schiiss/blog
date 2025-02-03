@@ -89,9 +89,9 @@ This first strategy involves using an in-memory data structure (an array) to man
 
 3. The prompt is sent to an LLM.
 
-4. The LLM responds and the AI message is appended to the array.
+4. The LLM responds and the users message as well as the AI message is appended to the array.
 
-Below are some key takeaways from the strategy,
+I have leveraged this strategy to quickly mock LLM memory locally, but this does scale very well. Here are a few things to consider when leveraging this approach.
 
 Advantages:
 
@@ -147,7 +147,7 @@ Here’s a simple example of how you might structure chat history in a document 
 }
 ```
 
-Below are some key takeaways from the strategy,
+This approach scales much better and is a strategy I have used in a few production scenarios. Here are some key takeaways,
 
 Advantages:
 
@@ -185,7 +185,7 @@ This effectively looks the same as strategy 2, but this time we are swapping a d
 
 5. The app sends the response back to the user, completing the interaction. The latest conversation is embedded and stored in the vector database for future reference.
 
-Below are some key takeaways from the strategy,
+Here are some takeaways from this strategy,
 
 Advantages:
 
