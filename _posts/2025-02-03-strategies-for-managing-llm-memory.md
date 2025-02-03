@@ -25,7 +25,7 @@ When designing a chatbot with memory, there are several factors to consider, inc
 
 ### Using LLMs with Larger Context Windows
 
-LLMs process each interaction based on the provided context at runtime. Most models have a fixed context window, ranging from 128K tokens (about 96,000 words) to 2 million tokens (about 1,500,000 words). GPT-4o currently supports 128K tokens, while models like Gemini 1.5 Pro comes with 2 million tokens.
+LLMs process each interaction based on the provided context at runtime. Most models have a fixed context window, ranging from 128K tokens (about 96,000 words) to 1 million tokens (about 750,000 words). GPT-4o currently supports 128K tokens, while models like Gemini 1.5 Pro comes with 1 million tokens.
 
 A larger context window allows more chat history to be included in a single request, improving coherence in conversations. However, using large context windows comes with trade-offs:
 
