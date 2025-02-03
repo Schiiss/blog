@@ -91,8 +91,6 @@ This first strategy involves using an in-memory data structure (an array) to man
 
 4. The LLM responds and the AI message is appended to the array.
 
-This cycle repeats as many times as messages in the conversation.
-
 Below are some key takeaways from the strategy,
 
 Advantages:
