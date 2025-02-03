@@ -93,7 +93,7 @@ This first strategy involves using an in-memory data structure (an array) to man
 
 This cycle repeats as many times as messages in the conversation.
 
-### Takeaways
+Below are some key takeaways from the strategy,
 
 Advantages:
 
@@ -149,7 +149,7 @@ Here’s a simple example of how you might structure chat history in a document 
 }
 ```
 
-### Takeaways
+Below are some key takeaways from the strategy,
 
 Advantages:
 
@@ -187,7 +187,7 @@ This effectively looks the same as strategy 2, but this time we are swapping a d
 
 5. The app sends the response back to the user, completing the interaction. The latest conversation is embedded and stored in the vector database for future reference.
 
-## Takeaways
+Below are some key takeaways from the strategy,
 
 Advantages:
 
