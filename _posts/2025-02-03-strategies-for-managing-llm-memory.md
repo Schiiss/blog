@@ -171,11 +171,11 @@ Here are some takeaways from this strategy,
 
 Advantages:
 
-- Scalability: Works well even with a large number of past interactions.
+- Works well even with a large number of past interactions.
 
-- More relevant responses: Instead of just retrieving the last few messages, the system retrieves information that is most contextually similar to the current query.
+- Instead of just retrieving the last few messages, the system retrieves information that is most contextually similar to the current query.
 
-- Handles long-term memory: Even if a conversation spans multiple sessions, relevant details can still be recalled.
+- Even if a conversation spans multiple sessions, relevant details can still be recalled.
 
 Considerations:
 
