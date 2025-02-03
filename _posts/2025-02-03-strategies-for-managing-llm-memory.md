@@ -194,3 +194,5 @@ Choosing the right strategy for managing chat history depends on your specific u
 As your user volume grows, evolving towards more sophisticated techniques such as vector databases can enhance efficiency and retrieval without unnecessary complexity upfront. Balancing performance, cost, and maintainability is key to selecting the right approach.
 
 I hope this blog has provided a clear overview of different strategies and how they can be applied. With a solid understanding of these options, you can make informed decisions to optimize your chatbot's performance and user experience.
+
+Thanks for reading!
