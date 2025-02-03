@@ -29,15 +29,15 @@ LLMs process interactions based on the provided context within their fixed token
 
 A larger context window allows for extended conversation memory, improving coherence, but comes with trade-offs:
 
-Pros: Maintains full conversation history (within limits), avoids external storage complexity.
+- Pros: Maintains full conversation history (within limits), avoids external storage complexity.
 
-Cons: Higher token costs, increased latency, and constraints based on model limits.
+- Cons: Higher token costs, increased latency, and constraints based on model limits.
 
 To optimize memory usage, developers should curate which messages are included in the prompt, summarize past exchanges, and truncate older, less relevant content.
 
 ### Storing and Retrieving Chat History 🗣️
 
-For persistent memory beyond an LLM’s context window, external storage is necessary. The right database choice depends on the application's complexity and retrieval needs:
+For persistent memory beyond an LLMs context window, external storage is necessary. The right database choice depends on the application's complexity and retrieval needs:
 
 Structured Storage (Document & Vector Databases):
 
