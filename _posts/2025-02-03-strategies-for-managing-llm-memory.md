@@ -19,11 +19,11 @@ There is no one size fits all strategy and the intent of this blog is to step yo
 
 This will be a conceptual guide but if you would like me to build out one of these strategies in a dedicated blog, please let me know!
 
-## Considerations
+## Considerations 🤔
 
 When designing a chatbot with memory, several factors influence how effectively it can retain and retrieve past interactions. These include how much context to store, where to store conversations, and how to efficiently fetch relevant history. Below are key considerations for implementing LLM memory.
 
-### Managing Context with LLMs
+### Managing Context with LLMs 🤖🗨️
 
 LLMs process interactions based on the provided context within their fixed token limit. Most models support context windows from 128K tokens (~96,000 words) to 1 million tokens (~750,000 words). For example, GPT-4o supports 128K tokens, while Gemini 1.5 Pro offers 1 million tokens.
 
@@ -35,16 +35,17 @@ Cons: Higher token costs, increased latency, and constraints based on model limi
 
 To optimize memory usage, developers should curate which messages are included in the prompt, summarize past exchanges, and truncate older, less relevant content.
 
-## Storing and Retrieving Chat History
+### Storing and Retrieving Chat History 🗣️
 
 For persistent memory beyond an LLM’s context window, external storage is necessary. The right database choice depends on the application's complexity and retrieval needs:
 
-### Structured Storage (Document & Vector Databases)
+Structured Storage (Document & Vector Databases):
 
 - Document databases store structured chat logs and enable retrieving recent messages efficiently. A common approach is fetching the last N messages to maintain context.
-- Vector databases store past interactions as embeddings, allowing retrieval of semantically similar messages rather than just the most recent ones. This is useful for assistants that need long-term memory without bloating the LLM prompt. (Learn more about vector search here)
 
-### Other key factors to consider
+- Vector databases store past interactions as embeddings, allowing retrieval of semantically similar messages rather than just the most recent ones. This is useful for assistants that need long-term memory without bloating the LLM prompt. (Learn more about vector search [here](https://schiiss.github.io/blog/data%20engineering/databricks-vector-search/#what-is-a-vector-database-%EF%B8%8F))
+
+### Other key factors to consider 🤔🤖
 
 - Scalability – How well the solution handles increasing users and message history.
 
@@ -54,7 +55,7 @@ For persistent memory beyond an LLM’s context window, external storage is nece
 
 Let's jump into a few practical strategies I have leveraged for memory management with LLMs.
 
-## Strategy 1: Leveraging Arrays
+## Strategy 1: Leveraging Arrays 1️⃣
 
 Let’s start with the simplest way to manage chat history, which might be a good fit for testing or single-user scenarios.
 
@@ -86,7 +87,7 @@ Considerations:
 
 ❌ Cannot persist conversations across sessions
 
-## Strategy 2: Leveraging Document Databases
+## Strategy 2: Leveraging Document Databases 2️⃣
 
 As your chatbot moves beyond simple prototypes and starts serving multiple users, storing chat history in a document database becomes a logical next step. This strategy allows you to persist chat data and support multiple users without losing track of conversations. Document databases, such as MongoDB, DynamoDB, or Couchbase, are particularly well-suited for this task due to their flexible, schema-less nature.
 
@@ -146,7 +147,7 @@ Considerations:
 
 This strategy strikes a good balance between simplicity and scalability, making it ideal for most production chatbot applications. However, as the volume of chat history grows or you require more advanced features (e.g., searchability or analytics), you might need to explore additional strategies like vector databases.
 
-## Strategy 3: Leveraging Vector Databases
+## Strategy 3: Leveraging Vector Databases 3️⃣
 
 Unlike strategy 2, which retrieves a fixed number of previous messages (e.g., the last 10 interactions), vector databases enable a more semantic approach to memory. Instead of relying on strict chronological order, this method retrieves the most relevant past messages based on their meaning.
 
@@ -184,7 +185,7 @@ Considerations:
 
 This approach significantly improves chatbot memory by making past interactions searchable based on meaning, rather than just time-based proximity.
 
-## Conclusion
+## Conclusion 🏁
 
 Choosing the right strategy for managing chat history depends on your specific use case and long-term goals. Each approach whether it's using an in-memory array, a document database, or a vector database offers unique advantages and trade-offs. Simple solutions work well for lightweight applications or prototypes, while more advanced architectures enable features like personalization, semantic search, and scalability.
 
