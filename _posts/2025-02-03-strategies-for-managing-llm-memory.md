@@ -25,7 +25,7 @@ When designing a chatbot with memory, there are several factors to consider, inc
 
 ### Using LLMs with Larger Context Windows
 
-LLMs process each interaction based on the provided context at runtime. Most models have a fixed context window, ranging from 128K tokens (about 96,000 words) to 1 million tokens (about 750,000 words). GPT-4o currently supports 128K tokens, while models like Gemini 1.5 Pro comes with 1 million tokens.
+LLMs process each interaction based on the provided context sent to the API in the prompt. Most models have a fixed context window, ranging from 128K tokens (about 96,000 words) to 1 million tokens (about 750,000 words). GPT-4o currently supports 128K tokens, while models like Gemini 1.5 Pro comes with 1 million tokens.
 
 A larger context window allows more chat history to be included in a single request, improving coherence in conversations. However, using large context windows comes with trade-offs:
 
@@ -207,8 +207,8 @@ This approach significantly improves chatbot memory by making past interactions 
 
 ## Conclusion
 
-Choosing the right strategy for managing chat history depends on your specific use case and long-term goals. Each approach—whether it's using an in-memory array, a document database, or a vector database—offers unique advantages and trade-offs. Simple solutions work well for lightweight applications or prototypes, while more advanced architectures enable features like personalization, semantic search, and scalability.
+Choosing the right strategy for managing chat history depends on your specific use case and long-term goals. Each approach whether it's using an in-memory array, a document database, or a vector database offers unique advantages and trade-offs. Simple solutions work well for lightweight applications or prototypes, while more advanced architectures enable features like personalization, semantic search, and scalability.
 
-As your user volume grows, evolving towards more sophisticated techniques such as vector databases—can enhance efficiency and retrieval without unnecessary complexity upfront. Balancing performance, cost, and maintainability is key to selecting the right approach.
+As your user volume grows, evolving towards more sophisticated techniques such as vector databases can enhance efficiency and retrieval without unnecessary complexity upfront. Balancing performance, cost, and maintainability is key to selecting the right approach.
 
 I hope this blog has provided a clear overview of different strategies and how they can be applied. With a solid understanding of these options, you can make informed decisions to optimize your chatbot's performance and user experience.
