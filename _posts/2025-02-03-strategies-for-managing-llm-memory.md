@@ -55,7 +55,7 @@ Structured Storage (Document & Vector Databases):
 
 Let's jump into a few practical strategies I have leveraged for memory management with LLMs.
 
-## Strategy 1: Leveraging Arrays 1️⃣
+## Strategy 1️⃣: Leveraging Arrays 1️⃣
 
 Let’s start with the simplest way to manage chat history, which might be a good fit for testing or single-user scenarios.
 
@@ -87,7 +87,7 @@ Considerations:
 
 ❌ Cannot persist conversations across sessions
 
-## Strategy 2: Leveraging Document Databases 2️⃣
+## Strategy 2️⃣: Leveraging Document Databases 2️⃣
 
 As your chatbot moves beyond simple prototypes and starts serving multiple users, storing chat history in a document database becomes a logical next step. This strategy allows you to persist chat data and support multiple users without losing track of conversations. Document databases, such as MongoDB, DynamoDB, or Couchbase, are particularly well-suited for this task due to their flexible, schema-less nature.
 
@@ -147,7 +147,7 @@ Considerations:
 
 This strategy strikes a good balance between simplicity and scalability, making it ideal for most production chatbot applications. However, as the volume of chat history grows or you require more advanced features (e.g., searchability or analytics), you might need to explore additional strategies like vector databases.
 
-## Strategy 3: Leveraging Vector Databases 3️⃣
+## Strategy 3️⃣: Leveraging Vector Databases 3️⃣
 
 Unlike strategy 2, which retrieves a fixed number of previous messages (e.g., the last 10 interactions), vector databases enable a more semantic approach to memory. Instead of relying on strict chronological order, this method retrieves the most relevant past messages based on their meaning.
 
