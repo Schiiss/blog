@@ -35,15 +35,15 @@ A larger context window allows more chat history to be included in a single requ
 
 ❌ Higher costs as longer inputs increase token usage
 
-❌ Higher latency due to increased processing time
+❌ Higher latency from API due to longer prompt the LLM has to interpret
 
-❌ Limited by the model’s maximum token length
+❌ Limited by the LLMs maximum token length
 
-To optimize memory usage, developers should carefully curate which messages are included in the prompt and summarize past exchanges or truncating older, less relevant messages can help balance cost and efficiency.
+To optimize LLM usage, developers should carefully curate which messages are included in the prompt and summarize past exchanges or truncating older, less relevant messages can help balance cost and efficiency.
 
 ### Storing Chat History in a Database
 
-For longer conversations or applications that require persistent memory, a database is often necessary. Document databases like MongoDB are well-suited for storing structured chat history.
+For longer conversations or applications that require persistent memory, a database is often necessary. Document databases are well-suited for storing structured chat history.
 
 ✅ Enables long-term memory across sessions
 
@@ -55,15 +55,13 @@ For longer conversations or applications that require persistent memory, a datab
 
 ❌ Increased retrieval latency
 
-A common approach is to fetch recent messages from the database before sending a request to the LLM, ensuring relevant context is maintained while avoiding excessive data retrieval.
+A common approach is to fetch recent messages (ie: the last 10) from the database before sending a request to the LLM, ensuring relevant context is maintained while avoiding excessive data retrieval. These recent messages are plugged into the prompt to ensure the LLM has the context from the conversation.
 
 ### Using Vector Databases for Semantic Memory
 
-For applications requiring deep memory retention and contextual understanding, vector databases like Pinecone allow storing past conversations as embeddings. This enables retrieving semantically relevant messages rather than just recent messages.
+For applications requiring deep memory retention and contextual understanding, vector databases allow storing past conversations as embeddings. This enables retrieving semantically relevant messages rather than just recent messages. For those unfamiliar with vector databases, I have a blog on that [here](https://schiiss.github.io/blog/data%20engineering/databricks-vector-search/).
 
 ✅ Efficiently retrieves relevant past conversations using similarity search
-
-✅ Scales better than traditional databases for large datasets
 
 ✅ Can filter and rank stored interactions based on metadata
 
@@ -71,9 +69,9 @@ For applications requiring deep memory retention and contextual understanding, v
 
 ❌ Higher infrastructure costs compared to basic document storage
 
-Vector databases are particularly useful for assistants that need to recall specific details from past interactions without storing the entire conversation history in the LLM’s prompt.
+Vector databases are particularly useful for assistants that need to recall specific details from past interactions without storing the entire conversation history in the LLMs prompt.
 
-Let's jump into a few practical strategies for memory management with LLMs.
+Let's jump into a few practical strategies I have leveraged for memory management with LLMs.
 
 ## Strategy 1: Leveraging Arrays
 
