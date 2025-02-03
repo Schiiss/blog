@@ -87,7 +87,7 @@ This first strategy involves using an in-memory data structure (an array) to man
 
 2. The latest input will be passed to a carefully crafted prompt along with the chat history.
 
-3. The prompt is forwarded to an LLM.
+3. The prompt is sent to an LLM.
 
 4. The LLM responds and the AI message is appended to the array.
 
