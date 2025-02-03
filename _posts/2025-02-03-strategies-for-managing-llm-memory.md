@@ -159,7 +159,7 @@ This effectively looks the same as strategy 2, but this time we are swapping a d
 
 3. The formatted prompt is sent to the LLM.
 
-4. The LLM processes the prompt + user input and generates a response.
+4. The LLM processes the prompt as well as the user input and generates a response.
 
 5. The app sends the response back to the user, completing the interaction. The latest conversation is embedded and stored in the vector database for future reference.
 
