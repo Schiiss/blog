@@ -9,7 +9,7 @@ tags:
 
 {% raw %}<img src="/blog/assets/images/blog_images/strategies-for-managing-llm-memory/blog_image.png" alt="">{% endraw %}
 
-Building production chatbots requires more than just a wrapper on top of an LLMs API. Due to the popularity of ChatGPT, users have come to expect a robust chat experience that considers conversation history and the users intent. In this blog I wanted to step through a few strategies I have employed in the past for managing chat history, what worked well, and what didn’t.
+Building production chatbots requires more than just a wrapper on top of an LLMs API. Due to the popularity of ChatGPT, users have come to expect a robust chat experience that considers conversation history and the users intent. In this blog I wanted to step through a few strategies I have employed in the past for managing chat history along with some advantages and considerations.
 
 LLMs, by default, do not have memory. Each API call is stateless, meaning the model does not retain any knowledge of past interactions. This poses a challenge when building chat applications, as users expect the AI to remember previous messages, maintain context, and provide coherent responses across turns.
 
