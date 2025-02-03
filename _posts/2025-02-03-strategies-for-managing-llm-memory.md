@@ -21,55 +21,36 @@ This will be a conceptual guide but if you would like me to build out one of the
 
 ## Considerations
 
-When designing a chatbot with memory, there are several factors to consider, including how much context to retain, where to store past conversations, and how to retrieve relevant history efficiently. Below are some key considerations when implementing LLM memory.
+When designing a chatbot with memory, several factors influence how effectively it can retain and retrieve past interactions. These include how much context to store, where to store conversations, and how to efficiently fetch relevant history. Below are key considerations for implementing LLM memory.
 
-### Using LLMs with Larger Context Windows
+### Managing Context with LLMs
 
-LLMs process each interaction based on the provided context in the prompt. Most models have a fixed context window, ranging from 128K tokens (about 96,000 words) to 1 million tokens (about 750,000 words). GPT-4o currently supports 128K tokens, while models like Gemini 1.5 Pro comes with 1 million tokens.
+LLMs process interactions based on the provided context within their fixed token limit. Most models support context windows from 128K tokens (~96,000 words) to 1 million tokens (~750,000 words). For example, GPT-4o supports 128K tokens, while Gemini 1.5 Pro offers 1 million tokens.
 
-A larger context window allows more chat history to be included in a single request, improving coherence in conversations. However, using large context windows comes with trade-offs:
+A larger context window allows for extended conversation memory, improving coherence, but comes with trade-offs:
 
-✅ Maintains full conversation history (as long as it fits in the window)
+Pros: Maintains full conversation history (within limits), avoids external storage complexity.
 
-✅ No need for external storage or retrieval mechanisms
+Cons: Higher token costs, increased latency, and constraints based on model limits.
 
-❌ Higher costs as longer inputs increase token usage
+To optimize memory usage, developers should curate which messages are included in the prompt, summarize past exchanges, and truncate older, less relevant content.
 
-❌ Higher latency from API due to longer prompt the LLM has to interpret
+## Storing and Retrieving Chat History
 
-❌ Limited by the LLMs maximum token length
+For persistent memory beyond an LLM’s context window, external storage is necessary. The right database choice depends on the application's complexity and retrieval needs:
 
-To optimize LLM usage, developers should carefully curate which messages are included in the prompt and summarize past exchanges or truncating older, less relevant messages can help balance cost and efficiency.
+### Structured Storage (Document & Vector Databases)
 
-### Storing Chat History in a Database
+- Document databases store structured chat logs and enable retrieving recent messages efficiently. A common approach is fetching the last N messages to maintain context.
+- Vector databases store past interactions as embeddings, allowing retrieval of semantically similar messages rather than just the most recent ones. This is useful for assistants that need long-term memory without bloating the LLM prompt. (Learn more about vector search here)
 
-For longer conversations or applications that require persistent memory, a database is often necessary. Document databases are well-suited for storing structured chat history.
+### Other key factors to consider
 
-✅ Enables long-term memory across sessions
+- Scalability – How well the solution handles increasing users and message history.
 
-✅ Supports multiple users and concurrent conversations
+- Retrieval Speed – Ensuring stored messages can be accessed efficiently without slowing responses.
 
-✅ Scalable as chat history grows
-
-❌ Requires additional infrastructure and storage management
-
-❌ Increased retrieval latency
-
-A common approach is to fetch recent messages (ie: the last 10) from the database before sending a request to the LLM, ensuring relevant context is maintained while avoiding excessive data retrieval. These recent messages are plugged into the prompt to ensure the LLM has the context from the conversation.
-
-### Using Vector Databases for Semantic Memory
-
-For applications requiring deep memory retention and contextual understanding, vector databases allow storing past conversations as embeddings. This enables retrieving semantically relevant messages rather than just recent messages. For those unfamiliar with vector databases, I have a blog on that [here](https://schiiss.github.io/blog/data%20engineering/databricks-vector-search/).
-
-✅ Efficiently retrieves relevant past conversations using similarity search
-
-✅ Can filter and rank stored interactions based on metadata
-
-❌ More complex to implement and tune for optimal retrieval
-
-❌ Higher infrastructure costs compared to basic document storage
-
-Vector databases are particularly useful for assistants that need to recall specific details from past interactions without storing the entire conversation history in the LLMs prompt.
+- Privacy & Security – Storing chat data securely, especially in regulated industries
 
 Let's jump into a few practical strategies I have leveraged for memory management with LLMs.
 
