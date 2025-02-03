@@ -23,7 +23,7 @@ This will be a conceptual guide but if you would like me to build out one of the
 
 When designing a chatbot with memory, there are several factors to consider, including how much context to retain, where to store past conversations, and how to retrieve relevant history efficiently. Below are some key considerations when implementing LLM memory.
 
-- Using LLMs with Larger Context Windows
+### Using LLMs with Larger Context Windows
 
 LLMs process each interaction based on the provided context at runtime. Most models have a fixed context window, ranging from 128K tokens (about 96,000 words) to 2 million tokens (about 1,500,000 words). GPT-4o currently supports 128K tokens, while models like Gemini 1.5 Pro comes with a 2-million tokens.
 
@@ -41,7 +41,7 @@ A larger context window allows more chat history to be included in a single requ
 
 To optimize memory usage, developers should carefully curate which messages are included in the prompt and summarize past exchanges or truncating older, less relevant messages can help balance cost and efficiency.
 
-- Storing Chat History in a Database
+### Storing Chat History in a Database
 
 For longer conversations or applications that require persistent memory, a database is often necessary. Document databases like MongoDB are well-suited for storing structured chat history.
 
@@ -57,7 +57,7 @@ For longer conversations or applications that require persistent memory, a datab
 
 A common approach is to fetch recent messages from the database before sending a request to the LLM, ensuring relevant context is maintained while avoiding excessive data retrieval.
 
-- Using Vector Databases for Semantic Memory
+### Using Vector Databases for Semantic Memory
 
 For applications requiring deep memory retention and contextual understanding, vector databases like Pinecone allow storing past conversations as embeddings. This enables retrieving semantically relevant messages rather than just recent messages.
 
