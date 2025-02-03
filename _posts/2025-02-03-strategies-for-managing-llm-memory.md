@@ -71,6 +71,8 @@ This first strategy involves using an in-memory data structure (an array) to man
 
 4. The LLM responds and the AI message is appended to the array.
 
+5. A response is provided to the user.
+
 I have leveraged this strategy to quickly mock LLM memory locally, but this does scale very well. Here are a few things to consider when leveraging this approach.
 
 Advantages:
