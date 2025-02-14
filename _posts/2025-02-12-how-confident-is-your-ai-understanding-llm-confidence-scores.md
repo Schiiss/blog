@@ -138,6 +138,6 @@ In this post, we explored:
 
 I want to extend a huge thanks to the [VATBox llm-confidence project](https://github.com/VATBox/llm-confidence/blob/master/llm_confidence/logprobs_handler.py). Their implementation of log probability processing was incredibly helpful in understanding how to apply this in Python. 🚀
 
-By integrating confidence scores into structured extraction, we gain an additional layer of interpretability—helping us build more trustworthy AI applications!
+By integrating confidence scores into structured extraction, we gain an additional layer of interpretability, helping us build more trustworthy AI applications!
 
 Thanks for reading 😀
