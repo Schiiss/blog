@@ -5,6 +5,8 @@ categories:
   - GenAI
 tags:
   - LLMs
+  - Cyber Security
+  - Python
 ---
 
 {% raw %}<img src="/blog/assets/images/blog_images/cyber-security-for-genai-apps-using-pyrit/blog_image.png" alt="">{% endraw %}
