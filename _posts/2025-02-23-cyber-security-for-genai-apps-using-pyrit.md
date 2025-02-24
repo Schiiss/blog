@@ -33,7 +33,7 @@ The OWASP Top 10 is a well-known framework for identifying security risks in tra
 
 At the end of the day, most of these vulnerabilities relate to data security. OWASP mentions that 'Data is the “lifeblood” of all LLMs'. I completely agree with this statement. Many of the patterns I am seeing today include the ever-popular RAG (ie: retrieval augmented generation) pattern, which, in most cases, takes a copy of data existing somewhere else and puts it into a vector database to perform retrieval on it. Upstream access controls should ideally be honoured inside your vector database. This is much easier said then done.
 
-The good news is that many of the same security principles that apply to traditional applications are still relevant for LLM-powered systems. Fundamental measures like encryption, access control, and network security remain essential in protecting data—whether it's structured application data or the unstructured inputs and outputs of an LLM.
+The good news is that many of the same security principles that apply to traditional applications are still relevant for LLM-powered systems. Fundamental measures like encryption, access control, and network security remain essential in protecting data, whether it's structured application data or the unstructured inputs and outputs of an LLM.
 
 For example:
 
