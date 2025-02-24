@@ -1,6 +1,6 @@
 ---
 title: "Cyber Security for GenAI Apps Using PyRIT 🤖🦜🏴‍☠️"
-date: tbd
+date: 2025-02-23T10:00:00-04:00
 categories:
   - GenAI
 tags:
