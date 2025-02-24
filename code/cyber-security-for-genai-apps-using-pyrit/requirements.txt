@@ -1,0 +1,3 @@
+openai==1.63.2
+pyrit==0.6.0
+python-dotenv==1.0.1

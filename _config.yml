@@ -14,10 +14,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Conner Schiissler - GenAI - DevOps - Cloud - Data
-email: conner.schiissler@gmail.com
 repository: Schiiss/blog
 description: >- # this means to ignore newlines until "baseurl:"
-  A blog to share the things and stuff I have learnt 
+  Tech Blog
 github_username: Schiiss
 minimal_mistakes_skin: dark
 search: true
