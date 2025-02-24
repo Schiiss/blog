@@ -168,7 +168,7 @@ PyRIT can help simulate this attack and determine if your app is vulnerable. In 
 
 [![code_sample_1](/blog/assets/images/blog_images/cyber-security-for-genai-apps-using-pyrit/code_sample_1.png)](/blog/assets/images/blog_images/cyber-security-for-genai-apps-using-pyrit/code_sample_1.png){:target="_blank"}
 
-Orchestrating the attacks returns the following results:
+Orchestrating the attack returns the following results:
 
 [![code_sample_1](/blog/assets/images/blog_images/cyber-security-for-genai-apps-using-pyrit/code_sample_2.png)](/blog/assets/images/blog_images/cyber-security-for-genai-apps-using-pyrit/code_sample_2.png){:target="_blank"}
 
