@@ -28,7 +28,7 @@ In a recent example we brought in data from a source dataset that looked pretty 
 
 Why did we detail this one example? Because it's one of many different sources we need to bring into the lakehouse that required **custom coding**.
 
-There is no magic bullet for each of these sources and each of these problems. Many companies will introduce individual technologies for sources, ADF for table data, custom code for API’s and Excel, streaming technologies for streaming data.
+There is no magic bullet for each of these sources and each of these problems. Many companies will introduce individual technologies for sources, Azure Data Factory (ADF) for table data, custom code for API’s and Excel, streaming technologies for streaming data.
 
 **Our solution was to take a custom code (Python) based approach to solve these problems**, bringing all these various patterns into a single software solution. We apply software development & platform engineering best practices to enable us to deliver quickly.
 
@@ -55,7 +55,7 @@ The biggest question we need to ask, and one that we often forget about is **“
 - **Does the business care that we use Azure Data Factory to get the data into the bronze layer?** Probably not.
 - **Does the business care about the latency of the enterprise data?** Most likely yes.
 - **Does the business ever need to connect directly to the bronze data in the data lake?** Maybe yes but rarely.
-- **Does the business want consistent and timely access to accurate data**, YES!
+- **Does the business want consistent and timely access to accurate data?** YES!
 
 These are the questions we would like you to ask yourself while reading this post.
 
@@ -82,7 +82,7 @@ Managing job definitions, schedules, and execution history in a relational datab
 
 We often look at the big tech companies for best practices on building a cloud data platform, **the problem is the big companies don’t have insights into your company**, and they often don’t have to maintain the solution that is built. But you do. Once you have your platform architecture planned ask yourself this simple question. **When we have a problem with the enterprise data (gold) how will I find the issue?** Notice that we said, “**When** we have a problem” and not “**If** we have a problem”.
 
-If your architecture is like the one in the introduction, to troubleshoot a potential problem in an enterprise report, you might have to:
+If your architecture is like the one in the 'The Traditional Approach: ADF + Relational Metadata Store' section, to troubleshoot a potential problem in an enterprise report, you might have to:
 
 1. Review your report to see if the data is refreshed.
 2. Review the data in gold if the problem is there. You will need to review the logs and scheduling.
