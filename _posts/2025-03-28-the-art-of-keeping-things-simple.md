@@ -118,10 +118,10 @@ By applying platform engineering principles to data engineering, we ensure that 
 
 We defined a few goals that we are striving for on our data platform:
 
-- Have **three or fewer active branches** in the application's code repository
-- Merge branches to trunk **at least once a day**
-- **Don't have code freezes** and don't have integration phases
-- Average code review time per PR **less than 30 min**
+- Have **three or fewer active branches** in the application's code repository.
+- Merge branches to trunk **at least once a day**.
+- **Don't have code freezes** and don't have integration phases.
+- Average code review time per PR **less than 30 min**.
 
 **Meeting these goals equates to faster releases and generally faster time to value for our customers/business**.
 
