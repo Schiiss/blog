@@ -135,10 +135,10 @@ We’ve been following an object-oriented approach while building out our data p
 
 Both `ETLJob` and `GenAIJob` classes have reusable components (defined as classes) that developers can leverage for a multitude of tasks such as:
 
-- Brining data into the platform
-- Applying a transform to a dataset
-- Measuring data quality on a dataset
-- Integrating LLMs and vector databases
+- Brining data into the platform.
+- Applying a transform to a dataset.
+- Measuring data quality on a dataset.
+- Integrating LLMs and vector databases.
 
 At a high-level, you can specify one reader, multiple transforms, and multiple writers all through a JSON configuration file.
 
