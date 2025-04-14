@@ -120,7 +120,7 @@ We're also actively exploring **pass-through authentication** to ensure users ca
 
 Databricks has a code sample in their documentation we are looking at implementing in our Streamlit app, ie:
 
-```Python
+```python
   # cfg with auth for Service Principal
   sp_cfg = sdk.config.Config()
 
