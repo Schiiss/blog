@@ -84,7 +84,7 @@ I have really struggled building out these RAG architectures as it can be **diff
 
 The above list is just to name a few of the challenges with building RAG architectures.
 
-Thankfully, we have some very bright folks on the engineering side with lots of amazing technical backgrounds. We thought leveraging Databricks Apps for this use case would enable collaboration between IS and engineering and actively involve them in the development and testing process.
+Thankfully, we have some very bright folks on the engineering side with lots of amazing technical backgrounds. We thought leveraging Databricks Apps for this use case would enable collaboration between IT and the engineering team and actively involve them in the development and testing process.
 
 Because we’ve simplified our approach to building data products, collaborating has become much easier. The full end-to-end process can be done almost entirely in Databricks:
 
