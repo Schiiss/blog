@@ -6,6 +6,9 @@ categories:
 tags:
   - Data Products
   - Databricks
+  - Databricks Apps
+  - Unity Catalog
+  - GenAI
 ---
 
 {% raw %}<img src="/blog/assets/images/blog_images/building-data-products-with-databricks-apps/blog_image.png" alt="">{% endraw %}
