@@ -151,6 +151,8 @@ Databricks has a code sample in their documentation we are looking at implementi
     return result
 ```
 
+> **_Note_** From chatting with someone internally at Databricks, Databricks Apps will be available in the Canadian cloud regions very soon! 🍁
+
 Looking ahead, we’ll continue exploring ways to:
 
 - Rapidly prototype and evaluate new retrieval strategies.
