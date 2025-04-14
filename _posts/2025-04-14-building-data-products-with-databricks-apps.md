@@ -94,21 +94,21 @@ Because we’ve simplified our approach to building data products, collaborating
 
 4. Write the OCR markdown to a delta table.
 
-5. Since many of these documents contain too many tokens to embed, we must chunk them. In this step, we read each of the files OCR'd markdown.
+5. Since many of these documents contain too many tokens to embed, we must chunk them. In this step, we read each of the files markdown.
 
 6. Write the chunks to a delta table.
 
-7. Since Databricks has the option of **Delta Sync** for vector databases, writing our chunks to a delta table makes embedding that data very easy. In this step, we embed the chunks.
+7. Since Databricks has the option of **Delta Sync** for vector databases, writing our document chunks to a delta table makes embedding that data very easy. In this step, we embed the chunks.
 
-8. This is where our streamlit app comes into play and Databricks Apps really shines. Now that we have a vector database we can perform searches on, we build an app to call it.
+8. This is where our streamlit app comes into play and Databricks Apps really shines. Now that we have a vector database we can perform searches on, we build a streamlit app to call it.
 
-9. Deploy the streamlit app to Databricks Apps. This is literally the push of a button.
+9. Deploy the streamlit app to Databricks Apps. To do this is literally the push of a button.
 
-10. End users can now test the application.
+10. End users can now test/use the application.
 
 This may seem like more steps then the previous method, however, since we spent the time building a framework around this as discussed in the blog post [The Art of Keeping Things Simple in Data Platforms](https://www.linkedin.com/posts/conner-schiissler_dataengineering-platformengineering-databricks-activity-7312458737800069120-1YMf?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXEibYBngZiCRvQiwlsg8p1A85--baPNfw), performing operations like the above becomes very easy. I would also argue this method better aligns with the skillsets of data engineers in comparison to the previous method.
 
-It goes without saying we did not nail the chunking, retrieval, LLM selection, or the look and feel of the app on the first try. We are still working on it in fact. But since this entire process is contained within Databricks, we are easily able to collaborate with engineering and update the underlying delta tables, vector database, test cases, as well as test different retrieval strategies like multi-query retrieval and reranking very easily.
+It goes without saying we did not nail the chunking, retrieval, LLM selection, or the look and feel of the app on the first try. We are still working on it in fact. But since this entire process is contained within Databricks, we are easily able to collaborate with engineering and update the underlying delta tables, vector database, test cases, as well as test different retrieval strategies like multi-query retrieval and reranking very easily all based on their feedback.
 
 ---
 
