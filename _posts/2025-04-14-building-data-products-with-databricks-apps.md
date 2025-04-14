@@ -17,6 +17,8 @@ I have been leveraging [Databricks Apps](https://learn.microsoft.com/en-us/azure
 
 Let’s dive in to a blog on how Databricks Apps is helping accelerate development and deployment of our data products.
 
+> **_TL;DR_** Databricks Apps streamlines the development and deployment of secure, governed data products. This post walks through how we used it to build a RAG app for engineering documentation with minimal Platform Engineering friction.
+
 ---
 
 ## 🧠 What Are Data Products?
@@ -52,11 +54,11 @@ To get this application exposed to the end users was a multi-step process and I 
 
 3. Now the end users can start using it. How will we roll out features quickly? How will we monitor the app?
 
-Deploying the above basically became an 'integrations problem' and took us away from quickly providing value to the end users. It took a day or two just to set this up, and that was for a single data product. Of course, we’ll get more efficient over time, but it still adds significant overhead. I would also argue that a handful of steps mentioned above require a platform engineer skillset which most data teams do not readily have access to.
+Deploying the above basically became an 'integrations problem' and took us away from quickly providing value to the end users. **It took a day or two just to set this up, and that was for a single data product**. Of course, we’ll get more efficient over time, but it still adds significant overhead. I would also argue that a handful of steps mentioned above require a platform engineer skillset which most data teams do not readily have access to.
 
 How can we make this process easier for data engineers to allow them to deliver business value faster?
 
-**Enter Databricks Apps.**
+**Enter Databricks Apps!**
 
 Right from the [documentation](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/databricks-apps/) it says 'Databricks Apps lets developers create secure data and AI applications on the Databricks platform and share those apps with users'.
 
@@ -70,9 +72,11 @@ Continuing to follow the above example, this means we can develop, deploy, monit
 
 ## 🔧 Databricks Apps Use Case
 
-We recently had another use case come in from engineering where they wanted to perform RAG on top of a set of process documents (ie: PDFs). The use case was for folks on site maintaining the integrity of our pipelines needing to quickly search/index large amounts of documents. Documents meaning both internally developed and external from government regulatory agencies. A good example is we have developed a ‘Defect Evaluation Standard’ where integrity personnel will reference it when they are assessing ‘in-ditch’ defects like metal loss and dents. This is just one of many documents integrity personnel may need to reference making this use case a potentially good candidate for semantic/keyword search and maybe even layering an LLM on top of it.
+We recently had another use case come in from engineering where they wanted to perform RAG on top of a set of process documents (ie: PDFs). The use case was for folks on site maintaining the integrity of our pipelines needing to quickly search/index large amounts of documents. Documents meaning both internally developed and external from government regulatory agencies.
 
-I have really struggled building out these RAG architectures as it can be difficult to know what ‘good’ looks like and how to ensure high quality responses. For example, there are many considerations when building these RAG systems out:
+A good example is we have developed a ‘Defect Evaluation Standard’ where integrity personnel will reference it when they are assessing ‘in-ditch’ defects like metal loss and dents. This is just **one of many documents** integrity personnel may need to reference making this use case a potentially good candidate for semantic/keyword search and maybe even layering an LLM on top of it.
+
+I have really struggled building out these RAG architectures as it can be **difficult to know what ‘good’ looks like** and how to ensure high quality responses. For example, there are many considerations when building these RAG systems out:
 
 - **Chunking Strategy**: Are we going to use fixed token chunking or semantic chunking?
 - **Retrieval Strategy**: What retrieval strategy will we use? Hybrid? Keyword? Semantic?
@@ -100,6 +104,8 @@ Because we’ve simplified our approach to building data products, collaborating
 This may seem like more steps then the previous method, however, since we spent the time building a framework around this as discussed in the blog post [The Art of Keeping Things Simple in Data Platforms](https://www.linkedin.com/posts/conner-schiissler_dataengineering-platformengineering-databricks-activity-7312458737800069120-1YMf?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXEibYBngZiCRvQiwlsg8p1A85--baPNfw), performing operations like the above becomes very easy. I would also argue this method better aligns with the skillsets of data engineers in comparison to the previous method.
 
 It goes without saying we did not nail the chunking, retrieval, LLM selection, or the look and feel of the app on the first try. We are still working on it in fact. But since this entire process is contained within Databricks, we are easily able to collaborate with engineering and update the underlying delta tables, vector database, test cases, as well as test different retrieval strategies like multi-query retrieval and reranking very easily all based on their feedback.
+
+**The point here is there are a lot of moving pieces to successfully deliver data products and being able to roll out changes quickly allows us to solicit feedback from our end users faster.**
 
 ---
 
