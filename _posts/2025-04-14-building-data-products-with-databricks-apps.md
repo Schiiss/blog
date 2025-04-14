@@ -86,15 +86,15 @@ Because we’ve simplified our approach to building data products, collaborating
 
 [![new_method](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/new_method.png)](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/new_method.png){:target="_blank"}
 
-1. Download files from SharePoint.
+1. Download process documents from SharePoint.
 
-2. Drop downloaded files into a Unity Catalog volume.
+2. Drop downloaded process documents into a Unity Catalog volume.
 
-3. Send documents to Azure Document Intelligence to be OCR'd. This is the only external service we use outside of Databricks for this app. I am not aware of an OCR model that we can leverage as part of Databricks model serving platform, otherwise, we would likely be using that. We have Document Intelligence output the text in markdown format since many of these documents contain complex tables.
+3. Send process documents to Azure Document Intelligence to be OCR'd. This is the only external service we use outside of Databricks for this app. I am not aware of an OCR model that we can leverage as part of Databricks model serving platform, otherwise, we would likely be using that. We have Document Intelligence output the text in markdown format since many of these process documents contain complex tables.
 
 4. Write the OCR markdown to a delta table.
 
-5. Since many of these documents contain too many tokens to embed, we must chunk them. In this step, we read each of the files markdown.
+5. Since many of these process documents contain too many tokens to embed, we must chunk them. In this step, we read each of the files markdown.
 
 6. Write the chunks to a delta table.
 
@@ -120,7 +120,7 @@ That means whatever **retrieval strategy** or **data structure** we decide on, w
 
 - Precomputing embeddings and saving them locally.
 - Packaging a small FAISS index that can be queried offline.
-- Storing documents and metadata in a local format like SQLite or DuckDB.
+- Storing process documents and metadata in a local format like SQLite or DuckDB.
 - Shipping a lightweight version of the app in a container that runs on a mobile device or tablet.
 
 This won't be zero effort, but the good news is that since everything is already chunked, embedded, and versioned in Delta tables, we can **map that structure** to a local representation without reinventing the wheel.
