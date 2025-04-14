@@ -41,13 +41,13 @@ We had a recent use case that was effectively RAG (Retrieval-Augmented Generatio
 
 To get this application exposed to the end users was a multi-step process and I am still not convinced we got it right:
 
+[![previous_method](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/previous_method.png)](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/previous_method.png){:target="_blank"}
+
 1. The first challenge we faced is we were developing our Python application (ie: streamlit) locally and needed to find a way to push it to the cloud. We decided to go with Azure App Service to host it but now we need to create Terraform scripts to deploy it, secure it behind the firewall, and build a CI/CD pipeline to it to deploy our code.
 
 2. Then we had to start thinking of integrating with Databricks Vector Search. Would we leverage someone’s PAT to authenticate to the vector search? That doesn’t seem very secure. Ideally the app just takes into account the access the user should have and only exposes the objects they have access to.
 
 3. Now the end users can start using it. How will we roll out features quickly? How will we monitor the app?
-
-[![previous_method](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/previous_method.png)](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/previous_method.png){:target="_blank"}
 
 Deploying the above basically became an 'integrations problem' and took us away from quickly providing value to the end users. It took a day or two just to set this up, and that was for a single data product. Of course, we’ll get more efficient over time, but it still adds significant overhead. I would also argue that a handful of steps mentioned above require a platform engineer skillset which most data teams do not readily have access to.
 
@@ -79,7 +79,9 @@ The above list is just to name a few of the challenges with building RAG archite
 
 Thankfully, we have some very bright folks on the engineering side with lots of amazing technical backgrounds. We thought leveraging Databricks Apps for this use case would enable collaboration between IS and engineering and actively involve them in the development and testing process.
 
-Because we’ve simplified our approach to building data products, collaborating has become much easier. The full end-to-end process can be done almost entirely in Databricks.
+Because we’ve simplified our approach to building data products, collaborating has become much easier. The full end-to-end process can be done almost entirely in Databricks:
+
+[![new_method](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/new_method.png)](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/new_method.png){:target="_blank"}
 
 1. Download files from SharePoint.
 
@@ -100,8 +102,6 @@ Because we’ve simplified our approach to building data products, collaborating
 9. Deploy the streamlit app to Databricks Apps. This is literally the push of a button.
 
 10. End users can now test the application.
-
-[![new_method](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/new_method.png)](/blog/assets/images/blog_images/building-data-products-with-databricks-apps/new_method.png){:target="_blank"}
 
 This may seem like more steps then the previous method, however, since we spent the time building a framework around this as discussed in the blog post [The Art of Keeping Things Simple in Data Platforms](https://www.linkedin.com/posts/conner-schiissler_dataengineering-platformengineering-databricks-activity-7312458737800069120-1YMf?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXEibYBngZiCRvQiwlsg8p1A85--baPNfw), performing operations like the above becomes very easy. I would also argue this method better aligns with the skillsets of data engineers in comparison to the previous method.
 
