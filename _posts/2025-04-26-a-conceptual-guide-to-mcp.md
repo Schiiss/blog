@@ -40,7 +40,7 @@ MCP breaks down into the following high-level architectural components:
 
 - **MCP Clients**: Components that manage one-to-one communication channels between the host and an MCP server, acting as the bridge for protocol execution.
 
-- **MCP Servers**: Lightweight services that expose specific functionality—such as file access or API calls—through the standardized Model Context Protocol interface.
+- **MCP Servers**: Lightweight services that expose specific functionality such as file access or API calls through the standardized Model Context Protocol interface.
 
 - **Local Data Sources**: Files, databases, and services on your own machine that MCP servers can access securely, enabling private, on-device interactions.
 
