@@ -163,7 +163,7 @@ At the end of the day, MCP's will have the same potential security issues any ot
 
 The Model Context Protocol (MCP) is a promising step toward bringing standardization and structure to how LLMs interface with the external world. This is something that’s sorely needed as GenAI applications become more complex and widespread. By offering a consistent pattern for connecting to both local and remote systems, MCP has the potential to significantly reduce the friction developers face when building agentic applications.
 
-That said, like any new standard, it’s still early days. Security, trust, and maturity of implementations are key factors that need to be addressed before MCP can be broadly adopted in production environments. The emergence of tools like the GitHub MCP server and the Damn Vulnerable MCP Server project show a growing ecosystem and community interest, which is always a good sign.
+That said, there are still thing to watch out for. Security, trust, and maturity of implementations are key factors that need to be addressed before MCP can be broadly adopted in production environments. The emergence of tools like the GitHub MCP server and the Damn Vulnerable MCP Server project show a growing ecosystem and community interest, which is always a good sign.
 
 If you're a developer working on LLM-based agents, MCP is absolutely worth exploring. It might just be the missing glue between your models and the outside world. But, as always, keep your security hat on and be mindful of how much you trust the servers you're connecting to.
 
