@@ -153,7 +153,7 @@ This reminds me a ton of the [OWASP Juice Shop](https://owasp.org/www-project-ju
 
 DVMCP even has challenges to orchestrate certain attacks against their vulnerable MCP server that seem to align really well to the [OWASP Top 10 for Large Language Model Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/). For example, they have one on [tool poisoning](https://github.com/harishsg993010/damn-vulnerable-MCP-server/blob/main/solutions/challenge2_solution.md#challenge-2-tool-poisoning---solution-guide).
 
-I will definitely install this MCP server myself and try to do all the challenges without peeking at the solutions.
+This is a great resource for MCP server developers to understand some of the potential security risks associated with building out their implementation.
 
 At the end of the day, MCP's will have the same potential security issues any other software will have. Developers need to be thoughtful in their implementations and work to mitigate potential risks.
 
