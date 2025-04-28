@@ -135,7 +135,7 @@ That’s why the GitHub MCP Server is so interesting. It acts as a middleware la
 
 **This could simplify development heavily allowing you to focus on the intent of the agent versus the low-level auth/config logic.**
 
-I am looking forward to getting the Docker MCP server hosted locally in Docker to see if it could help streamline the Dagger agent I mentioned earlier.
+I am looking forward to getting the GitHub MCP server hosted locally in Docker to see if it could help streamline the Dagger agent I mentioned earlier.
 
 ---
 
