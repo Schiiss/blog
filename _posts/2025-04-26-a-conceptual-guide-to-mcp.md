@@ -46,7 +46,7 @@ MCP breaks down into the following high-level architectural components:
 
 - **Remote Services**: External APIs and cloud-based systems that MCP servers can connect to, making it possible to integrate with third-party platforms across the internet.
 
-The idea behind this pattern is there would become a growing number of pre-built integrations you can tie your LLM into and the developer maintaining these MCP servers would be following best practices around secure software practices.
+The idea behind this pattern is there would become a growing number of pre-built integrations you can tie your LLM into and the developer maintaining these MCP servers would be following best practices around secure software development principles.
 
 ## 🐙 GitHub MCP Server Example
 
