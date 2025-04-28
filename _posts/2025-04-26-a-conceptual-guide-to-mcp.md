@@ -52,7 +52,7 @@ The idea behind this pattern is there would become a growing number of pre-built
 
 To explain MCP in a more concrete example, I found a great example in the [GitHub MCP Server repo](https://github.com/github/github-mcp-server) that enables LLMs to interact with GitHub. This was a very timely example to find since I was just doing some work with Dagger on building out an AI agent that could leave comments on PR’s in GitHub based on the agents analysis of a Terraform Plan (you can check that out [here](https://www.linkedin.com/posts/conner-schiissler_platformengineering-devsecops-automation-activity-7322605620510035968-J9dW?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXEibYBngZiCRvQiwlsg8p1A85--baPNfw) if you are interested).
 
-The diagram below demonstrates how I would traditionally implement an agentic application with tools.
+The diagram below demonstrates how I would traditionally implement an agentic application with tools, in this case, to interact with GitHub.
 
 [![Traditional Tool Calling](/blog/assets/images/blog_images/a-conceptual-guide-to-mcp/tool_calling.png)](/blog/assets/images/blog_images/a-conceptual-guide-to-mcp/tool_calling.png){:target="_blank"}
 
