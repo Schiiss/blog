@@ -63,6 +63,7 @@ At a high-level, the above diagram articulates what seems like a simple amount o
 At a glance, you're just having an LLM trigger functions, but here’s what you really have to think about:
 
 1. 🔐 **Authentication & Authorization**
+
 LLM ≠ User Identity: The LLM needs to act on behalf of a user. In the GitHub example, does it use OAuth tokens? GitHub Apps? PATs (Personal Access Tokens)?
 
 Token Scope Management: If your tool needs to make changes (like create_file), how do you ensure it has just enough permissions?
@@ -70,6 +71,7 @@ Token Scope Management: If your tool needs to make changes (like create_file), h
 Agent Identity: What happens when multiple users are using the same agent? Token/session management becomes non-trivial.
 
 2. 🧩 **Function Design and Interface Schema**
+
 LLMs don’t call arbitrary code. They need to understand the inputs/outputs of each tool.
 
 You need to define each function with:
@@ -81,6 +83,7 @@ Robust output expectations
 You’ll also want to validate inputs before making real API calls.
 
 3. 🤖 **LLM Reliability & Output Parsing**
+
 LLMs might:
 
 Hallucinate function names or parameters.
@@ -92,6 +95,7 @@ Return ambiguous results if the function doesn’t give instant feedback.
 You often need a loop where the LLM reflects on prior tool output and decides the next action.
 
 4. 🔁 **Tool Execution Lifecycle**
+
 How do you structure:
 
 State: Does the LLM remember what it already tried?
@@ -101,6 +105,7 @@ Retries: What happens when create_pr() fails due to merge conflicts?
 Side Effects: Tools like create_file() may have lasting consequences. How do you sandbox them?
 
 5. 🕵️ **Security & Auditing**
+
 Every tool call is essentially a privileged action. You need:
 
 Logging and observability on what the LLM is doing.
@@ -110,6 +115,7 @@ Rate limiting and throttling to avoid accidental overload.
 Guardrails for prompt injection or adversarial inputs.
 
 6. 🌐 **Latency & API Complexity**
+
 Tool calls often involve remote APIs (e.g., GitHub), which:
 
 Can be slow or rate-limited.
