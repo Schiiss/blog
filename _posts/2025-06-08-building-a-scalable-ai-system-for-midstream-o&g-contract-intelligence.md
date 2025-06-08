@@ -59,7 +59,7 @@ The idea was straightforward:
 
 At first, this worked well. But over time, we encountered some real-world limitations.
 
-After a few months of usage, additional field requirements emerged. The team came back asking for two more fields to be extracted—not just going forward, but also **retroactively from all previously processed contracts**.
+After a few months of usage, additional field requirements emerged. The team came back asking for two more fields to be extracted, not just going forward, but also **retroactively from all previously processed contracts**.
 
 This prompted a few critical questions:
 
