@@ -138,10 +138,10 @@ We also built in **tool awareness** (i.e., the agent knows when to call vector s
 
 The final step in the analyst’s journey is applying **Retrieval-Augmented Generation (RAG)** on the subset of contracts returned by the filtering + search process. This is where users can ask specific questions like:
 
-> “What does this contract say about termination clauses?”  
-> “What are the key milestones detailed in this contract?”  
-> “What’s the renewal process?”
-> "What's the total contract value?"
+> “What does this contract say about termination clauses?”,
+> “What are the key milestones detailed in this contract?”,
+> “What’s the renewal process?”,
+> "What's the total contract value?",
 
 Since the agent has already narrowed down the scope to relevant documents, the RAG component becomes more accurate and targeted, **avoiding hallucinations** and irrelevant answers.
 
