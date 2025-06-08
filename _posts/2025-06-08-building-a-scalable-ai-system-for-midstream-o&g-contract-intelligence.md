@@ -164,7 +164,7 @@ The integration of data engineering and GenAI brings numerous benefits to midstr
 
 ### 📌 Conclusion
 
-Midstream oil and gas companies face a mountain of unstructured contract data, but with the right blend of AI and engineering, that challenge becomes a strategic advantage. By starting with clean, centralized data and layering on intelligent systems—like vector search, metadata filtering, and RAG, you enable faster decisions, stronger compliance, and a more scalable future.
+Midstream oil and gas companies face a mountain of unstructured contract data, but with the right blend of AI and engineering, that challenge becomes a strategic advantage. By starting with clean, centralized data and layering on intelligent systems like vector search, metadata filtering, and RAG, you enable faster decisions, stronger compliance, and a more scalable future.
 
 This isn’t just a technology story, it’s about giving teams the tools they need to unlock value hidden in their documents. And as regulations evolve and data volumes grow, having this kind of system in place will only become more important.
 
