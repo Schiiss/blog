@@ -1,6 +1,6 @@
 ---
 title: "🤖🛢️ Building a Scalable AI System for Midstream O&G Contract Intelligence"
-date: 2025-06-23T10:00:00-04:00
+date: 2025-06-08T10:00:00-04:00
 categories:
   - Data
 tags:
