@@ -141,7 +141,7 @@ The final step in the analyst’s journey is applying **Retrieval-Augmented Gene
 > “What does this contract say about termination clauses?”,
 > “What are the key milestones detailed in this contract?”,
 > “What’s the renewal process?”,
-> "What's the total contract value?",
+> "What's the total contract value?"
 
 Since the agent has already narrowed down the scope to relevant documents, the RAG component becomes more accurate and targeted, **avoiding hallucinations** and irrelevant answers.
 
@@ -149,7 +149,7 @@ Since the agent has already narrowed down the scope to relevant documents, the R
 
 ## ✅ Benefits for Midstream Companies
 
-This modular, composable system—leveraging structured extraction, semantic search, and agentic reasoning enables analysts to go from **hundreds of contracts to actionable insights in minutes**.
+This modular, composable system leveraging structured extraction, semantic search, and agentic reasoning enables analysts to go from **hundreds of contracts to actionable insights in minutes**.
 
 By combining **LLM flexibility** with **enterprise-grade data engineering** and **governed compute environments**, we delivered a solution that is scalable, traceable, and extensible across use cases.
 
