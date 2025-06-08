@@ -47,7 +47,7 @@ My point is, the solutions you build as a data engineer will only be as good as 
 
 Let’s dive into some of the technical details behind our initial strategy to address the challenges outlined earlier.
 
-In contract management, data engineering and Generative AI (GenAI) offer a powerful way to transform unstructured documents into structured, searchable formats—enabling faster access, analysis, and decision-making.
+In contract management, data engineering and Generative AI (GenAI) offer a powerful way to transform unstructured documents into structured, searchable formats, enabling faster access, analysis, and decision-making.
 
 Since midstream contracts are typically lengthy, inconsistent, and written in natural language, they're difficult to parse, query, or analyze with traditional methods. Our initial approach focused on extracting predefined structured fields from these documents using OpenAI’s [structured output parser](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure%2Cdotnet-entra-id&pivots=programming-language-python).
 
