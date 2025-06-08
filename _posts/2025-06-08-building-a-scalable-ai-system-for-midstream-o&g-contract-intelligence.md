@@ -79,7 +79,7 @@ In most of our cases, the various personas across the business would ‘search�
 
 ### 🔍 What is FERC Indexing?
 
-FERC indexing refers to a pricing mechanism used in the U.S. midstream oil and gas sector to adjust pipeline tariffs, like transportation rates—on an annual basis. These adjustments are designed to account for inflation and changes in operating costs.
+FERC indexing refers to a pricing mechanism used in the U.S. midstream oil and gas sector to adjust pipeline tariffs, like transportation rates on an annual basis. These adjustments are designed to account for inflation and changes in operating costs.
 
 Here’s a quick breakdown:
 
