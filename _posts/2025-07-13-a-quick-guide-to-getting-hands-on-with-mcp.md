@@ -176,6 +176,6 @@ If you’re even a little bit curious about LLMs, tool use, or making your AI pr
 
 - Try running the example code locally and see what you can build.
 - Experiment with adding your own tools to the MCP server.
-- Share your feedback, ideas, or cool experiments—open an issue or PR on the [GitHub repo](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/), or just reach out!
+- Share your feedback, ideas, or cool experiments. Open an issue or PR on the [GitHub repo](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/), or just reach out!
 
 I’m excited to see what you build next. Happy hacking! 🚀
