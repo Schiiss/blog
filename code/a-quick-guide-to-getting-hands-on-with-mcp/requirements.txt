@@ -1,0 +1,6 @@
+fastmcp==2.10.4
+langchain-mcp-adapters==0.1.9
+langgraph==0.5.2
+langchain==0.3.26
+langchain-openai==0.3.27
+openai==1.88.0

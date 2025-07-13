@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Your Custom MCP Server on Databricks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900 min-h-screen flex items-center justify-center">
+    <div class="relative z-10 max-w-2xl mx-auto px-6 py-16 text-center rounded-3xl shadow-2xl bg-black/70 border border-purple-700">
+        <div class="flex justify-center items-center gap-8 mb-8 animate-pulse">
+            <img src="https://cdn.bfldr.com/9AYANS2F/at/k8bgnnxhb4bggjk88r4x9snf/databricks-symbol-color.svg?auto=webp&format=png" alt="Databricks Logo" class="w-20 h-20 drop-shadow-xl">
+            <svg class="w-12 h-12 text-purple-400 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h-1v-4h-1m-4 0h-1v-4h-1" /></svg>
+            <img src="https://avatars.githubusercontent.com/u/182288589?s=200&v=4" alt="MCP Logo" class="w-20 h-20 rounded-full drop-shadow-xl">
+        </div>
+        <h1 class="text-5xl sm:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 mb-6 drop-shadow-lg animate-gradient-x">
+            Welcome to Your Custom MCP Server on Databricks
+        </h1>
+        <p class="text-2xl text-gray-200 mb-8 animate-fade-in">
+            🚀 Your server is live and ready to power the next generation of AI-driven tools and workflows.<br>
+            <span class="text-purple-300 font-semibold">Connect, experiment, and build something amazing!</span>
+        </p>
+        <div class="flex justify-center gap-4">
+            <a href="https://learn.microsoft.com/en-us/azure/databricks/generative-ai/mcp/" target="_blank" rel="noopener" class="inline-flex items-center px-6 py-3 border border-transparent text-lg font-bold rounded-md text-white bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 shadow-lg transition-all duration-300">
+                Learn More
+            </a>
+        </div>
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+            <span class="inline-block w-32 h-32 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 rounded-full blur-2xl opacity-40 animate-pulse"></span>
+        </div>
+        <div class="absolute -bottom-10 right-10">
+            <span class="inline-block w-24 h-24 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-30 animate-pulse"></span>
+        </div>
+    </div>
+    <style>
+        @keyframes gradient-x {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 4s ease-in-out infinite;
+        }
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fade-in 2s ease-in;
+        }
+    </style>
+</body>
+
+</html>
