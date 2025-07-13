@@ -51,8 +51,8 @@ The **Model Context Protocol (MCP)** is a standardized way for large language mo
 
 To get hands-on with MCP, you'll want to try running both an MCP server and a simple agent locally. Here’s a high-level overview of the two main files in the [example code](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/):
 
-- [`mcp_server.py`](../code/a-quick-guide-to-getting-hands-on-with-mcp/mcp_server.py): *Defines your custom MCP server using the `fastmcp` library. It exposes several fun tools (like weather, jokes, crypto prices, and quotes) that are discoverable by LLMs and agents. All responses are mocked for safety and simplicity. No real API calls are made.*
-- [`agent.py`](../code/a-quick-guide-to-getting-hands-on-with-mcp/agent.py): *Shows how to connect an agent to your MCP server. It uses the `langchain_mcp_adapters` and `langgraph` libraries to create an agent that can discover and invoke the tools exposed by your server. The agent sends a sample request (e.g., asking for a crypto price) and prints the response.*
+- [`mcp_server.py`](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/mcp_server.py): *Defines your custom MCP server using the `fastmcp` library. It exposes several fun tools (like weather, jokes, crypto prices, and quotes) that are discoverable by LLMs and agents. All responses are mocked for safety and simplicity. No real API calls are made.*
+- [`agent.py`](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/agent.py): *Shows how to connect an agent to your MCP server. It uses the `langchain_mcp_adapters` and `langgraph` libraries to create an agent that can discover and invoke the tools exposed by your server. The agent sends a sample request (e.g., asking for a crypto price) and prints the response.*
 
 **To try it out:**
 
