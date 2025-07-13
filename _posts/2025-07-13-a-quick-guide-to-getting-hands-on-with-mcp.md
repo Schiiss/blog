@@ -1,5 +1,5 @@
 ---
-title: "🤖 A Quick Guide to Getting Hands on with MCP"
+title: "🤖🧩 A Quick Guide to Getting Hands on with MCP"
 date: 2025-07-13T10:00:00-04:00
 categories:
   - GenAI
