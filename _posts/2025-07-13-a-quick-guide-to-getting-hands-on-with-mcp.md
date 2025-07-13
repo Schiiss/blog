@@ -170,7 +170,7 @@ These are just a few examples. MCP's flexibility means you can securely connect 
 
 Getting hands-on with MCP has honestly been a blast. The tech is still new and there’s a lot to figure out, but it’s clear MCP could become a key piece for building smarter, more connected AI apps. Especially in data-heavy, security-focused industries like energy and utilities.
 
-If you’re even a little bit curious about LLMs, tool use, or making your AI projects more composable and secure, just give MCP a try! Start with something simple, run it locally, and don’t stress if you break things or get stuck. That’s half the fun—and the community is super open to questions and new ideas.
+If you’re even a little bit curious about LLMs, tool use, or making your AI projects more composable and secure, just give MCP a try! Start with something simple, run it locally, and don’t stress if you break things or get stuck. That’s half the fun and the community is open to questions and new ideas.
 
 **Next steps:**
 
