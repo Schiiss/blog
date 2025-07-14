@@ -25,7 +25,7 @@ As always, the code is [open source on GitHub](https://github.com/Schiiss/blog/t
 
 The **Model Context Protocol (MCP)** is a standardized way for large language models (LLMs) to connect with external tools and data sources. Just as REST standardized how applications communicate over the web, MCP aims to standardize how LLMs interact with the outside world. 🌍
 
-### Why is this important?
+### ❓ Why is this important?
 
 - 🤖 LLMs, by default, can't access anything beyond their training data. MCP enables them to call tools, APIs, and services in a secure, structured way.
 - 🛠️ MCP defines clear roles:
@@ -73,7 +73,7 @@ Check out the code for more details and feel free to experiment by adding your o
 
 Hosting your MCP server on Databricks adds a huge amount of value in my opinion. You can run MCP servers on Databricks apps, bringing your application to your data instead of the data to your application.
 
-### Why run MCP on Databricks?
+### 🤷‍♂️ Why run MCP on Databricks?
 
 - **Proximity to Data:** Databricks is often where your most valuable and sensitive data lives. By running your MCP server directly on Databricks, you can securely expose tools and APIs that operate right next to your data—minimizing data movement and maximizing performance.
 - **Scalability:** Databricks provides a scalable compute environment, so your MCP server can handle anything from quick experiments to production-scale workloads.
@@ -154,7 +154,7 @@ You should now be able to run the notebook in Databricks and get similar results
 
 ## 💡 What About Use Cases?
 
-MCP unlocks a wide range of use cases by making it easy for LLMs and agents to interact with real-world tools, APIs, and data sources. Here are a few practical examples, especially relevant for industries like **oil & gas, energy, and utilities**:
+I imagine MCP will unlock a wide range of use cases by making it easy for LLMs and agents to interact with real-world tools, APIs, and data sources. Here are a few practical examples, especially relevant for industries like **oil & gas, energy, and utilities**:
 
 - **Automated Document Analysis:** Connect LLMs to document stores, contracts, and regulatory filings. Agents can extract key terms, summarize compliance risks, or answer questions about lease agreements and safety documents.
 - **Asset Monitoring & Predictive Maintenance:** Expose IoT sensor data, SCADA systems, or maintenance logs via MCP tools. LLMs can analyze trends, predict equipment failures, and recommend proactive maintenance actions.
