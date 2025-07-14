@@ -153,19 +153,19 @@ You should now be able to run the notebook in Databricks and get similar results
 
 ## 💡 What About Use Cases?
 
-I imagine MCP will unlock a wide range of use cases by making it easy for LLMs and agents to interact with real-world tools, APIs, and data sources. Here are a few practical examples, especially relevant for industries like **oil & gas, energy, and utilities**:
+While MCP is still new and evolving, I think it could unlock a wide range of use cases by making it easier for LLMs and agents to interact with real-world tools, APIs, and data sources. Here are a few speculative examples that might be relevant for industries like **oil & gas, energy, and utilities**:
 
-- **Automated Document Analysis:** Connect LLMs to document stores, contracts, and regulatory filings. Agents can extract key terms, summarize compliance risks, or answer questions about lease agreements and safety documents.
-- **Asset Monitoring & Predictive Maintenance:** Expose IoT sensor data, SCADA systems, or maintenance logs via MCP tools. LLMs can analyze trends, predict equipment failures, and recommend proactive maintenance actions.
-- **Field Operations Support:** Enable field workers to query asset locations, maintenance history, or safety procedures using natural language. MCP tools can securely access GIS, ERP, or EAM systems.
-- **Production Optimization:** Connect LLMs to real-time production data, weather feeds, and market prices. Agents can suggest operational adjustments to maximize output or minimize downtime.
-- **Incident Response & Root Cause Analysis:** Integrate incident management systems and historical data. LLMs can help triage alerts, suggest next steps, or generate post-incident reports.
-- **Regulatory Reporting & Compliance:** Automate the generation of compliance reports by connecting LLMs to data sources and templates, reducing manual effort and risk of errors.
-- **Customer & Stakeholder Communication:** Use MCP to let LLMs draft responses to customer inquiries, investor questions, or regulatory requests, pulling in the latest data and documentation.
+- **Automated Document Analysis:** LLMs could potentially connect to document stores, contracts, and regulatory filings. Agents might help extract key terms, summarize compliance risks, or answer questions about lease agreements and safety documents.
+- **Asset Monitoring & Predictive Maintenance:** MCP tools might expose IoT sensor data, SCADA systems, or maintenance logs. LLMs could analyze trends, predict equipment failures, and recommend proactive maintenance actions.
+- **Field Operations Support:** Field workers may be able to query asset locations, maintenance history, or safety procedures using natural language, with MCP tools securely accessing GIS, ERP, or EAM systems.
+- **Production Optimization:** LLMs could be connected to real-time production data, weather feeds, and market prices. Agents might suggest operational adjustments to maximize output or minimize downtime.
+- **Incident Response & Root Cause Analysis:** Integrating incident management systems and historical data could allow LLMs to help triage alerts, suggest next steps, or generate post-incident reports.
+- **Regulatory Reporting & Compliance:** Automating the generation of compliance reports by connecting LLMs to data sources and templates might reduce manual effort and risk of errors.
+- **Customer & Stakeholder Communication:** MCP could enable LLMs to draft responses to customer inquiries, investor questions, or regulatory requests, pulling in the latest data and documentation.
 
-> *These are just my initial thoughts and explorations. I have not yet built or deployed anything using MCP in production, so your mileage may vary!*
+> *These are just initial thoughts and possibilities. I haven’t built or deployed anything using MCP in production yet, so your mileage may vary!*
 
-These are just a few examples. MCP's flexibility means you can securely connect LLMs and agents to almost any data or tool in your environment, unlocking new efficiencies and insights across the energy value chain.
+These examples are meant to spark ideas. MCP’s flexibility means you might be able to securely connect LLMs and agents to almost any data or tool in your environment, potentially unlocking new efficiencies and insights across the energy value chain.
 
 ---
 
