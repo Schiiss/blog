@@ -75,8 +75,7 @@ Hosting your MCP server on Databricks adds a huge amount of value in my opinion.
 
 ### 🤷‍♂️ Why run MCP on Databricks?
 
-- **Proximity to Data:** Databricks is often where your most valuable and sensitive data lives. By running your MCP server directly on Databricks, you can securely expose tools and APIs that operate right next to your data—minimizing data movement and maximizing performance.
-- **Scalability:** Databricks provides a scalable compute environment, so your MCP server can handle anything from quick experiments to production-scale workloads.
+- **Proximity to Data:** Databricks is often where your most valuable and sensitive data lives. By running your MCP server directly on Databricks, you can securely expose tools and APIs that operate right next to your data, minimizing data movement and maximizing performance.
 - **Unified Platform:** You can integrate your MCP server with Databricks notebooks, jobs, and workflows, making it easy to orchestrate complex data and AI pipelines.
 - **Security & Governance:** Leverage Databricks' built-in security, access controls, and audit logging to ensure your MCP tools are only accessible to the right users and systems.
 - **Collaboration:** Teams can share and reuse MCP servers as part of Databricks projects, making it easier to standardize and scale best practices across your organization.
