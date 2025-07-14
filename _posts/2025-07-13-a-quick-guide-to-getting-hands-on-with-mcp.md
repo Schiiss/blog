@@ -151,21 +151,53 @@ You should now be able to run the notebook in Databricks and get similar results
 
 ---
 
-## 💡 What About Use Cases?
+## 💡 Why Host MCP on Databricks Apps? How Does It Compare to AI Agent Tools?
 
-While MCP is still new and evolving, I think it could unlock a wide range of use cases by making it easier for LLMs and agents to interact with real-world tools, APIs, and data sources. Here are a few speculative examples that might be relevant for industries like **oil & gas, energy, and utilities**:
+I’m still figuring out when to use each approach, so what follows is just my current understanding. Please take it with a grain of salt!
 
-- **Automated Document Analysis:** LLMs could potentially connect to document stores, contracts, and regulatory filings. Agents might help extract key terms, summarize compliance risks, or answer questions about lease agreements and safety documents.
-- **Asset Monitoring & Predictive Maintenance:** MCP tools might expose IoT sensor data, SCADA systems, or maintenance logs. LLMs could analyze trends, predict equipment failures, and recommend proactive maintenance actions.
-- **Field Operations Support:** Field workers may be able to query asset locations, maintenance history, or safety procedures using natural language, with MCP tools securely accessing GIS, ERP, or EAM systems.
-- **Production Optimization:** LLMs could be connected to real-time production data, weather feeds, and market prices. Agents might suggest operational adjustments to maximize output or minimize downtime.
-- **Incident Response & Root Cause Analysis:** Integrating incident management systems and historical data could allow LLMs to help triage alerts, suggest next steps, or generate post-incident reports.
-- **Regulatory Reporting & Compliance:** Automating the generation of compliance reports by connecting LLMs to data sources and templates might reduce manual effort and risk of errors.
-- **Customer & Stakeholder Communication:** MCP could enable LLMs to draft responses to customer inquiries, investor questions, or regulatory requests, pulling in the latest data and documentation.
+Databricks offers two main ways to connect agents to tools and data:
 
-> *These are just initial thoughts and possibilities. I haven’t built or deployed anything using MCP in production yet, so your mileage may vary!*
+- **[AI Agent Tools](https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/agent-tool) (Mosaic AI Agent Framework):**
+  - Built-in to Databricks, these let agents call Unity Catalog function tools or agent code tools.
+  - Unity Catalog tools are centrally managed, secure, and great for data transformations and aggregations.
+  - Agent code tools are defined in Python and are flexible for calling APIs or running custom code.
+  - Both types integrate with agent authoring frameworks like LangGraph and OpenAI SDK.
 
-These examples are meant to spark ideas. MCP’s flexibility means you might be able to securely connect LLMs and agents to almost any data or tool in your environment, potentially unlocking new efficiencies and insights across the energy value chain.
+- **[Model Context Protocol](https://learn.microsoft.com/en-us/azure/databricks/generative-ai/mcp/) (MCP):**
+  - MCP is an open standard for connecting agents to tools, data, and resources—across platforms and vendors.
+  - Databricks supports both managed MCP servers (for Unity Catalog tools) and custom MCP servers (host your own or third-party).
+  - MCP servers can be hosted as Databricks Apps, bringing your custom tool endpoints and protocols directly to your data and workflows.
+
+### Why Host MCP on Databricks Apps?
+
+| Feature/Scenario                | Databricks AI Agent Tools         | MCP on Databricks Apps                |
+|---------------------------------|-----------------------------------|---------------------------------------|
+| **Standardization**             | Databricks-specific               | Open, vendor-neutral (MCP standard)   |
+| **Interoperability**            | Best within Databricks            | Works across clouds, platforms, agents|
+| **Custom Tool Hosting**         | Python code or Unity Catalog UDFs | Any tool, protocol, or API via MCP    |
+| **Security & Governance**       | Unity Catalog integration         | Leverage Databricks security + custom controls |
+| **Discoverability**             | Unity Catalog registry            | MCP tool discovery (standardized)     |
+| **Advanced Use Cases**          | Data-centric, built-in            | Integrate external APIs, legacy systems, multi-cloud, etc. |
+| **Agent Framework Support**     | LangGraph, OpenAI SDK, native     | Any agent supporting MCP (future-proof) |
+
+**You might choose MCP on Databricks Apps if:**
+
+- You want to expose custom tools, APIs, or data sources not easily wrapped as Unity Catalog functions.
+- You need to standardize tool access for agents across different platforms, clouds, or vendors.
+- You want to build composable, interoperable AI solutions that go beyond Databricks-native capabilities.
+- You need to integrate with external systems, legacy apps, or multi-cloud environments.
+- You want to future-proof your agent architecture for evolving standards and agent frameworks.
+
+**Example Use Cases for MCP on Databricks Apps:**
+
+- Securely expose proprietary business logic, external APIs, or legacy systems to agents running in Databricks.
+- Build a unified tool interface for agents that need to operate across Databricks, Azure, AWS, or on-prem environments.
+- Enable advanced agent workflows that require orchestration of multiple tools, protocols, or data sources.
+- Standardize tool discovery and invocation for agents authored in different frameworks or languages.
+
+> **Summary:**
+>
+> Use Databricks AI agent tools for fast, data-centric agent development within Databricks. Choose MCP on Databricks Apps when you need open standards, interoperability, custom tool hosting, or advanced integration scenarios. MCP lets you build agentic solutions that are portable, secure, and future-ready—unlocking new possibilities for enterprise AI.
 
 ---
 
