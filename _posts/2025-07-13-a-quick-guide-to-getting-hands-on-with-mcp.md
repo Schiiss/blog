@@ -63,7 +63,7 @@ If all goes well, you should see something like this:
 
 ![MCP Server and Agent Demo](/blog/assets/images/blog_images/a-quick-guide-to-getting-hands-on-with-mcp/mcp_server_and_agent.png)
 
-On the left hand side of the above screenshot, you can see the MCP server running and accepting requests. On the right, you can see the LangGraph agent making requests against it and getting responses back for each question asked.
+The left side of the screenshot shows the MCP server running and accepting requests; the right side shows the LangGraph agent making requests and receiving responses for each question.
 
 Check out the code for more details and feel free to experiment by adding your own tools!
 
