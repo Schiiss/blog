@@ -87,8 +87,6 @@ Hosting your MCP server on Databricks adds a huge amount of value in my opinion.
 
 ### 🤚 Getting Hands On with Databricks and MCP
 
-> **Note:** When connecting to your MCP server from a Databricks notebook, I manually copied and pasted the JWT token as a quick workaround. This is not ideal for production or automation. I'm actively working with Databricks to find a more scalable way to retrieve a token or JWT directly from within a Databricks notebook. Stay tuned for updates!
-
 Before starting, make sure you have:
 
 - A Databricks workspace
@@ -128,6 +126,8 @@ To get your JWT, you can run:
 ```bash
 databricks auth token
 ```
+
+> **Note:** When connecting to your MCP server from a Databricks notebook, I manually copied and pasted the JWT token as a quick workaround. This is not ideal for production or automation. I'm actively working with Databricks to find a more scalable way to retrieve a token or JWT directly from within a Databricks notebook. Stay tuned for updates!
 
 In the [Jupyter notebook](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/databricks_notebook.ipynb), specify the Auth header:
 
