@@ -175,6 +175,8 @@ Getting hands-on with MCP has honestly been a blast. The tech is still new and t
 
 If you’re even a little bit curious about LLMs, tool use, or making your AI projects more composable and secure, just give MCP a try! Start with something simple, run it locally, and don’t stress if you break things or get stuck. That’s half the fun and the community is open to questions and new ideas.
 
+I am still a bit confused why I would host an MCP server in Databricks versus just using [AI Agent tools](https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/agent-tool), but I am hoping as I play around with it more, it will become clear.
+
 **Next steps:**
 
 - Try running the example code locally and see what you can build.
