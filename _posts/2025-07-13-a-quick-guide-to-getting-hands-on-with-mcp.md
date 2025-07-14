@@ -105,7 +105,7 @@ databricks auth login --host <account-console-url> --account-id <account-id>
 
 Navigate to the folder: `code\a-quick-guide-to-getting-hands-on-with-mcp`
 
-Use the Databricks CLI `sync` and `deploy` commands to push your server to the app. (Our MCP server code is [here](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/)):
+Use the Databricks CLI `sync` and `deploy` commands to push your MCP server code to the app. (Our MCP server code is [here](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/)):
 
 ```bash
 DATABRICKS_USERNAME=$(databricks current-user me | jq -r .userName)
