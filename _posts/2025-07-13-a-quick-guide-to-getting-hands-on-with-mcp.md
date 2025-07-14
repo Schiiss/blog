@@ -119,7 +119,7 @@ Navigate to your Databricks App URL and you should see a custom landing page:
 
 Now you can take the same [LangGraph agent](https://github.com/Schiiss/blog/tree/master/code/a-quick-guide-to-getting-hands-on-with-mcp/agent.py) and run it in a Databricks notebook, calling your MCP server.
 
-> **Heads up:** When running locally, your server probably didn’t have authentication, but the Databricks App will. Thankfully, LangGraph lets you specify [HTTP headers](https://github.com/langchain-ai/langchain-mcp-adapters?tab=readme-ov-file#passing-runtime-headers) in your request to the MCP server. This allows you to specify a bearer token or JWT.
+> **Heads up:** When running locally, our server didn’t have authentication, but the Databricks App will. Thankfully, LangGraph lets you specify [HTTP headers](https://github.com/langchain-ai/langchain-mcp-adapters?tab=readme-ov-file#passing-runtime-headers) in your request to the MCP server. This allows you to specify a bearer token or JWT.
 
 To get your JWT, you can run:
 
