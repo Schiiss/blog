@@ -56,8 +56,9 @@ To get hands-on with MCP, you'll want to try running both an MCP server and a si
 
 **To try it out:**
 
-1. Start the MCP server by running `python mcp_server.py` in your terminal.
-2. In a separate terminal, run `python agent.py` to see the agent interact with your server.
+1. Create a Python virtual environment and install the [required libraries](https://github.com/Schiiss/blog/blob/master/code/a-quick-guide-to-getting-hands-on-with-mcp/requirements.txt).
+2. Start the MCP server by running `python mcp_server.py` in your terminal.
+3. In a separate terminal, run `python agent.py` to see the agent interact with your server.
 
 If all goes well, you should see something like this:
 
