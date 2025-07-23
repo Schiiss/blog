@@ -9,7 +9,7 @@ tags:
   - Platform Engineering
 ---
 
-{% raw %}<img src="/blog/assets/images/blog_images/the-art-of-keeping-things-simple-automated-testing/blog_image.png" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/the-art-of-keeping-things-simple-automated-testing/blog_image.PNG" alt="">{% endraw %}
 
 We have a goal internally to keep PRs under 30 minutes, including the time waiting for a code review and while we appreciate this goal is ambitious and we want to talk about how we are leveraging automated testing to help us reach this goal.
 
