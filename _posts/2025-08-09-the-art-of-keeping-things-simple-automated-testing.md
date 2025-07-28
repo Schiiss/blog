@@ -277,7 +277,7 @@ if __name__ == "__main__":
 
 **How this example follows best practices:**
 
-- Tests are fast and independent (minus an LLM call), using mock data.
+- Tests are fast and independent, using mock data (minus an LLM call to structure the mock OCR data).
 - Each test is isolated and repeatable.
 - Focuses on expected outputs and behavior, not internal implementation.
 - Uses small, representative sample data for each test.
