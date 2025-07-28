@@ -118,38 +118,67 @@ SCD Type 2 logic can be complex, with edge cases around effective dates, current
 We use a suite of unit tests to cover the main scenarios for SCD Type 2. Below is a mock of our tests to articulate the idea/concepts:
 
 ```python
-# Test 1 - Write to an empty table
-# Test 2 - Update a row
-# Test 3 - Delete a row
-# Test 4 - Insert a row to the source data
+import unittest
 
-# For this testing, it's important to complete the write to the delta table and read the results back.
-# Much of the functionality to write type1 and type2 is built into the writer, so to confirm that the class
-# is working as expected, we need to read the data back to test the contents.
+from dataweaver.framework import DeltaType2Writer
 
-class DeltaType2Writer_EmptyTable_Test(unittest.TestCase):
+class TestDeltaType2Writer(unittest.TestCase):
     """
-    First time load of data into an empty table
+    Unit tests for SCD Type 2 logic using DeltaType2Writer utility.
     """
-    # ...setup (could use stubs to provide controlled input data), test_columnDataTypes, test_rowData, teardown...
 
-class DeltaType2Writer_Update_Test(unittest.TestCase):
-    """
-    Update a row and verify SCD2 logic
-    """
-    # ...setup (could use fakes to simulate table state), test_rowData, teardown...
+    def setUp(self):
+        # Setup: create a mock empty table and a DeltaType2Writer instance
+        self.writer = DeltaType2Writer()
+        self.mock_table = []
 
-class DeltaType2Writer_Insert_Test(unittest.TestCase):
-    """
-    Add a row and verify SCD2 logic
-    """
-    # ...setup (could use stubs for new row data), test_rowData, teardown...
+    def test_write_to_empty_table(self):
+        # Test: Write initial rows to an empty table
+        source_data = [
+            {"id": 1, "name": "Alice", "effective_date": "2024-01-01"},
+            {"id": 2, "name": "Bob", "effective_date": "2024-01-01"},
+        ]
+        result = self.writer.write(self.mock_table, source_data)
+        self.assertEqual(len(result), 2)
+        self.assertTrue(all(row["current_flag"] for row in result))
 
-class DeltaType2Writer_Delete_Test(unittest.TestCase):
-    """
-    Delete a row and verify SCD2 logic
-    """
-    # ...setup (could use mocks to verify delete operations are called), test_rowData, teardown...
+    def test_update_row(self):
+        # Test: Update an existing row and verify SCD2 versioning
+        self.mock_table = [
+            {"id": 1, "name": "Alice", "effective_date": "2024-01-01", "current_flag": True}
+        ]
+        source_data = [
+            {"id": 1, "name": "Alice Smith", "effective_date": "2024-06-01"}
+        ]
+        result = self.writer.write(self.mock_table, source_data)
+        # Old version should be closed, new version should be current
+        self.assertEqual(len(result), 2)
+        self.assertTrue(any(row["name"] == "Alice Smith" and row["current_flag"] for row in result))
+        self.assertTrue(any(row["name"] == "Alice" and not row["current_flag"] for row in result))
+
+    def test_delete_row(self):
+        # Test: Delete a row and verify it is flagged as deleted
+        self.mock_table = [
+            {"id": 2, "name": "Bob", "effective_date": "2024-01-01", "current_flag": True}
+        ]
+        source_data = []  # Bob is missing from source, should be deleted
+        result = self.writer.write(self.mock_table, source_data)
+        self.assertTrue(any(row["id"] == 2 and row.get("deleted_flag", False) for row in result))
+
+    def test_insert_new_row(self):
+        # Test: Insert a new row to the source data
+        self.mock_table = [
+            {"id": 1, "name": "Alice", "effective_date": "2024-01-01", "current_flag": True}
+        ]
+        source_data = [
+            {"id": 1, "name": "Alice", "effective_date": "2024-01-01"},
+            {"id": 3, "name": "Charlie", "effective_date": "2024-07-01"}
+        ]
+        result = self.writer.write(self.mock_table, source_data)
+        self.assertTrue(any(row["id"] == 3 and row["current_flag"] for row in result))
+
+if __name__ == "__main__":
+    unittest.main()
 ```
 
 Each test case sets up the table, performs the operation, writes to the delta table, and reads the results back to assert correctness. This approach ensures that the SCD Type 2 writer behaves as expected across all scenarios, and any regression is caught early in development.
@@ -157,7 +186,7 @@ Each test case sets up the table, performs the operation, writes to the delta ta
 **How this example follows best practices:**
 
 - Tests are fast and independent, using mock data to control input data.
-- Each test is isolated and repeatable, with setup/teardown for a clean state.
+- Each test is isolated and repeatable.
 - Focuses on behavior (row data, audit columns) rather than implementation details.
 - Uses small, representative sample data for each scenario.
 - Tests are readable and self-documenting, with descriptive class and method names.
@@ -187,31 +216,60 @@ Here is a simplified example of how we structure these tests in our product zone
 ```python
 import unittest
 
-# Example: Unit Testing Contract Field Extraction from OCR'd Data
+from dataweaver.framework import StructuredLLMExtractor
 
-class ContractFieldExtractionTest(unittest.TestCase):
+class TestContractFieldExtraction(unittest.TestCase):
     """
-    Test extraction of key contract fields from OCR'd contract info.
+    Unit tests for structured contract field extraction using StructuredLLMExtractor utility.
     """
 
     def setUp(self):
-        # ...setup (could use a fake contract object to simulate OCR output)...
-        pass
+        """
+        Set up the StructuredLLMExtractor instance with a prompt and LLM for use in tests.
+        """
+        self.prompt = "Extract contract_number, effective_date, end_date from contract text."
+        self.llm = "gpt-4o"  # Example LLM choice
+        self.extractor = StructuredLLMExtractor(prompt=self.prompt, llm=self.llm)
 
-    def test_contract_number(self):
-        # Given OCR'd contract info, contract_number should be correct
-        contract = {"contract_number": "1234-5678"}
-        self.assertEqual(contract["contract_number"], "1234-5678")
+    def test_contract_number_extraction(self):
+        """
+        Test extraction of contract_number from mock OCR data.
+        """
+        mock_ocr_data = {
+            "text": "Contract Number: 1234-5678\nEffective Date: 2024-07-01\nEnd Date: 2025-06-30",
+        }
+        result = self.extractor.extract(mock_ocr_data)
+        self.assertEqual(result["contract_number"], "1234-5678")
 
-    def test_effective_date(self):
-      # Given OCR'd contract info, effective_date should be correct
-        contract = {"effective_date": "2024-07-01"}
-        self.assertEqual(contract["effective_date"], "2024-07-01")
+    def test_effective_date_extraction(self):
+        """
+        Test extraction of effective_date from mock OCR data.
+        """
+        mock_ocr_data = {
+            "text": "Contract Number: 1234-5678\nEffective Date: 2024-07-01\nEnd Date: 2025-06-30",
+        }
+        result = self.extractor.extract(mock_ocr_data)
+        self.assertEqual(result["effective_date"], "2024-07-01")
 
-    def test_end_date(self):
-        # Given OCR'd contract info, end_date should be correct
-        contract = {"end_date": "2025-06-30"}
-        self.assertEqual(contract["end_date"], "2025-06-30")
+    def test_end_date_extraction(self):
+        """
+        Test extraction of end_date from mock OCR data.
+        """
+        mock_ocr_data = {
+            "text": "Contract Number: 1234-5678\nEffective Date: 2024-07-01\nEnd Date: 2025-06-30",
+        }
+        result = self.extractor.extract(mock_ocr_data)
+        self.assertEqual(result["end_date"], "2025-06-30")
+
+    def test_missing_field_handling(self):
+        """
+        Test that extraction logic handles missing fields gracefully.
+        """
+        mock_ocr_data = {
+            "text": "Contract Number: 1234-5678\nEnd Date: 2025-06-30",  # effective_date missing
+        }
+        result = self.extractor.extract(mock_ocr_data)
+        self.assertIsNone(result.get("effective_date"))
 
 if __name__ == "__main__":
     unittest.main()
@@ -219,7 +277,7 @@ if __name__ == "__main__":
 
 **How this example follows best practices:**
 
-- Tests are fast and independent, using mock data.
+- Tests are fast and independent (minus an LLM call), using mock data.
 - Each test is isolated and repeatable.
 - Focuses on expected outputs and behavior, not internal implementation.
 - Uses small, representative sample data for each test.
