@@ -1,6 +1,6 @@
 ---
 title: "🎨🧑‍🎨 The Art of Keeping Things Simple: Automated Testing"
-date: 2025-07-30T10:00:00-04:00
+date: 2025-08-09T10:00:00-04:00
 categories:
   - Data
   - Data Weaver
@@ -291,6 +291,6 @@ We are learning that the key is to keep tests fast, focused, and easy to underst
 
 Simplicity in testing is about building trust in your code and empowering your team to move quickly and safely. The more robust and approachable your tests are, the more confidently you can innovate and deliver value.
 
-If you want to connect and talk shop, Mark and I are always up for a conversation!
+If you want to connect and talk shop, [Mark](https://www.linkedin.com/in/mark-van-der-linden-30798811?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app) and I are always up for a conversation!
 
 Thanks for reading 😀!
