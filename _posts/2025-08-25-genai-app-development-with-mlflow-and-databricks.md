@@ -80,7 +80,7 @@ I am pumped to dig into this more over the coming months!
 
 To get my head around how this works in practice, we took an existing LangGraph agent that I wrote about in a recent blog called [🤖🛢️ Building a Scalable AI System for Midstream O&G Contract Intelligence](https://schiiss.github.io/blog/data/building-a-scalable-ai-system-for-midstream-o&g-contract-intelligence/). We upgraded it to interact with [Databricks managed MCP servers](https://learn.microsoft.com/en-us/azure/databricks/generative-ai/mcp/managed-mcp), namely a Genie space. We decided to package our LangGraph agent using MLFlows '[models from code](https://mlflow.org/docs/latest/ml/model/models-from-code/#why-models-from-code)'. I had not used 'models from code' before but it basically allows you to save your models as readable Python scripts, making development more transparent and debugging significantly easier.  
 
-Some of the immediate benefits we saw were around tracing, versioning, and ‘feedback loop’.
+Some of the immediate benefits we saw were around tracing, versioning, and the ‘feedback loop’. Lets dive into those in a bit more detail:
 
 ### 👁️ Tracing
 
