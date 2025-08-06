@@ -46,6 +46,8 @@ Databricks captures the [continuous improvement cycle](https://learn.microsoft.c
 
 [![Continuous Improvement Cycle](/blog/assets/images/blog_images/genai-app-development-with-mlflow-and-databricks/genai_continuous_improvement_cycle.png)](/blog/assets/images/blog_images/genai-app-development-with-mlflow-and-databricks/genai_continuous_improvement_cycle.png){:target="_blank"}
 
+The diagram helped me visualize how the improvement cycle could look, but how does this work in practice?
+
 ---
 
 ## ❓ How Does MLflow on Databricks Help?
