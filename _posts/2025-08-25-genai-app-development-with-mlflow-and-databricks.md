@@ -52,7 +52,7 @@ The diagram helped me visualize how the improvement cycle could look, but how do
 
 ## ❓ How Does MLflow on Databricks Help?
 
-Building GenAI apps can introduce some interesting challenges into your software development. Unlike your software throwing an exception (ie: a failure), things like *hallucinations*, where the app returns wrong information and could give the end user the impression of the app 'working' when in reality that is not the case. The potential inputs to the GenAI apps are generally endless and the potential input can be vast.
+Building GenAI apps can introduce some interesting challenges into your software development. Unlike your software throwing an exception (ie: a failure), things like *hallucinations*, where the app returns wrong information and could give the end user the impression of the app 'working' when in reality that is not the case. The potential inputs to GenAI apps are generally endless.
 
 Due to some of these factors, **traditional testing practices for software don’t necessarily apply here**. In traditional software testing, you have defined inputs as well as expected outputs you could test against to see if your function behaved as expected.
 
