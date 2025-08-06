@@ -1,6 +1,6 @@
 ---
 title: "🚀🔬 GenAI App Development with MLflow & Databricks"
-date: 2025-08-05T10:00:00-04:00
+date: 2025-08-09T10:00:00-04:00
 categories:
   - GenAI
   - MLflow

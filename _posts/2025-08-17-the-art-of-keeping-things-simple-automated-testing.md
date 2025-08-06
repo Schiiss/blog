@@ -1,6 +1,6 @@
 ---
 title: "🎨🧑‍🎨 The Art of Keeping Things Simple: Automated Testing"
-date: 2025-08-09T10:00:00-04:00
+date: 2025-08-17T10:00:00-04:00
 categories:
   - Data
   - Data Weaver
