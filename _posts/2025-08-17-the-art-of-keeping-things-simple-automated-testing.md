@@ -87,7 +87,7 @@ And honestly, sometimes we just write a quick test, see if it fails, and move on
 
 ## 🧪 Testing in Data Weaver
 
-We have broken down our **Data Weaver** framework into two high-level components for the sake of testing:
+We have broken down our **Data Weaver** framework into two high-level components:
   
 1. Framework code
 2. Product code
