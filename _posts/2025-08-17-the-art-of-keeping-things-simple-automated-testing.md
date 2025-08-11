@@ -17,7 +17,7 @@ In our recent blog, [The Art of Keeping Things Simple](https://www.linkedin.com/
 
 This is a follow up post to demonstrate the value and how it makes your platform more *testable*.
 
-Also, we have decided to brand our framework as **Data Weaver**. We hope to make the **Art of Keeping Things Simple** into a series to discuss the challenges and triumphs we have experienced along the way.
+Also, we have decided to nickname our framework as **Data Weaver**. We hope to make the **Art of Keeping Things Simple** into a series to discuss the challenges and triumphs we have experienced along the way.
 
 ## 🚀 Introduction
 
@@ -27,15 +27,15 @@ As our development team has grown and the number of features being worked on at 
 
 Testing in the data and AI space is hard on it's own but testing is especially challenging in environments built on **low code/no code tools**. While these platforms promise rapid development and ease of use, they often introduce hidden complexity that makes testing, debugging, and maintaining workflows much harder. We have found it especially difficult to test low code tools like Azure Data Factory that basically generate a JSON artifact in the background.
 
-While low code/no code tools have enabled citizen developers access to data engineering and automation, they introduce unique challenges for testing and quality assurance. Take Azure Data Factory (ADF) as a prime example. On the surface, ADF’s drag-and-drop interface makes it easy to build data pipelines quickly, but this visual abstraction hides a lot of the underlying logic. We’ve run into situations where a simple change to a pipeline like adding a new activity or tweaking a parameter had unexpected side effects buried several layers deep. Because the logic is obscured behind the UI, tracing data flow or debugging issues can become a time consuming process. We have spent a lot of time in the past tracing through parent and child pipelines to try to identify the issue.
+While low code/no code tools have enabled citizen developers to access data engineering and automation, they introduce unique challenges for testing and quality assurance. Take Azure Data Factory (ADF) as a prime example: its drag-and-drop interface accelerates pipeline development, but this visual abstraction hides much of the underlying logic. Simple changes like adding an activity or tweaking a parameter can have unexpected side effects buried several layers deep, making debugging and tracing data flow a time-consuming process. We’ve spent considerable time navigating parent and child pipelines to identify issues.
 
-Assuming you are leveraging the reference architecture from Microsoft called [metadata-driven pipelines](https://learn.microsoft.com/en-us/azure/data-factory/copy-data-tool-metadata-driven), nearly all of your ADF objects (ie: pipelines, triggers etc.) are stored inside a relational database which makes automated testing all the more difficult.
+If you’re leveraging Microsoft’s [metadata-driven pipelines](https://learn.microsoft.com/en-us/azure/data-factory/copy-data-tool-metadata-driven), reference architecture, nearly all ADF objects (pipelines, triggers, etc.) are stored in a relational database, which further complicates automated testing at scale.
 
 **How do we test this at scale?**
 
-While low code/no code tools like ADF accelerate initial development and lower the barrier to entry, we have found them to make testing, debugging, and collaboration significantly harder. We’re not saying to avoid these kinds of tools, but there are definitely trade-offs, and it’s important to go in with your eyes open to the challenges.
+While these tools accelerate initial development and lower the barrier to entry, they can make testing, debugging, and collaboration significantly harder. We’re not saying to avoid them, but it’s important to recognize the trade-offs and approach them with eyes open to these challenges.
 
-We hope this post demonstrates how following a code first approach can make your platform more testable.
+We hope this post demonstrates how a code-first approach can make your platform more testable.
 
 > ❗ **Important Note**: We’re learning as we go, and Data Weaver is very much a work in progress! This series is our way of documenting the journey and sharing what’s worked, what hasn’t, and the lessons along the way. We’re committed to continuous learning and improvement, and hope that by sharing our experiences, we encourage others to experiment, take risks, and grow alongside us.
 
@@ -73,7 +73,8 @@ So here’s what’s actually helped us:
 
 - **Keep tests fast and independent.** If a test takes more than a few seconds, we ask if it’s really a unit test or if it belongs somewhere else.
 - **Mock external stuff.** Databases, APIs, file systems. If it’s not your code, mock it.
-- **Use tiny, fake data.** Real data is messy and slow. Mock data keeps tests quick and predictable.
+- **Use tiny, fake data.** You need to mock your test data, keep it as small as necessary so the tests are quick and predictable. 
+- [**Test driven development**](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/unit-testing/tdd-example/). In some cases it's easier to write the unit test code as you develop the code.
 - **Focus on what matters.** We try to test behavior and outputs, not every line of code. If a test breaks every time we refactor, it’s probably not helping.
 - **Make tests readable.** If someone can’t tell what a test is doing very quickly, it’s too complicated.
 - **Automate in CI/CD.** We run a subset of tests on every commit and another subset on PR's, but also make sure devs can run them 'locally' without a DevOps skillset.
