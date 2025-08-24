@@ -3,10 +3,10 @@ title: "🎨🧑‍🎨 The Art of Keeping Things Simple: Automated Testing"
 date: 2025-08-23T08:00:00-07:00
 categories:
   - Data
-  - Data Weaver
 tags:
   - Data Engineering
   - Platform Engineering
+  - Data Weaver
 ---
 
 {% raw %}<img src="/blog/assets/images/blog_images/the-art-of-keeping-things-simple-automated-testing/blog_image.PNG" alt="">{% endraw %}
