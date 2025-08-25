@@ -29,10 +29,6 @@ The Databricks Mosaic AI Research team has been doing some cool stuff in this sp
 
 ---
 
-## How can Agent Bricks help with this complexity?
-
----
-
 ## 🤖🧱 Intro to Agent Bricks
 
 > **"Agent Bricks streamlines the implementation of AI agent systems so that users can focus on the problem, data, and metrics instead."**
