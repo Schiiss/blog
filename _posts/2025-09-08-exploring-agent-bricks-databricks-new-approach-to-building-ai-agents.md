@@ -177,7 +177,7 @@ FROM query_results
 display(df)
 ```
 
-This was very handy for us since we can integrate this agent very easily into our Data Weaver software as a transform option engineers could call upon.
+This was very handy for us since we can integrate this agent very easily into our Data Weaver software as a transform option engineers could invoke via their notebooks
 
 ---
 
