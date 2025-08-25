@@ -147,7 +147,7 @@ I wanted to test and see if the information extraction agent could help with a r
 
 Agent Bricks provides an easy way to [build and improve the agent](https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-bricks/key-info-extraction#step-2-build-and-improve-your-agent) where you can adjust the descriptions of the schema fields that you want your agent to use for output responses.
 
-The act of using this agent becomes very simple since you can select the extract data for all documents option, which gives you access to a SQL query that you can run.
+The act of using this agent becomes very simple since you can select the extract data for all documents option and it gives you a sample query to leverage [ai_query](https://learn.microsoft.com/en-us/azure/databricks/large-language-models/ai-functions#-general-purpose-function-ai_query) to invoke your information extraction agent at scale against all your documents.
 
 [![Information Extraction Agent Use Options](/blog/assets/images/blog_images/exploring-agent-bricks-databricks-new-approach-to-building-ai-agents/information_extraction_options.png)](/blog/assets/images/blog_images/exploring-agent-bricks-databricks-new-approach-to-building-ai-agents/information_extraction_options.png){:target="_blank"}
 
