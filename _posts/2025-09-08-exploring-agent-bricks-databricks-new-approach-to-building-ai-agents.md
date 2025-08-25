@@ -35,7 +35,7 @@ The Databricks Mosaic AI Research team has been doing some cool stuff in this sp
 
 Building agents is hard. Like I talked about in my [🚀🔬 GenAI App Development with MLflow & Databricks](https://schiiss.github.io/blog/genai/mlflow/genai-app-development-with-mlflow-and-databricks/#-challenges-developing-genai-apps), there are so many different steps and knobs to turn when building agents.
 
-Everything from engineering your prompts, chunking the data to prepare for vectorization, selecting an LLM—the number of choices you need to make as a developer is overwhelming and makes iterations tedious and error-prone. Agent Bricks allows teams to focus on the use case and provide feedback to the agent to improve its quality through natural language.
+Everything from engineering your prompts, chunking the data to prepare for vectorization, selecting an LLM, the number of choices you need to make as a developer is overwhelming and makes iterations tedious and error-prone. Agent Bricks allows teams to focus on the use case and provide feedback to the agent to improve its quality through natural language.
 
 Databricks talks about the concept of **Agent Learning from Human Feedback (ALHF)**, which seems to be an internally developed method to help improve the quality of agents.
 
