@@ -54,7 +54,7 @@ FROM READ_FILES('/Volumes/test_dev/default/ai_parse_demo/sample_check.png', form
 
 The query takes a few seconds to run and outputs the following info:
 
-[![AI Parse Table Output](/blog/assets/images/blog_images/ocr-made-simple-with-databricks-ai-functions/ai_parse_table_output)](/blog/assets/images/blog_images/ocr-made-simple-with-databricks-ai-functions/ai_parse_table_output){:target="_blank"}
+[![AI Parse Table Output](/blog/assets/images/blog_images/ocr-made-simple-with-databricks-ai-functions/ai_parse_table_output.png)](/blog/assets/images/blog_images/ocr-made-simple-with-databricks-ai-functions/ai_parse_table_output.png){:target="_blank"}
 
 You will notice in that screenshot that the column ai_parse_document(content) presents a JSON structure with the output from the check.
 
