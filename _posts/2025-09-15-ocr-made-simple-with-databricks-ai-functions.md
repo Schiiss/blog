@@ -119,7 +119,7 @@ Minus some concurrency/multithreading challenges, we have processed thousands of
 
 We had a few cases where the document could not be OCR'd. When running it through `ai_parse_document()`, a null response was returned. We are working with the Databricks product group to identify what the cause could be for this. It could be because the contract was handwritten in 1982 🤣.
 
-In our tests, we processed 40 contracts using `ai_parse_document()`. Of these, 8 contracts (20%) could not be OCR'd. Notably, 7 out of these 8 failures (87.5%) were poorly scanned documents from before the year 2000, highlighting the challenge of extracting data from older, low-quality scans. This gives us an overall OCR success rate of 80%, with only a single contract (2.5%) failing for other reasons. I imagine other OCR tools would have a similar problem with these older contracts.
+In one of our test scenarios, we processed 40 contracts using `ai_parse_document()`. Of these, 8 contracts (20%) could not be OCR'd. Notably, 7 out of these 8 failures (87.5%) were poorly scanned documents from before the year 2000, highlighting the challenge of extracting data from older, low-quality scans. This gives us an overall OCR success rate of 80%, with only a single contract (2.5%) failing for other reasons. I imagine other OCR tools would have a similar problem with these older contracts.
 
 We also ran into concurrency and multithreading problems where we ran into errors like:
 
