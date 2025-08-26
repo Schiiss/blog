@@ -1,6 +1,6 @@
 ---
 title: "📖 OCR Made Simple with Databricks AI Functions"
-date: 2025-08-23T08:00:00-07:00
+date: 2025-09-14T10:00:00-04:00
 categories:
   - GenAI
 tags:
