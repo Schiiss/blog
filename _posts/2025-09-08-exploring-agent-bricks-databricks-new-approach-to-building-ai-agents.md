@@ -1,6 +1,6 @@
 ---
 title: "🗺️🤖 Exploring Agent Bricks: Databricks’ New Approach to Building AI Agents"
-date: 2025-09-07T10:00:00-04:00
+date: 2025-09-07T9:00:00-04:00
 categories:
   - GenAI
 tags:
