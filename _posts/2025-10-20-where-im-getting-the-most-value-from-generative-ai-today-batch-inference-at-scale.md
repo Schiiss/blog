@@ -67,7 +67,7 @@ Let's talk about a few use cases we are working on to cement these concepts.
 
 ## 🤖 Use Cases
 
-There are a few use cases we are working on—some are in production, while others are still in development.
+There are a few use cases we are working on, some are in production, while others are still in development.
 
 ### 🏷️ Classification
 
