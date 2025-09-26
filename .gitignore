@@ -204,3 +204,4 @@ override.tf.json
 terraform.rc
 
 .vscode
+.databricks
