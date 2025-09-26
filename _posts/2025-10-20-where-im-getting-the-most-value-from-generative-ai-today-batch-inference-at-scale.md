@@ -1,6 +1,6 @@
 ---
 title: "📈🚀 Where I’m Getting the Most Value from Generative AI Today: Batch Inference at Scale"
-date: 2025-09-13T10:00:00-04:00
+date: 2025-10-18T10:00:00-04:00
 categories:
   - GenAI
 tags:
