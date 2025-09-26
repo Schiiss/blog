@@ -7,11 +7,11 @@ tags:
   - Databricks
 ---
 
-{% raw %}<img src="/blog/assets/images/blog_images/where-i’m-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/blog_image.png" alt="">{% endraw %}
+{% raw %}<img src="/blog/assets/images/blog_images/where-im-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/blog_image.png" alt="">{% endraw %}
 
 I have found myself in a rollercoaster of emotions over the past two years during this AI Hype cycle. There is a visual model called the ‘Gartner Hype Cycle’ that has been catching on, namely in the AI community. It articulates the various stages of hype as a given technology matures.
 
-[![Gartner Hype Cycle](/blog/assets/images/blog_images/where-i’m-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/gartner_hype_cycle.jpg)](/blog/assets/images/blog_images/where-i’m-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/gartner_hype_cycle.jpg)
+[![Gartner Hype Cycle](/blog/assets/images/blog_images/where-im-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/gartner_hype_cycle.jpg)](/blog/assets/images/blog_images/where-i’m-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/gartner_hype_cycle.jpg)
 
 I have been guilty in the past of riding the hype cycle and inflating my expectations of what the technology can do.
 
@@ -27,7 +27,7 @@ In this blog, I wanted to share **where I am deriving the most value from Genera
 
 Databricks has a great visual to articulate the value pyramid for generative AI:
 
-[![Generative AI Value Pyramid](/blog/assets/images/blog_images/where-i’m-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/generative_ai_value_pyramid.png)](/blog/assets/images/blog_images/where-i’m-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/generative_ai_value_pyramid.png)
+[![Generative AI Value Pyramid](/blog/assets/images/blog_images/where-im-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/generative_ai_value_pyramid.png)](/blog/assets/images/blog_images/where-i’m-getting-the-most-value-from-generative-ai-today-batch-inference-at-scale/generative_ai_value_pyramid.png)
 
 Many teams (and I am totally guilty of this too!), start by building fancy UI’s and chatbots first to start leveraging generative AI.
 
