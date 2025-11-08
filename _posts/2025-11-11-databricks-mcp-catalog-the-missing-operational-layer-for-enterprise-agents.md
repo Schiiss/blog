@@ -1,6 +1,6 @@
 ---
 title: "🤖 Databricks MCP Catalog: The Missing Operational Layer for Enterprise Agents"
-date: 2025-10-17T10:00:00-04:00
+date: 2025-11-10T10:00:00-04:00
 categories:
   - GenAI
 tags:
