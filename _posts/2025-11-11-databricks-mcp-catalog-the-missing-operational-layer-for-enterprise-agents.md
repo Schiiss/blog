@@ -102,9 +102,8 @@ I would say the easiest way to get started with testing some of these new featur
 
 I’ll admit, some of the MCP use cases in the market right now still feel a bit aspirational. But I think that’s the point: the value comes before the use case. Getting ahead of the curve on how systems will be accessed by agents and ensuring your data is structured, cataloged, and centralized is what positions you to move fast when the patterns become clear.
 
-Instead of waiting for the “perfect” GenAI use case to fall into our lap, the strategy is:
+Instead of waiting for the “perfect” GenAI use case to fall into our lap, the strategy is get the prerequisites in place now:
 
-- Get the prerequisites in place now
 - Data centralized
 - Metadata and governance clean
 - Services exposed consistently through something like MCP
