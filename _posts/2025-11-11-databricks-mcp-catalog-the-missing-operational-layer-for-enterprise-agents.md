@@ -31,9 +31,7 @@ There were a few exciting announcements around MCP during this release, but it r
 
 There are some neat MCP integrations to S&P and Nasdaq and there are a few free ones to get started with. I will cover the easiest way to explore external MCP shortly.
 
-You can also more easily discover MCP servers hosted within your environment. Agent Bricks makes building agents easier than ever, opening up agent development to a wide variety of personas and enabling ‘citizen developers’ to explore what MCP servers are leverageable today within your Databricks environment.
-
-Similar to traditional data products, discoverability is an important attribute of them, and I see MCP servers becoming products within your data and AI platform that will start to take on a lifecycle of their own.
+You can also more easily discover MCP servers hosted within your environment. Similar to traditional data products, discoverability is an important attribute of them, and I see MCP servers becoming products within your data and AI platform that will start to take on a lifecycle of their own.
 
 You can now explore MCP servers within your environment in the 'Agents' tab:
 
