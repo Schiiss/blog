@@ -86,7 +86,7 @@ I would say the easiest way to get started with testing some of these new featur
 
    > How does the Model Context Protocol (MCP) differ from OpenAI Function Calling?
 
-   This one worked really well — I can see in the MLflow trace that the Tavily MCP server was called multiple times to generate a file response:
+   This one worked really well. I can see in the MLflow trace that the Tavily MCP server was called multiple times to generate a file response:
 
    [![Second MAS Question Trace 1](/blog/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/mas_second_question_trace_1.png)](/blog/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/mas_second_question_trace_1.png)
 
