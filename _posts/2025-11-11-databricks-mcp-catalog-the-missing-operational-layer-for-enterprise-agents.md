@@ -92,7 +92,7 @@ I would say the easiest way to get started with testing some of these new featur
 
    [![Second MAS Question Trace 2](/blog/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/mas_second_question_trace_2.png)](/blog/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/mas_second_question_trace_2.png)
 
-   I am also impressed with the answer. You can view [the full detailed comparison of MCP vs OpenAI Function Calling](https://github.com/Schiiss/blog/tree/master/assets/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/mas-mcp-vs-openai-functions-response.md) for a comprehensive breakdown.
+   I am also impressed with the answer. For reference, you can view [agents response](https://github.com/Schiiss/blog/blob/master/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/mas-mcp-vs-openai-functions-response.md) to my second question to see how it did.
 
 > **Note**: I have converted the response to markdown for better readability.
 
