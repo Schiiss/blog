@@ -29,7 +29,7 @@ There were a few exciting announcements around MCP during this release, but it r
 
 [![External MCP Catalog](/blog/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/extrernal_mcp_marketplace.png)](/blog/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/extrernal_mcp_marketplace.png)
 
-There is some neat MCP integrations to S&P and Nasdaq and there are a few free ones to get started with. I will cover the easiest way to explore external MCP shortly.
+There are some neat MCP integrations to S&P and Nasdaq and there are a few free ones to get started with. I will cover the easiest way to explore external MCP shortly.
 
 You can also more easily discover MCP servers hosted within your environment. With Agent Bricks lowering the barrier to entry to build agents, this is incredibly important to provide ‘citizen developers’ the ability to explore what integrations are leverageable today within your Databricks environment.
 
