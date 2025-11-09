@@ -12,9 +12,9 @@ tags:
 
 {% raw %}<img src="/blog/assets/images/blog_images/databricks-mcp-catalog-the-missing-operational-layer-for-enterprise-agents/blog_image.png" alt="">{% endraw %}
 
-The amount of adoption and hype around **Model Context Protocol (MCP)** has pleasantly surprised me lately. While I was skeptical at the start regarding its value proposition, I'm now seeing how it's coming together.
+The amount of adoption and hype around **Model Context Protocol (MCP)** has pleasantly surprised me lately. While I was skeptical at the start regarding its value proposition and how widely (or not) it would be adopted, I'm now seeing how it's coming together.
 
-The most important aspect of agents are their **tools**, as they give them access to your enterprise context as well as the outside world. These tools empower agents to perform actions, and I'm starting to see how MCP will enable more seamless agent integration with the outside world.
+The most important aspect of agents are their **tools**, as they give them access to your enterprise context as well as the outside world. I'm starting to see how MCP will enable more seamless agent integration with the outside world.
 
 At Plains, we've fully embraced the **Lakehouse architecture**, and the possibilities expand dramatically when you have data from your critical applications centralized in one place. This presents some fascinating opportunities for MCP, which I'll explore in detail below.
 
@@ -31,7 +31,7 @@ There were a few exciting announcements around MCP during this release, but it r
 
 There are some neat MCP integrations to S&P and Nasdaq and there are a few free ones to get started with. I will cover the easiest way to explore external MCP shortly.
 
-You can also more easily discover MCP servers hosted within your environment. Similar to traditional data products, discoverability is an important attribute of them, and I see MCP servers becoming products within your data and AI platform that will start to take on a lifecycle of their own.
+You can also more easily discover MCP servers hosted within your Databricks environment. If you think in terms of data products, discoverability is an important attribute of them, and I see MCP servers becoming products within your data and AI platform that will start to take on a lifecycle of their own and enable agents within your environment to interact with your enterprise data.
 
 You can now explore MCP servers within your environment in the 'Agents' tab:
 
@@ -98,9 +98,9 @@ I would say the easiest way to get started with testing some of these new featur
 
 ## 💡 Use Case(s)
 
-I’ll admit, some of the MCP use cases in the market right now still feel a bit aspirational. But I think that’s the point: the value comes before the use case. Getting ahead of the curve on how systems will be accessed by agents and ensuring your data is structured, cataloged, and centralized is what positions you to move fast when the patterns become clear.
+I’ll admit, some of the MCP use cases in the market right now still feel a bit aspirational. But I think that’s the point. The value comes before the use case. Getting ahead of the curve on how systems will be accessed by agents and ensuring your data is structured, cataloged, and centralized is what positions you to move fast when the patterns become clear.
 
-Instead of waiting for the “perfect” GenAI use case to fall into our lap, the strategy is get the prerequisites in place now:
+Instead of waiting for the "perfect" GenAI use case to fall into our lap, the strategy is to get the prerequisites in place now:
 
 - Data centralized
 - Metadata and governance clean
@@ -108,7 +108,7 @@ Instead of waiting for the “perfect” GenAI use case to fall into our lap, th
 
 Then iterate on use cases as the opportunities show up.
 
-One area where this does feel tangible today is with the sensor data we collect from our pipelines. We are already well underway a build out of an anomaly detection layer (both a rules-based engine and an ML classifier, e.g., XGBoost). But once an anomaly is flagged, an operator still has to go and validate whether it is real or explainable. This is a highly manual workflow that often requires switching between SCADA, historian data, Maximo, and inspection/maintenance logs.
+One area where this does feel tangible today is with the sensor data we collect from our pipelines. We are already well underway on a build out of an anomaly detection layer (both a rules-based engine and an ML classifier, e.g., XGBoost). But once an anomaly is flagged, an operator still has to go and validate whether it is real or explainable. This is a highly manual workflow that often requires switching between SCADA, historian data, Maximo, and inspection/maintenance logs.
 
 An MCP-connected agent could replicate the exact steps an experienced operator takes to triage the anomaly but do it in seconds instead of minutes or hours.
 
