@@ -1,6 +1,6 @@
 ---
 title: "🛢️🤖 Why Detecting O&G Pipeline Anomalies Is So Hard"
-date: 2025-11-10T10:00:00-04:00
+date: 2025-11-09T10:00:00-04:00
 categories:
   - Data Science
 tags:
