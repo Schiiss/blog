@@ -1,6 +1,6 @@
 ---
 title: "🤖 Databricks MCP Catalog: The Missing Operational Layer for Enterprise Agents"
-date: 2025-11-10T10:00:00-04:00
+date: 2025-11-09T10:00:00-04:00
 categories:
   - GenAI
 tags:
@@ -103,7 +103,7 @@ I’ll admit, some of the MCP use cases in the market right now still feel a bit
 Instead of waiting for the "perfect" GenAI use case to fall into our lap, the strategy is to get the prerequisites in place now:
 
 - Data centralized
-- Metadata and governance clean
+- Metadata and governance
 - Services exposed consistently through something like MCP
 
 Then iterate on use cases as the opportunities show up.
