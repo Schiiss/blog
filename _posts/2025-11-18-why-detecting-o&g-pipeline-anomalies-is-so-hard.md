@@ -93,7 +93,7 @@ A single flow rate or pressure signal cannot tell the whole story. Pipelines are
 
 Once we understood the operating patterns, we moved toward supervised and semi-supervised classification, where the model learns to identify operating states and anomaly types, not just differences. This is where classification models (like XGBoost) became a much better fit.
 
-Instead of asking, “Is this point different from normal?” (Isolation Forest), we instead ask, “Does this data pattern match:
+Instead of asking, “Is this point different from normal?” (Isolation Forest), we instead ask, does this data pattern match one of the following:
 
 - normal operation,
 - shutdown conditions, or
