@@ -19,7 +19,7 @@ tags:
 
 Over the past few months, I’ve been diving into the world of pipeline operations and the rich data that comes from them. I have grown a huge appreciation for how complex these systems are. The sensors along these pipelines generate massive amounts of data, tracking flow, pressure, temperature, vibration, and more, every second of every day. Interpreting this data is far from straightforward and understanding how to extract meaningful insights is both fascinating and challenging.
 
-I recently had some great conversations with [Scott McKean](https://www.linkedin.com/in/scotthmckean/) on the complexities of operational anomaly detection in pipelines. We also have an incredibly knowledgeable OT team at Plains who have been patient in explaining topics like **overshorts**, **inhibits**, **triggers**, **batching behaviors**, and more. It has been and will continue to be a humbling learning experience.
+I recently had some great conversations with [Scott McKean](https://www.linkedin.com/in/scotthmckean/) on the complexities of operational anomaly detection in pipelines. We also have an incredibly knowledgeable OT team at Plains who have been patient in explaining topics like **over/short**, **inhibits**, **triggers**, **batching behaviors**, and more. It has been and will continue to be a humbling learning experience.
 
 This space sits at the intersection of engineering, operations, and data science. There are some interesting data and AI problems here and I’m excited to continue exploring this space and sharing insights along the way.
 
@@ -38,9 +38,15 @@ From what I have learned thus far, here are a few of the major factors that make
 
 ### 🌡️ The Pipeline System is Always Changing
 
-Hydrocarbons in a pipeline expand and contract with temperature and pressure. During shutdowns, that pressure bleeds off and the product settles. The measured volume suddenly looks short compared to what the system says should be there. This discrepancy is called an **overshort**. An overshort can appear to be many things (ie: a leak, a metering error etc.) and those scenarios can look very similar in the data.
+Hydrocarbons inside a pipeline expand and contract with temperature and pressure, and this stored compression is known as **linepack**. When a pipeline shuts down, pumps stop, pressure bleeds off, and the product settles. The measured volume can suddenly look different from what the system says should be there. This temporary difference is often called an **over/short imbalance**, and it can look almost identical to other operational issues like leaks or metering errors. Without accounting for linepack and how pressure and temperature shifts affect volume, even a good anomaly detection model will throw constant false positives.
 
-Anomaly detection models that simply look for volume imbalance will throw constant false alarms which can have very real implications. Without understanding overshorts and linepack dynamics, you can’t interpret pipeline data correctly.
+This is why basic volume imbalance checks are unreliable the moment temperature swings, shutdowns, batching, or other transient events happen.
+
+## 📘 Why Linepack and Transients Break Simple Imbalance Detectors
+
+Pipelines do not behave like static tanks. They act more like long, flexible storage vessels. As pressure increases, the pipe walls and the product inside compress, storing additional volume as **linepack**. During real operations, this is always changing as pumps ramp, temperatures shift, valves move, and product batches travel down the line. Because of this, the actual volume inside a pipeline at any moment is not fixed and can’t be inferred from flow meters alone.
+
+Transient events make this even more obvious. Startup, shutdown, pump trips, valve changes, and temperature swings all shift linepack faster than simple models expect. A basic imbalance detector that just looks at flow in versus flow out ends up interpreting these changes as apparent losses or gains. To a naive model, those look like leaks. In reality, they are perfectly normal behaviors. This is why modern leak detection systems and anomaly detection approaches need to understand operating context, pressure and temperature behavior, and the physical dynamics of the pipeline rather than relying on static thresholds.
 
 ### 🔀 Multiple Pumps and Split Flows Add Signal Complexity
 
