@@ -97,7 +97,7 @@ Instead of asking, “Is this point different from normal?” (Isolation Forest)
 
 - normal operation,
 - shutdown conditions, or
-- a potential leak?”
+- a potential leak?
 
 This framing is much more aligned with how pipeline operators think.
 
