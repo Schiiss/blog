@@ -42,7 +42,7 @@ Hydrocarbons inside a pipeline expand and contract with temperature and pressure
 
 This is why basic volume imbalance checks are unreliable the moment temperature swings, shutdowns, batching, or other transient events happen.
 
-## 📘 Why Linepack and Transients Break Simple Imbalance Detectors
+### 📘 Why Linepack and Transients Break Simple Imbalance Detectors
 
 Pipelines do not behave like static tanks. They act more like long, flexible storage vessels. As pressure increases, the pipe walls and the product inside compress, storing additional volume as **linepack**. During real operations, this is always changing as pumps ramp, temperatures shift, valves move, and product batches travel down the line. Because of this, the actual volume inside a pipeline at any moment is not fixed and can’t be inferred from flow meters alone.
 
