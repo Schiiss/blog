@@ -36,13 +36,13 @@ From what I have learned thus far, here are a few of the major factors that make
 
 [![Anomaly Detection Outliers](/blog/assets/images/blog_images/why-detecting-o&g-pipeline-anomalies-is-so-hard/anomaly_detection_outliers.jpg)](/blog/assets/images/blog_images/why-detecting-o&g-pipeline-anomalies-is-so-hard/anomaly_detection_outliers.jpg)
 
-### The Pipeline System is Always Changing
+### 🌡️ The Pipeline System is Always Changing
 
 Hydrocarbons in a pipeline expand and contract with temperature and pressure. During shutdowns, that pressure bleeds off and the product settles. The measured volume suddenly looks short compared to what the system says should be there. This discrepancy is called an **overshort**. An overshort can appear to be many things (ie: a leak, a metering error etc.) and those scenarios can look very similar in the data.
 
 Anomaly detection models that simply look for volume imbalance will throw constant false alarms which can have very real implications. Without understanding overshorts and linepack dynamics, you can’t interpret pipeline data correctly.
 
-### Multiple Pumps and Split Flows Add Signal Complexity
+### 🔀 Multiple Pumps and Split Flows Add Signal Complexity
 
 Pipelines are not linear “point A to point B” systems, and they often include multiple pumping stations, branch lines that split the product into different paths and potential recombination points downstream.
 
@@ -51,7 +51,7 @@ Each pump also introduces changes in the pipeline like pressure, flow, vibration
 > If flow in ≠ flow out → anomaly will generate a false positive every time.  
 > These pipeline systems are incredibly complex.
 
-### Triggers and Inhibits Make the Operational Context Dynamic
+### 🔔 Triggers and Inhibits Make the Operational Context Dynamic
 
 Pipeline safety systems rely on automated logic and there are a few terms I have learned about in the past few weeks:
 
@@ -62,7 +62,7 @@ During startup, shutdown, batching, pigging, and maintenance, inhibits are often
 
 For anomaly detection models, this is incredibly hard. The model must also know when to ignore anomalies (i.e., the noise). This means the key is not just analyzing the sensor values but understanding the operating state at that moment.
 
-### False Positives Can be Expensive
+### 💸 False Positives Can be Expensive
 
 If an anomaly detection system signals a leak incorrectly and triggers or pressures teams to shut down, and if the system cries wolf too often, it simply gets ignored, which is worse than having no system at all. An incorrect flag could lead teams to shut down a pipeline segment:
 
@@ -81,7 +81,7 @@ Isolation forest is not great since all you get is if an anomaly is detected or 
 
 ---
 
-## Recognizing the Multi-Dimensional Nature of the Problem
+## 📐 Recognizing the Multi-Dimensional Nature of the Problem
 
 The next thing I learned came from taking a step back and looking at the data from a physical standpoint.
 
@@ -89,7 +89,7 @@ A single flow rate or pressure signal cannot tell the whole story. Pipelines are
 
 ---
 
-## Shifting to Classification Models (e.g., XGBoost)
+## 📊 Shifting to Classification Models (e.g., XGBoost)
 
 Once we understood the operating patterns, we moved toward supervised and semi-supervised classification, where the model learns to identify operating states and anomaly types, not just differences. This is where classification models (like XGBoost) became a much better fit.
 
@@ -103,7 +103,7 @@ This framing is much more aligned with how pipeline operators think.
 
 ---
 
-## Using Synthetic Data to Train the Classifier
+## 🧪 Using Synthetic Data to Train the Classifier
 
 To wrap my head around how to technically do this, I thought of generating some synthetic pipeline data to learn how to do this.
 
@@ -127,7 +127,7 @@ The ML model is just one piece of broader operational architecture. The output n
 
 We’re approaching the next stage in three main areas:
 
-### Pairing ML Models with a Rule-Based Engine
+### 🤝 Pairing ML Models with a Rule-Based Engine
 
 While the classification model helps interpret multi-sensor patterns, pipeline operations still rely on deterministic safety logic that cannot be replaced. So instead of choosing between ML or rules, the goal is to combine them:
 
@@ -139,7 +139,7 @@ While the classification model helps interpret multi-sensor patterns, pipeline o
 
 This approach reduces false positives while maintaining operational trust, something purely ML-driven anomaly detection rarely gets right on the first try.
 
-### Model Governance and Lifecycle Management
+### 🗂️ Model Governance and Lifecycle Management
 
 To move beyond proof-of-concept, we need consistent versioning, reproducibility, and centralized governance:
 
@@ -149,7 +149,7 @@ To move beyond proof-of-concept, we need consistent versioning, reproducibility,
 | Unity Catalog                       | Provides versioning, permission control, and lineage for both models and features. This is key to auditability and cross-team adoption. |
 | Feature Store / Feature Engineering Layer | Ensures features like “pressure delta over 10 minutes” are computed once, consistently, everywhere.                              |
 
-### Data & Pipeline Orchestration at Scale
+### 🚦 Data & Pipeline Orchestration at Scale
 
 The data pipeline itself matters as much as the model:
 
