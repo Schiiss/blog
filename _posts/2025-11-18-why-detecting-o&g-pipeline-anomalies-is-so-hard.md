@@ -19,7 +19,7 @@ tags:
 
 Over the past few months, I’ve been diving into the world of pipeline operations and the rich data that comes from them. I have grown a huge appreciation for how complex these systems are. The sensors along these pipelines generate massive amounts of data, tracking flow, pressure, temperature, vibration, and more, every second of every day. Interpreting this data is far from straightforward and understanding how to extract meaningful insights is both fascinating and challenging.
 
-I recently had some great conversations with [Scott McKean](https://www.linkedin.com/in/scotthmckean/) on the complexities of operational anomaly detection in pipelines. We also have an incredibly knowledgeable OT team at Plains who have been patient in explaining topics like **over/short**, **inhibits**, **triggers**, **batching behaviors**, and more. It has been and will continue to be a humbling learning experience.
+I recently had some great conversations with [Scott McKean](https://www.linkedin.com/in/scotthmckean/) on the complexities of operational anomaly detection in pipelines. We also have an incredibly knowledgeable OT team at Plains who have been patient in explaining topics like **over/short**, **inhibits**, **triggers**, and more. It has been and will continue to be a humbling learning experience.
 
 This space sits at the intersection of engineering, operations, and data science. There are some interesting data and AI problems here and I’m excited to continue exploring this space and sharing insights along the way.
 
@@ -40,7 +40,7 @@ From what I have learned thus far, here are a few of the major factors that make
 
 Hydrocarbons inside a pipeline expand and contract with temperature and pressure, and this stored compression is known as **linepack**. When a pipeline shuts down, pumps stop, pressure bleeds off, and the product settles. The measured volume can suddenly look different from what the system says should be there. This temporary difference is often called an **over/short imbalance**, and it can look almost identical to other operational issues like leaks or metering errors. Without accounting for linepack and how pressure and temperature shifts affect volume, even a good anomaly detection model will throw constant false positives.
 
-This is why basic volume imbalance checks are unreliable the moment temperature swings, shutdowns, batching, or other transient events happen.
+This is why basic volume imbalance checks are unreliable the moment temperature swings, shutdowns, or other transient events happen.
 
 ### 📘 Why Linepack and Transients Break Simple Imbalance Detectors
 
@@ -64,7 +64,7 @@ Pipeline safety systems rely on automated logic and there are a few terms I have
 - **Triggers:** Conditions that automatically generate alerts to the control center for operator review and decision-making (e.g., high pressure)
 - **Inhibits:** Temporary overrides that prevent those alerts when abnormal readings are expected (e.g., during startup or maintenance)
 
-During startup, shutdown, batching, pigging, and maintenance, inhibits are often active and from an operations standpoint we are saying ‘Yes, conditions look abnormal, but we expect that, so don’t respond.’
+During startup, shutdown, pigging, and maintenance, inhibits are often active and from an operations standpoint we are saying ‘Yes, conditions look abnormal, but we expect that, so don’t respond.’
 
 For anomaly detection models, this is incredibly hard. The model must also know when to ignore anomalies (i.e., the noise). This means the key is not just analyzing the sensor values but understanding the operating state at that moment.
 
@@ -129,7 +129,7 @@ We validated how well (or not) the feature engineering went by leveraging EDA te
 
 ## ⏭️ Next Steps
 
-The ML model is just one piece of broader operational architecture. The output needs to be trusted, repeatable, and actionable across hundreds of pipeline systems with different equipment, environmental conditions, batching schedules, and product characteristics.
+The ML model is just one piece of broader operational architecture. The output needs to be trusted, repeatable, and actionable across hundreds of pipeline systems with different equipment, environmental conditions, and product characteristics.
 
 We’re approaching the next stage in three main areas:
 
