@@ -84,7 +84,7 @@ This is a huge oversimplification of the technology, but Azure Data Lake Storage
 
 There were lots of issues around setting permissions as well if you were not mindful in setting them up prior to ingesting data.
 
-Let me explain this in an example, imagine you are streaming data in from a source. In my case, when I was helping maintain these services, we were bringing in PNRs and DCS (passenger records and departure control records) from a large airline.
+Let me explain this in an example, imagine you are streaming data in from a source. In my case, when I was helping maintain these services, we were bringing in PNRs and DCS data (passenger records and departure control records) from a large airline.
 
 If you imagine all the flights taking off and landing, there was a high volume of data coming in. The integration pattern looked something like the below. We had an application publish messages to an event hub, and we had Databricks read from the event hub queues and drop the messages into parquet format in our data lake.
 
