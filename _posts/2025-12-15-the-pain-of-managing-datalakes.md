@@ -128,7 +128,7 @@ Then we were blindsided by something we didn’t expect at all: **Azure authenti
 
 ---
 
-## How Azure Authentication Actually Works
+## How Azure Authentication Works
 
 This is where understanding how Azure handles authentication becomes important. When a user or service accesses something like Azure Data Lake Storage, Azure issues a JSON Web Token, or JWT. It’s just a small, signed package of information that gets passed along with each request. Inside that token is all the context Azure needs to authorize the user, who they are, which tenant they belong to, and, most importantly for us, which security groups they’re in. Azure Data Lake Storage checks the object IDs of those groups against the ACLs on the folders and files and decides whether the request should be allowed.
 
