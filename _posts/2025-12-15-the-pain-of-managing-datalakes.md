@@ -76,7 +76,7 @@ This is a huge oversimplification of the technology, but Azure Data Lake Storage
   - For files: Allows running the file as a program or script.
   - For directories: Allows entering or accessing subdirectories within the directory.
 
-> **Note:** Given the amount of [permission Unity Catalog exposes](https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/privileges), it becomes very clear that RWX permissions are incredibly limited.
+> **Note:** Given the amount of [permissions Unity Catalog exposes](https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/privileges), it becomes very clear that RWX permissions are incredibly limited.
 
 ---
 
