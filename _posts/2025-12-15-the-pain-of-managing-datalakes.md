@@ -1,6 +1,6 @@
 ---
 title: "The Pain of Managing Data Lakes"
-date: 2025-12-13T10:00:00-04:00
+date: 2025-12-11T10:00:00-04:00
 categories:
   - Data
 tags:
