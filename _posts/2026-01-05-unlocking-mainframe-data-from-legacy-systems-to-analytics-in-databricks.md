@@ -73,7 +73,7 @@ Once inside the Utilities menu, I quickly discovered that everything in the main
 
 When you submit a job, the mainframe reads your JCL, locates the datasets you reference, runs the COBOL program you point to, and routes the output into spool datasets that you can view through **SDSF (System Display and Search Facility)** or another similar job log viewer.
 
-Selecting option `4` allows me to search for the dataset I want. In this case, I am searching `SYS2`, which is used for datasets that belong to the operating system, utilities, or shared components—not to individual users.
+Selecting option `4` or **DSLIST** allows me to search for the dataset I want. In this case, I am searching `SYS2`, which is used for datasets that belong to the operating system, utilities, or shared components, not to individual users.
 
 [![Mainframe Step 3](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_3.png)](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_3.png)
 
