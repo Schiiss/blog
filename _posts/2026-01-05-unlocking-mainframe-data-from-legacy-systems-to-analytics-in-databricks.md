@@ -1,6 +1,6 @@
 ---
 title: "Unlocking Mainframe Data: From Legacy Systems to Analytics in Databricks"
-date: 2025-12-13T10:00:00-04:00
+date: 2026-01-03T10:00:00-04:00
 categories:
   - Mainframe
 tags:
