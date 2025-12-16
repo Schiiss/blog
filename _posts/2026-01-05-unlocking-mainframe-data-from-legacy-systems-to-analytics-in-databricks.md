@@ -99,7 +99,7 @@ I was trying to identify where I could see the output of this job, but could not
 
 Talking with the mainframe team at Plains, they leverage a tool called **System Display and Search Facility (SDSF)** to monitor, manage, and view system activity, job queues, and job output in real-time. I do not have access to that on my emulator, and when I tried to view the logs in the **OUTLIST** utility, which basically displays JOB output, I could not find it.
 
-I can see there is something called `SYSOUT` where printed records are stored, but I could not figure out how to access that. In theory, I should of been able to view the 'Hello World' output there.
+I can see there is something called `SYSOUT` where printed records are stored, but I could not figure out how to access that. In theory, I should have been able to view the 'Hello World' output there.
 
 [![Mainframe Step 8](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_8.png)](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_8.png)
 
@@ -107,11 +107,17 @@ I can see there is something called `SYSOUT` where printed records are stored, b
 
 One of the most important aspects of mainframe systems is their use of specialized databases. Unlike modern relational databases, many mainframe databases such as IBM’s IMS (Information Management System) are **hierarchical** in structure. This means data is organized in a tree-like format, with parent and child records, rather than tables with rows and columns. I have yet to dig into these databases at Plains but I hope to in the coming months.
 
-As things stand now (and as far as I understand), we are leveraging scheduled jobs via JCL that call mostly COBOL code on mainframe that export data from various commercial apps into a tilde separated format. These tilde separated files are often times SFTP'd between file shares for consumption.
+As things stand now (and as far as I understand), we are leveraging scheduled jobs via JCL that call mostly COBOL code on mainframe. These jobs export data from various commercial apps into a tilde separated format. These tilde separated files are often times SFTP'd between file shares for consumption.
 
-There are also .NET client applications built for deal capture that leverage a SQL database where data is copied from mainframe into these client SQL databases.
+There are also .NET client applications built for deal capture that leverage a SQL database where data is copied from mainframe into these client SQL databases on a scheduled basis.
 
-We are tying into a mix of the two to pull volumetric and lease supply data and using Data Weaver to ingest and process this data in Databricks.
+We are tying into a mix of the tilde separated files and the client app SQL servers to pull volumetric, deal information, and lease supply data and using Data Weaver to ingest and process this data in Databricks.
+
+While we are not connecting directly into the mainframe IMS databases today, depending on our end users requirements, we may need to explore that to pull that data on a more regular interval.
+
+I suspect this will not be a problem for now since the jobs on mainframe to extract the data are scheduled to run in accordance with **crude oil accounting requirements and operational workdays**. In a midstream context, a “workday” is not a calendar day, but a contract-defined 24-hour operating period used for measurement, allocation, inventory reconciliation, and settlement.
+
+Aligning extract jobs to these workday boundaries ensures that volumetric data, deal activity, and lease-level movements remain consistent with how the business measures and settles crude. As long as downstream ingestion and processing remain in sync with these accounting cutoffs, the data we land in Databricks should reconcile cleanly with commercial and accounting systems, even if the underlying source systems and technologies differ significantly.
 
 ---
 
