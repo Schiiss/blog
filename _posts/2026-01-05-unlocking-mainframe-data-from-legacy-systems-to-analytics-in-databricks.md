@@ -53,10 +53,7 @@ To be honest, I had not even really seen what a mainframe looked like prior to e
 
 [![Mainframe Step 1](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_1.png)](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_1.png)
 
-There are a wide variety of options here, most of which I have not touched. Most of my time has been spent in the **UTILITIES** option. Selecting option `3` will take us there:
-
-1. Go to the ISPF menu.
-2. Select option `3` (**UTILITIES**).
+There are a wide variety of options here, most of which I have not touched. Most of my time has been spent in the **UTILITIES** option. Selecting option `3` will take us there.
 
 [![Mainframe Step 2](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_2.png)](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_2.png)
 
