@@ -19,7 +19,7 @@ Working at Plains, many of our commercial applications for crude oil accounting,
 
 As mentioned above, my biggest challenge learning all of this was that I did not really understand what **mainframe** meant. So, to get my hands dirty, I leveraged some open-source technology to spin up an extremely barebones mainframe on my computer to get a feel for various mainframe concepts.
 
-In this post, I’ll walk through what a mainframe is, how I emulated one, and how data moves from mainframe to Databrick. I hope this post demystifies some mainframe concepts for you!
+In this post, I’ll walk through what a mainframe is, how I emulated one, and how data moves from mainframe to Databricks. I hope this post demystifies some mainframe concepts for you!
 
 ---
 
