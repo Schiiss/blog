@@ -89,11 +89,7 @@ Scrolling down to that file and entering `E` allows us to view the syntax of tha
 
 [![Mainframe Step 6](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_6.png)](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_6.png)
 
-This COBOL script just prints `Hello World`. We can submit this job by entering the following command in the Command prompt:
-
-```text
-submit
-```
+This COBOL script just prints `Hello World`. We can submit this job by entering the `submit` command in the Command prompt.
 
 Doing so returns this:
 
