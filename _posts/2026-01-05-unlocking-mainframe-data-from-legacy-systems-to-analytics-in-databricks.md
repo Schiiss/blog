@@ -107,7 +107,7 @@ I can see there is something called `SYSOUT` where printed records are stored, b
 
 One of the most important aspects of mainframe systems is their use of specialized databases. Unlike modern relational databases, many mainframe databases such as IBM’s IMS (Information Management System) are **hierarchical** in structure. This means data is organized in a tree-like format, with parent and child records, rather than tables with rows and columns. I have yet to dig into these databases at Plains but I hope to in the coming months.
 
-As things stand now (and as far as I understand), we are leveraging scheduled jobs that call mostly COBOL code on mainframe that export data from various commercial apps into a tilde separated format. These tilde separated files are often times SFTP'd between file shares for consumption.
+As things stand now (and as far as I understand), we are leveraging scheduled jobs via JCL that call mostly COBOL code on mainframe that export data from various commercial apps into a tilde separated format. These tilde separated files are often times SFTP'd between file shares for consumption.
 
 There are also .NET client applications built for deal capture that leverage a SQL database where data is copied from mainframe into these client SQL databases.
 
