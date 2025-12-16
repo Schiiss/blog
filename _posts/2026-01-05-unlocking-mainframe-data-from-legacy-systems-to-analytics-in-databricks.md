@@ -19,7 +19,7 @@ Working at Plains, many of our commercial applications for crude oil accounting,
 
 As mentioned above, my biggest challenge learning all of this was that I did not really understand what **mainframe** meant. So, to get my hands dirty, I leveraged some open-source technology to spin up an extremely barebones mainframe on my computer to get a feel for various mainframe concepts.
 
-This blog captures my learnings about mainframe and my emulated environment. I hope this post demystifies some mainframe concepts for you!
+In this post, I’ll walk through what a mainframe is, how I emulated one, and how data moves from mainframe to Databrick. I hope this post demystifies some mainframe concepts for you!
 
 ---
 
@@ -49,7 +49,7 @@ The software is called [`Hercules`](https://github.com/hercules-390/hyperion), a
 
 ## Getting Hands-On with Mainframe
 
-To be honest, I had not even really seen what a mainframe looked like prior to experimenting with this emulator, so this was a fun experience. After logging in, you are greeted with what is called an **Interactive System Productivity Facility (ISPF)** menu that provides a way to interact with the mainframe.
+To be honest, I had not even really seen what a mainframe looked like prior to experimenting with this emulator, so this was a fun experience. After logging in, you are greeted with what is called an **[Interactive System Productivity Facility (ISPF)](https://www.ibm.com/docs/en/zos-basic-skills?topic=interfaces-what-is-ispf)** menu that provides a way to interact with the mainframe.
 
 [![Mainframe Step 1](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_1.png)](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_1.png)
 
@@ -64,14 +64,14 @@ Once inside the Utilities menu, I quickly discovered that everything in the main
 - Some datasets behave like simple text files.
 - Others act more like folders, holding multiple "members" such as JCL scripts, COBOL programs, or configuration files.
 
-**JCL (Job Control Language)** was cool to learn about, and it is basically an instruction sheet that tells the mainframe what work to do. A JCL script defines:
+**[JCL (Job Control Language)](https://www.ibm.com/docs/en/zos-basic-skills?topic=sdsf-what-is-jcl)** was cool to learn about, and it is basically an instruction sheet that tells the mainframe what work to do. A JCL script defines:
 
 - Which datasets to read from
 - Which programs to run
 - Where to put the output
 - What system resources to allocate
 
-When you submit a job, the mainframe reads your JCL, locates the datasets you reference, runs the COBOL program you point to, and routes the output into spool datasets that you can view through **SDSF (System Display and Search Facility)** or another similar job log viewer.
+When you submit a job, the mainframe reads your JCL, locates the datasets you reference, runs the COBOL program you point to, and routes the output into spool datasets that you can view through **[SDSF (System Display and Search Facility)](https://www.ibm.com/docs/en/zos/3.1.0?topic=guide-introduction-sdsf)** or another similar job log viewer.
 
 Selecting option `4` or **DSLIST** allows me to search for the dataset I want. In this case, I am searching `SYS2`, which is used for datasets that belong to the operating system, utilities, or shared components, not to individual users.
 
