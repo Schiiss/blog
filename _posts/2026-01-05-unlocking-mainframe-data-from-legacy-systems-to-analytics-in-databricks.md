@@ -99,7 +99,7 @@ I was trying to identify where I could see the output of this job, but could not
 
 Talking with the mainframe team at Plains, they leverage a tool called **System Display and Search Facility (SDSF)** to monitor, manage, and view system activity, job queues, and job output in real-time. I do not have access to that on my emulator, and when I tried to view the logs in the **OUTLIST** utility, which basically displays JOB output, I could not find it.
 
-I can see there is something called `SYSOUT` where printed records are stored, but I could not figure out how to access that.
+I can see there is something called `SYSOUT` where printed records are stored, but I could not figure out how to access that. In theory, I should of been able to view the 'Hello World' output there.
 
 [![Mainframe Step 8](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_8.png)](/blog/assets/images/blog_images/unlocking-mainframe-data-from-legacy-systems-to-analytics-in-databricks/mainframe_8.png)
 
