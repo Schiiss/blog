@@ -1,6 +1,6 @@
 ---
 title: "Unlocking Mainframe Data: From Legacy Systems to Analytics in Databricks"
-date: 2026-01-03T10:00:00-04:00
+date: 2026-01-02T10:00:00-04:00
 categories:
   - Mainframe
 tags:
@@ -107,7 +107,7 @@ I can see there is something called `SYSOUT` where printed records are stored, b
 
 One of the most important aspects of mainframe systems is their use of specialized databases. Unlike modern relational databases, many mainframe databases such as IBM’s IMS (Information Management System) are **hierarchical** in structure. This means data is organized in a tree-like format, with parent and child records, rather than tables with rows and columns. I have yet to dig into these databases at Plains but I hope to in the coming months.
 
-As things stand now (and as far as I understand), we are leveraging scheduled jobs via JCL that call mostly COBOL code on mainframe. These jobs export data from various commercial apps into a tilde separated format. These tilde separated files are often times SFTP'd between file shares for consumption.
+As things stand now (and as far as I understand), we are leveraging scheduled jobs via JCL that call mostly COBOL code on mainframe. These jobs export data from various commercial apps that run on mainframe, into a tilde separated format. These tilde separated files are often times SFTP'd between file shares for consumption.
 
 There are also .NET client applications built for deal capture that leverage a SQL database where data is copied from mainframe into these client SQL databases on a scheduled basis.
 
@@ -123,7 +123,7 @@ Aligning extract jobs to these workday boundaries ensures that volumetric data, 
 
 ## Conclusion
 
-I had fun trying to get all this running on my laptop and I learned a ton in the process. What the mainframe has done at Plains is amazing, and I am excited to see what data and information we can unlock out of the commercial apps that run on the IBM mainframe using some cutting edge technology in Databricks.
+I had fun trying to get all this running on my laptop and I learned a ton in the process. What the mainframe has done and is doing at Plains is amazing, and I am excited to see what data and information we can unlock out of the commercial apps that run on the IBM mainframe using some cutting edge technology in Databricks.
 
 I hope those that have not interacted with a mainframe (like me) found this blog helpful. I am excited to continue working with the team at Plains to learn more about this technology.
 
