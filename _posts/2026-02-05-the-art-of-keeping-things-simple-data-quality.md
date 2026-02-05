@@ -86,9 +86,9 @@ At its core, the engine follows a three-table design inspired by dimensional mod
   - Fields: `Id` (auto-increment), `RuleId`, `Count`, `Date`
   - Provides high-level metrics for dashboards and trending
 - **dq_fact_rule_detail** (Fact Table - Granular)
-  - Stores individual contract violations per rule
+  - Stores individual DQ violations per rule
   - Fields: `Id` (auto-increment), `RuleId`, `ContractId`, `Date`
-  - Enables drill-down investigation of specific problem contracts
+  - Enables drill-down investigation of specific problem data.
 
 The Databricks notebook runs daily to:
 
