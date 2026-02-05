@@ -64,6 +64,8 @@ This ties directly into right-sizing contracts based on historical actuals. By a
 
 This not only optimizes costs but also aligns commitments with real-world performance, reducing exposure to shortfall fees.
 
+> Full disclosure: much of the above is still aspirational. We’ve built pieces of this today, but not the entire end-to-end vision yet. What matters most at this stage isn’t the completeness of the technology, it’s deeply understanding the business of scheduling, marketing, and contract management. Once you truly understand how volumes flow, how commitments are made, and where real-world constraints live, it becomes much clearer what is and isn’t possible from a technical standpoint. The technology follows the business, not the other way around.
+
 ---
 
 ## SQL Based Data Quality Engine
