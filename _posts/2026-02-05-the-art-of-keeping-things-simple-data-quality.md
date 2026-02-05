@@ -8,6 +8,7 @@ tags:
   - Databricks
   - Data Engineering
   - Oil & Gas
+  - Data Weaver
 ---
 
 <p align="center">
