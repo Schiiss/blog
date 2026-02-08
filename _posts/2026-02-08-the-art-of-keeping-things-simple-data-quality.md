@@ -1,6 +1,6 @@
 ---
 title: "🎨🧑‍🎨 The Art of Keeping Things Simple: Data Quality"
-date: 2026-02-08T10:00:00-04:00
+date: 2026-02-07T10:00:00-04:00
 categories:
   - Data Quality
 tags:
