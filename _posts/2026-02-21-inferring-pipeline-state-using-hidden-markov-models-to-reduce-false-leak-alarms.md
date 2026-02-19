@@ -8,13 +8,14 @@ tags:
   - Oil & Gas
 ---
 
+> **Disclaimer:**  
+> I’ve had the opportunity to work across many areas in tech, everything from infra, software development, devops, data engineering, networking, and now some data science. I know a bit about many things, just enough to be painfully average at all of them 😀. Understanding the algorithms behind Hidden Markov Models required a ton of learning and experimentation, and my understanding is still not perfect. I have a much clearer picture now, but it’s definitely a work in progress. Please take everything in the blog with a grain of salt.
+
 <p align="center">
   <img src="/blog/assets/images/blog_images/inferring-pipeline-state-using-hidden-markov-models-to-reduce-false-leak-alarms/blog_image.jpg" alt="blog image">
 </p>
 
 This post is a follow-up to [🛢️🤖 Why Detecting O&G Pipeline Anomalies Is So Hard](https://www.linkedin.com/posts/conner-schiissler_oilandgas-datascience-anomalydetection-activity-7396547817726595072--5fV?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXEibYBngZiCRvQiwlsg8p1A85--baPNfw), where I discussed the technical complexity we encountered while building a capability to ingest PI historian data into Databricks for further processing.
-
-The initial use case has evolved, and we’ve learned a lot about pipeline operations in the process.
 
 ---
 
