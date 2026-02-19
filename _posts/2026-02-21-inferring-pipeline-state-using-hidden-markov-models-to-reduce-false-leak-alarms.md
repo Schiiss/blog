@@ -12,15 +12,17 @@ tags:
   <img src="/blog/assets/images/blog_images/inferring-pipeline-state-using-hidden-markov-models-to-reduce-false-leak-alarms/blog_image.jpg" alt="blog image">
 </p>
 
-This post is a follow-up post to [🛢️🤖 Why Detecting O&G Pipeline Anomalies Is So Hard](https://www.linkedin.com/posts/conner-schiissler_oilandgas-datascience-anomalydetection-activity-7396547817726595072--5fV?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXEibYBngZiCRvQiwlsg8p1A85--baPNfw) where I talked about the technical complexity we were running into building out a capability to ingest PI historian data into Databricks for further processing.
+This post is a follow-up to [🛢️🤖 Why Detecting O&G Pipeline Anomalies Is So Hard](https://www.linkedin.com/posts/conner-schiissler_oilandgas-datascience-anomalydetection-activity-7396547817726595072--5fV?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXEibYBngZiCRvQiwlsg8p1A85--baPNfw), where I discussed the technical complexity we encountered while building a capability to ingest PI historian data into Databricks for further processing.
 
-The initial use case has evolved, and we’ve learned a ton about pipeline operations in the process.
+The initial use case has evolved, and we’ve learned a lot about pipeline operations in the process.
 
 ---
 
 ## Use Case
 
 The technical work is driven by one core objective: **reduce unnecessary pipeline shutdowns caused by false leak alarms**. In many cases, these shutdowns are not caused by true failures, but by conservative safety mechanisms reacting to limited visibility into the true state of the pipeline and incomplete or uncertain system context. A common pain point is how operational slack is assessed. Controllers often must manually estimate slack conditions in real time, without a fully observable view of packing or unpacking behavior across the line. It’s error-prone and easy to miss during high-pressure operations. When slack is misjudged (or missed entirely), monitoring systems can trigger false leak or deviation alarms, leading to avoidable shutdowns and unnecessary investigations.
+
+To address these challenges, we developed the **Deviation Counter Tool** to work hand-in-hand with our pipeline state detection. When the ML model infers that the pipeline has entered a specific state, such as unpacking (i.e., shutting down), the deviation counter logic is automatically activated. This tool continuously monitors for deviations, removing the need for manual slack estimation and reducing the risk of false alarms.
 
 ---
 
@@ -42,15 +44,15 @@ We’re also running data quality checks during ingestion. For example, we expli
 
 ## Machine Learning Approach
 
-In the previous blog, I talked about potentially approaching this use case as a classification problem. We are still considering that approach, potentially leveraging something like a [nearest neighbor](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors) algorithm, and model different pipeline states (ie: normal, shutdown, leak). However, we have had some recent success using a **Hidden Markov Model (HMM)**. In fact, there’s relevant academic work that inspired this direction from the College of Science, Engineering and Technology in Houston. In [‘Hidden Markov Models for Pipeline Damage Detection Using Piezoelectric Transducers’](https://arxiv.org/abs/2009.14589), researchers applied an HMM-based method to detect pipeline leaks and crack conditions by mapping different damage conditions to distinct Markov states and using statistical signal features as the observable emissions. Their method showed that a Gaussian mixture model HMM (GMM-HMM) could successfully recognize whether a pipeline had a leak, and in some cases locate it under time-varying conditions, despite noisy measurements.
+In the previous blog, I talked about potentially approaching this use case as a classification problem. We are still considering that approach, potentially leveraging something like a [nearest neighbor](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors) algorithm, and modeling different pipeline states (i.e., normal, shutdown, leak). However, we have had some recent success using a **Hidden Markov Model (HMM)**. In fact, there’s relevant academic work that inspired this direction from the College of Science, Engineering, and Technology in Houston. In [‘Hidden Markov Models for Pipeline Damage Detection Using Piezoelectric Transducers’](https://arxiv.org/abs/2009.14589), researchers applied an HMM-based method to detect pipeline leaks and crack conditions by mapping different damage conditions to distinct Markov states and using statistical signal features as the observable emissions. Their method showed that a Gaussian mixture model HMM (GMM-HMM) could successfully recognize whether a pipeline had a leak, and in some cases, locate it under time-varying conditions, despite noisy measurements.
 
-HMM’s can be useful for handling sequential data where the underlying process isn't directly visible, but you can infer it from patterns in the observations. They typically excel in noisy, time-series environments because they account for uncertainty and temporal dependencies. The HMM is based on a Markov chain which is a model that tells us something about the probabilities of sequences of random variables, states, each of which can take on values from some set. Hidden Markov Models are designed specifically for sequential data where the true state is not directly observable. That description fits pipeline operations almost perfectly.
+HMMs can be useful for handling sequential data where the underlying process isn't directly visible, but you can infer it from patterns in the observations. They typically excel in noisy, time-series environments because they account for uncertainty and temporal dependencies. The HMM is based on a Markov chain, which is a model that tells us something about the probabilities of sequences of random variables (states), each of which can take on values from some set. Hidden Markov Models are designed specifically for sequential data where the true state is not directly observable. That description fits pipeline operations almost perfectly.
 
 ---
 
 ## From Weather to Pipelines: A Markov Perspective
 
-The classic example for HMM’s is the [“weather example”](https://www.geeksforgeeks.org/machine-learning/hidden-markov-model-in-machine-learning/):
+The classic example for HMMs is the [“weather example”](https://www.geeksforgeeks.org/machine-learning/hidden-markov-model-in-machine-learning/):
 
 <p align="center">
   <a href="/blog/assets/images/blog_images/inferring-pipeline-state-using-hidden-markov-models-to-reduce-false-leak-alarms/hmm_weather_example.png">
@@ -83,19 +85,19 @@ The same idea applies to pipelines.
 - Shutdown
 - Transition states
 
-We cannot directly measure “packing condition” or “true leak state” as a discrete variable. We infer it from patterns in the measurements.
+We cannot directly measure “packing condition” or “true leak state” as discrete variables. We infer them from patterns in the measurements.
 
 That’s exactly what HMMs are built to do.
 
-You don’t go from Normal → Shutdown → Normal randomly. Slack typically forms gradually and a leak state could persist unless corrected. Transitions have physical constraints.
+You don’t go from Normal → Shutdown → Normal randomly. Slack typically forms gradually, and a leak state could persist unless corrected. Transitions have physical constraints.
 
 A standard classifier treats each minute independently and basically says, "Given these inputs at 10:03, what is the state?"
 
-While an HMM asks a more realistic question, "Given everything we’ve observed up to now, what state are we most likely in and how likely is it to transition to another state?" That temporal dependency is critical because pipeline states persist. A leak doesn’t appear and disappear randomly minute to minute. A line doesn’t pack instantly. Modeling persistence reduces noise-driven false positives.
+While an HMM asks a more realistic question: "Given everything we’ve observed up to now, what state are we most likely in, and how likely is it to transition to another state?" That temporal dependency is critical because pipeline states persist. A leak doesn’t appear and disappear randomly minute to minute. A line doesn’t pack instantly. Modeling persistence reduces noise-driven false positives.
 
 This HMM was trained and versioned within Unity Catalog, and it took nine iterations to get the transition structure and feature engineering aligned with operational reality.
 
-We had to leverage things like [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) to account for unit variance, and engineered features for flow relationships (ex: inflow/outflow ratio), temporal dynamics (ex: delta inflows & outflows based on a lag window), and operational flags (ex: Binary flag for inflow < 5.0 (shutdown detection)).
+We had to leverage things like [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) to account for unit variance, and engineered features for flow relationships (e.g., inflow/outflow ratio), temporal dynamics (e.g., delta inflows & outflows based on a lag window), and operational flags (e.g., binary flag for inflow < 5.0 (shutdown detection)).
 
 ---
 
@@ -111,7 +113,7 @@ We are also leaning heavily on Unity Catalog to version our HMM, so we have vers
 
 One challenge we’ve run into is **temporal resolution**.
 
-We’re currently ingesting 1-minute data every 3–5 minutes. That sounds reasonable, until you see something like this:
+We’re currently ingesting 1-minute data every 3–5 minutes. That sounds reasonable until you see something like this:
 
 | Time | Inflow | Outflow |
 |------|--------|---------|
@@ -130,4 +132,4 @@ There is still a lot to learn, but we’re getting closer to something that refl
 
 Big shoutout to [Shawn](https://www.linkedin.com/in/shawnom/) for helping sharpen how we framed the operational problem, and to [Mark](https://www.linkedin.com/in/mark-van-der-linden-30798811/) for leading the data engineering effort that makes any of this possible.
 
-Thanks for reading 😀
+Thanks for reading! 😀
