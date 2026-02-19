@@ -24,7 +24,11 @@ The technical work is driven by one core objective: **reduce unnecessary pipelin
 
 To address these challenges, we developed the **Deviation Counter Tool** to work hand-in-hand with our pipeline state detection. When the ML model infers that the pipeline has entered a specific state, such as unpacking (i.e., shutting down), the deviation counter logic is automatically activated. This tool continuously monitors for deviations, removing the need for manual slack estimation and reducing the risk of false alarms.
 
----
+### Key Terms: Slack, Pack, and Unpack
+
+- **Slack:** The presence of unpressurized or low-pressure sections in a pipeline, often due to imbalances between inflow and outflow. Slack can lead to inaccurate flow measurements and complicate leak detection.
+- **Pack (Packing):** The process of increasing pressure in the pipeline by introducing more product (inflow exceeds outflow), typically during startup or ramp-up operations.
+- **Unpack (Unpacking):** The process of decreasing pressure in the pipeline by reducing inflow or increasing outflow (outflow exceeds inflow), often during shutdown or ramp-down operations.
 
 ## Data Ingestion
 
@@ -38,7 +42,7 @@ We’re ingesting 1-minute data every 3–5 minutes into our data lake and expos
 
 A lot of effort has gone into hardening this ingestion pipeline.
 
-We’re also running data quality checks during ingestion. For example, we explicitly check for stale SCADA records. If a DQ issue is detected, we stop the pipeline (not the physical pipeline 😉). Since the data feeds an ML model for state prediction, we don’t want to generate predictions off poor-quality historian data.
+We’re also running a data quality engine during ingestion. For example, we explicitly check for stale SCADA records. If a DQ issue is detected, we flag it and ignore the data in our ML model for state prediction. We don’t want to generate predictions off poor-quality historian data.
 
 ---
 
