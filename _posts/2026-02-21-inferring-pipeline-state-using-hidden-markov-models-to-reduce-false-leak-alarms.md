@@ -97,7 +97,7 @@ While an HMM asks a more realistic question: "Given everything we’ve observed 
 
 This HMM was trained and versioned within Unity Catalog, and it took nine iterations to get the transition structure and feature engineering aligned with operational reality.
 
-We had to leverage things like [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) to account for unit variance, and engineered features for flow relationships (e.g., inflow/outflow ratio), temporal dynamics (e.g., delta inflows & outflows based on a lag window), and operational flags (e.g., binary flag for inflow < 5.0 (shutdown detection)).
+We leveraged tools like [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) to account for unit variance, and engineered features for flow relationships (e.g., inflow/outflow ratio), temporal dynamics (e.g., delta inflows & outflows based on a lag window), and operational flags (e.g., binary flag for inflow < 5.0 (shutdown detection)).
 
 ---
 
