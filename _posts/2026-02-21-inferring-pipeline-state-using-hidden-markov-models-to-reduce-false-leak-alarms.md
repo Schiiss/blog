@@ -97,7 +97,7 @@ That temporal dependency is critical because pipeline states persist. A leak doe
 
 This model is a multivariate Gaussian HMM (one Gaussian per state) with 6 hidden states and diagonal covariance, trained unsupervised on 9 standardized, flow-derived features (inflow, outflow, over/short, ratios, deltas, and operational flags).
 
-The HMM was trained and versioned within Unity Catalog, and it took nine iterations to align the transition structure and feature engineering with operational reality.
+The HMM was trained and versioned within Unity Catalog, and it took nine iterations to align the transition structure and feature engineering with operational reality. I’m sure many more iterations are ahead as we collect more data, observe edge cases, and continue refining how the model reflects real pipeline behavior.
 
 We leveraged tools like [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) to account for unit variance, and engineered features for flow relationships (e.g., inflow/outflow ratio), temporal dynamics (e.g., delta inflows & outflows based on a lag window), and operational flags (e.g., binary flag for inflow < 5.0 (shutdown detection)).
 
