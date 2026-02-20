@@ -9,7 +9,7 @@ tags:
 ---
 
 > **Disclaimer:**  
-> I’ve had the opportunity to work across many areas in tech, everything from infra, software development, devops, data engineering, networking, and now some data science. I know a bit about many things, just enough to be painfully average at all of them 😀. Understanding the algorithms behind Hidden Markov Models required a ton of learning and experimentation, and my understanding is still not perfect. I started by building hands-on HMM examples in NumPy to really grasp the fundamentals, especially the core parameters (λ = (A, B, π)). I have a much clearer picture now, but it’s definitely a work in progress. Please take everything in the blog with a grain of salt.
+> Hidden Markov Models were new territory for me, and understanding the underlying math required building the forward, backward, and Viterbi procedures from scratch in NumPy. While I’ve developed a much stronger intuition for how the parameters λ = (A, B, π) drive inference, I’m still refining my understanding. This post reflects what worked in our environment and what I’ve learned so far.
 
 <p align="center">
   <img src="/blog/assets/images/blog_images/inferring-pipeline-state-using-hidden-markov-models-to-reduce-false-leak-alarms/blog_image.jpg" alt="blog image">
@@ -90,17 +90,14 @@ The same idea applies to pipelines.
 - Shutdown
 - Transition states
 
-We cannot directly measure “packing condition” or “true leak state” as discrete variables. We infer them from patterns in the measurements.
+An HMM asks a more realistic question:
+> “Given everything we’ve observed up to now, what state are we most likely in, and how likely is it to transition to another state?”
 
-That’s exactly what HMMs are built to do.
+That temporal dependency is critical because pipeline states persist. A leak doesn’t appear and disappear randomly minute to minute. A line doesn’t pack instantly. Modeling persistence reduces noise-driven false positives.
 
-You don’t go from Normal → Shutdown → Normal randomly. Slack typically forms gradually, and a leak state could persist unless corrected. Transitions have physical constraints.
+This model is a multivariate Gaussian HMM (one Gaussian per state) with 6 hidden states and diagonal covariance, trained unsupervised on 9 standardized, flow-derived features (inflow, outflow, over/short, ratios, deltas, and operational flags).
 
-A standard classifier treats each minute independently and basically says, "Given these inputs at 10:03, what is the state?"
-
-While an HMM asks a more realistic question: "Given everything we’ve observed up to now, what state are we most likely in, and how likely is it to transition to another state?" That temporal dependency is critical because pipeline states persist. A leak doesn’t appear and disappear randomly minute to minute. A line doesn’t pack instantly. Modeling persistence reduces noise-driven false positives.
-
-This HMM was trained and versioned within Unity Catalog, and it took nine iterations to get the transition structure and feature engineering aligned with operational reality.
+The HMM was trained and versioned within Unity Catalog, and it took nine iterations to align the transition structure and feature engineering with operational reality.
 
 We leveraged tools like [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) to account for unit variance, and engineered features for flow relationships (e.g., inflow/outflow ratio), temporal dynamics (e.g., delta inflows & outflows based on a lag window), and operational flags (e.g., binary flag for inflow < 5.0 (shutdown detection)).
 
