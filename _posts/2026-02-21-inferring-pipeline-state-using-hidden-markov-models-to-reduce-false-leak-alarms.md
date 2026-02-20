@@ -9,7 +9,7 @@ tags:
 ---
 
 > **Disclaimer:**  
-> I’ve had the opportunity to work across many areas in tech, everything from infra, software development, devops, data engineering, networking, and now some data science. I know a bit about many things, just enough to be painfully average at all of them 😀. Understanding the algorithms behind Hidden Markov Models required a ton of learning and experimentation, and my understanding is still not perfect. I have a much clearer picture now, but it’s definitely a work in progress. Please take everything in the blog with a grain of salt.
+> I’ve had the opportunity to work across many areas in tech, everything from infra, software development, devops, data engineering, networking, and now some data science. I know a bit about many things, just enough to be painfully average at all of them 😀. Understanding the algorithms behind Hidden Markov Models required a ton of learning and experimentation, and my understanding is still not perfect. I started by building hands-on HMM examples in NumPy to really grasp the fundamentals, especially the core parameters (λ = (A, B, π)). I have a much clearer picture now, but it’s definitely a work in progress. Please take everything in the blog with a grain of salt.
 
 <p align="center">
   <img src="/blog/assets/images/blog_images/inferring-pipeline-state-using-hidden-markov-models-to-reduce-false-leak-alarms/blog_image.jpg" alt="blog image">
