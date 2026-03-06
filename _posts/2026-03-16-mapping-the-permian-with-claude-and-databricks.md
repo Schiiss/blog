@@ -37,7 +37,7 @@ We have many of our datasets landed in the datalake, so although the data itself
 
 We are seeing a large amount of data being locked away in **unstructured contracts**. Like I mentioned in a [previous post](https://www.linkedin.com/posts/conner-schiissler_dataengineering-genai-oilandgas-activity-7342899284138184708-Yaof?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXEibYBngZiCRvQiwlsg8p1A85--baPNfw), the 'oil and gas industry is burdened by complex contracts that are often lengthy, unstructured, and scattered across various formats', and we have built several capabilities internally at Plains to OCR, extract structured information, and query said data at scale and in one recent example exceeding **25,000 contracts**. Contract data in isolation is useful for compliance and record keeping. **Contract data connected to a geospatial context becomes a strategic asset**, especially when you pair it with other geospatial datasets to visualize pipelines, wells, and in the unstructured contract example, acreage dedications which are inherently spatial. They define where volumes are contractually committed across counties, basins, and lease blocks.
 
-A commercial analyst may know things like the contract start and end date, the operator's name, and the **minimum volume commitment (MVC)** — but other questions might be a bit more difficult. Things like:
+A commercial analyst may know things like the contract start and end date, the operator's name, and the **minimum volume commitment (MVC)**, but other questions might be a bit more difficult. Things like:
 
 - Where does that acreage physically sit relative to our pipelines?
 - Is production in that block trending up or declining?
