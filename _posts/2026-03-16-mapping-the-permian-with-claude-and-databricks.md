@@ -12,7 +12,7 @@ tags:
 ---
 
 <p align="center">
-  <img src="/blog/assets/images/blog_images/mapping-the-permian-with-claude-and-databricks/blog_image.jpg" alt="blog image">
+  <img src="/blog/assets/images/blog_images/mapping-the-permian-with-claude-and-databricks/blog_image.png" alt="blog image">
 </p>
 
 ## Introduction
