@@ -128,9 +128,9 @@ The deployment failure was the most instructive moment of the whole project. I a
 
 A few other things I'd keep in mind for next time:
 
-- **The MCP server excels at data operations**: Creating catalogs, schemas, tables, uploading volumes, but is less reliable for platform infrastructure tasks like app deployment. Know where that boundary is before you hit it.
-- **Decide on your stack before vibe coding begins.** Having already chosen React + Mapbox GL + Express freed Claude to focus on building features rather than making architectural decisions.
-- **Synthetic data is awesome for prototyping.**: Being able to ask Claude to generate realistic contracts and well data and load them directly into Unity Catalog via MCP collapsed what would have been days of data prep into minutes.
+- **The MCP server excels at data operations**: Creating catalogs, schemas, tables, uploading data to volumes, but is less reliable for platform infrastructure tasks like app deployment, at least right now. Know where that boundary is before you hit it.
+- **Decide on your stack before vibe coding begins**: Having already chosen React + Mapbox GL + Express freed Claude to focus on building features rather than making architectural decisions.
+- **Synthetic data is awesome for prototyping**: Being able to ask Claude to generate realistic contracts and well data and load them directly into Unity Catalog via MCP collapsed what would have been days of data prep into minutes.
 
 ### What's Next
 
