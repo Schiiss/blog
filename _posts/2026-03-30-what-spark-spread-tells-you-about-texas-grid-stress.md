@@ -9,7 +9,7 @@ tags:
   - Oil & Gas
 ---
 
-![What the Spark Spread Tells Us About Texas Grid Stress](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/blog_image.jpg){: style="display:block; margin:0 auto;" }
+![What the Spark Spread Tells Us About Texas Grid Stress](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/blog_image.png){: style="display:block; margin:0 auto;" }
 
 Over the past few months, I've been intrigued by energy markets, especially since I've been working more with the trading team at Plains on use cases like crude blending. To get a better feel for the data energy traders analyze daily, I pulled in data from [ERCOT](https://www.ercot.com/), the [U.S. Energy Information Administration](https://www.eia.gov/), and other sources into Databricks, focusing on the Texas market. This also gave me a chance to get hands-on with [Lakeflow Spark Declarative Pipelines](https://learn.microsoft.com/en-us/azure/databricks/ldp/concepts). While I wasn't the biggest fan of its predecessor, DLT, I've heard the new branding brings significant improvements.
 
