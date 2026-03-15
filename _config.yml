@@ -21,6 +21,9 @@ github_username: Schiiss
 minimal_mistakes_skin: dark
 search: true
 
+minimal_mistakes:
+  image_modal: true
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
