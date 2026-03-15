@@ -1,6 +1,6 @@
 ---
 title: "🗺️ Mapping the Permian with Claude and Databricks"
-date: 2026-03-14-T10:00:00-04:00d
+date: 2026-03-22-T10:00:00-04:00d
 categories:
   - GenAI
 tags:
