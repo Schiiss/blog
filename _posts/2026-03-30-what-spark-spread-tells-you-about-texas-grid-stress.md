@@ -29,7 +29,9 @@ Gas prices jumped sharply. Power prices quintupled. And then, the moment tempera
 
 > **The spark spread tells the entire story in a single number.**
 
-[![Power Price vs CCGT Spark Spread + Dallas Temperature, Jan 20–Feb 5, 2026](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_cold_snap.png)](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_cold_snap.png){:target="_blank"}
+<a href="/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_cold_snap.png" data-lightbox="chart" data-title="Power Price vs CCGT Spark Spread + Dallas Temperature, Jan 20–Feb 5, 2026" target="_blank">
+  <img src="/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_cold_snap.png" alt="Power Price vs CCGT Spark Spread + Dallas Temperature, Jan 20–Feb 5, 2026" style="cursor: zoom-in;" />
+</a>
 
 The two charts above tell the same story from different angles. The top chart tracks two lines: average power price (what electricity sold for at the HB_NORTH hub) and the CCGT spark spread (the profit margin for a gas plant generating that electricity). On January 21 both lines are flat and low, a mild day with no stress on the grid. Then the cold front arrives on January 26 and both lines spike sharply upward, the power price climbing to $168/MWh and the spread jumping to $120. They stay elevated through January 28 before collapsing back to near zero on January 29 the moment temperatures recovered.
 
