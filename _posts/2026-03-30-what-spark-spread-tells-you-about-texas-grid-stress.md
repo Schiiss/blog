@@ -117,15 +117,7 @@ The same signal that tells a gas plant operator "run hard all day" tells an indu
 
 Understanding the patterns across 700+ settlement nodes, 96 intervals per day, two years of history requires real infrastructure.
 
-The platform behind this analysis is built entirely on Databricks using Lakeflow Spark Declarative Pipelines (SDP), structured in a medallion architecture:
-
-| Bronze | Silver | Gold |
-|--------|--------|------|
-| ERCOT 15-min prices | Cleaned hub prices | Spark spread |
-| Yahoo Finance (NG=F) | OHLCV commodity data | (joined, computed) |
-| Open-Meteo weather | HDD/CDD by ERCOT zone | |
-| EIA petroleum/gas API | Inventory & storage | |
-| EIA DPR Excel | Drilling productivity | |
+The platform behind this analysis is built entirely on Databricks using Lakeflow Spark Declarative Pipelines (SDP).
 
 Previously, Lakeflow Spark Declarative Pipelines was called DLT (Delta Live Tables) and I wasn't the biggest fan. Writing tests for your pipelines was difficult and it was hard to test the code (if not impossible) outside the context of DLT. I also found it very difficult to debug pipelines in DLT since the pipelines were such a high-level abstraction. They were also expensive compared to rolling your own Spark code. I was also concerned about vendor lock-in with the tech but that has since been largely addressed with SDP now being [open source](https://www.databricks.com/blog/bringing-declarative-pipelines-apache-spark-open-source-project). I have been pleasantly surprised by SDP especially around the way it handles things like [SCD Type 1 and 2](https://learn.microsoft.com/en-us/azure/databricks/ldp/concepts#what-are-the-benefits-of-sdp) and leveraging things like [@dp.expect_or_drop](https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations#what-are-expectations) for data quality checks.
 
