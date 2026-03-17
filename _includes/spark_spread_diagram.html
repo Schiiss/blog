@@ -339,25 +339,22 @@
     flex-direction: column;
   }
 
-  #sd-modal-toolbar {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 12px 0;
-    flex-shrink: 0;
-  }
-
   #sd-modal-close {
-    background: none;
-    border: none;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 6px;
     color: #8b949e;
     font-size: 1.3rem;
     cursor: pointer;
     line-height: 1;
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 4px 8px;
+    z-index: 10000;
   }
 
-  #sd-modal-close:hover { color: #e6edf3; background: #21262d; }
+  #sd-modal-close:hover { color: #e6edf3; background: #30363d; }
 </style>
 
 <div class="sd-expand-hint" id="sd-expand-hint">
@@ -532,10 +529,8 @@
 </div>
 
 <div id="sd-modal">
+  <button id="sd-modal-close" aria-label="Close">&#x2715;</button>
   <div id="sd-modal-inner">
-    <div id="sd-modal-toolbar">
-      <button id="sd-modal-close" aria-label="Close">&#x2715;</button>
-    </div>
   </div>
 </div>
 
