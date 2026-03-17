@@ -1,6 +1,6 @@
 ---
 title: "What the Spark Spread Tells Us About Texas Grid Stress"
-date: 2026-03-29T10:00:00-04:00
+date: 2026-02-19T10:00:00-04:00
 categories:
   - Energy
 tags:
@@ -122,6 +122,10 @@ The platform behind this analysis is built entirely on Databricks using Lakeflow
 Previously, Lakeflow Spark Declarative Pipelines was called DLT (Delta Live Tables) and I wasn't the biggest fan. Writing tests for your pipelines was difficult and it was hard to test the code (if not impossible) outside the context of DLT. I also found it very difficult to debug pipelines in DLT since the pipelines were such a high-level abstraction. They were also expensive compared to rolling your own Spark code. I was also concerned about vendor lock-in with the tech but that has since been largely addressed with SDP now being [open source](https://www.databricks.com/blog/bringing-declarative-pipelines-apache-spark-open-source-project). I have been pleasantly surprised by SDP especially around the way it handles things like [SCD Type 1 and 2](https://learn.microsoft.com/en-us/azure/databricks/ldp/concepts#what-are-the-benefits-of-sdp) and leveraging things like [@dp.expect_or_drop](https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations#what-are-expectations) for data quality checks.
 
 I still like the flexibility of rolling my own framework leveraging PySpark and other open source tools, but I am excited to continue leveraging SDP to ingest and transform data for future energy market blogs like this.
+
+To put together this blog, the architecture ended up looking like the below:
+
+<iframe src="/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/spark_spread_diagram.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
 
 ## Conclusion
 
