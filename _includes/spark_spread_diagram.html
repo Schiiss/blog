@@ -10,6 +10,74 @@
     padding: 28px 20px 20px;
     margin: 24px 0;
     width: 100%;
+    cursor: zoom-in;
+    position: relative;
+  }
+
+  #spark-diagram .sd-expand-hint {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 0.6rem;
+    color: #484f58;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    pointer-events: none;
+  }
+
+  #spark-diagram .sd-expand-hint svg {
+    width: 11px;
+    height: 11px;
+    opacity: 0.5;
+  }
+
+  /* ── Modal ── */
+  #sd-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+
+  #sd-modal.sd-open {
+    display: flex;
+  }
+
+  #sd-modal-inner {
+    background: #0d1117;
+    border-radius: 14px;
+    padding: 40px 32px 32px;
+    max-width: 95vw;
+    max-height: 92vh;
+    overflow: auto;
+    position: relative;
+    cursor: default;
+  }
+
+  #sd-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    color: #8b949e;
+    font-size: 1.3rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  #sd-modal-close:hover {
+    color: #e6edf3;
+    background: #21262d;
   }
 
   /* ── Layout ── */
@@ -286,6 +354,10 @@
 </style>
 
 <div id="spark-diagram">
+  <div class="sd-expand-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+    click to expand
+  </div>
 
   <div class="sd-diagram">
 
@@ -451,11 +523,23 @@
 
 </div>
 
+<div id="sd-modal">
+  <div id="sd-modal-inner">
+    <button id="sd-modal-close" aria-label="Close">&#x2715;</button>
+    <!-- full-size diagram clone goes here via JS -->
+  </div>
+</div>
+
 <script>
   (function () {
     var container = document.getElementById('spark-diagram');
     var diagram = container && container.querySelector('.sd-diagram');
-    if (!diagram) return;
+    var modal = document.getElementById('sd-modal');
+    var modalInner = document.getElementById('sd-modal-inner');
+    var closeBtn = document.getElementById('sd-modal-close');
+    if (!diagram || !modal) return;
+
+    // Scale the preview to fit the content column
     var NATURAL_W = 1060;
     function fit() {
       var available = container.clientWidth - 40;
@@ -464,5 +548,27 @@
     }
     fit();
     window.addEventListener('resize', fit);
+
+    // Open modal with a full-size clone of the diagram
+    function openModal() {
+      var clone = diagram.cloneNode(true);
+      clone.style.zoom = '';
+      // Remove any existing clone before appending
+      var existing = modalInner.querySelector('.sd-diagram');
+      if (existing) existing.remove();
+      modalInner.appendChild(clone);
+      modal.classList.add('sd-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('sd-open');
+      document.body.style.overflow = '';
+    }
+
+    container.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', function (e) { e.stopPropagation(); closeModal(); });
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
   })();
 </script>
