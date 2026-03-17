@@ -133,7 +133,7 @@ Previously, Lakeflow Spark Declarative Pipelines was called DLT (Delta Live Tabl
 
 I still like the flexibility of rolling my own framework leveraging PySpark and other open source tools, but I am excited to continue leveraging SDP to ingest and transform data for future energy market blogs like this.
 
-To gather the data necessary to put together this blog, here is the architecture for spark spread. From ERCOT hub prices, Henry Hub gas, and Texas weather to a daily spark spread signal:
+To gather the data necessary to put together this blog, here is the architecture that was built. From ERCOT hub prices, Henry Hub gas, and Texas weather to a daily spark spread signal:
 
 {% include spark_spread_diagram.html %}
 
