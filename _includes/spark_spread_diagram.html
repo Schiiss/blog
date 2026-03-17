@@ -284,10 +284,9 @@
 
   /* ── Preview wrapper ── */
   #spark-diagram {
-    margin: 24px 0;
+    margin: 0 0 24px;
     width: 100%;
     cursor: zoom-in;
-    position: relative;
     overflow: hidden;
   }
 
@@ -296,22 +295,20 @@
     transform-origin: top left;
   }
 
-  #spark-diagram .sd-expand-hint {
-    position: absolute;
-    top: 10px;
-    right: 12px;
+  .sd-expand-hint {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
     font-size: 0.6rem;
     color: #484f58;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    pointer-events: none;
-    z-index: 1;
+    margin-bottom: 8px;
+    cursor: zoom-in;
   }
 
-  #spark-diagram .sd-expand-hint svg {
+  .sd-expand-hint svg {
     width: 11px;
     height: 11px;
     opacity: 0.5;
@@ -359,11 +356,12 @@
   #sd-modal-close:hover { color: #e6edf3; background: #21262d; }
 </style>
 
+<div class="sd-expand-hint" id="sd-expand-hint">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+  click to expand
+</div>
+
 <div id="spark-diagram">
-  <div class="sd-expand-hint">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-    click to expand
-  </div>
   <div class="sd-wrap">
     <div class="sd-diagram">
 
@@ -577,6 +575,8 @@
     }
 
     container.addEventListener('click', openModal);
+    var hint = document.getElementById('sd-expand-hint');
+    if (hint) hint.addEventListener('click', openModal);
     closeBtn.addEventListener('click', function (e) { e.stopPropagation(); closeModal(); });
     modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
