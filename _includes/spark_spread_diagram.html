@@ -1,13 +1,289 @@
 <style>
-  #spark-diagram * { box-sizing: border-box; }
+  .sd-wrap * { box-sizing: border-box; }
 
-  #spark-diagram {
+  .sd-wrap {
     color: #e6edf3;
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 28px 20px 20px;
+    width: 100%;
+  }
+
+  /* ── Layout ── */
+  .sd-wrap .sd-diagram {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 1060px;
+  }
+
+  .sd-wrap .zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    border-radius: 14px;
+    padding: 22px 18px 26px;
+    position: relative;
+    align-self: stretch;
+  }
+
+  .sd-wrap .zone.sources  { border: 1px solid #1f3a5c; background: rgba(31,74,122,0.06); }
+  .sd-wrap .zone.pipeline { border: 1px solid #4a2b8a; background: rgba(74,43,138,0.06); }
+  .sd-wrap .zone.output   { border: 1px solid #7a3b1a; background: rgba(122,59,26,0.06); }
+
+  .sd-wrap .zone-label {
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .sd-wrap .zone.sources  .zone-label { background: #0d1f35; color: #58a6ff; border: 1px solid #1f4c8a; }
+  .sd-wrap .zone.pipeline .zone-label { background: #1a0d35; color: #a371f7; border: 1px solid #4a2b8a; }
+  .sd-wrap .zone.output   .zone-label { background: #301508; color: #f0883e; border: 1px solid #7a3b1a; }
+
+  /* ── Connector ── */
+  .sd-wrap .connector-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    flex-shrink: 0;
+  }
+
+  .sd-wrap svg.connector { overflow: visible; width: 72px; height: 200px; }
+
+  .sd-wrap .flow-line {
+    fill: none;
+    stroke-width: 1.5;
+    stroke-dasharray: 4 4;
+    animation: sdDashFlow 1s linear infinite;
+  }
+
+  .sd-wrap .flow-line.ercot   { stroke: #38bdf8; }
+  .sd-wrap .flow-line.finance { stroke: #fb923c; }
+  .sd-wrap .flow-line.weather { stroke: #2dd4bf; }
+  .sd-wrap .flow-line.gold    { stroke: #ffffff; opacity: 0.25; }
+
+  @keyframes sdDashFlow { to { stroke-dashoffset: -8; } }
+
+  /* ── Source cards ── */
+  .sd-wrap .source-cards { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+
+  .sd-wrap .source-card {
+    background: #161b22;
+    border-radius: 10px;
+    padding: 15px 16px;
+    border: 1px solid #21262d;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .sd-wrap .source-card:hover { border-color: #30363d; }
+
+  .sd-wrap .badge {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  .sd-wrap .badge.ercot   { background: #1a3a4a; color: #38bdf8; }
+  .sd-wrap .badge.finance { background: #2a1a1a; color: #fb923c; }
+  .sd-wrap .badge.weather { background: #0f2a1f; color: #2dd4bf; }
+
+  .sd-wrap .card-title  { font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: #e6edf3; }
+  .sd-wrap .card-detail { font-size: 0.66rem; color: #8b949e; line-height: 1.6; }
+
+  .sd-wrap .source-dot {
+    position: absolute;
+    right: -6px; top: 50%;
+    transform: translateY(-50%);
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid #0d1117;
+    z-index: 2;
+  }
+
+  .sd-wrap .dot-ercot   { background: #38bdf8; box-shadow: 0 0 7px #38bdf8; }
+  .sd-wrap .dot-finance { background: #fb923c; box-shadow: 0 0 7px #fb923c; }
+  .sd-wrap .dot-weather { background: #2dd4bf; box-shadow: 0 0 7px #2dd4bf; }
+
+  /* ── Pipeline layers ── */
+  .sd-wrap .pipeline-brand {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a371f7;
+    text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #21262d;
+    width: 100%;
+  }
+
+  .sd-wrap .layer {
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+
+  .sd-wrap .layer.bronze { background: #1e1510; border: 1px solid #5c3d1a; }
+  .sd-wrap .layer.silver { background: #111820; border: 1px solid #1f4c8a; }
+  .sd-wrap .layer.gold   {
+    background: #1e1a08;
+    border: 1px solid #b8860b;
+    animation: sdGoldPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes sdGoldPulse {
+    0%, 100% { box-shadow: 0 0 14px rgba(251,191,36,0.10); }
+    50%       { box-shadow: 0 0 30px rgba(251,191,36,0.26); }
+  }
+
+  .sd-wrap .layer-badge {
+    font-size: 0.57rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .sd-wrap .sd-circle { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+  .sd-wrap .layer.bronze .layer-badge { color: #cd7f32; }
+  .sd-wrap .layer.bronze .sd-circle   { background: #cd7f32; }
+  .sd-wrap .layer.silver .layer-badge { color: #94a3b8; }
+  .sd-wrap .layer.silver .sd-circle   { background: #94a3b8; }
+  .sd-wrap .layer.gold   .layer-badge { color: #fbbf24; }
+  .sd-wrap .layer.gold   .sd-circle   { background: #fbbf24; box-shadow: 0 0 5px #fbbf24; }
+
+  .sd-wrap .layer .tables {
+    font-size: 0.64rem;
+    color: #8b949e;
+    line-height: 1.8;
+    font-family: 'Courier New', monospace;
+  }
+
+  .sd-wrap .layer.gold .tables { color: #c9961a; }
+
+  .sd-wrap .formula-box {
+    margin-top: 10px;
+    background: #0d1117;
+    border: 1px dashed #b8860b;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 0.62rem;
+    color: #fbbf24;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .sd-wrap .layer-arrow {
+    text-align: center;
+    margin: 3px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .sd-wrap .arrow-track {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, #30363d, #a371f7);
+    border-radius: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sd-wrap .arrow-track::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, #a371f7, transparent);
+    animation: sdArrowFlow 1.4s ease-in-out infinite;
+  }
+
+  @keyframes sdArrowFlow {
+    0%   { top: -100%; }
+    100% { top: 100%;  }
+  }
+
+  .sd-wrap .arrow-head {
+    width: 0; height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #a371f7;
+    animation: sdArrowPulse 1.4s ease-in-out infinite;
+  }
+
+  @keyframes sdArrowPulse {
+    0%, 100% { opacity: 0.4; }
+    50%       { opacity: 1; }
+  }
+
+  /* ── Output cards ── */
+  .sd-wrap .output-cards { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+
+  .sd-wrap .output-card {
+    background: #161b22;
+    border-radius: 10px;
+    padding: 14px 15px;
+    border: 1px solid #21262d;
+    position: relative;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .sd-wrap .output-card:hover {
+    border-color: #f0883e;
+    box-shadow: 0 0 12px rgba(240,136,62,0.1);
+  }
+
+  .sd-wrap .output-dot {
+    position: absolute;
+    left: -6px; top: 50%;
+    transform: translateY(-50%);
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #fbbf24;
+    border: 2px solid #0d1117;
+    box-shadow: 0 0 7px #fbbf24;
+    z-index: 2;
+  }
+
+  .sd-wrap .output-card .icon       { font-size: 1.15rem; margin-bottom: 6px; }
+  .sd-wrap .output-card .card-title { font-size: 0.79rem; font-weight: 600; color: #e6edf3; margin-bottom: 5px; }
+  .sd-wrap .output-card .card-detail {
+    font-size: 0.63rem;
+    color: #8b949e;
+    line-height: 1.6;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ── Preview wrapper ── */
+  #spark-diagram {
     margin: 24px 0;
     width: 100%;
     cursor: zoom-in;
@@ -26,6 +302,7 @@
     align-items: center;
     gap: 4px;
     pointer-events: none;
+    z-index: 1;
   }
 
   #spark-diagram .sd-expand-hint svg {
@@ -46,14 +323,12 @@
     cursor: zoom-out;
   }
 
-  #sd-modal.sd-open {
-    display: flex;
-  }
+  #sd-modal.sd-open { display: flex; }
 
   #sd-modal-inner {
     background: #0d1117;
     border-radius: 14px;
-    padding: 40px 32px 32px;
+    padding: 40px 24px 24px;
     max-width: 95vw;
     max-height: 92vh;
     overflow: auto;
@@ -75,282 +350,7 @@
     border-radius: 4px;
   }
 
-  #sd-modal-close:hover {
-    color: #e6edf3;
-    background: #21262d;
-  }
-
-  /* ── Layout ── */
-  #spark-diagram .sd-diagram {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    width: 100%;
-    max-width: 1060px;
-  }
-
-  #spark-diagram .zone {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    border-radius: 14px;
-    padding: 22px 18px 26px;
-    position: relative;
-    align-self: stretch;
-  }
-
-  #spark-diagram .zone.sources  { border: 1px solid #1f3a5c; background: rgba(31,74,122,0.06); }
-  #spark-diagram .zone.pipeline { border: 1px solid #4a2b8a; background: rgba(74,43,138,0.06); }
-  #spark-diagram .zone.output   { border: 1px solid #7a3b1a; background: rgba(122,59,26,0.06); }
-
-  #spark-diagram .zone-label {
-    font-size: 0.64rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    padding: 5px 14px;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
-
-  #spark-diagram .zone.sources  .zone-label { background: #0d1f35; color: #58a6ff; border: 1px solid #1f4c8a; }
-  #spark-diagram .zone.pipeline .zone-label { background: #1a0d35; color: #a371f7; border: 1px solid #4a2b8a; }
-  #spark-diagram .zone.output   .zone-label { background: #301508; color: #f0883e; border: 1px solid #7a3b1a; }
-
-  /* ── Connector ── */
-  #spark-diagram .connector-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 72px;
-    flex-shrink: 0;
-  }
-
-  #spark-diagram svg.connector { overflow: visible; width: 72px; height: 200px; }
-
-  #spark-diagram .flow-line {
-    fill: none;
-    stroke-width: 1.5;
-    stroke-dasharray: 4 4;
-    animation: sdDashFlow 1s linear infinite;
-  }
-
-  #spark-diagram .flow-line.ercot   { stroke: #38bdf8; }
-  #spark-diagram .flow-line.finance { stroke: #fb923c; }
-  #spark-diagram .flow-line.weather { stroke: #2dd4bf; }
-  #spark-diagram .flow-line.gold    { stroke: #ffffff; opacity: 0.25; }
-
-  @keyframes sdDashFlow { to { stroke-dashoffset: -8; } }
-
-  /* ── Source cards ── */
-  #spark-diagram .source-cards { display: flex; flex-direction: column; gap: 16px; width: 100%; }
-
-  #spark-diagram .source-card {
-    background: #161b22;
-    border-radius: 10px;
-    padding: 15px 16px;
-    border: 1px solid #21262d;
-    position: relative;
-    transition: border-color 0.3s;
-  }
-
-  #spark-diagram .source-card:hover { border-color: #30363d; }
-
-  #spark-diagram .badge {
-    font-size: 0.58rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    display: inline-block;
-  }
-
-  #spark-diagram .badge.ercot   { background: #1a3a4a; color: #38bdf8; }
-  #spark-diagram .badge.finance { background: #2a1a1a; color: #fb923c; }
-  #spark-diagram .badge.weather { background: #0f2a1f; color: #2dd4bf; }
-
-  #spark-diagram .card-title  { font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: #e6edf3; }
-  #spark-diagram .card-detail { font-size: 0.66rem; color: #8b949e; line-height: 1.6; }
-
-  #spark-diagram .source-dot {
-    position: absolute;
-    right: -6px; top: 50%;
-    transform: translateY(-50%);
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    border: 2px solid #0d1117;
-    z-index: 2;
-  }
-
-  #spark-diagram .dot-ercot   { background: #38bdf8; box-shadow: 0 0 7px #38bdf8; }
-  #spark-diagram .dot-finance { background: #fb923c; box-shadow: 0 0 7px #fb923c; }
-  #spark-diagram .dot-weather { background: #2dd4bf; box-shadow: 0 0 7px #2dd4bf; }
-
-  /* ── Pipeline layers ── */
-  #spark-diagram .pipeline-brand {
-    font-size: 0.58rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #a371f7;
-    text-align: center;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #21262d;
-    width: 100%;
-  }
-
-  #spark-diagram .layer {
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 6px;
-    width: 100%;
-  }
-
-  #spark-diagram .layer.bronze { background: #1e1510; border: 1px solid #5c3d1a; }
-  #spark-diagram .layer.silver { background: #111820; border: 1px solid #1f4c8a; }
-  #spark-diagram .layer.gold   {
-    background: #1e1a08;
-    border: 1px solid #b8860b;
-    animation: sdGoldPulse 3s ease-in-out infinite;
-  }
-
-  @keyframes sdGoldPulse {
-    0%, 100% { box-shadow: 0 0 14px rgba(251,191,36,0.10); }
-    50%       { box-shadow: 0 0 30px rgba(251,191,36,0.26); }
-  }
-
-  #spark-diagram .layer-badge {
-    font-size: 0.57rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 7px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  #spark-diagram .sd-circle { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-
-  #spark-diagram .layer.bronze .layer-badge { color: #cd7f32; }
-  #spark-diagram .layer.bronze .sd-circle   { background: #cd7f32; }
-  #spark-diagram .layer.silver .layer-badge { color: #94a3b8; }
-  #spark-diagram .layer.silver .sd-circle   { background: #94a3b8; }
-  #spark-diagram .layer.gold   .layer-badge { color: #fbbf24; }
-  #spark-diagram .layer.gold   .sd-circle   { background: #fbbf24; box-shadow: 0 0 5px #fbbf24; }
-
-  #spark-diagram .layer .tables {
-    font-size: 0.64rem;
-    color: #8b949e;
-    line-height: 1.8;
-    font-family: 'Courier New', monospace;
-  }
-
-  #spark-diagram .layer.gold .tables { color: #c9961a; }
-
-  #spark-diagram .formula-box {
-    margin-top: 10px;
-    background: #0d1117;
-    border: 1px dashed #b8860b;
-    border-radius: 6px;
-    padding: 8px 10px;
-    font-size: 0.62rem;
-    color: #fbbf24;
-    font-family: 'Courier New', monospace;
-    text-align: center;
-    line-height: 1.6;
-  }
-
-  #spark-diagram .layer-arrow {
-    text-align: center;
-    font-size: 0.9rem;
-    margin: 3px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
-
-  #spark-diagram .arrow-track {
-    width: 2px;
-    height: 20px;
-    background: linear-gradient(to bottom, #30363d, #a371f7);
-    border-radius: 1px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  #spark-diagram .arrow-track::after {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, transparent, #a371f7, transparent);
-    animation: sdArrowFlow 1.4s ease-in-out infinite;
-  }
-
-  @keyframes sdArrowFlow {
-    0%   { top: -100%; }
-    100% { top: 100%;  }
-  }
-
-  #spark-diagram .arrow-head {
-    width: 0; height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 6px solid #a371f7;
-    animation: sdArrowPulse 1.4s ease-in-out infinite;
-  }
-
-  @keyframes sdArrowPulse {
-    0%, 100% { opacity: 0.4; }
-    50%       { opacity: 1; }
-  }
-
-  /* ── Output cards ── */
-  #spark-diagram .output-cards { display: flex; flex-direction: column; gap: 14px; width: 100%; }
-
-  #spark-diagram .output-card {
-    background: #161b22;
-    border-radius: 10px;
-    padding: 14px 15px;
-    border: 1px solid #21262d;
-    position: relative;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-
-  #spark-diagram .output-card:hover {
-    border-color: #f0883e;
-    box-shadow: 0 0 12px rgba(240,136,62,0.1);
-  }
-
-  #spark-diagram .output-dot {
-    position: absolute;
-    left: -6px; top: 50%;
-    transform: translateY(-50%);
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: #fbbf24;
-    border: 2px solid #0d1117;
-    box-shadow: 0 0 7px #fbbf24;
-    z-index: 2;
-  }
-
-  #spark-diagram .output-card .icon       { font-size: 1.15rem; margin-bottom: 6px; }
-  #spark-diagram .output-card .card-title { font-size: 0.79rem; font-weight: 600; color: #e6edf3; margin-bottom: 5px; }
-  #spark-diagram .output-card .card-detail {
-    font-size: 0.63rem;
-    color: #8b949e;
-    line-height: 1.6;
-    font-family: 'Courier New', monospace;
-  }
+  #sd-modal-close:hover { color: #e6edf3; background: #21262d; }
 </style>
 
 <div id="spark-diagram">
@@ -358,204 +358,201 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
     click to expand
   </div>
+  <div class="sd-wrap">
+    <div class="sd-diagram">
 
-  <div class="sd-diagram">
+      <!-- ══ ZONE 1: DATA SOURCES ══ -->
+      <div class="zone sources">
+        <div class="zone-label">Data Sources</div>
+        <div class="source-cards">
 
-    <!-- ══ ZONE 1: DATA SOURCES ══ -->
-    <div class="zone sources">
-      <div class="zone-label">Data Sources</div>
-      <div class="source-cards">
+          <div class="source-card">
+            <span class="badge ercot">ERCOT</span>
+            <div class="card-title">Texas Grid Hub Prices</div>
+            <div class="card-detail">
+              15-min Settlement Point Prices<br>
+              HB_NORTH &middot; HB_HOUSTON<br>
+              HB_WEST &middot; HB_SOUTH<br>
+              <br>
+              Public API &middot; No key required
+            </div>
+            <div class="source-dot dot-ercot"></div>
+          </div>
 
-        <div class="source-card">
-          <span class="badge ercot">ERCOT</span>
-          <div class="card-title">Texas Grid Hub Prices</div>
-          <div class="card-detail">
-            15-min Settlement Point Prices<br>
-            HB_NORTH &middot; HB_HOUSTON<br>
-            HB_WEST &middot; HB_SOUTH<br>
+          <div class="source-card">
+            <span class="badge finance">Yahoo Finance</span>
+            <div class="card-title">Henry Hub Gas Futures</div>
+            <div class="card-detail">
+              NG=F front-month contract<br>
+              Daily closing price ($/MMBtu)<br>
+              <br>
+              via yfinance &middot; No key required
+            </div>
+            <div class="source-dot dot-finance"></div>
+          </div>
+
+          <div class="source-card">
+            <span class="badge weather">Open-Meteo</span>
+            <div class="card-title">Weather &amp; Temperature</div>
+            <div class="card-detail">
+              Daily min/max/avg temp (°F)<br>
+              HDD &middot; CDD by ERCOT load zone<br>
+              <br>
+              Free archive API &middot; No key required
+            </div>
+            <div class="source-dot dot-weather"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CONNECTOR 1 -->
+      <div class="connector-wrap">
+        <svg class="connector" viewBox="0 0 72 260" preserveAspectRatio="none">
+          <path id="sd-p-ercot"   class="flow-line ercot"   d="M0,55  C36,55  36,130 72,130"/>
+          <path id="sd-p-finance" class="flow-line finance" d="M0,130 C36,130 36,130 72,130"/>
+          <path id="sd-p-weather" class="flow-line weather" d="M0,205 C36,205 36,130 72,130"/>
+          <circle r="3" fill="#38bdf8" filter="drop-shadow(0 0 3px #38bdf8)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#sd-p-ercot"/></animateMotion>
+          </circle>
+          <circle r="3" fill="#fb923c" filter="drop-shadow(0 0 3px #fb923c)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s"><mpath href="#sd-p-finance"/></animateMotion>
+          </circle>
+          <circle r="3" fill="#2dd4bf" filter="drop-shadow(0 0 3px #2dd4bf)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.6s"><mpath href="#sd-p-weather"/></animateMotion>
+          </circle>
+        </svg>
+      </div>
+
+      <!-- ══ ZONE 2: PIPELINE ══ -->
+      <div class="zone pipeline">
+        <div class="zone-label">Lakeflow Spark Declarative Pipelines</div>
+        <div class="pipeline-brand">Databricks Lakeflow &middot; Serverless &middot; Unity Catalog</div>
+
+        <div class="layer bronze">
+          <div class="layer-badge"><div class="sd-circle"></div>Bronze &mdash; Raw Ingestion</div>
+          <div class="tables">
+            bronze_ercot_spp_hubs<br>
+            bronze_commodity_prices<br>
+            bronze_weather_daily
+          </div>
+        </div>
+
+        <div class="layer-arrow">
+          <div class="arrow-track"></div>
+          <div class="arrow-head"></div>
+        </div>
+
+        <div class="layer silver">
+          <div class="layer-badge"><div class="sd-circle"></div>Silver &mdash; Cleaned &amp; Validated</div>
+          <div class="tables">
+            silver_ercot_hub_prices<br>
+            silver_commodity_ohlcv<br>
+            silver_weather_hdd_cdd
+          </div>
+        </div>
+
+        <div class="layer-arrow">
+          <div class="arrow-track"></div>
+          <div class="arrow-head"></div>
+        </div>
+
+        <div class="layer gold">
+          <div class="layer-badge"><div class="sd-circle"></div>Gold &mdash; Spark Spread</div>
+          <div class="tables">gold_ercot_spark_spread</div>
+          <div class="formula-box">
+            Spark Spread = Power Price ($/MWh)<br>
+            &minus; [ Gas Price ($/MMBtu) &times; Heat Rate ]<br>
             <br>
-            Public API &middot; No key required
-          </div>
-          <div class="source-dot dot-ercot"></div>
-        </div>
-
-        <div class="source-card">
-          <span class="badge finance">Yahoo Finance</span>
-          <div class="card-title">Henry Hub Gas Futures</div>
-          <div class="card-detail">
-            NG=F front-month contract<br>
-            Daily closing price ($/MMBtu)<br>
-            <br>
-            via yfinance &middot; No key required
-          </div>
-          <div class="source-dot dot-finance"></div>
-        </div>
-
-        <div class="source-card">
-          <span class="badge weather">Open-Meteo</span>
-          <div class="card-title">Weather &amp; Temperature</div>
-          <div class="card-detail">
-            Daily min/max/avg temp (°F)<br>
-            HDD &middot; CDD by ERCOT load zone<br>
-            <br>
-            Free archive API &middot; No key required
-          </div>
-          <div class="source-dot dot-weather"></div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- CONNECTOR 1: 3 sources fan into pipeline -->
-    <div class="connector-wrap">
-      <svg class="connector" viewBox="0 0 72 260" preserveAspectRatio="none">
-        <path id="sd-p-ercot"   class="flow-line ercot"   d="M0,55  C36,55  36,130 72,130"/>
-        <path id="sd-p-finance" class="flow-line finance" d="M0,130 C36,130 36,130 72,130"/>
-        <path id="sd-p-weather" class="flow-line weather" d="M0,205 C36,205 36,130 72,130"/>
-        <circle r="3" fill="#38bdf8" filter="drop-shadow(0 0 3px #38bdf8)">
-          <animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#sd-p-ercot"/></animateMotion>
-        </circle>
-        <circle r="3" fill="#fb923c" filter="drop-shadow(0 0 3px #fb923c)">
-          <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s"><mpath href="#sd-p-finance"/></animateMotion>
-        </circle>
-        <circle r="3" fill="#2dd4bf" filter="drop-shadow(0 0 3px #2dd4bf)">
-          <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.6s"><mpath href="#sd-p-weather"/></animateMotion>
-        </circle>
-      </svg>
-    </div>
-
-    <!-- ══ ZONE 2: LAKEFLOW PIPELINE ══ -->
-    <div class="zone pipeline">
-      <div class="zone-label">Lakeflow Spark Declarative Pipelines</div>
-      <div class="pipeline-brand">Databricks Lakeflow &middot; Serverless &middot; Unity Catalog</div>
-
-      <div class="layer bronze">
-        <div class="layer-badge"><div class="sd-circle"></div>Bronze &mdash; Raw Ingestion</div>
-        <div class="tables">
-          bronze_ercot_spp_hubs<br>
-          bronze_commodity_prices<br>
-          bronze_weather_daily
-        </div>
-      </div>
-
-      <div class="layer-arrow">
-        <div class="arrow-track"></div>
-        <div class="arrow-head"></div>
-      </div>
-
-      <div class="layer silver">
-        <div class="layer-badge"><div class="sd-circle"></div>Silver &mdash; Cleaned &amp; Validated</div>
-        <div class="tables">
-          silver_ercot_hub_prices<br>
-          silver_commodity_ohlcv<br>
-          silver_weather_hdd_cdd
-        </div>
-      </div>
-
-      <div class="layer-arrow">
-        <div class="arrow-track"></div>
-        <div class="arrow-head"></div>
-      </div>
-
-      <div class="layer gold">
-        <div class="layer-badge"><div class="sd-circle"></div>Gold &mdash; Spark Spread</div>
-        <div class="tables">gold_ercot_spark_spread</div>
-        <div class="formula-box">
-          Spark Spread = Power Price ($/MWh)<br>
-          &minus; [ Gas Price ($/MMBtu) &times; Heat Rate ]<br>
-          <br>
-          CCGT heat rate: 7.0 MMBtu/MWh<br>
-          Peaker heat rate: 10.0 MMBtu/MWh
-        </div>
-      </div>
-
-    </div>
-
-    <!-- CONNECTOR 2: pipeline fans into 2 outputs -->
-    <div class="connector-wrap">
-      <svg class="connector" viewBox="0 0 72 200" preserveAspectRatio="none">
-        <path id="sd-o-dash"  class="flow-line gold" d="M0,100 C36,100 36,70  72,70"/>
-        <path id="sd-o-genie" class="flow-line gold" d="M0,100 C36,100 36,130 72,130"/>
-        <circle r="3" fill="#a371f7" filter="drop-shadow(0 0 3px #a371f7)">
-          <animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#sd-o-dash"/></animateMotion>
-        </circle>
-        <circle r="3" fill="#a371f7" filter="drop-shadow(0 0 3px #a371f7)">
-          <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.2s"><mpath href="#sd-o-dash"/></animateMotion>
-        </circle>
-        <circle r="3" fill="#a371f7" filter="drop-shadow(0 0 3px #a371f7)">
-          <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s"><mpath href="#sd-o-genie"/></animateMotion>
-        </circle>
-        <circle r="3" fill="#a371f7" filter="drop-shadow(0 0 3px #a371f7)">
-          <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.8s"><mpath href="#sd-o-genie"/></animateMotion>
-        </circle>
-      </svg>
-    </div>
-
-    <!-- ══ ZONE 3: OUTPUTS ══ -->
-    <div class="zone output">
-      <div class="zone-label">Analytics &amp; Insights</div>
-      <div class="output-cards">
-
-        <div class="output-card">
-          <div class="output-dot"></div>
-          <div class="icon">&#128202;</div>
-          <div class="card-title">AI/BI Dashboard</div>
-          <div class="card-detail">
-            Visual exploration of spark spread,<br>
-            temperature overlay, and seasonal patterns
-          </div>
-        </div>
-
-        <div class="output-card">
-          <div class="output-dot"></div>
-          <div class="icon">&#129302;</div>
-          <div class="card-title">Genie Space</div>
-          <div class="card-detail">
-            Natural language Q&amp;A<br>
-            on spark spread data
+            CCGT heat rate: 7.0 MMBtu/MWh<br>
+            Peaker heat rate: 10.0 MMBtu/MWh
           </div>
         </div>
 
       </div>
-    </div>
 
+      <!-- CONNECTOR 2 -->
+      <div class="connector-wrap">
+        <svg class="connector" viewBox="0 0 72 200" preserveAspectRatio="none">
+          <path id="sd-o-dash"  class="flow-line gold" d="M0,100 C36,100 36,70  72,70"/>
+          <path id="sd-o-genie" class="flow-line gold" d="M0,100 C36,100 36,130 72,130"/>
+          <circle r="3" fill="#a371f7" filter="drop-shadow(0 0 3px #a371f7)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#sd-o-dash"/></animateMotion>
+          </circle>
+          <circle r="3" fill="#a371f7" filter="drop-shadow(0 0 3px #a371f7)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.2s"><mpath href="#sd-o-dash"/></animateMotion>
+          </circle>
+          <circle r="3" fill="#a371f7" filter="drop-shadow(0 0 3px #a371f7)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s"><mpath href="#sd-o-genie"/></animateMotion>
+          </circle>
+          <circle r="3" fill="#a371f7" filter="drop-shadow(0 0 3px #a371f7)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.8s"><mpath href="#sd-o-genie"/></animateMotion>
+          </circle>
+        </svg>
+      </div>
+
+      <!-- ══ ZONE 3: OUTPUTS ══ -->
+      <div class="zone output">
+        <div class="zone-label">Analytics &amp; Insights</div>
+        <div class="output-cards">
+
+          <div class="output-card">
+            <div class="output-dot"></div>
+            <div class="icon">&#128202;</div>
+            <div class="card-title">AI/BI Dashboard</div>
+            <div class="card-detail">
+              Visual exploration of spark spread,<br>
+              temperature overlay, and seasonal patterns
+            </div>
+          </div>
+
+          <div class="output-card">
+            <div class="output-dot"></div>
+            <div class="icon">&#129302;</div>
+            <div class="card-title">Genie Space</div>
+            <div class="card-detail">
+              Natural language Q&amp;A<br>
+              on spark spread data
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </div>
-
 </div>
 
 <div id="sd-modal">
   <div id="sd-modal-inner">
     <button id="sd-modal-close" aria-label="Close">&#x2715;</button>
-    <!-- full-size diagram clone goes here via JS -->
   </div>
 </div>
 
 <script>
   (function () {
     var container = document.getElementById('spark-diagram');
-    var diagram = container && container.querySelector('.sd-diagram');
+    var preview = container && container.querySelector('.sd-wrap');
     var modal = document.getElementById('sd-modal');
     var modalInner = document.getElementById('sd-modal-inner');
     var closeBtn = document.getElementById('sd-modal-close');
-    if (!diagram || !modal) return;
+    if (!preview || !modal) return;
 
     // Scale the preview to fit the content column
     var NATURAL_W = 1060;
     function fit() {
       var available = container.clientWidth - 40;
       var scale = Math.min(1, available / NATURAL_W);
-      diagram.style.zoom = scale;
+      preview.style.zoom = scale;
     }
     fit();
     window.addEventListener('resize', fit);
 
-    // Open modal with a full-size clone of the diagram
     function openModal() {
-      var clone = diagram.cloneNode(true);
-      clone.style.zoom = '';
-      // Remove any existing clone before appending
-      var existing = modalInner.querySelector('.sd-diagram');
+      var existing = modalInner.querySelector('.sd-wrap');
       if (existing) existing.remove();
+      var clone = preview.cloneNode(true);
+      clone.style.zoom = '';
       modalInner.appendChild(clone);
       modal.classList.add('sd-open');
       document.body.style.overflow = 'hidden';
