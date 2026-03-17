@@ -541,9 +541,15 @@
     // Scale the preview to fit the content column
     var NATURAL_W = 1060;
     function fit() {
-      var available = container.clientWidth - 40;
+      var available = container.clientWidth;
       var scale = Math.min(1, available / NATURAL_W);
-      preview.style.zoom = scale;
+      if (scale < 1) {
+        preview.style.width = NATURAL_W + 'px';
+        preview.style.zoom = scale;
+      } else {
+        preview.style.width = '';
+        preview.style.zoom = '';
+      }
     }
     fit();
     window.addEventListener('resize', fit);
