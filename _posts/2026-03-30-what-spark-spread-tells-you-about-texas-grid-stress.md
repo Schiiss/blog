@@ -125,7 +125,7 @@ I still like the flexibility of rolling my own framework leveraging PySpark and 
 
 To put together this blog, the architecture ended up looking like the below:
 
-<iframe src="/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/spark_spread_diagram.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+<iframe src="/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/spark_spread_diagram.html" width="100%" height="520" frameborder="0" allowfullscreen></iframe>
 
 ## Conclusion
 
