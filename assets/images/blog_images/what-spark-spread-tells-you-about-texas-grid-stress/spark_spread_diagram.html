@@ -497,5 +497,18 @@
 
 </div>
 
+
+<script>
+  (function () {
+    var NATURAL_W = 1100;
+    function fit() {
+      var vw = document.documentElement.clientWidth;
+      var scale = Math.min(1, vw / NATURAL_W);
+      document.body.style.zoom = scale;
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
 </body>
 </html>
