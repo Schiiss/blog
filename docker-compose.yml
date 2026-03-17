@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/site
       - bundle_cache:/usr/local/bundle
-    command: bundle exec jekyll serve --host 0.0.0.0 --future --livereload
+    command: bundle exec jekyll serve --host 0.0.0.0 --future --livereload --force_polling
 
 volumes:
   bundle_cache:
