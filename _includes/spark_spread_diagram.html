@@ -450,3 +450,19 @@
   </div>
 
 </div>
+
+<script>
+  (function () {
+    var container = document.getElementById('spark-diagram');
+    var diagram = container && container.querySelector('.sd-diagram');
+    if (!diagram) return;
+    var NATURAL_W = 1060;
+    function fit() {
+      var available = container.clientWidth - 40;
+      var scale = Math.min(1, available / NATURAL_W);
+      diagram.style.zoom = scale;
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
