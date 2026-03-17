@@ -11,6 +11,8 @@ tags:
 
 ![What the Spark Spread Tells Us About Texas Grid Stress](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/blog_image.png){: style="display:block; margin:0 auto;" }
 
+> Note: All prices and spark spreads shown here are calculated from ERCOT hub prices, Henry Hub gas, and weather data ingested into Databricks for this project.
+
 Over the past few months, I've been intrigued by energy markets, especially since I've been working more with the trading team at Plains on use cases like crude blending. To get a better feel for the data energy traders analyze daily, I pulled in data from [ERCOT](https://www.ercot.com/), the [U.S. Energy Information Administration](https://www.eia.gov/), and other sources into Databricks, focusing on the Texas market. This also gave me a chance to get hands-on with [Lakeflow Spark Declarative Pipelines](https://learn.microsoft.com/en-us/azure/databricks/ldp/concepts). While I wasn't the biggest fan of its predecessor, DLT, I've heard the new branding brings significant improvements.
 
 The idea I had to start was to look at these various data sources to analyze how extreme weather events impact gas and power prices.
@@ -27,7 +29,7 @@ On January 26, 2026, a cold front pushed into Dallas and temperatures fell to 14
 
 Gas prices jumped sharply. Power prices quintupled. And then, the moment temperatures recovered, both collapsed and the spread went negative again within 24 hours.
 
-> **The spark spread tells the entire story in a single number.**
+> **The spark spread captures the core economics in a single number.**
 
 [![Power Price vs CCGT Spark Spread + Dallas Temperature, Jan 20–Feb 5, 2026](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_cold_snap.png)](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_cold_snap.png){:target="_blank"}
 
@@ -66,9 +68,9 @@ The Texas grid experiences stress in two different ways and the spark spread beh
 
 ### Summer Heat Waves: When Gas Plants Win
 
-August is the best month to own a gas plant in Texas. August has the highest average CCGT spread at $25.76, making it the most profitable month to own a gas plant in Texas. The next highest months are May ($24.88) and January ($13.46), but August stands out as the clear leader. Temperatures regularly exceed 100°F, air conditioning load pushes demand to annual peaks, and gas prices stay low in summer because heating demand is absent. As a result, power prices spike while fuel costs stay cheap.
+August is often the best month to own a gas plant in Texas. August has the highest average CCGT spread at $25.76, making it the most profitable month to own a gas plant in Texas. The next highest months are May ($24.88) and January ($13.46), but August stands out as the clear leader. Temperatures regularly exceed 100°F, air conditioning load pushes demand to annual peaks, and gas prices stay low in summer because heating demand is absent. As a result, power prices spike while fuel costs stay cheap.
 
-On August 20, 2024, the average power price at HB_NORTH hit $226/MWh with gas at $2.20/MMBtu. The CCGT spread that day was $210/MWh. The maximum interval price hit $4,853/MWh. In the entire month of August 2024, there was not a single day with a negative spark spread, CCGT plants were profitable 86% of all 15-minute intervals.
+On August 20, 2024, the average power price at HB_NORTH hit $226/MWh with gas at $2.20/MMBtu. The CCGT spread that day was $210/MWh. The maximum interval price hit $4,853/MWh. In the entire month of August 2024, there was not a single day with a negative spark spread, and according to the dataset I generated, CCGT plants were profitable 86% of all 15-minute intervals.
 
 ### Shoulder Season: When Gas Plants Lose Money Every Day
 
@@ -88,6 +90,8 @@ On February 26, 2025, not one 15-minute interval across the entire day covered a
 ---
 
 ## The Seasonal Calendar
+
+The following statistics are calculated from my dataset covering Dec 2023–Mar 2026.
 
 Zoom out, and the pattern holds true year over year. The table below shows multi-year averages at HB_NORTH (Dec 2023–Mar 2026):
 
@@ -115,11 +119,11 @@ Gas plant operators aren't the only ones watching the spark spread. Every large 
 
 The reason is something called **[Four Coincident Peaks (4CP)](https://medium.com/industrial-sun-insights/understanding-ercots-4cp-demand-charge-759c02034120)**. Each year, ERCOT identifies the 4 highest 15-minute demand intervals during June through September. Those four moments determine each large customer's share of transmission charges for the following 12 months. For a major industrial facility, the bill can run into millions of dollars. Getting caught at full load during a 4CP event or curtailing prematurely on a false alarm has significant financial consequences.
 
-In a [blog](https://medium.com/industrial-sun-insights/understanding-ercots-4cp-demand-charge-759c02034120) I read, they provided an example where 'Centerpoint customers paid $56.51/4CPkw, which is $56,510/MWh during the 4CP times. For a 50 MW industrial load, that becomes **$2,825,500** for a single hour’s worth of power'. The financial impicaltions can be huge!
+In a [blog](https://medium.com/industrial-sun-insights/understanding-ercots-4cp-demand-charge-759c02034120) I read, they provided an example where 'Centerpoint customers paid $56.51/4CPkw, which is $56,510/MWh during the 4CP times. For a 50 MW industrial load, that becomes **$2,825,500** for a single hour’s worth of power'. The financial implications can be huge!
 
-In one of the tables we have generated we have a column called `economic_ratio_ccgt` the represents the ratio of intervals where the spark spread for a CCGT (Combined Cycle Gas Turbine) plant is economically positive compared to the total intervals in a day. On the hottest summer days in our dataset, that ratio hits **1.0**, meaning all 96 intervals were profitable, power prices stayed elevated all day, and the grid was running tight from open to close. Those are the days when 4CP risk is highest.
+In one of the tables we have generated we have a column called `economic_ratio_ccgt` that represents the ratio of intervals where the spark spread for a CCGT (Combined Cycle Gas Turbine) plant is economically positive compared to the total intervals in a day. On the hottest summer days in our dataset, that ratio hits **1.0**, meaning all 96 intervals were profitable, power prices stayed elevated all day, and the grid was running tight from open to close. Those are the days when 4CP risk is highest.
 
-The same signal that tells a gas plant operator "run hard all day" tells an industrial's energy manager "this might be the one." Generators are sprinting. Industrials are watching every interval. Both are responding to the same underlying condition and that is scarcity on the Texas grid
+The same signal that tells a gas plant operator "run hard all day" tells an industrial energy manager "this might be the one." Generators are sprinting. Industrials are watching every interval. Both are responding to the same underlying condition and that is scarcity on the Texas grid
 
 ---
 
