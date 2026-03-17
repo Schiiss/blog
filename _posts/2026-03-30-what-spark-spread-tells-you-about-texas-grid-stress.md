@@ -37,6 +37,8 @@ The bottom chart shows why. Dallas average temperature is plotted across the sam
 
 The fact that both lines in the top chart move together matters too. In a summer heat wave, power prices spike but gas prices stay cheap, so the spread explodes far above the power price line. In this winter event, gas prices spiked alongside power prices. Gas infrastructure tightened as heating demand and power generation competed for the same fuel. The spread was still strongly positive, but it was more compressed than a typical August afternoon. That compression is the signature of a winter stress event versus a summer one.
 
+---
+
 ## What Is The Spark Spread?
 
 [The spark spread is a common metric for estimating the profitability of natural gas-fired electric generators](https://www.eia.gov/todayinenergy/detail.php?id=9911). The spark spread is the profit margin a gas-fired power plant earns for generating one megawatt-hour of electricity. It answers one question: is it worth burning gas right now? They are calculated with the following equation:
@@ -55,6 +57,8 @@ A positive spread means the plant covers its fuel cost and makes money generatin
 On January 28, with power at $200/MWh and gas at $7.46/MMBtu, the CCGT spread was $200 − (7.0 × $7.46) = $147.67. Many gas plants were earning extremely high margins. On January 21, with power at $22 and gas at $4.88, the spread was $22 − (7.0 × $4.88) = -$11.69. Few plants would choose to run purely for energy revenue.
 
 This is the same plant, same fuel, five days apart.
+
+---
 
 ## Two Types of Grid Stress (And They Look Completely Different)
 
@@ -81,6 +85,8 @@ These are what we call the dead days, when the spread is so negative that not a 
 
 On February 26, 2025, not one 15-minute interval across the entire day covered a CCGT plant's fuel cost.
 
+---
+
 ## The Seasonal Calendar
 
 Zoom out, and the pattern holds true year over year. The table below shows multi-year averages at HB_NORTH (Dec 2023–Mar 2026):
@@ -101,6 +107,8 @@ The charts show the economics: August dominates with $20/MWh CCGT spreads, 86% p
 
 Peakers burn 43% more gas per MWh, so they need much higher prices to break even. They exist because August profits cover the dead months. The spark spread tells you exactly when the grid is stressed and how much plants are making (or losing).
 
+---
+
 ## The Demand Side Mirror: What 4CP Has to Do With It
 
 Gas plant operators aren't the only ones watching the spark spread. Every large industrial customer in Texas, such as refineries, petrochemical plants, data centers, and aluminum smelters, has someone whose entire job in summer is monitoring ERCOT load in real time.
@@ -112,6 +120,8 @@ In a [blog](https://medium.com/industrial-sun-insights/understanding-ercots-4cp-
 In one of the tables we have generated we have a column called `economic_ratio_ccgt` the represents the ratio of intervals where the spark spread for a CCGT (Combined Cycle Gas Turbine) plant is economically positive compared to the total intervals in a day. On the hottest summer days in our dataset, that ratio hits **1.0**, meaning all 96 intervals were profitable, power prices stayed elevated all day, and the grid was running tight from open to close. Those are the days when 4CP risk is highest.
 
 The same signal that tells a gas plant operator "run hard all day" tells an industrial's energy manager "this might be the one." Generators are sprinting. Industrials are watching every interval. Both are responding to the same underlying condition and that is scarcity on the Texas grid
+
+---
 
 ## Building the Data Platform on Databricks
 
@@ -128,6 +138,8 @@ To gather the data necessary to put together this blog, here is the architecture
 {% include spark_spread_diagram.html %}
 
 > Note: I am experimenting with animated diagrams, let me know what you think!
+
+---
 
 ## Conclusion
 
