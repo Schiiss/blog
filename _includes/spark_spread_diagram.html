@@ -331,18 +331,22 @@
   #sd-modal-inner {
     background: #0d1117;
     border-radius: 14px;
-    padding: 40px 24px 24px;
     max-width: 95vw;
     max-height: 92vh;
     overflow: auto;
-    position: relative;
     cursor: default;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #sd-modal-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 12px 0;
+    flex-shrink: 0;
   }
 
   #sd-modal-close {
-    position: absolute;
-    top: 12px;
-    right: 14px;
     background: none;
     border: none;
     color: #8b949e;
@@ -529,7 +533,9 @@
 
 <div id="sd-modal">
   <div id="sd-modal-inner">
-    <button id="sd-modal-close" aria-label="Close">&#x2715;</button>
+    <div id="sd-modal-toolbar">
+      <button id="sd-modal-close" aria-label="Close">&#x2715;</button>
+    </div>
   </div>
 </div>
 
@@ -564,7 +570,7 @@
       var clone = preview.cloneNode(true);
       clone.style.transform = '';
       clone.style.width = '';
-      modalInner.appendChild(clone);
+      modalInner.appendChild(clone); // appends after toolbar
       modal.classList.add('sd-open');
       document.body.style.overflow = 'hidden';
     }
