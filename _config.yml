@@ -54,8 +54,8 @@ plugins:
 
 author:
   name   : "Conner Schiissler"
-  avatar : "assets/images/profile.PNG"
-  bio    : "Passionate about tech"
+  avatar : "assets/images/1750990762132.jfif"
+  bio    : "Technology generalist with a background spanning platform engineering, data engineering, data science, and cybersecurity. Most of my career has been in the energy sector, helping organizations modernize data platforms and adopt AI in practical, measurable ways."
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"

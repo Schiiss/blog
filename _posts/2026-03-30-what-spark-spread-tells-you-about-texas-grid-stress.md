@@ -11,7 +11,7 @@ tags:
 
 ![What the Spark Spread Tells Us About Texas Grid Stress](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/blog_image.png){: style="display:block; margin:0 auto;" }
 
-> Note: All prices and spark spreads shown here are calculated from ERCOT hub prices, Henry Hub gas, and weather data ingested into Databricks for this project.
+> Note: All prices and spark spreads shown here are derived from ERCOT HB_NORTH real-time settlement point prices (15-minute intervals), Henry Hub front-month natural gas futures (NG=F), and publicly available weather data, all ingested and modeled in Databricks for this project. Spark spreads are calculated using assumed heat rates (7.0 MMBtu/MWh for CCGT, 10.0 for peakers) and represent fuel-cost margins only, not total plant profitability. Values are based on my processed dataset and may differ from official ERCOT settlements, nodal prices, or plant-specific economics. HB_NORTH broadly represents the Dallas/Fort Worth region.
 
 Over the past few months, I've been intrigued by energy markets, especially since I've been working more with the trading team at Plains on use cases like crude blending. To get a better feel for the data energy traders analyze daily, I pulled in data from [ERCOT](https://www.ercot.com/), the [U.S. Energy Information Administration](https://www.eia.gov/), and other sources into Databricks, focusing on the Texas market. This also gave me a chance to get hands-on with [Lakeflow Spark Declarative Pipelines](https://learn.microsoft.com/en-us/azure/databricks/ldp/concepts). While I wasn't the biggest fan of its predecessor, DLT, I've heard the new branding brings significant improvements.
 
@@ -70,7 +70,7 @@ The Texas grid experiences stress in two different ways and the spark spread beh
 
 August is often the best month to own a gas plant in Texas. August has the highest average CCGT spread at $25.76, making it the most profitable month to own a gas plant in Texas. The next highest months are May ($24.88) and January ($13.46), but August stands out as the clear leader. Temperatures regularly exceed 100°F, air conditioning load pushes demand to annual peaks, and gas prices stay low in summer because heating demand is absent. As a result, power prices spike while fuel costs stay cheap.
 
-On August 20, 2024, the average power price at HB_NORTH hit $226/MWh with gas at $2.20/MMBtu. The CCGT spread that day was $210/MWh. The maximum interval price hit $4,853/MWh. In the entire month of August 2024, there was not a single day with a negative spark spread, and according to the dataset I generated, CCGT plants were profitable 86% of all 15-minute intervals.
+On August 20, 2024, the average power price at HB_NORTH hit $226/MWh with gas at $2.20/MMBtu. The CCGT spread that day was $210/MWh. The maximum interval price hit $4,853/MWh. In the entire month of August 2024, there was not a single day with a negative spark spread in my dataset, and according to the dataset I generated, CCGT plants were profitable 86% of all 15-minute intervals.
 
 ### Shoulder Season: When Gas Plants Lose Money Every Day
 
