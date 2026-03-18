@@ -15,6 +15,8 @@ tags:
   <img src="/blog/assets/images/blog_images/mapping-the-permian-with-claude-and-databricks/blog_image.png" alt="blog image">
 </p>
 
+> Working with the folks over at [Collide](https://collide.io/) in Texas inspired me to build this project to learn the concepts and tooling they were leveraging. They are doing lots of amazing work in the oil and gas space with AI and process automation. If you're interested in learning more about the business of oil and gas and how tech intersects with the energy industry, check out their podcast: [Collide Podcast on YouTube](https://www.youtube.com/@collide_io).
+
 ## Introduction
 
 I have been having a blast over the last few weekends, vibe‑coding and leveraging **Claude Code** with **Sonnet 4.6** and the [ai-dev-kit](https://github.com/databricks-solutions/ai-dev-kit) from Databricks to build some interesting applications geared towards **midstream oil and gas**.
