@@ -129,19 +129,31 @@ The same signal that tells a gas plant operator "run hard all day" tells an indu
 
 ## Building the Data Platform on Databricks
 
-Understanding the patterns across 700+ settlement nodes, 96 intervals per day, two years of history requires real infrastructure.
+Analyzing spark spreads across 700+ settlement nodes, 96 intervals per day, and multiple years of history requires more than a few CSVs and notebooks. To make this analysis repeatable, I built a small data platform to continuously ingest, clean, and model power, gas, and weather data.
 
-The platform behind this analysis is built entirely on Databricks using Lakeflow Spark Declarative Pipelines (SDP).
+The platform is built on [Databricks](https://www.databricks.com/) using Lakeflow Spark Declarative Pipelines (SDP). At a high level, it follows a medallion-style architecture:
 
-Previously, Lakeflow Spark Declarative Pipelines was called DLT (Delta Live Tables) and I wasn't the biggest fan. Writing tests for your pipelines was difficult and it was hard to test the code (if not impossible) outside the context of DLT. I also found it very difficult to debug pipelines in DLT since the pipelines were such a high-level abstraction. They were also expensive compared to rolling your own Spark code. I was also concerned about vendor lock-in with the tech but that has since been largely addressed with SDP now being [open source](https://www.databricks.com/blog/bringing-declarative-pipelines-apache-spark-open-source-project). I have been pleasantly surprised by SDP especially around the way it handles things like [SCD Type 1 and 2](https://learn.microsoft.com/en-us/azure/databricks/ldp/concepts#what-are-the-benefits-of-sdp) and leveraging things like [@dp.expect_or_drop](https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations#what-are-expectations) for data quality checks.
+- **Bronze**: Raw ingestion of ERCOT hub prices, Henry Hub gas data, and weather feeds  
+- **Silver**: Cleaned and aligned time series across all sources  
+- **Gold**: Derived metrics like spark spreads, profitability ratios, and daily aggregates  
 
-I still like the flexibility of rolling my own framework leveraging PySpark and other open source tools, but I am excited to continue leveraging SDP to ingest and transform data for future energy market blogs like this.
+This structure makes it easy to move from raw market data to something analytically useful without constantly rewriting transformation logic.
 
-To gather the data necessary to put together this blog, here is the architecture that was built. From ERCOT hub prices, Henry Hub gas, and Texas weather to a daily spark spread signal:
+SDP (formerly Delta Live Tables) handles much of the pipeline orchestration and data quality enforcement. One area where it stands out is how naturally it supports things like slowly changing dimensions and built-in expectations (for example, dropping or flagging bad data at ingestion time). You can read more about the concepts [here](https://learn.microsoft.com/en-us/azure/databricks/ldp/concepts) and expectations [here](https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations).
+
+That said, I still prefer the flexibility of writing custom PySpark when I need tighter control or easier local testing.
+
+Overall, the goal wasn’t to build a perfect platform, but a fast, flexible one that makes it easy to explore questions like:
+
+- How do spark spreads behave during extreme weather?
+- When do gas prices compress generator margins?
+- What does “grid stress” actually look like in the data?
+
+The diagram below shows how the pieces fit together. From raw ERCOT prices and gas data to a daily spark spread signal:
 
 {% include spark_spread_diagram.html %}
 
-> Note: I am experimenting with animated diagrams, let me know what you think!
+> Note: I’m experimenting with animated diagrams here, let me know what you think!
 
 ---
 
