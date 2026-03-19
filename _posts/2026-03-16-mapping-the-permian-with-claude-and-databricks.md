@@ -25,11 +25,11 @@ And that sentiment isn't isolated. There are multiple threads where developers d
 
 But my skepticism around vibe coding largely stemmed from those early Copilot experiences. The suggestions often felt like autocomplete on steroids rather than a true thinking partner. If that's your baseline experience, it's easy to dismiss the whole category.
 
-At Plains, we’re collaborating with commercial teams to unlock value from our datalake datasets. I wanted to prototype something visually compelling. A **geospatial app** that would demonstrate the power of combining structured data, unstructured contracts, and maps. And who doesn't love geospatial data?!
+At Plains, we’re collaborating with commercial teams to unlock value from our data lake datasets. I wanted to prototype something visually compelling. A **geospatial app** that would demonstrate the power of combining structured data, unstructured contracts, and maps. And who doesn't love geospatial data?!
 
-I thought to leverage Claude Code and the new Databricks ai-dev-kit to generalize what we have started building at Plains for the purpose of this blog post. I also wanted to take the opportunity to test out ai-dev-kit and generate synthetic data for features and functionality that are both aspirational and that we have actually built out internally to demonstrate what we can do once we have all the data landed and modeled within our datalake. I appreciate the synthetic data is not perfectly accurate to what we would see in the field, but it is not bad given it was generated using Claude and the Databricks MCP server.
+I thought to leverage Claude Code and the new Databricks ai-dev-kit to generalize what we have started building at Plains for the purpose of this blog post. I also wanted to take the opportunity to test out ai-dev-kit and generate synthetic data for features and functionality that are both aspirational and that we have actually built out internally to demonstrate what we can do once we have all the data landed and modeled within our data lake. I appreciate the synthetic data is not perfectly accurate to what we would see in the field, but it is not bad given it was generated using Claude and the Databricks MCP server.
 
-We have many of our datasets landed in the datalake, so although the data itself is proprietary, the patterns and tooling we are building are broadly applicable. For this post I generalized it into a **synthetic Permian Basin dataset** for things like wells, crude and gas pipelines, acreage dedications, processing plants, and compressor/pump stations and built a full interactive mapping application on top of it, all running on Databricks.
+We have many of our datasets landed in the data lake, so although the data itself is proprietary, the patterns and tooling we are building are broadly applicable. For this post I generalized it into a **synthetic Permian Basin dataset** for things like wells, crude and gas pipelines, acreage dedications, processing plants, and compressor/pump stations and built a full interactive mapping application on top of it, all running on Databricks.
 
 ---
 
@@ -134,7 +134,7 @@ A few other things I'd keep in mind for next time:
 
 ### What's Next
 
-The synthetic Permian dataset served its purpose for this post, but the real value unlocks when this runs on actual data. As more of our datasets land in the datalake, swapping out the synthetic layer is a straightforward schema change. A few things are on the roadmap beyond that:
+The synthetic Permian dataset served its purpose for this post, but the real value unlocks when this runs on actual data. As more of our datasets land in the data lake, swapping out the synthetic layer is a straightforward schema change. A few things are on the roadmap beyond that:
 
 - **Pass-through authentication**: so the app respects Unity Catalog row-level permissions, a user should only see the contracts and acreage dedications they're entitled to.
 - **Extending to other basins**: the Permian is the proof of concept, but the same architecture applies anywhere we have pipeline and contract data.
