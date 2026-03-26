@@ -5,7 +5,6 @@ categories:
   - Energy
 tags:
   - Databricks
-  - MCP
   - Oil & Gas
 ---
 
@@ -59,6 +58,23 @@ A positive spread means the plant covers its fuel cost and makes money generatin
 On January 28, with power at $200/MWh and gas at $7.46/MMBtu, the CCGT spread was $200 − (7.0 × $7.46) = $147.67. Many gas plants were earning extremely high margins. On January 21, with power at $22 and gas at $4.88, the spread was $22 − (7.0 × $4.88) = -$11.69. Few plants would choose to run purely for energy revenue.
 
 This is the same plant, same fuel, five days apart.
+
+---
+
+## Where Spark Spread Falls Short
+
+The spark spread is widely used precisely because it is simple, but that simplicity comes with real limitations worth understanding before drawing conclusions from it.
+
+In *Energy Trading & Investing*, David W. Edwards notes that spark spread can overestimate actual plant profitability by **20–30%** once operational constraints are accounted for. The core criticism is that spark spread models are reactive. They assume a generator simply turns on when the spread is positive and turns off when it isn't. Real plant dispatch doesn't work that way.
+
+A few of the key gaps:
+
+- **Ramp time**: CCGTs take 1–4 hours to reach full output; peakers 10–30 minutes. A price spike that resolves before a cold plant can respond means the realized margin is lower than the spread implies. The optimal dispatch schedule has to be anticipated, not just observed.
+- **Start-up costs**: Lighting off a plant burns fuel and causes mechanical wear. A brief positive spread may not justify the cost of starting, especially if the window is short.
+- **Fixed costs excluded**: Spark spread covers fuel cost only. It does not account for pipeline costs, fuel-related finance charges, variable O&M, taxes, or fixed expenses. A plant can show a positive spark spread and still lose money overall.
+- **Hub vs. nodal prices**: HB_NORTH is a trading hub. Actual plant economics depend on their nodal price, which can diverge significantly due to transmission congestion.
+
+None of this makes spark spread useless. It remains one of the most widely used signals for understanding generator economics and grid stress. But as the [EIA](https://www.eia.gov/todayinenergy/detail.php?id=9911) puts it, spark spread is an indicator of market conditions and not necessarily an exact measure of profitability for any one specific generator. Read it as directional, not precise.
 
 ---
 
