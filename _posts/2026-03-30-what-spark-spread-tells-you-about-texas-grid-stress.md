@@ -50,8 +50,8 @@ Spark spread ($/MWh) = power price ($/MWh) – [natural gas price ($/mmBtu) × h
 
 Heat rate measures how many MMBtu of fuel a power plant must burn to generate 1 MWh of electricity. Lower heat rates mean higher efficiency.
 
-- **CCGT** (combined cycle gas turbine, ~55% efficient): `7.0 MMBtu/MWh` — the workhorses that run most of the day.
-- **Peaker** (simple cycle, ~34% efficient): `10.0 MMBtu/MWh` — expensive to run, called only when the grid is stressed.
+- **CCGT** (combined cycle gas turbine, ~55% efficient): `7.0 MMBtu/MWh`: the workhorses that run most of the day.
+- **Peaker** (simple cycle, ~34% efficient): `10.0 MMBtu/MWh`: expensive to run, called only when the grid is stressed.
 
 A positive spread means the plant covers its fuel cost and makes money generating. A negative spread means every megawatt-hour it produces loses money on fuel alone.
 
