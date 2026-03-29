@@ -22,6 +22,11 @@ github_username: Schiiss
 minimal_mistakes_skin: dark
 search: true
 
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-M3L8N6R071"
+
 minimal_mistakes:
   image_modal: true
 
