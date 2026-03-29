@@ -32,7 +32,6 @@ Gas prices jumped sharply. Power prices more than quintupled. And then, as tempe
 
 {% include chart_cold_snap.html %}
 
-
 The two charts above tell the same story from different angles. The top chart tracks two lines: average power price (what electricity sold for at the HB_NORTH hub) and the CCGT spark spread (the profit margin for a gas plant generating that electricity). On January 21 both lines are flat and low, a mild day with no stress on the grid. Then the cold front arrives on January 26 and both lines spike sharply upward, the power price climbing to $168/MWh and the spread jumping to $120. They stay elevated through January 28 before collapsing back to near zero on January 29 the moment temperatures recovered.
 
 The bottom chart shows why. Dallas average temperature is plotted across the same date range. The V-shaped dip, bottoming out at an average of 21°F on January 26, is the cold snap. The visual alignment between the temperature dip and the price spike in the top chart is the entire point: weather drove demand, demand drove prices, and prices drove the spread. The mechanism isn't abstract, you can see it happen in real time across two charts stacked on top of each other.
@@ -54,7 +53,7 @@ Heat rate measures how many MMBtu of fuel a power plant must burn to generate 1 
 - **CCGT** (combined cycle gas turbine, ~49% efficient): `7.0 MMBtu/MWh`: the workhorses that run most of the day.
 - **Peaker** (simple cycle, ~34% efficient): `10.0 MMBtu/MWh`: expensive to run, called only when the grid is stressed.
 
-A positive spread means the plant covers its fuel cost and makes money generating. A negative spread means every megawatt-hour it produces loses money on fuel alone.
+A positive spread means the plant covers its fuel cost and makes money generating electricity. A negative spread means every megawatt-hour it produces loses money on fuel alone.
 
 On January 28, with power at $200/MWh and gas at $7.46/MMBtu, the CCGT spread was $200 − (7.0 × $7.46) = $147.67. Many gas plants were earning extremely high margins. On January 21, with power at just $22.44 and a spread of -$11.69, few plants would choose to run purely for energy revenue.
 
