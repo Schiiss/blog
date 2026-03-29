@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(del:*)"
+      "Bash(del:*)",
+      "mcp__databricks__get_genie",
+      "mcp__databricks__list_tracked_resources",
+      "mcp__databricks__ask_genie",
+      "mcp__databricks__get_dashboard",
+      "mcp__databricks__execute_sql"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "databricks"
+  ]
 }

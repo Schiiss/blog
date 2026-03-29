@@ -30,7 +30,9 @@ Gas prices jumped sharply. Power prices quintupled. And then, the moment tempera
 
 > **The spark spread captures the core economics in a single number.**
 
-[![Power Price vs CCGT Spark Spread + Dallas Temperature, Jan 20–Feb 5, 2026](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_cold_snap.png)](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_cold_snap.png){:target="_blank"}
+{% include chart_cold_snap.html %}
+
+> Note: Key dates (Jan 21, 26–29) match the dataset exactly. Surrounding dates are illustrative to show the full shape of the event.
 
 The two charts above tell the same story from different angles. The top chart tracks two lines: average power price (what electricity sold for at the HB_NORTH hub) and the CCGT spark spread (the profit margin for a gas plant generating that electricity). On January 21 both lines are flat and low, a mild day with no stress on the grid. Then the cold front arrives on January 26 and both lines spike sharply upward, the power price climbing to $168/MWh and the spread jumping to $120. They stay elevated through January 28 before collapsing back to near zero on January 29 the moment temperatures recovered.
 
@@ -121,7 +123,7 @@ Zoom out, and the pattern holds true year over year. The table below shows multi
 
 December has the most negative-spread days of any month, cold enough to spike gas, but often not cold enough to push power prices high enough to compensate. The rare exception: when a proper freeze arrives, like January 2026.
 
-[![Seasonal Patterns — Average Monthly Spark Spread + % of Day Profitable](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_texas_grid_rhythm.png)](/blog/assets/images/blog_images/what-spark-spread-tells-you-about-texas-grid-stress/the_texas_grid_rhythm.png){:target="_blank"}
+{% include chart_seasonal.html %}
 
 The charts show the economics: August dominates with $20/MWh CCGT spreads, 86% profitable intervals. Shoulder months dip negative. Peakers struggle everywhere except summer peaks.
 

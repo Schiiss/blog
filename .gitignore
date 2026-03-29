@@ -205,3 +205,6 @@ terraform.rc
 
 .vscode
 .databricks
+.claude
+.ai-dev-kit
+.mcp.json

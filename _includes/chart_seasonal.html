@@ -1,0 +1,88 @@
+<div id="seasonal-chart" style="width:100%;"></div>
+<script>
+(function() {
+  // Data from energyiq.market_data.gold_ercot_spark_spread
+  // HB_NORTH, grouped by month (Jan–Dec 2025)
+  var months = [
+    '2025-01-01','2025-02-01','2025-03-01','2025-04-01','2025-05-01','2025-06-01',
+    '2025-07-01','2025-08-01','2025-09-01','2025-10-01','2025-11-01','2025-12-01'
+  ];
+  var monthLabels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  var ccgtSpread  = [13.14, 4.04, 1.70, 10.05, 18.58, 7.70, 9.37, 19.82, 8.84, 6.07, 2.22, 2.28];
+  var peakerSpread = [2.47, -4.57, -7.29, 2.28, 9.80, -2.01, 1.06, 12.39, 0.69, -2.82, -8.89, -8.41];
+  var pctProfitable = [53.9, 43.4, 40.0, 52.3, 52.7, 57.9, 70.2, 85.9, 71.5, 53.3, 40.2, 42.0];
+
+  var traceCCGT = {
+    x: monthLabels,
+    y: ccgtSpread,
+    name: 'CCGT Spread ($/MWh)',
+    type: 'bar',
+    marker: { color: '#63b3ed' },
+    hovertemplate: '%{x}<br>CCGT: $%{y}/MWh<extra></extra>'
+  };
+
+  var tracePeaker = {
+    x: monthLabels,
+    y: peakerSpread,
+    name: 'Peaker Spread ($/MWh)',
+    type: 'bar',
+    marker: { color: '#f6ad55' },
+    hovertemplate: '%{x}<br>Peaker: $%{y}/MWh<extra></extra>'
+  };
+
+  var tracePct = {
+    x: monthLabels,
+    y: pctProfitable,
+    name: '% of Day Profitable',
+    type: 'bar',
+    marker: {
+      color: pctProfitable.map(function(v) {
+        if (v >= 70) return '#68d391';
+        if (v >= 50) return '#f6ad55';
+        return '#fc8181';
+      })
+    },
+    xaxis: 'x2',
+    yaxis: 'y2',
+    hovertemplate: '%{x}<br>%{y}% of intervals profitable<extra></extra>'
+  };
+
+  var layout = {
+    grid: { rows: 2, columns: 1, pattern: 'independent', roworder: 'top to bottom' },
+    paper_bgcolor: '#1a1a2e',
+    plot_bgcolor: '#1a1a2e',
+    font: { color: '#e2e8f0', family: 'monospace' },
+    margin: { t: 50, b: 40, l: 60, r: 20 },
+    height: 500,
+    barmode: 'group',
+    showlegend: true,
+    legend: { orientation: 'h', x: 0, y: 1.08, font: { size: 12 } },
+    xaxis: {
+      gridcolor: '#2d3748',
+      linecolor: '#4a5568'
+    },
+    yaxis: {
+      title: '$/MWh',
+      gridcolor: '#2d3748',
+      linecolor: '#4a5568',
+      zeroline: true,
+      zerolinecolor: '#718096'
+    },
+    xaxis2: {
+      gridcolor: '#2d3748',
+      linecolor: '#4a5568'
+    },
+    yaxis2: {
+      title: '% Profitable',
+      gridcolor: '#2d3748',
+      linecolor: '#4a5568',
+      range: [0, 100]
+    }
+  };
+
+  var config = { responsive: true, displayModeBar: false };
+
+  Plotly.newPlot('seasonal-chart', [traceCCGT, tracePeaker, tracePct], layout, config);
+})();
+</script>
