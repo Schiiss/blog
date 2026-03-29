@@ -20,7 +20,7 @@ On January 26, 2026, a cold front pushed into Dallas and temperatures plummeted 
 
 | Date   | Dallas Low Temp | Gas Price   | Avg Power Price | CCGT Spark Spread |
 |--------|-------------|-------------|-----------------|-------------------|
-| Jan 21 | 57°F        | $4.88/MMBtu | $22/MWh         | -$11.69           |
+| Jan 21 | 57°F        | $4.88/MMBtu | $22.44/MWh      | -$11.69           |
 | Jan 26 | 14°F        | $6.80/MMBtu | $168/MWh        | +$119.91          |
 | Jan 27 | 22°F        | $6.95/MMBtu | $116/MWh        | +$67.05           |
 | Jan 28 | 34°F        | $7.46/MMBtu | $200/MWh        | +$147.67          |
@@ -56,9 +56,9 @@ Heat rate measures how many MMBtu of fuel a power plant must burn to generate 1 
 
 A positive spread means the plant covers its fuel cost and makes money generating. A negative spread means every megawatt-hour it produces loses money on fuel alone.
 
-On January 28, with power at $200/MWh and gas at $7.46/MMBtu, the CCGT spread was $200 − (7.0 × $7.46) = $147.67. Many gas plants were earning extremely high margins. On January 21, with power at $22 and gas at $4.88, the spread was $22 − (7.0 × $4.88) = -$11.69. Few plants would choose to run purely for energy revenue.
+On January 28, with power at $200/MWh and gas at $7.46/MMBtu, the CCGT spread was $200 − (7.0 × $7.46) = $147.67. Many gas plants were earning extremely high margins. On January 21, with power at just $22.44 and a spread of -$11.69, few plants would choose to run purely for energy revenue.
 
-This is the same plant, same fuel, five days apart.
+This is the same plant, same fuel, a week apart.
 
 ---
 
@@ -116,11 +116,11 @@ Zoom out, and the pattern holds true year over year. The table below shows multi
 |-------|-----------------|---------------------|----------------------|
 | August | $19.82 | 86% | 0 |
 | May | $18.58 | 53% | 9 |
-| March | $1.70 | 42% | 23 |
+| March | $1.70 | 40% | 33 |
 | November | $2.22 | 40% | 22 |
 | December | $2.28 | 42% | 30 |
 
-December has the most negative-spread days of any month, cold enough to spike gas, but often not cold enough to push power prices high enough to compensate. The rare exception: when a proper freeze arrives, like January 2026.
+March has the most negative-spread days of any month, as winter gas prices linger while mild temperatures keep power demand low. December is close behind, cold enough to spike gas, but often not cold enough to push power prices high enough to compensate. The rare exception: when a proper freeze arrives, like January 2026.
 
 {% include chart_seasonal.html %}
 
