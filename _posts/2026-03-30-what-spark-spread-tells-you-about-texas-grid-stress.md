@@ -16,7 +16,7 @@ Over the past few months, I've been intrigued by energy markets, especially sinc
 
 The idea I had to start was to look at these various data sources to analyze how extreme weather events impact gas and power prices.
 
-On January 26, 2026, a cold front pushed into Dallas and temperatures fell to 14°F, nearly 40 degrees below the seasonal average. Over the next three days, something remarkable happened to energy markets:
+On January 26, 2026, a cold front pushed into Dallas and temperatures plummeted more than 30 degrees below the seasonal average. Over the next three days, something remarkable happened to energy markets:
 
 | Date   | Dallas Low Temp | Gas Price   | Avg Power Price | CCGT Spark Spread |
 |--------|-------------|-------------|-----------------|-------------------|
@@ -26,7 +26,7 @@ On January 26, 2026, a cold front pushed into Dallas and temperatures fell to 14
 | Jan 28 | 34°F        | $7.46/MMBtu | $200/MWh        | +$147.67          |
 | Jan 29 | 42°F        | $3.92/MMBtu | $27/MWh         | -$0.81            |
 
-Gas prices jumped sharply. Power prices quintupled. And then, as temperatures recovered on January 29, the spread turned negative and while January 30 showed some residual elevation as the grid normalized, the event was effectively over within two days.
+Gas prices jumped sharply. Power prices more than quintupled. And then, as temperatures recovered on January 29, the spread turned negative and while January 30 showed some residual elevation as the grid normalized, the event was effectively over within two days.
 
 > **The spark spread captures the core economics in a single number.**
 
@@ -35,7 +35,7 @@ Gas prices jumped sharply. Power prices quintupled. And then, as temperatures re
 
 The two charts above tell the same story from different angles. The top chart tracks two lines: average power price (what electricity sold for at the HB_NORTH hub) and the CCGT spark spread (the profit margin for a gas plant generating that electricity). On January 21 both lines are flat and low, a mild day with no stress on the grid. Then the cold front arrives on January 26 and both lines spike sharply upward, the power price climbing to $168/MWh and the spread jumping to $120. They stay elevated through January 28 before collapsing back to near zero on January 29 the moment temperatures recovered.
 
-The bottom chart shows why. Dallas average temperature is plotted across the same date range. The V-shaped dip, bottoming out at 14°F on January 26, is the cold snap. The visual alignment between the temperature dip and the price spike in the top chart is the entire point: weather drove demand, demand drove prices, and prices drove the spread. The mechanism isn't abstract, you can see it happen in real time across two charts stacked on top of each other.
+The bottom chart shows why. Dallas average temperature is plotted across the same date range. The V-shaped dip, bottoming out at an average of 21°F on January 26, is the cold snap. The visual alignment between the temperature dip and the price spike in the top chart is the entire point: weather drove demand, demand drove prices, and prices drove the spread. The mechanism isn't abstract, you can see it happen in real time across two charts stacked on top of each other.
 
 The fact that both lines in the top chart move together matters too. In a summer heat wave, power prices spike but gas prices stay cheap, so the spread explodes far above the power price line. In this winter event, gas prices spiked alongside power prices. Gas infrastructure tightened as heating demand and power generation competed for the same fuel. The spread was still strongly positive, but it was more compressed than a typical August afternoon. That compression is the signature of a winter stress event versus a summer one.
 
@@ -51,7 +51,7 @@ Spark spread ($/MWh) = power price ($/MWh) – [natural gas price ($/mmBtu) × h
 
 Heat rate measures how many MMBtu of fuel a power plant must burn to generate 1 MWh of electricity. Lower heat rates mean higher efficiency.
 
-- **CCGT** (combined cycle gas turbine, ~55% efficient): `7.0 MMBtu/MWh`: the workhorses that run most of the day.
+- **CCGT** (combined cycle gas turbine, ~49% efficient): `7.0 MMBtu/MWh`: the workhorses that run most of the day.
 - **Peaker** (simple cycle, ~34% efficient): `10.0 MMBtu/MWh`: expensive to run, called only when the grid is stressed.
 
 A positive spread means the plant covers its fuel cost and makes money generating. A negative spread means every megawatt-hour it produces loses money on fuel alone.
@@ -87,7 +87,7 @@ The Texas grid experiences stress in two different ways and the spark spread beh
 
 August is often the best month to own a gas plant in Texas. August has the highest average CCGT spread at $19.82, making it the most profitable month to own a gas plant in Texas. The next highest months are May ($18.58) and January ($13.14), but August stands out as the clear leader. Temperatures regularly exceed 100°F, air conditioning load pushes demand to annual peaks, and gas prices stay low in summer because heating demand is absent. As a result, power prices spike while fuel costs stay cheap.
 
-On August 20, 2024, the average power price at HB_NORTH hit $226/MWh with gas at $2.20/MMBtu. The CCGT spread that day was $210/MWh. The maximum interval price hit $4,853/MWh. In the entire month of August 2024, there was not a single day with a negative spark spread in my dataset, and according to the dataset I generated, CCGT plants were profitable 86% of all 15-minute intervals.
+On August 20, 2024, the average power price at HB_NORTH hit $226/MWh with gas at $2.20/MMBtu. The CCGT spread that day was $210/MWh. The maximum interval price hit $4,853/MWh. In the entire month of August 2024, there was not a single day with a negative spark spread in my dataset, and according to the dataset I generated, CCGT plants were profitable 88% of all 15-minute intervals.
 
 ### Shoulder Season: When Gas Plants Lose Money Every Day
 
@@ -116,7 +116,7 @@ Zoom out, and the pattern holds true year over year. The table below shows multi
 |-------|-----------------|---------------------|----------------------|
 | August | $19.82 | 86% | 0 |
 | May | $18.58 | 53% | 9 |
-| March | $1.15 | 42% | 23 |
+| March | $1.70 | 42% | 23 |
 | November | $2.22 | 40% | 22 |
 | December | $2.28 | 42% | 30 |
 
