@@ -18,7 +18,7 @@ The idea I had to start was to look at these various data sources to analyze how
 
 On January 26, 2026, a cold front pushed into Dallas and temperatures fell to 14°F, nearly 40 degrees below the seasonal average. Over the next three days, something remarkable happened to energy markets:
 
-| Date   | Dallas Temp | Gas Price   | Avg Power Price | CCGT Spark Spread |
+| Date   | Dallas Low Temp | Gas Price   | Avg Power Price | CCGT Spark Spread |
 |--------|-------------|-------------|-----------------|-------------------|
 | Jan 21 | 57°F        | $4.88/MMBtu | $22/MWh         | -$11.69           |
 | Jan 26 | 14°F        | $6.80/MMBtu | $168/MWh        | +$119.91          |
@@ -26,13 +26,12 @@ On January 26, 2026, a cold front pushed into Dallas and temperatures fell to 14
 | Jan 28 | 34°F        | $7.46/MMBtu | $200/MWh        | +$147.67          |
 | Jan 29 | 42°F        | $3.92/MMBtu | $27/MWh         | -$0.81            |
 
-Gas prices jumped sharply. Power prices quintupled. And then, the moment temperatures recovered, both collapsed and the spread went negative again within 24 hours.
+Gas prices jumped sharply. Power prices quintupled. And then, as temperatures recovered on January 29, the spread turned negative and while January 30 showed some residual elevation as the grid normalized, the event was effectively over within two days.
 
 > **The spark spread captures the core economics in a single number.**
 
 {% include chart_cold_snap.html %}
 
-> Note: Key dates (Jan 21, 26–29) match the dataset exactly. Surrounding dates are illustrative to show the full shape of the event.
 
 The two charts above tell the same story from different angles. The top chart tracks two lines: average power price (what electricity sold for at the HB_NORTH hub) and the CCGT spark spread (the profit margin for a gas plant generating that electricity). On January 21 both lines are flat and low, a mild day with no stress on the grid. Then the cold front arrives on January 26 and both lines spike sharply upward, the power price climbing to $168/MWh and the spread jumping to $120. They stay elevated through January 28 before collapsing back to near zero on January 29 the moment temperatures recovered.
 
@@ -86,7 +85,7 @@ The Texas grid experiences stress in two different ways and the spark spread beh
 
 ### Summer Heat Waves: When Gas Plants Win
 
-August is often the best month to own a gas plant in Texas. August has the highest average CCGT spread at $25.76, making it the most profitable month to own a gas plant in Texas. The next highest months are May ($24.88) and January ($13.46), but August stands out as the clear leader. Temperatures regularly exceed 100°F, air conditioning load pushes demand to annual peaks, and gas prices stay low in summer because heating demand is absent. As a result, power prices spike while fuel costs stay cheap.
+August is often the best month to own a gas plant in Texas. August has the highest average CCGT spread at $19.82, making it the most profitable month to own a gas plant in Texas. The next highest months are May ($18.58) and January ($13.14), but August stands out as the clear leader. Temperatures regularly exceed 100°F, air conditioning load pushes demand to annual peaks, and gas prices stay low in summer because heating demand is absent. As a result, power prices spike while fuel costs stay cheap.
 
 On August 20, 2024, the average power price at HB_NORTH hit $226/MWh with gas at $2.20/MMBtu. The CCGT spread that day was $210/MWh. The maximum interval price hit $4,853/MWh. In the entire month of August 2024, there was not a single day with a negative spark spread in my dataset, and according to the dataset I generated, CCGT plants were profitable 86% of all 15-minute intervals.
 

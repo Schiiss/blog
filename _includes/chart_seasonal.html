@@ -27,13 +27,7 @@
     x: monthLabels, y: pctProfitable,
     name: '% of Day Profitable',
     type: 'bar',
-    marker: {
-      color: pctProfitable.map(function(v) {
-        if (v >= 70) return '#68d391';
-        if (v >= 50) return '#f6ad55';
-        return '#fc8181';
-      })
-    },
+    marker: { color: '#68d391' },
     xaxis: 'x2', yaxis: 'y2',
     hovertemplate: '%{x}<br>%{y}% of intervals profitable<extra></extra>'
   };
