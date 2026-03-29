@@ -18,11 +18,11 @@ The idea I had to start was to look at these various data sources to analyze how
 
 On January 26, 2026, a cold front pushed into Dallas and temperatures plummeted more than 30 degrees below the seasonal average. Over the next three days, something remarkable happened to energy markets:
 
-| Date   | Dallas Low Temp | Gas Price   | Avg Power Price | CCGT Spark Spread |
+| Date   | Dallas Temp | Gas Price   | Avg Power Price | CCGT Spark Spread |
 |--------|-------------|-------------|-----------------|-------------------|
 | Jan 21 | 57°F        | $4.88/MMBtu | $22.44/MWh      | -$11.69           |
-| Jan 26 | 14°F        | $6.80/MMBtu | $168/MWh        | +$119.91          |
-| Jan 27 | 22°F        | $6.95/MMBtu | $116/MWh        | +$67.05           |
+| Jan 26 | 21°F        | $6.80/MMBtu | $168/MWh        | +$119.91          |
+| Jan 27 | 30°F        | $6.95/MMBtu | $116/MWh        | +$67.05           |
 | Jan 28 | 34°F        | $7.46/MMBtu | $200/MWh        | +$147.67          |
 | Jan 29 | 42°F        | $3.92/MMBtu | $27/MWh         | -$0.81            |
 
