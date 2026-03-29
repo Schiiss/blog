@@ -1,6 +1,6 @@
 ---
 title: "What the Spark Spread Tells Us About Texas Grid Stress"
-date: 2026-03-29T10:00:00-04:00
+date: 2026-03-28T10:00:00-04:00
 categories:
   - Energy
 tags:
