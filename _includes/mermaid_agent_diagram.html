@@ -1,0 +1,18 @@
+<div style="background:#1a1a2e; border-radius:12px; padding:24px 16px; margin:24px 0;">
+  <div class="mermaid">
+%%{init: {'theme': 'dark', 'themeVariables': {'background': '#1a1a2e', 'mainBkg': '#161b22', 'nodeBorder': '#30363d', 'nodeTextColor': '#e2e8f0', 'lineColor': '#4a5568', 'fontFamily': 'monospace', 'fontSize': '14px'}}}%%
+graph LR
+    A["💬 User Question"]:::user --> B["🤖 LangGraph ReAct Agent\nLlama 3.3 70B on Databricks"]:::agent
+    B --> C["query_market_data"]:::tool
+    B --> D["query_ercot_4cp"]:::tool
+    B --> E["query_news_sentiment"]:::tool
+    C --> F["Genie: commodity prices\n+ EIA fundamentals"]:::genie
+    D --> G["Genie: curtailment risk\n+ 4CP history"]:::genie
+    E --> H["Genie: news articles\n+ AI sentiment"]:::genie
+
+    classDef user   fill:#1e3a5f,stroke:#63b3ed,color:#e2e8f0
+    classDef agent  fill:#2d1b69,stroke:#a371f7,color:#e2e8f0
+    classDef tool   fill:#1a2a1a,stroke:#68d391,color:#e2e8f0
+    classDef genie  fill:#2a1a1a,stroke:#f6ad55,color:#e2e8f0
+  </div>
+</div>

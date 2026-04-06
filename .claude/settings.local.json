@@ -6,7 +6,9 @@
       "mcp__databricks__list_tracked_resources",
       "mcp__databricks__ask_genie",
       "mcp__databricks__get_dashboard",
-      "mcp__databricks__execute_sql"
+      "mcp__databricks__execute_sql",
+      "mcp__docs-langchain__search_docs_by_lang_chain",
+      "mcp__docs-langchain__get_page_docs_by_lang_chain"
     ]
   },
   "enableAllProjectMcpServers": true,

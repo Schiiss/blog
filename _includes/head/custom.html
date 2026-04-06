@@ -1,1 +1,19 @@
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      background: '#1a1a2e',
+      mainBkg: '#161b22',
+      nodeBorder: '#30363d',
+      clusterBkg: '#1a1a2e',
+      titleColor: '#e2e8f0',
+      edgeLabelBackground: '#1a1a2e',
+      nodeTextColor: '#e2e8f0',
+      lineColor: '#4a5568',
+      fontFamily: 'monospace'
+    }
+  });
+</script>
