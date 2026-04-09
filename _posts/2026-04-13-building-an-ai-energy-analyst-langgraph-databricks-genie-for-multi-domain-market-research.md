@@ -133,7 +133,7 @@ def query_news_sentiment(question: str) -> str:
 
 The tool docstrings are really important here, this is how the LLM decides which tool to call. The more precise the description, the better the routing.
 
-## Step 2: Wire It Together with LangGraph
+### Step 2: Wire It Together with LangGraph
 
 With the tools defined, we can wire them together in LangGraph:
 
