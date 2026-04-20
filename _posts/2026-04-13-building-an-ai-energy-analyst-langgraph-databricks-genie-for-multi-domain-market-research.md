@@ -1,6 +1,6 @@
 ---
 title: "Building an AI Energy Analyst: LangGraph + Databricks Genie for Multi-Domain Market Research"
-date: 2026-04-19T10:00:00-04:00
+date: 2026-04-19T10:00:00-06:00
 categories:
   - Energy
 tags:
