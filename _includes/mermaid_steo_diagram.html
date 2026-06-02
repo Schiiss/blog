@@ -1,0 +1,28 @@
+<div style="background:#1a1a2e; border-radius:12px; padding:24px 16px; margin:24px 0;">
+  <div class="mermaid" style="display:flex; justify-content:center;">
+%%{init: {'theme': 'dark', 'themeVariables': {'background': '#1a1a2e', 'mainBkg': '#161b22', 'nodeBorder': '#30363d', 'nodeTextColor': '#e2e8f0', 'lineColor': '#4a5568', 'fontFamily': 'monospace', 'fontSize': '14px'}}}%%
+graph TD
+    A["📄 EIA STEO PDF"]:::source
+    B["🗄️ Unity Catalog Volume"]:::storage
+    C["🥉 Bronze"]:::bronze
+    E["🥈 Silver — Search Chunks"]:::silver
+    F["🥇 Gold"]:::gold
+    G["🔍 Vector Search Index"]:::vector
+    H["🤖 LangGraph Agent"]:::agent
+
+    A -->|"download notebook"| B
+    B -->|"Lakeflow Pipeline"| C
+    C -->|"ai_prep_search"| E
+    E -->|"materialize notebook"| F
+    F -->|"delta sync"| G
+    G --> H
+
+    classDef source  fill:#1e3a5f,stroke:#63b3ed,color:#e2e8f0
+    classDef storage fill:#1a2a2a,stroke:#4fd1c5,color:#e2e8f0
+    classDef bronze  fill:#2a1e0f,stroke:#c05621,color:#e2e8f0
+    classDef silver  fill:#1a1f2a,stroke:#718096,color:#e2e8f0
+    classDef gold    fill:#2a2200,stroke:#d69e2e,color:#e2e8f0
+    classDef vector  fill:#2a1a1a,stroke:#f6ad55,color:#e2e8f0
+    classDef agent   fill:#2d1b69,stroke:#a371f7,color:#e2e8f0
+  </div>
+</div>
