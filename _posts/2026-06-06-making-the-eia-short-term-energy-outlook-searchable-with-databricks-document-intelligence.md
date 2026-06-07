@@ -1,6 +1,6 @@
 ---
 title: "Making the EIA Short-Term Energy Outlook Searchable with Databricks Document Intelligence"
-date: 2026-06-06T10:00:00-06:00
+date: 2026-06-05T10:00:00-06:00
 categories:
   - Energy
 tags:
