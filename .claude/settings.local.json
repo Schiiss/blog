@@ -54,7 +54,9 @@
       "Bash(awk '{print $1}')",
       "Bash(databricks warehouses *)",
       "mcp__plugin_databricks-ai-dev-kit_databricks__manage_workspace",
-      "mcp__plugin_databricks-ai-dev-kit_databricks__execute_sql"
+      "mcp__plugin_databricks-ai-dev-kit_databricks__execute_sql",
+      "Bash(git config *)",
+      "Bash(gh auth *)"
     ]
   },
   "enableAllProjectMcpServers": true,
