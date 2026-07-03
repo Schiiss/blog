@@ -1,0 +1,75 @@
+<div id="dispatch-stack-chart" style="width:100%;"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+(function() {
+  // Generic (illustrative) dispatch stack. Cheapest generation at the bottom,
+  // most expensive at the top. Segment thickness loosely represents capacity:
+  // wide baseload at the bottom, thin peakers at the top. Fuels are a generic
+  // teaching example, not ERCOT's actual mix (Texas is wind/solar/nuclear/gas).
+  var tiers = [
+    { name: 'Hydro',                  h: 20, color: '#4fd1c5' },
+    { name: 'Nuclear',                h: 18, color: '#68d391' },
+    { name: 'Coal',                   h: 17, color: '#a0aec0' },
+    { name: 'Combined-cycle gas',     h: 25, color: '#63b3ed' },
+    { name: 'Gas peaker',             h: 12, color: '#f6ad55' },
+    { name: 'Diesel peaker',          h:  8, color: '#fc8181' }
+  ];
+
+  var traces = tiers.map(function(t) {
+    return {
+      x: [''], y: [t.h], name: t.name, type: 'bar',
+      marker: { color: t.color, line: { color: '#1a1a2e', width: 1 } },
+      text: [t.name], textposition: 'inside', insidetextanchor: 'middle',
+      textfont: { color: '#1a1a2e', size: 12, family: 'monospace' },
+      hovertemplate: t.name + '<extra></extra>'
+    };
+  });
+
+  function buildLayout(mobile) {
+    return {
+      title: mobile ? '' : { text: 'A dispatch stack: cheapest first, most expensive last', font: { size: 14 } },
+      barmode: 'stack',
+      paper_bgcolor: '#1a1a2e',
+      plot_bgcolor: '#1a1a2e',
+      font: { color: '#e2e8f0', family: 'monospace', size: mobile ? 11 : 12 },
+      margin: mobile ? { t: 30, b: 20, l: 45, r: 20 } : { t: 50, b: 30, l: 60, r: 230 },
+      height: mobile ? 460 : 500,
+      showlegend: false,
+      xaxis: { showticklabels: false, showgrid: false, zeroline: false, fixedrange: true },
+      yaxis: {
+        title: 'Marginal cost: low (bottom) → high (top)',
+        showticklabels: false, showgrid: false, zeroline: false,
+        range: [0, 100], fixedrange: true
+      },
+      annotations: [
+        { // bottom: hydro
+          x: 0, y: 10, xref: 'x', yref: 'y',
+          ax: mobile ? 0 : 120, ay: mobile ? 70 : 25,
+          text: '<b>First dispatched, last to switch off</b><br>cheapest, runs nearly always',
+          showarrow: true, arrowhead: 2, arrowcolor: '#4fd1c5',
+          align: 'left', font: { color: '#4fd1c5', size: mobile ? 10 : 11 }
+        },
+        { // top: diesel peaker
+          x: 0, y: 96, xref: 'x', yref: 'y',
+          ax: mobile ? 0 : 120, ay: mobile ? -60 : -20,
+          text: '<b>Last dispatched, first to switch off</b><br>most expensive, runs only at the peak',
+          showarrow: true, arrowhead: 2, arrowcolor: '#fc8181',
+          align: 'left', font: { color: '#fc8181', size: mobile ? 10 : 11 }
+        }
+      ]
+    };
+  }
+
+  var config = { responsive: true, displayModeBar: false };
+  var isMobile = window.innerWidth < 600;
+  Plotly.newPlot('dispatch-stack-chart', traces, buildLayout(isMobile), config);
+
+  window.addEventListener('resize', function() {
+    var mobile = window.innerWidth < 600;
+    if (mobile !== isMobile) {
+      isMobile = mobile;
+      Plotly.relayout('dispatch-stack-chart', buildLayout(mobile));
+    }
+  });
+})();
+</script>

@@ -1,0 +1,60 @@
+<div id="hub-negative-chart" style="width:100%;"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+(function() {
+  // Data from energyiq.market_data.silver_ercot_hub_prices, ~89k 15-min intervals
+  // per hub, Dec 2023 – Jun 2026. Share of intervals settling below $0/MWh.
+  var hubs   = ['HB_WEST', 'HB_NORTH', 'HB_SOUTH', 'HB_HOUSTON'];
+  var pctNeg = [11.05, 3.01, 2.86, 1.81];
+  var colors = ['#f6ad55', '#4a6fa5', '#4a6fa5', '#4a6fa5']; // highlight West Texas
+
+  var trace = {
+    x: hubs, y: pctNeg,
+    type: 'bar',
+    marker: { color: colors },
+    text: pctNeg.map(function(v){ return v + '%'; }),
+    textposition: 'outside',
+    textfont: { color: '#e2e8f0' },
+    hovertemplate: '%{x}<br>%{y}% of intervals below $0/MWh<extra></extra>'
+  };
+
+  var annWest = {
+    x: 'HB_WEST', y: 11.05,
+    text: 'West Texas wind glut,<br>power with nowhere to go',
+    showarrow: true, arrowhead: 2, arrowcolor: '#f6ad55',
+    font: { color: '#f6ad55', size: 11 },
+    ax: 60, ay: -30
+  };
+
+  function buildLayout(mobile) {
+    return {
+      title: mobile ? '' : { text: 'How often each ERCOT hub settles below $0/MWh (2023–2026)', font: { size: 14 } },
+      paper_bgcolor: '#1a1a2e',
+      plot_bgcolor: '#1a1a2e',
+      font: { color: '#e2e8f0', family: 'monospace', size: mobile ? 11 : 12 },
+      margin: mobile ? { t: 20, b: 50, l: 50, r: 15 } : { t: 50, b: 50, l: 60, r: 25 },
+      height: mobile ? 340 : 420,
+      showlegend: false,
+      xaxis: { gridcolor: '#2d3748', linecolor: '#4a5568' },
+      yaxis: {
+        title: '% of 15-min intervals below $0',
+        gridcolor: '#2d3748', linecolor: '#4a5568',
+        range: [0, 13], ticksuffix: '%', zeroline: true, zerolinecolor: '#718096'
+      },
+      annotations: [annWest]
+    };
+  }
+
+  var config = { responsive: true, displayModeBar: false };
+  var isMobile = window.innerWidth < 600;
+  Plotly.newPlot('hub-negative-chart', [trace], buildLayout(isMobile), config);
+
+  window.addEventListener('resize', function() {
+    var mobile = window.innerWidth < 600;
+    if (mobile !== isMobile) {
+      isMobile = mobile;
+      Plotly.relayout('hub-negative-chart', buildLayout(mobile));
+    }
+  });
+})();
+</script>

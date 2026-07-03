@@ -1,0 +1,72 @@
+<div id="price-duration-chart" style="width:100%;"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+(function() {
+  // Data from energyiq.market_data.silver_ercot_hub_prices, HB_NORTH.
+  // ~89,002 fifteen-minute settlement prices, Dec 2023 – Jun 2026.
+  // x = share of intervals at or above the price (percentile-based duration curve).
+  // y = price ($/MWh). Stops at the 95th-pct point ($1.63); the cheapest ~5%
+  // dips negative (min -$66), noted in the prose rather than plotted on the log axis.
+  var pctTime = [0, 0.01, 0.1, 0.2, 0.5, 1, 2, 3, 5, 7, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 95];
+  var price   = [4965, 2796, 761, 389, 237, 157, 108, 89, 71, 59, 48, 39, 34, 27, 24, 22, 20, 17, 14, 8.2, 1.6];
+
+  var traceDuration = {
+    x: pctTime, y: price,
+    name: 'HB_NORTH price',
+    type: 'scatter', mode: 'lines+markers',
+    line: { color: '#f6ad55', width: 2 }, marker: { size: 5 },
+    hovertemplate: 'Top %{x}% of intervals<br>are at or above $%{y}/MWh<extra></extra>'
+  };
+
+  var annScarcity = {
+    x: 1, y: Math.log10(157),
+    xref: 'x', yref: 'y',
+    text: 'Top 1% of intervals<br>clear above $157/MWh',
+    showarrow: true, arrowhead: 2, arrowcolor: '#fc8181',
+    font: { color: '#fc8181', size: 11 },
+    ax: 80, ay: -30
+  };
+  var annMedian = {
+    x: 50, y: Math.log10(22),
+    xref: 'x', yref: 'y',
+    text: 'Median ~$22/MWh',
+    showarrow: true, arrowhead: 2, arrowcolor: '#63b3ed',
+    font: { color: '#63b3ed', size: 11 },
+    ax: 0, ay: -40
+  };
+
+  function buildLayout(mobile) {
+    return {
+      title: mobile ? '' : { text: 'ERCOT HB_NORTH price-duration curve (2023–2026)', font: { size: 14 } },
+      paper_bgcolor: '#1a1a2e',
+      plot_bgcolor: '#1a1a2e',
+      font: { color: '#e2e8f0', family: 'monospace', size: mobile ? 11 : 12 },
+      margin: mobile ? { t: 20, b: 70, l: 55, r: 15 } : { t: 50, b: 60, l: 70, r: 25 },
+      height: mobile ? 360 : 460,
+      showlegend: false,
+      xaxis: {
+        title: 'Share of 15-min intervals at or above this price (%)',
+        gridcolor: '#2d3748', linecolor: '#4a5568', range: [0, 95]
+      },
+      yaxis: {
+        title: '$/MWh (log scale)', type: 'log',
+        gridcolor: '#2d3748', linecolor: '#4a5568'
+      },
+      annotations: mobile ? [annScarcity] : [annScarcity, annMedian]
+    };
+  }
+
+  var config = { responsive: true, displayModeBar: false };
+  var isMobile = window.innerWidth < 600;
+
+  Plotly.newPlot('price-duration-chart', [traceDuration], buildLayout(isMobile), config);
+
+  window.addEventListener('resize', function() {
+    var mobile = window.innerWidth < 600;
+    if (mobile !== isMobile) {
+      isMobile = mobile;
+      Plotly.relayout('price-duration-chart', buildLayout(mobile));
+    }
+  });
+})();
+</script>

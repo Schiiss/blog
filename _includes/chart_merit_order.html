@@ -1,0 +1,85 @@
+<div id="merit-order-chart" style="width:100%;"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+(function() {
+  // Conceptual ERCOT supply stack (merit order). Marginal costs are ILLUSTRATIVE and
+  // shift with fuel prices; capacities are rough, scaled to an ~85 GW peak.
+  // Order reflects modern ERCOT: CCGT below coal (cheap shale gas). y-axis is
+  // truncated at $175 so the cheap steps are legible; the scarcity step runs to
+  // ERCOT's $5,000/MWh offer cap (shown by the arrow).
+  var tiers = [
+    { name: 'Wind & solar (~$0, can go negative)', x0: 0,  x1: 30, mc: 3,   color: '#68d391' },
+    { name: 'Nuclear',                              x0: 30, x1: 36, mc: 12,  color: '#4fd1c5' },
+    { name: 'Combined-cycle gas (CCGT)',            x0: 36, x1: 58, mc: 32,  color: '#63b3ed' },
+    { name: 'Coal',                                 x0: 58, x1: 66, mc: 40,  color: '#a0aec0' },
+    { name: 'Peakers (simple-cycle gas)',           x0: 66, x1: 80, mc: 130, color: '#f6ad55' },
+    { name: 'Scarcity / demand response',           x0: 80, x1: 86, mc: 175, color: '#fc8181' }
+  ];
+
+  var traces = tiers.map(function(t) {
+    return {
+      x: [t.x0, t.x1], y: [t.mc, t.mc],
+      name: t.name,
+      type: 'scatter', mode: 'lines',
+      line: { color: t.color, width: 1.5 },
+      fill: 'tozeroy', fillcolor: t.color,
+      opacity: 0.85,
+      hovertemplate: t.name + '<br>marginal cost ≈ $%{y}/MWh<extra></extra>'
+    };
+  });
+
+  var DEMAND_X = 73;        // hot-afternoon demand lands in the peaker zone
+  var CLEAR_PRICE = 130;    // price set by the marginal peaker
+
+  function buildLayout(mobile) {
+    return {
+      title: mobile ? '' : { text: 'ERCOT supply stack (merit order)', font: { size: 14 } },
+      paper_bgcolor: '#1a1a2e',
+      plot_bgcolor: '#1a1a2e',
+      font: { color: '#e2e8f0', family: 'monospace', size: mobile ? 11 : 12 },
+      margin: mobile ? { t: 20, b: 110, l: 55, r: 15 } : { t: 50, b: 60, l: 70, r: 25 },
+      height: mobile ? 440 : 480,
+      showlegend: true,
+      legend: mobile
+        ? { orientation: 'h', x: 0, y: -0.35, font: { size: 9 } }
+        : { orientation: 'v', x: 0.02, y: 0.98, font: { size: 11 }, bgcolor: 'rgba(26,26,46,0.6)' },
+      xaxis: {
+        title: 'Cumulative capacity dispatched to meet demand (GW) →',
+        gridcolor: '#2d3748', linecolor: '#4a5568', range: [0, 90], zeroline: false
+      },
+      yaxis: {
+        title: 'Marginal cost / offer ($/MWh)',
+        gridcolor: '#2d3748', linecolor: '#4a5568', range: [0, 185], zeroline: true, zerolinecolor: '#718096'
+      },
+      shapes: [
+        { type: 'line', x0: DEMAND_X, x1: DEMAND_X, y0: 0, y1: 185,
+          line: { color: '#e2e8f0', width: 1.5, dash: 'dash' } }
+      ],
+      annotations: [
+        { x: DEMAND_X, y: 182, text: 'demand', showarrow: false,
+          font: { color: '#e2e8f0', size: 11 }, yanchor: 'bottom' },
+        { x: DEMAND_X, y: CLEAR_PRICE, ax: -70, ay: -25, xref: 'x', yref: 'y',
+          text: 'the last plant needed<br>sets the price (~$' + CLEAR_PRICE + '/MWh)',
+          showarrow: true, arrowhead: 2, arrowcolor: '#f6ad55',
+          font: { color: '#f6ad55', size: mobile ? 9 : 11 } },
+        { x: 83, y: 175, ax: 0, ay: -35, xref: 'x', yref: 'y',
+          text: '↑ up to the<br>$5,000/MWh cap',
+          showarrow: true, arrowhead: 2, arrowcolor: '#fc8181',
+          font: { color: '#fc8181', size: mobile ? 9 : 11 } }
+      ]
+    };
+  }
+
+  var config = { responsive: true, displayModeBar: false };
+  var isMobile = window.innerWidth < 600;
+  Plotly.newPlot('merit-order-chart', traces, buildLayout(isMobile), config);
+
+  window.addEventListener('resize', function() {
+    var mobile = window.innerWidth < 600;
+    if (mobile !== isMobile) {
+      isMobile = mobile;
+      Plotly.relayout('merit-order-chart', buildLayout(mobile));
+    }
+  });
+})();
+</script>

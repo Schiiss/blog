@@ -46,7 +46,15 @@
       "Bash(databricks vector-search *)",
       "Bash(databricks vector-search-indexes *)",
       "Bash(python3 *)",
-      "Bash(databricks jobs *)"
+      "Bash(databricks jobs *)",
+      "Bash(env)",
+      "mcp__plugin_slack_slack__slack_search_public_and_private",
+      "Bash(databricks current-user *)",
+      "Bash(databricks schemas *)",
+      "Bash(awk '{print $1}')",
+      "Bash(databricks warehouses *)",
+      "mcp__plugin_databricks-ai-dev-kit_databricks__manage_workspace",
+      "mcp__plugin_databricks-ai-dev-kit_databricks__execute_sql"
     ]
   },
   "enableAllProjectMcpServers": true,
