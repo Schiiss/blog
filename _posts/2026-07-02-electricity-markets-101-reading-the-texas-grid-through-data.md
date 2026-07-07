@@ -6,7 +6,7 @@ categories:
 tags:
   - Databricks
   - Energy
-  - Electricty Markets
+  - Electricity Markets
   - ERCOT
 ---
 
@@ -31,7 +31,7 @@ I am also leveraging the [Databricks Free Edition](https://www.databricks.com/le
 
 ## Why electricity is a strange commodity
 
-You can't easily store electricity at grid scale. Batteries are [growing fast](https://insideclimatenews.org/news/10022025/solar-battery-storage-texas-grid/) on the Texas grid and they 'added nearly 1,500 megawatts of battery storage to the grid’s summer rated capacities in 2023', but they still cover only a small slice of demand, and only for a few hours at a time. It can also be very expensive to transmit over long distances, and as a result the USA does not have a national electricity market. Instead, it has a collection of small regional markets, each with its own regulation and characteristics.
+You can't easily store electricity at grid scale. Batteries are [growing fast](https://insideclimatenews.org/news/10022025/solar-battery-storage-texas-grid/) on the Texas grid and they 'added nearly 1,500 megawatts of battery storage to the grid's summer rated capacities in 2023', but they still cover only a small slice of demand, and only for a few hours at a time. It can also be very expensive to transmit over long distances, and as a result the USA does not have a national electricity market. Instead, it has a collection of small regional markets, each with its own regulation and characteristics.
 
 Other commodities like crude can more 'easily' be stored. A barrel of oil sits in a tank until someone wants it. A warehouse full of gas can wait for winter. Electricity doesn't work like that. The moment it's generated, it has to be consumed, and supply has to match demand on the grid every single second of every day. Too much supply and the frequency climbs. Too little and it drops. Drift far enough either way and equipment trips offline to protect itself, which is how you get a blackout. The grid has a sort of 'heartbeat' or frequency that dictates how alternating current (AC) changes direction. In North America, this heartbeat pulses at a nominal 60 Hz. When I started reading about how this works, my mind was blown that the grid is even able to run at all given the level of coordination required by power plants.
 
@@ -78,7 +78,7 @@ Roughly, the stack from cheap to expensive looks like this:
 ![Dispatch stack: cheapest generation first, most expensive last](/blog/assets/images/blog_images/electricity-markets-101-reading-the-texas-grid-through-data/dispatch_stack.png){: style="display:block; margin:0 auto;" }
 *A dispatch stack, cheapest generation first, climbing toward the pricey peakers as demand rises. The units at the bottom are first on and last off; the ones at the top are last on and first off. The fuels here are a generic illustration, Texas leans on wind, solar, nuclear, and gas rather than hydro or diesel.*
 
-Wind, solar, and nuclear sit at the bottom. Their fuel costs basically nothing, so they run whenever they can. Gas plants sit in the middle, and how far up depends on how efficient they are (their heat rate, which I got into in the [spark spread post](https://schiiss.github.io/blog/energy/what-spark-spread-tells-you-about-texas-grid-stress/). The peakers sit at the top, simple-cycle gas turbines that burn a ton of fuel per unit of power and are expensive to run, so they only get called when the grid is desperate.
+Wind, solar, and nuclear sit at the bottom. Their fuel costs basically nothing, so they run whenever they can. Gas plants sit in the middle, and how far up depends on how efficient they are (their heat rate, which I got into in the [spark spread post](https://schiiss.github.io/blog/energy/what-spark-spread-tells-you-about-texas-grid-stress/)). The peakers sit at the top, simple-cycle gas turbines that burn a ton of fuel per unit of power and are expensive to run, so they only get called when the grid is desperate.
 
 **The last plant you need to switch on sets the price for everyone.** The price tracks that marginal plant, not the average cost of all the plants running. If demand is low and a cheap gas plant is the last one needed, everybody gets paid that low price. If demand is so high that ERCOT has to call a peaker, the price jumps to whatever that peaker costs, and every generator on the grid earns it. That's marginal pricing, and it's the heart of how an LMP (locational marginal price) is formed.
 
@@ -143,6 +143,8 @@ Walk back through the three properties now that the market makes sense. High fre
 
 That's an awkward shape for data infrastructure, high-volume time-series queried by both time and location, where the events that matter most are rare, extreme, and the ones you can't afford to miss. The locational piece is the one that surprised me most once I had the data in front of me, so let me show it.
 
+---
+
 ## Same grid, different prices
 
 ERCOT settles prices at four main trading hubs, HB_NORTH (Dallas), HB_HOUSTON, HB_WEST, and HB_SOUTH. Texas is enormous, and power can't cross it for free, so you might expect the four to drift far apart.
@@ -157,10 +159,12 @@ HB_WEST settles negative about 11% of the time, more than three times as often a
 
 Houston is the mirror image. It's the priciest hub on average and the least likely to go negative, because it's a dense load pocket, lots of demand and limited ability to pull power in. Same state, same instant, opposite problems. That spread between West Texas and Houston is congestion, and it's what makes this a spatial problem sitting on top of a time-series one.
 
+---
+
 ## Running it on Databricks Free
 
 Every number and chart in this post came out of a small lakehouse I put together on the [Databricks Free Edition](https://www.databricks.com/learn/free-edition). I pull ERCOT's [public API](https://www.ercot.com/services/mdt/data-portal) into bronze, clean it into silver, and roll it up into the gold tables behind these charts, all through Lakeflow declarative pipelines.
 
-This is still early days for me in power markets. I came in comfortable with the data engineering and I'm learning the domain as I go, so if I've mangled some ERCOT nuance, tell me. 
+This is still early days for me in power markets. I came in comfortable with the data engineering and I'm learning the domain as I go, so if I've mangled some ERCOT nuance, tell me.
 
 Thanks for reading 🙂
