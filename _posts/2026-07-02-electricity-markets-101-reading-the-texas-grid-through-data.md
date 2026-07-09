@@ -25,7 +25,7 @@ I'm going to cover some electricity market fundamentals through ERCOT, the grid 
 ![North American RTOs and ISOs](/blog/assets/images/blog_images/electricity-markets-101-reading-the-texas-grid-through-data/rto_iso_map.png){: style="display:block; margin:0 auto;" }
 *The organized wholesale electricity markets across North America. Each RTO/ISO runs its own market with its own rules, and ERCOT covers most of Texas as its own island. Source: [FERC, RTOs and ISOs](https://www.ferc.gov/power-sales-and-markets/rtos-and-isos).*
 
-I am also leveraging the [Databricks Free Edition](https://www.databricks.com/learn/free-edition) for some of the data analysis. So for anyone wanting to get started in this space, there has never been a better time to start. ERCOT has a really solid [API](https://www.ercot.com/services/mdt/data-portal) to pull this data.
+I am also using the [Databricks Free Edition](https://www.databricks.com/learn/free-edition) for some of the data analysis. So for anyone wanting to get started in this space, there has never been a better time to start. ERCOT has a really solid [API](https://www.ercot.com/services/mdt/data-portal) to pull this data.
 
 ---
 
