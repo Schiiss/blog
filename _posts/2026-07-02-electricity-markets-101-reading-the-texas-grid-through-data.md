@@ -1,6 +1,6 @@
 ---
 title: "Electricity Markets 101: Reading the Texas Grid Through Data"
-date: 2026-07-10T10:00:00-04:00
+date: 2026-07-09T10:00:00-04:00
 categories:
   - Energy
 tags:
