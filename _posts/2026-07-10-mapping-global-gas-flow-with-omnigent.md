@@ -1,6 +1,6 @@
 ---
 title: "Mapping Global Gas Flow with Omnigent"
-date: 2026-07-18T10:00:00-04:00
+date: 2026-07-17T10:00:00-04:00
 categories:
   - Energy
 tags:
