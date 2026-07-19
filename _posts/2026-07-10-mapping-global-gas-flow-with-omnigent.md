@@ -16,6 +16,8 @@ I think I have mentioned in the past the best way for me to learn is to explain 
 
 In this blog, we will focus on the new meta-harness Omnigent.
 
+Omnigent is currently in an alpha release and I have ran into a whole host of bugs. Expect issues!
+
 ---
 
 ## What is Omnigent?
