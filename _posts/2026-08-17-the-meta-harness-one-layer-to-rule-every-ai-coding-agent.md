@@ -118,7 +118,7 @@ tailscale serve --bg http://localhost:6767
 
 After that, an HTTP endpoint similar to `https://<your-host>.ts.net` proxies straight through to the Omnigent server. In theory.
 
-In practice, three things broke before I got it all working:
+There were a few issues I ran into during this setup:
 
 **1. The CORS enforcement**
 
