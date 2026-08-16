@@ -1,6 +1,6 @@
 ---
 title: "The Meta-Harness: One Layer to Rule Every AI Coding Agent"
-date: 2026-08-16T10:00:00-04:00
+date: 2026-08-15T10:00:00-04:00
 categories:
   - GenAI
 tags:
