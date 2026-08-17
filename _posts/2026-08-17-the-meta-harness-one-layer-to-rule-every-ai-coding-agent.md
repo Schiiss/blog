@@ -257,7 +257,9 @@ Paired with the Omnigent [mobile app](https://omnigent.ai/docs/interact/mobile),
 
 Running this daily costs around $1.80/month. This includes tokens and compute on the Databricks side.
 
-I also do something similar for the STEO from the EIA that runs once a month to summarize the latest release. I wrote a blog on how you can parse the STEO in Databricks [here](https://schiiss.github.io/blog/energy/making-the-eia-short-term-energy-outlook-searchable-with-databricks-document-intelligence/).
+I also do something similar for the STEO from the EIA that runs once a month to summarize the latest release. 
+
+> **Note:** I wrote a blog on how you can parse the STEO in Databricks [here](https://schiiss.github.io/blog/energy/making-the-eia-short-term-energy-outlook-searchable-with-databricks-document-intelligence/).
 
 ---
 
