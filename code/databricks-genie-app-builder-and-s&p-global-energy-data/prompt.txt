@@ -2,7 +2,7 @@ Build a data app called "Strait of Hormuz Chokepoint Risk Dashboard" that reads 
 
 <your_catalog>.supplyrisk.country_scores -- columns include country, region, scoring_date, geopolitical_risk, political_violence, export_risk, facility_and_personnel_violence, labor_unrest, overall_country_price_risk, crude_capacity, global_capacity, and reason_for_adjustments.
 
-<your_catalog>supply.production -- columns include country_Name, region_Name, year, month, supply_Type_Name, production_Element_Name, value, units, member_Opec.
+<your_catalog>.supply.production -- columns include country_Name, region_Name, year, month, supply_Type_Name, production_Element_Name, value, units, member_Opec.
 
 Filter both tables to these Hormuz-dependent countries: Iran, Iraq, Saudi Arabia, United Arab Emirates, Kuwait, Qatar, Oman, Bahrain. In the production table, use region_Name = 'Middle East' and default to supply_Type_Name = 'Crude'.
 
