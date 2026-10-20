@@ -1,0 +1,15 @@
+Build a data app called "Strait of Hormuz Chokepoint Risk Dashboard" that reads from two Unity Catalog tables:
+
+<your_catalog>.supplyrisk.country_scores -- columns include country, region, scoring_date, geopolitical_risk, political_violence, export_risk, facility_and_personnel_violence, labor_unrest, overall_country_price_risk, crude_capacity, global_capacity, and reason_for_adjustments.
+
+<your_catalog>supply.production -- columns include country_Name, region_Name, year, month, supply_Type_Name, production_Element_Name, value, units, member_Opec.
+
+Filter both tables to these Hormuz-dependent countries: Iran, Iraq, Saudi Arabia, United Arab Emirates, Kuwait, Qatar, Oman, Bahrain. In the production table, use region_Name = 'Middle East' and default to supply_Type_Name = 'Crude'.
+
+Page 1 -- Risk Overview: Show a summary bar or set of KPI cards at the top: total Hormuz-dependent crude capacity vs. global capacity (as a percentage). Below that, show a table of the eight countries with their latest geopolitical_risk, political_violence, export_risk, overall_country_price_risk, and crude_capacity, sorted by overall_country_price_risk descending. Color-code rows by risk severity (red for high, yellow for medium, green for low).
+
+Page 2 -- Risk Trends: Show a multi-line time-series chart of overall_country_price_risk over scoring_date for each Hormuz-dependent country. Add a dropdown filter to toggle between risk dimensions: geopolitical_risk, political_violence, export_risk, facility_and_personnel_violence, labor_unrest. Default to overall_country_price_risk.
+
+Page 3 -- Production Exposure: Show a stacked bar chart of monthly crude production (value) by country over time. Add a toggle to split by supply_Type_Name (Crude, Condensate, NGL). Include a filter for OPEC vs non-OPEC using the member_Opec flag. Show a KPI card with total Middle East production as a share of global output.
+
+Add a sidebar for page navigation.
