@@ -163,7 +163,7 @@ The production data drives the Production Exposure page, and the risk data drive
 
 If you tried to build this yourself, you would be pulling production numbers from national agencies, OPEC reports, and company filings, all on different schedules, in different units, with different definitions of "crude". Then you would need a team scoring geopolitical risk on a consistent methodology across dozens of countries. That is a lot of work before you ever get to the analysis.
 
-I imagine there’s also a layer of uncertainty around the official numbers. OPEC member countries have incentives to push for favourable production quotas, and there have been cases of members producing above their agreed limits. That raises questions about how reported figures compare with actual market conditions. Independent estimates informed by shipping data, tanker tracking, and industry sources help provide another perspective.
+I imagine the official numbers also come with some uncertainty. OPEC members have reasons to report figures that help their quota position, and there have been cases of members producing above their limits. Having an independent estimate built from tanker tracking and shipping data gives you a second opinion when the reported numbers do not pass the sniff test.
 
 S&P has already done the normalisation and scoring, and because it is delivered over OpenSharing, it lands in Unity Catalog ready to join with your own data. Here is the kind of query that sits behind the Risk Overview page:
 
