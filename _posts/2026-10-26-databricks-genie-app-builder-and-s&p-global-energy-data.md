@@ -186,7 +186,7 @@ One small gotcha: the two datasets name the country column differently (`country
 
 ---
 
-## Conclusion 🏁
+## Conclusion
 
 Genie App Builder excites me. I think it addresses a lot of the concerns platform teams have about people vibe coding, and in turn it will put the right tools in the hands of more people who want to build apps. App Spaces are a big part of that, giving admins the guardrails to say yes.
 
