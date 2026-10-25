@@ -151,7 +151,7 @@ Instead of volumes, the crude supply risk share gives you risk scores for each p
 | `crude_capacity` / `global_capacity` | The country's crude capacity next to global capacity |
 | `reason_for_adjustments` | Commentary explaining why a score moved |
 
-The capacity columns sitting right next to the risk scores is a nice touch. You can weight risk by how many barrels are actually exposed, because a high score on a small producer is a very different story from the same score on Saudi Arabia. And `reason_for_adjustments` answers the first question any trader asks when a number jumps: why?
+The capacity columns sitting right next to the risk scores is a nice touch. You can weight risk by how many barrels are actually exposed, because a high score on a small producer is a very different story from the same score on Saudi Arabia. And `reason_for_adjustments` answers a common question a trader asks when a number jumps: why?
 
 The production data drives the Production Exposure page, and the risk data drives the Risk Overview and Risk Trends pages.
 
