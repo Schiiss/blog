@@ -16,13 +16,13 @@ Having worked in the energy sector for a few years I have learnt that oil and ga
 
 A lot of that effort goes into third-party data. Production numbers, pricing, risk scores. Someone has to pull it in, clean it up, and keep the pipelines alive before anyone gets to ask a single question of it.
 
-At Databricks, we have been working closely with [S&P Global](https://www.marketplace.spglobal.com/en/), specifically its Energy and Commodity Insights division, on changing how energy data is distributed and consumed. S&P Global Energy datasets are available to Databricks customers via the Marketplace and are shared through the [OpenSharing protocol](https://docs.databricks.com/aws/en/opensharing/share-data-open), which effectively removes the "E" from ETL. You get to focus on the downstream use cases instead of the nitty gritty data engineering needed to collect the data.
+At Databricks, we have been working closely with [S&P Global](https://www.marketplace.spglobal.com/en/), specifically its S&P Global Energy division, on changing how energy data is distributed and consumed. S&P Global Energy datasets are available to Databricks customers via the Marketplace and are shared through the [OpenSharing protocol](https://docs.databricks.com/aws/en/opensharing/), which effectively removes the "E" from ETL. You get to focus on the downstream use cases instead of the nitty gritty data engineering needed to collect the data.
 
 In addition to talking about the S&P data, I also wanted to take the opportunity to get hands-on with the new [Genie App Builder](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/genie-app-builder), the new Databricks feature for governed agentic app building.
 
 ## S&P Datasets
 
-S&P Global Energy publishes many of its datasets via the [Databricks Marketplace](https://www.marketplace.spglobal.com/en/solutions/databricks-delta-sharing-(6d6034f6-fcc6-40b6-bfbf-3fed9a753ce8)). The fact this is shared via the [OpenSharing](https://docs.databricks.com/aws/en/opensharing/) protocol is a huge win for customers in my opinion.
+S&P Global Energy publishes many of its datasets via the [Databricks Marketplace](https://marketplace.databricks.com/) (S&P has a [page on its Databricks offering](https://www.marketplace.spglobal.com/en/solutions/databricks-delta-sharing-(6d6034f6-fcc6-40b6-bfbf-3fed9a753ce8)) too). The fact this is shared via the [OpenSharing](https://docs.databricks.com/aws/en/opensharing/) protocol is a huge win for customers in my opinion.
 
 ### What is OpenSharing?
 
@@ -32,7 +32,7 @@ Think of it like this, the data just shows up in your catalog, ready to query. T
 
 I have seen teams at midstream and upstream companies dedicate entire sprints to building and maintaining ingestion pipelines for vendor data. OpenSharing largely removes that overhead.
 
-Getting set up is pretty simple. Once S&P provisions the share to your Databricks account, you navigate to the Catalog explorer, find the share under "Shared with me," and create a catalog from it. A few SQL commands and you are querying S&P data alongside your internal datasets.
+Getting set up is pretty simple. Once S&P provisions the share to your Unity Catalog metastore (using your metastore's sharing identifier), you navigate to the Catalog explorer, find the share under "Shared with me," and create a catalog from it. A few SQL commands and you are querying S&P data alongside your internal datasets.
 
 ```sql
 -- List providers sharing with you
@@ -53,9 +53,9 @@ For this example, I am using the [world oil supply](https://www.marketplace.spgl
 
 ## What is Genie App Builder?
 
-[Genie App Builder](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/genie-app-builder) is a Databricks-native tool for building apps with natural language, directly in the Databricks UI. You describe the app you want, it generates a working preview, and you refine it until you are happy and deploy. The whole thing runs on Databricks, so your data never leaves the platform during development.
+[Genie App Builder](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/genie-app-builder) is a Databricks-native tool for building apps with natural language, directly in the Databricks UI. You describe the app you want, it generates a working preview, and you refine it until you are happy and deploy. The whole thing runs on Databricks, and the apps it builds have no public internet egress. Note that it does require Partner-powered AI features to be enabled (and cross-Geo processing in some regions).
 
-Under the hood, Genie App Builder builds apps with [Databricks AppKit](https://developers.databricks.com/docs/appkit/v0), the Databricks framework for data and AI apps. Think of AppKit as a TypeScript SDK with a plugin for each Databricks service your app might need: SQL warehouses, Unity Catalog, Lakebase, model serving endpoints, Genie spaces, and UC Volumes. It also handles the plumbing you would otherwise wire up yourself, like caching, telemetry, retries, error handling, and OAuth-based authentication.
+Under the hood, Genie App Builder builds apps with [Databricks AppKit](https://developers.databricks.com/docs/appkit/v0), the Databricks framework for data and AI apps. Think of AppKit as a TypeScript SDK with a plugin for each Databricks service your app might need: SQL warehouses, Lakebase, model serving endpoints, Genie spaces, and files in UC Volumes (through its Files plugin). It also handles the plumbing you would otherwise wire up yourself, like caching, telemetry, retries, error handling, and OAuth-based authentication.
 
 If you want to try AppKit on its own, the Databricks CLI will scaffold a project for you:
 
@@ -65,7 +65,7 @@ databricks apps init
 
 You pick the plugins you need from a template selector and it generates a Node.js/Express/React project with everything wired up, ready to deploy to a Databricks App.
 
-I like that AppKit goes further than something like Streamlit. Streamlit is great for quick prototypes and data exploration, but once you need proper routing, role-based workflows, write-back logic, or custom UI components, you hit its limits pretty fast. AppKit gives you a React front end with a TypeScript or Python back end, which is closer to what a professional developer would reach for. The trade-off is that it expects some familiarity with Node.js and npm, which not every data team has. With Genie App Builder writing the AppKit code for you, that barrier drops a lot.
+I like that AppKit goes further than something like Streamlit. Streamlit is great for quick prototypes and data exploration, but once you need proper routing, role-based workflows, write-back logic, or custom UI components, you hit its limits pretty fast. AppKit gives you a React front end with a Node.js/TypeScript back end, which is closer to what a professional developer would reach for. The trade-off is that it expects some familiarity with Node.js and npm, which not every data team has. With Genie App Builder writing the AppKit code for you, that barrier drops a lot.
 
 ---
 
@@ -75,7 +75,7 @@ Outside of the vibe coding itself, the part I think most customers will be excit
 
 An App Space is a governance boundary where admins define who can create and use apps, what permissions those apps have, and which spend policies apply to them. Every day I see customers eager to vibe code, but admins are reluctant to hand over the keys to the kingdom, so to speak. And who can blame them? Letting anyone spin up apps against production data comes with real security and cost risk.
 
-App Spaces let admins group apps together so they all inherit shared identity, scopes, and resources automatically. Platform teams can let more people build and deploy apps inside a governed space instead of hand-holding every app setup themselves. Apps in a space also run on scale-to-zero serverless micro apps, so you are not paying for an internal tool that sits idle most of the week.
+App Spaces let admins group apps together so they all inherit shared identity, scopes, and resources automatically. Platform teams can let more people build and deploy apps inside a governed space instead of hand-holding every app setup themselves. Apps built with Genie App Builder also run on isolated, on-demand serverless compute (a single instance at most) that scales to zero when idle, so you are not paying for an internal tool that sits idle most of the week. And during the Beta, it is all free.
 
 When [creating](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/app-spaces#create-an-app-space) an App Space, you configure user authorization, serverless usage policies, and who is allowed to create apps within the space.
 
@@ -85,7 +85,7 @@ When [creating](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/app
 
 ## Genie App Builder In Action 🛠️
 
-To test this out, I crafted a [prompt](https://github.com/Schiiss/blog/tree/master/code/databricks-genie-app-builder-and-s&p-global-energy-data/prompt.txt) to have Genie App Builder generate a Strait of Hormuz Chokepoint Risk Dashboard. It is a 3-page app that combines S&P's crude supply risk scores with their world oil production data, filtered to the 8 countries whose crude exports flow through the Strait of Hormuz: Iran, Iraq, Saudi Arabia, UAE, Kuwait, Qatar, Oman, and Bahrain.
+To test this out, I crafted a [prompt](https://github.com/Schiiss/blog/tree/master/code/databricks-genie-app-builder-and-s&p-global-energy-data/prompt.txt) to have Genie App Builder generate a Strait of Hormuz Chokepoint Risk Dashboard. It is a 3-page app that combines S&P's crude supply risk scores with their world oil production data, focused on the Gulf producers whose seaborne exports normally transit the Strait of Hormuz. The EIA lists seven: Saudi Arabia, the UAE, Kuwait, Qatar, Iraq, Bahrain, and Iran. My prompt also included Oman, which it should not have, since Oman loads its crude at Mina al Fahal on the Gulf of Oman, outside the strait. It is also worth knowing that Saudi Arabia (via the East-West pipeline) and the UAE (via the Habshan-Fujairah pipeline) can route part of their exports around the strait.
 
 The prompt asked for:
 
@@ -123,16 +123,19 @@ We have all seen plenty of slick vibe coded apps at this point and the wow facto
 
 ### World Oil Supply
 
-The world oil supply share gives you monthly production volumes by country, rolled up by region. Every row is a country, a month, a supply type, and a value with its units.
+The world oil supply share gives you monthly volumes by country, rolled up by region. Every row is a country, a month, a supply type, a production type, and a value with its units. The table mixes history with S&P's forecasts, which run out to 2028 (short term, monthly) and 2060 (long term, annual, stored with month = 0). For monthly data, filter `scenario_Term_Name = 'Short Term'`.
 
 | Column | What it holds |
 |---|---|
 | `country_Name` / `region_Name` | Where the barrels are produced (e.g. Saudi Arabia, Middle East) |
-| `year` / `month` | Monthly grain, so you can trend production over time |
-| `supply_Type_Name` | The type of liquid: Crude, Condensate, or NGL |
-| `production_Element_Name` | The production measure the row represents |
+| `year` / `month` | Monthly for short-term rows; long-term rows are annual (month = 0) |
+| `supply_Type_Name` | The type of liquid: Crude, Condensate, NGL, Refinery Gain, Ethanol, Biodiesel, GTL, CTL, or Ether |
+| `production_Type_Name` | What the value measures: Production, Capacity, Spare Capacity (stored as negative numbers), Maintenance, or Disruptions |
+| `production_Element_Name` | The crude grade (e.g. Arab Light, Arab Heavy) |
 | `value` / `units` | The production figure and its unit of measure |
 | `member_Opec` | Whether the country is an OPEC member |
+
+`production_Type_Name` is the column that matters most. If you sum `value` without filtering to `Production`, you add capacity, spare capacity, maintenance, and disruptions on top of actual output. Saudi crude for June 2025 comes out at 19,154 thousand b/d instead of 9,577.
 
 The supply type split is my favourite part. Crude, condensate, and NGLs (natural gas liquids) get lumped together as "oil" all the time, but they move through different infrastructure and price differently. Having them separated means you are not reverse-engineering someone else's totals. The OPEC flag also lets you answer questions like "how much of this region's supply is OPEC-controlled?" without maintaining your own mapping table.
 
@@ -148,10 +151,11 @@ Instead of volumes, the crude supply risk share gives you risk scores for each p
 | `facility_and_personnel_violence` | Risk of attacks on energy facilities and workers |
 | `labor_unrest` | Risk of strikes and labour disruption |
 | `overall_country_price_risk` | The overall country price risk score |
-| `crude_capacity` / `global_capacity` | The country's crude capacity next to global capacity |
-| `reason_for_adjustments` | Commentary explaining why a score moved |
+| `crude_capacity` | The country's crude production capacity |
+| `global_capacity` | The country's crude production capacity as influenced by any industry shock (a per-country figure, not world capacity) |
+| `reason_for_adjustments` | Short commentary on why a score was adjusted (sparsely populated) |
 
-The capacity columns sitting right next to the risk scores is a nice touch. You can weight risk by how many barrels are actually exposed, because a high score on a small producer is a very different story from the same score on Saudi Arabia. And `reason_for_adjustments` answers a common question a trader asks when a number jumps: why?
+The capacity columns sitting right next to the risk scores is a nice touch. You can weight risk by how many barrels are actually exposed, because a high score on a small producer is a very different story from the same score on Saudi Arabia. `reason_for_adjustments` can hint at the answer to the question a trader asks when a number jumps (why?), but don't lean on it too heavily. Only about 3% of rows have text, and it is brief (e.g. "major risk focus").
 
 The production data drives the Production Exposure page, and the risk data drives the Risk Overview and Risk Trends pages.
 
@@ -164,12 +168,10 @@ I imagine there’s also a layer of uncertainty around the official numbers. OPE
 S&P has already done the normalisation and scoring, and because it is delivered over OpenSharing, it lands in Unity Catalog ready to join with your own data. Here is the kind of query that sits behind the Risk Overview page:
 
 ```sql
-WITH latest_risk AS (
+WITH current_scores AS (
   SELECT *
   FROM <your_catalog>.supplyrisk.country_scores
-  WHERE country IN ('Iran', 'Iraq', 'Saudi Arabia', 'United Arab Emirates',
-                    'Kuwait', 'Qatar', 'Oman', 'Bahrain')
-  QUALIFY ROW_NUMBER() OVER (PARTITION BY country ORDER BY scoring_date DESC) = 1
+  WHERE status = 'Current'
 )
 SELECT
   country,
@@ -177,10 +179,14 @@ SELECT
   geopolitical_risk,
   export_risk,
   crude_capacity,
-  ROUND(100 * crude_capacity / global_capacity, 2) AS pct_of_global_capacity
-FROM latest_risk
+  ROUND(100 * crude_capacity / SUM(crude_capacity) OVER (), 1) AS pct_of_scored_capacity
+FROM current_scores
+QUALIFY country IN ('Iran', 'Iraq', 'Saudi Arabia', 'United Arab Emirates',
+                    'Kuwait', 'Qatar')
 ORDER BY overall_country_price_risk DESC;
 ```
+
+The percentage is each country's share of total capacity across all scored countries. The window total has to be computed before the country filter, which is why the filter sits in `QUALIFY` rather than `WHERE`. (Bahrain is left out because it is not in the crude supply risk data, and Oman because its exports load outside the strait.)
 
 One small gotcha: the two datasets name the country column differently (`country` in one, `country_Name` in the other), so check that the country values line up before you join them. As always, never use data you don't understand the quality of 🙂
 
@@ -194,10 +200,6 @@ Pairing these Databricks experiences with S&P Global Energy data gets really int
 
 This is still very much the beginning of the exploration. Genie App Builder is in beta, there are rough edges, and I still need to fully validate the numbers in my app. But the feedback loop is faster than anything I have seen for building apps on Databricks so far, and I am pumped to see where it goes.
 
-Here was the final app that I created. I spot checked these numbers and they look accurate, however, any inaccuracies are likely due to incorrect join logic etc. on my end instead of an issue with the underlying data.
-
-Thanks for reading 😊
-
 Here is the final app I created.
 
 > DISCLAIMER: I spot checked these numbers and they look accurate, but any inaccuracies are more likely down to the join and filter logic in the app (written by Genie and reviewed by me) than the underlying S&P data.
@@ -207,3 +209,7 @@ Here is the final app I created.
 ![Final Page 2](/blog/assets/images/blog_images/databricks-genie-app-builder-and-s&p-global-energy-data/final_page2.png){: style="display:block; margin:0 auto;" }
 
 ![Final Page 3](/blog/assets/images/blog_images/databricks-genie-app-builder-and-s&p-global-energy-data/final_page3.png){: style="display:block; margin:0 auto;" }
+
+A note on the Production Exposure page: it shows all 13 countries S&P groups under the Middle East region (including Egypt, Turkey, Syria, and Yemen), not just the Hormuz producers, and the 30.2% share KPI is S&P's forecast for December 2028. In the same data, the share is 32.3% in December 2025 and 23.9% for September 2026 in S&P's latest outlook. The Risk Overview screenshot still includes Oman; without it, Hormuz-dependent capacity is 33.8 MMb/d, or 33.8% of scored capacity.
+
+Thanks for reading 😊
