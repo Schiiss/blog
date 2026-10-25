@@ -53,7 +53,7 @@ For this example, I am using the [world oil supply](https://www.marketplace.spgl
 
 ## What is Genie App Builder?
 
-[Genie App Builder](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/genie-app-builder) is a Databricks-native tool for building apps with natural language, directly in the Databricks UI. You describe the app you want, it generates a working preview, and you refine it until you are happy and deploy. The whole thing runs on Databricks, and the apps it builds have no public internet egress. Note that it does require Partner-powered AI features to be enabled (and cross-Geo processing in some regions).
+[Genie App Builder](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/genie-app-builder) is a Databricks-native tool for building apps with natural language, directly in the Databricks UI. You describe the app you want, it generates a working preview, and you refine it until you are happy and deploy.
 
 Under the hood, Genie App Builder builds apps with [Databricks AppKit](https://developers.databricks.com/docs/appkit/v0), the Databricks framework for data and AI apps. Think of AppKit as a TypeScript SDK with a plugin for each Databricks service your app might need: SQL warehouses, Lakebase, model serving endpoints, Genie spaces, and files in UC Volumes (through its Files plugin). It also handles the plumbing you would otherwise wire up yourself, like caching, telemetry, retries, error handling, and OAuth-based authentication.
 
