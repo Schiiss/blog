@@ -1,6 +1,6 @@
 ---
 title: "Midstream Commercial Optimization with S&P Global Energy Data"
-date: 2026-10-22T10:00:00-04:00
+date: 2026-11-01T10:00:00-04:00
 categories:
   - Energy
 tags:
