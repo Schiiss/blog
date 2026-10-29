@@ -47,6 +47,7 @@ exclude:
   - Gemfile.lock
   - vendor/
   - code/
+  - docker/
 
 # Plugins (previously gems:)
 plugins:
