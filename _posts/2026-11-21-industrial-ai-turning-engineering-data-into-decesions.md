@@ -1,6 +1,6 @@
 ---
 title: "Industrial AI: Turning Engineering Data into Decisions"
-date: 2026-11-11T10:00:00-06:00
+date: 2026-11-21T10:00:00-06:00
 categories:
   - Energy
 tags:
