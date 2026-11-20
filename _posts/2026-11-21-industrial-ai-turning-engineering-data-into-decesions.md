@@ -95,8 +95,6 @@ If you're the data team trying to pull this data, build a relationship with both
 
 At a high level, the Purdue model is a way to protect the critical SCADA systems, servers and applications that live on site. Without it, someone who breaks into your company's IT network could also reach all of your OT systems.
 
-![Purdue Model](/blog/assets/images/blog_images/industrial-ai-turning-engineering-data-into-decesions/purdue_model.png){: style="display:block; margin:0 auto;" }
-
 Traditionally there's a DMZ or an air gap between the two, so devices on the IT network can't easily talk to devices on the OT network.
 
 That's great for security, and it's a real challenge if your job is to bring historian and engineering data into one central spot. A few things make it tough:
@@ -104,6 +102,8 @@ That's great for security, and it's a real challenge if your job is to bring his
 - **Security air gaps.** OT networks sit behind strict DMZ firewalls that block direct cloud egress and IT-side querying.
 - **Data frequency and streaming strain.** Historians are optimised for disk compression, not real-time streaming. Poll your tags too often and you can put real pressure on the OT system.
 - **Proprietary APIs and legacy interfaces.** Getting asset context out often means working through PI AF SDK, PI Web API, OMF or older OPC-DA drivers, usually with custom wrappers.
+
+![Purdue Model](/blog/assets/images/blog_images/industrial-ai-turning-engineering-data-into-decesions/purdue_model.png){: style="display:block; margin:0 auto;" }
 
 The rule of thumb I like is that analytics platforms read, they never control. The goal is secure, read-only OT streaming that doesn't affect plant stability.
 
@@ -146,7 +146,7 @@ This is the progression I think every industrial data platform should be working
 - **Contextualised.** Attach units, asset hierarchy and quality flags.
 - **Decision-ready.** Aggregated KPIs and verified features for AI.
 
-In practice, a raw sensor like `snsr_vib_1049f` means nothing on its own. Once you map it, you know it's measuring vibration on Pump-B, at Pump Station 4, on Pipeline A, which belongs to a particular plant. Now if it looks anomalous, you have the context to decide whether it's worth investigating.
+In practice, a raw sensor like `snsr_vib_1049f` means nothing on its own. Once you map it, you know it's measuring vibration on Pump-B at Pump Station 4, which belongs to a particular plant. Now if it looks anomalous, you have the context to decide whether it's worth investigating.
 
 ![Raw to contextualized](/blog/assets/images/blog_images/industrial-ai-turning-engineering-data-into-decesions/raw_to_contextualized.png){: style="display:block; margin:0 auto;" }
 
@@ -157,6 +157,8 @@ Every reading should carry its quality status, the same way a lab result carries
 - **Flatline detection** to catch stuck sensors posing as stable operation
 - **Rate-of-change checks** to flag physically impossible spikes
 - **Timestamp gap checks** to catch missing intervals and late-arriving data
+
+![Data quality](/blog/assets/images/blog_images/industrial-ai-turning-engineering-data-into-decesions/data_quality.png){: style="display:block; margin:0 auto;" }
 
 Most platforms let you write these as simple SQL rules that run as the data comes in. Something like this (illustrative only, your tags and thresholds will be different):
 
@@ -178,9 +180,7 @@ SELECT
 FROM sensor_readings
 ```
 
-![Data quality](/blog/assets/images/blog_images/industrial-ai-turning-engineering-data-into-decesions/data_quality.png){: style="display:block; margin:0 auto;" }
-
-And again, poor quality is not a reason to sit on your data. I borrowed this analogy from someone at Palantir: saying you'll use your data once it's clean is like saying you'll start working out once you're in shape. You get your data in shape by moving it and using it. That's how you learn where to spend your clean-up effort and where you can live with it.
+And again, poor quality is not a reason to sit on your data. I borrowed this analogy from [Chad Wahlquist](https://www.linkedin.com/in/chad-wahlquist/) at Palantir: saying you'll use your data once it's clean is like saying you'll start working out once you're in shape. You get your data in shape by moving it and using it. That's how you learn where to spend your clean-up effort and where you can live with it.
 
 ## The energy industry has the data
 
@@ -188,11 +188,11 @@ I come from energy, so I'm going to be a bit selfish here.
 
 There is no shortage of data in this industry. Upstream has well logs. Midstream has take-or-pay and volumetric contracts. Downstream has refineries full of sensors. Whatever industry you're in, I bet you can relate.
 
-![Energy data](/blog/assets/images/blog_images/industrial-ai-turning-engineering-data-into-decesions/energy_data.png){: style="display:block; margin:0 auto;" }
-
 What's missing is trust in that data and the context around it. That anomalous reading means nothing until I know when the sensor was serviced, who serviced it, and where it sits in the overall facility.
 
 Where I think we're heading is field sensors and historians feeding a governed data layer, a semantic model on top of that, and AI and agentic applications on top of the semantic model. AI sits on the semantic layer, never on raw tags.
+
+![Energy data](/blog/assets/images/blog_images/industrial-ai-turning-engineering-data-into-decesions/energy_data.png){: style="display:block; margin:0 auto;" }
 
 
 ## The Demo
