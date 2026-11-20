@@ -261,7 +261,7 @@ On context, a tag by itself means nothing. What are you relating it to, and what
 
 On ownership, I've rarely seen this done well. Lots of companies have governance programs that try to name data owners, and you want those owners deciding things like sensitivity classification (does this need to be locked down to certain groups, or can everyone see it?). It's hard to execute, but it's a big part of any governance strategy.
 
-On use case, make sure there's a specific decision you're trying to improve, and that you can measure it before you start modelling. In a podcast, [Wish Bakshi](https://www.linkedin.com/in/wishbakshi/) described how creativity used to be abundant while execution was scarce. With LLMs, creativity is still abundant, and execution is now abundant too, so be thoughtful about what you build.
+On use case, make sure there's a specific decision you're trying to improve, and that you can measure it before you start modelling. In [a podcast](https://youtu.be/MudEaQZfefE), [Wish Bakshi](https://www.linkedin.com/in/wishbakshi/) described how creativity used to be abundant while execution was scarce. With LLMs, creativity is still abundant, and execution is now abundant too, so be thoughtful about what you build.
 
 ## Wrapping Up
 
