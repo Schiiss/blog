@@ -180,7 +180,7 @@ FROM sensor_readings
 
 ![Data quality](/blog/assets/images/blog_images/industrial-ai-turning-engineering-data-into-decesions/data_quality.png){: style="display:block; margin:0 auto;" }
 
-And again, poor quality is not a reason to sit on your data. Saying you'll use your data once it's clean is like saying you'll start working out once you're in shape. You get your data in shape by moving it and using it. That's how you learn where to spend your clean-up effort and where you can live with it.
+And again, poor quality is not a reason to sit on your data. I borrowed this analogy from someone at Palantir: saying you'll use your data once it's clean is like saying you'll start working out once you're in shape. You get your data in shape by moving it and using it. That's how you learn where to spend your clean-up effort and where you can live with it.
 
 ## The energy industry has the data
 
@@ -213,7 +213,7 @@ The use case I shared came from my time in midstream oil and gas. We were asked 
 
 As I understand it, when an alarm fires, the pipeline operator has to decide whether to keep the pipeline running or shut it down.
 
-- **False positive.** The operator shuts down and there's no leak. The line is down for 4 to 5 hours, at roughly $50-100K USD an hour, before you even count commitments to refineries and other customers.
+- **False positive.** The operator shuts down and there's no leak. The line is down for 3 to 4 hours, at roughly $50-100K USD an hour, before you even count commitments to refineries and other customers.
 - **False negative.** The operator keeps running because "we get this alert all the time." The pipeline is actually leaking, and now you're dealing with environmental, regulatory and public perception issues.
 
 Alarm fatigue is a thing. When operators are buried in noise, the critical alert is the one that gets ignored.
@@ -259,7 +259,7 @@ A couple of notes on these.
 
 On context, a tag by itself means nothing. What are you relating it to, and what are you adding so someone new can actually read it?
 
-On ownership, I've never really seen this done well. Lots of companies have governance programs that try to name data owners, and you want those owners deciding things like sensitivity classification (does this need to be locked down to certain groups, or can everyone see it?). It's hard to execute, but it's a big part of any governance strategy.
+On ownership, I've rarely seen this done well. Lots of companies have governance programs that try to name data owners, and you want those owners deciding things like sensitivity classification (does this need to be locked down to certain groups, or can everyone see it?). It's hard to execute, but it's a big part of any governance strategy.
 
 On use case, make sure there's a specific decision you're trying to improve, and that you can measure it before you start modelling.
 
